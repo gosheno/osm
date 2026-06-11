@@ -1,4 +1,5 @@
 import unittest
+from unittest.mock import patch, AsyncMock
 
 from app.clients.nominatim_client import GeocodingCandidate
 from app.services.address_service import AddressService
@@ -230,6 +231,44 @@ class AddressServiceTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(result["source"], "manual")
         self.assertIsNotNone(result["latitude"])
         self.assertIsNotNone(result["longitude"])
+        self.assertIsNone(result["error"])
+
+    async def test_geocode_with_opencage_provider_stores_opencage_provider(self):
+        """Test that when using OpenCage provider, geocoding_provider is set to 'opencage'."""
+        # Create OpenCage-style candidate with confidence instead of importance
+        from dataclasses import dataclass
+        
+        @dataclass
+        class OpenCageCandidate:
+            latitude: float
+            longitude: float
+            display_name: str
+            confidence: int = None
+        
+        db = FakeDb()
+        service = AddressService(db)
+        service.geocoder = FakeGeocoder(
+            [
+                OpenCageCandidate(
+                    latitude=55.7558,
+                    longitude=37.6173,
+                    display_name="Москва, Россия",
+                    confidence=9,
+                )
+            ]
+        )
+        
+        # Mock settings to return opencage as provider
+        with patch("app.services.address_service.settings") as mock_settings:
+            mock_settings.GEOCODER_PROVIDER = "opencage"
+            
+            result = await service.geocode_address("Москва")
+        
+        self.assertEqual(result["geocoding_provider"], "opencage")
+        self.assertEqual(result["source"], "opencage")
+        self.assertEqual(result["latitude"], 55.7558)
+        self.assertEqual(result["longitude"], 37.6173)
+        self.assertEqual(result["confidence_score"], 9.0)  # OpenCage: confidence as-is
         self.assertIsNone(result["error"])
 
 

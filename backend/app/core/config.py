@@ -19,6 +19,16 @@ class Settings(BaseSettings):
     DEFAULT_CITY: str = "санкт-петербург"
     DEFAULT_COUNTRY_CODES: str = "ru"
 
+    GEOCODER_PROVIDER: str = "nominatim"
+
+    OPENCAGE_BASE_URL: str = "https://api.opencagedata.com/geocode/v1"
+    OPENCAGE_API_KEY: str | None = None
+    OPENCAGE_LANGUAGE: str = "ru"
+    OPENCAGE_COUNTRYCODE: str = "ru"
+    OPENCAGE_LIMIT: int = 3
+    OPENCAGE_NO_ANNOTATIONS: bool = True
+    OPENCAGE_NO_RECORD: bool = True
+
     model_config = SettingsConfigDict(
         env_file=".env",
         extra="ignore",

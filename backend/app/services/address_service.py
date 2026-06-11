@@ -1,7 +1,8 @@
 ﻿from sqlalchemy import text
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.clients.nominatim_client import NominatimClient
+from app.clients.geocoder_factory import get_geocoder
+from app.core.config import settings
 from app.services.manual_geocoding import find_manual_geocoding
 from app.utils.address_normalizer import NormalizedAddress, normalize_address
 
@@ -9,7 +10,7 @@ from app.utils.address_normalizer import NormalizedAddress, normalize_address
 class AddressService:
     def __init__(self, db: AsyncSession) -> None:
         self.db = db
-        self.geocoder = NominatimClient()
+        self.geocoder = get_geocoder()
 
     async def geocode_address(
         self,
@@ -23,6 +24,8 @@ class AddressService:
             default_city=default_city,
             place_name=place_name,
         )
+
+        provider = settings.GEOCODER_PROVIDER.lower().strip()
 
         existing = await self._get_by_normalized_address(normalized.normalized_address)
         manual_candidate = find_manual_geocoding(normalized.normalized_address)
@@ -93,6 +96,7 @@ class AddressService:
             row = await self._upsert_not_found(
                 original_address=normalized.address_for_geocoding,
                 normalized_address=normalized.normalized_address,
+                geocoding_provider=provider,
             )
 
             return {
@@ -104,9 +108,9 @@ class AddressService:
                 "latitude": None,
                 "longitude": None,
                 "geocoding_status": "not_found",
-                "geocoding_provider": "nominatim",
+                "geocoding_provider": row["geocoding_provider"],
                 "confidence_score": None,
-                "source": "nominatim",
+                "source": provider,
                 "display_name": None,
                 "error": "Address was not found",
             }
@@ -115,9 +119,14 @@ class AddressService:
 
         latitude = best.latitude
         longitude = best.longitude
-        importance = best.importance
-        confidence_score = round(float(importance) * 100, 2) if importance is not None else None
         display_name = best.display_name
+
+        # Handle confidence_score based on provider
+        if provider == "opencage":
+            confidence_score = float(best.confidence) if best.confidence is not None else None
+        else:  # nominatim
+            importance = best.importance
+            confidence_score = round(float(importance) * 100, 2) if importance is not None else None
 
         row = await self._upsert_found(
             original_address=normalized.address_for_geocoding,
@@ -125,6 +134,7 @@ class AddressService:
             latitude=latitude,
             longitude=longitude,
             confidence_score=confidence_score,
+            geocoding_provider=provider,
         )
 
         return {
@@ -138,7 +148,7 @@ class AddressService:
             "geocoding_status": row["geocoding_status"],
             "geocoding_provider": row["geocoding_provider"],
             "confidence_score": float(row["confidence_score"]) if row["confidence_score"] is not None else None,
-            "source": "nominatim",
+            "source": provider,
             "display_name": display_name,
             "error": None,
         }
@@ -288,6 +298,7 @@ class AddressService:
         self,
         original_address: str,
         normalized_address: str,
+        geocoding_provider: str = "nominatim",
     ) -> dict:
         result = await self.db.execute(
             text(
@@ -303,14 +314,14 @@ class AddressService:
                     :original_address,
                     :normalized_address,
                     'not_found',
-                    'nominatim',
+                    :geocoding_provider,
                     now()
                 )
                 ON CONFLICT (normalized_address)
                 DO UPDATE SET
                     original_address = EXCLUDED.original_address,
                     geocoding_status = 'not_found',
-                    geocoding_provider = 'nominatim',
+                    geocoding_provider = :geocoding_provider,
                     last_used_at = now()
                 RETURNING
                     id,
@@ -326,6 +337,7 @@ class AddressService:
             {
                 "original_address": original_address,
                 "normalized_address": normalized_address,
+                "geocoding_provider": geocoding_provider,
             },
         )
 
