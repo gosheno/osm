@@ -1,10 +1,13 @@
-﻿from sqlalchemy import text
+﻿import re
+from sqlalchemy import text
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.clients.geocoder_factory import get_geocoder
 from app.clients.opencage_client import OpenCageClient, OpenCageConfigError
 from app.core.config import settings
 from app.utils.address_normalizer import NormalizedAddress, normalize_address
+from app.services.address_normalizer import normalize_address as parse_address
+from app.schemas.parsed_address import ParsedAddress
 
 
 class AddressService:
@@ -43,9 +46,10 @@ class AddressService:
                 normalized=normalized,
             )
 
-        candidates, used_provider = await self._search_with_optional_fallback(
-            normalized.normalized_address,
-            provider,
+        parsed: ParsedAddress = parse_address(normalized.normalized_address)
+
+        candidates, used_provider, used_query, geocoding_score, region_hint = await self._search_with_queries(
+            parsed, provider
         )
 
         if not candidates:
@@ -53,6 +57,11 @@ class AddressService:
                 original_address=normalized.address_for_geocoding,
                 normalized_address=normalized.normalized_address,
                 geocoding_provider=used_provider,
+                geocoding_query_used=used_query,
+                cleaned_address=parsed.cleaned,
+                normalized_key=parsed.normalized_key,
+                region_hint=region_hint,
+                settlement_hint=parsed.settlement_hint,
             )
 
             return {
@@ -67,6 +76,7 @@ class AddressService:
                 "geocoding_provider": row["geocoding_provider"],
                 "confidence_score": None,
                 "source": used_provider,
+                "geocoding_query": used_query,
                 "display_name": None,
                 "error": "Address was not found",
             }
@@ -77,7 +87,10 @@ class AddressService:
         longitude = best.longitude
         display_name = best.display_name
 
-        confidence_score = self._calculate_confidence(best, used_provider)
+        confidence_score = self._calculate_confidence(best, used_provider, used_query or normalized.normalized_address)
+        status = "found"
+        if geocoding_score is not None and geocoding_score < 80:
+            status = "ambiguous"
 
         row = await self._upsert_found(
             original_address=normalized.address_for_geocoding,
@@ -85,7 +98,14 @@ class AddressService:
             latitude=latitude,
             longitude=longitude,
             confidence_score=confidence_score,
+            geocoding_status=status,
             geocoding_provider=used_provider,
+            geocoding_query_used=used_query,
+            geocoding_score=geocoding_score,
+            cleaned_address=parsed.cleaned,
+            normalized_key=parsed.normalized_key,
+            region_hint=region_hint,
+            settlement_hint=parsed.settlement_hint,
         )
 
         return {
@@ -100,9 +120,54 @@ class AddressService:
             "geocoding_provider": row["geocoding_provider"],
             "confidence_score": float(row["confidence_score"]) if row["confidence_score"] is not None else None,
             "source": used_provider,
+            "geocoding_query": used_query,
             "display_name": display_name,
             "error": None,
         }
+
+    async def _search_with_queries(
+        self,
+        parsed: ParsedAddress,
+        provider: str,
+    ) -> tuple[list, str, str | None, float | None, str | None]:
+        """Try parsed.geocoding_queries in priority order and return first non-empty result.
+
+        Returns (candidates, used_provider, used_query, score, region_hint)
+        """
+        best: tuple[list, str, str | None, float | None, str | None] = (
+            [],
+            provider,
+            None,
+            None,
+            parsed.region_hint,
+        )
+
+        queries = sorted(parsed.geocoding_queries, key=lambda q: q.priority, reverse=True)
+
+        for q in queries:
+            try:
+                candidates, used_provider = await self._search_with_optional_fallback(q.query, provider)
+            except Exception:
+                continue
+
+            if not candidates:
+                continue
+
+            scored = self._score_candidates(candidates, q.query, used_provider, q.region_hint or parsed.region_hint)
+            if scored is None:
+                continue
+
+            best_candidate, best_score = scored
+            if best_score is None:
+                continue
+
+            if best[3] is None or best_score > best[3]:
+                best = ([best_candidate], used_provider, q.query, best_score, q.region_hint or parsed.region_hint)
+
+            if best_score >= 80:
+                return best
+
+        return best
 
     async def _search_with_optional_fallback(
         self,
@@ -136,12 +201,25 @@ class AddressService:
         except Exception:
             return []
 
-    def _calculate_confidence(self, best, provider: str) -> float | None:
+    def _calculate_confidence(self, best, provider: str, query: str) -> float | None:
         if provider == "opencage":
-            return float(best.confidence) if best.confidence is not None else None
+            confidence = float(best.confidence) if best.confidence is not None else None
+        else:
+            importance = getattr(best, "importance", None)
+            confidence = round(float(importance) * 100, 2) if importance is not None else None
 
-        importance = getattr(best, "importance", None)
-        return round(float(importance) * 100, 2) if importance is not None else None
+        if confidence is None:
+            return None
+
+        score = float(confidence)
+        display_lower = best.display_name.lower()
+        query_lower = query.lower()
+
+        for token in query_lower.replace(",", " ").split():
+            if token and token in display_lower:
+                score += 2.0
+
+        return min(score, 100.0)
 
     def _response_from_row(
         self,
@@ -223,6 +301,7 @@ class AddressService:
         confidence_score: float | None,
         geocoding_status: str = "found",
         geocoding_provider: str = "nominatim",
+        geocoding_query_used: str | None = None,
     ) -> dict:
         result = await self.db.execute(
             text(
@@ -236,6 +315,7 @@ class AddressService:
                     geocoding_status,
                     geocoding_provider,
                     confidence_score,
+                    geocoding_query_used,
                     last_used_at
                 )
                 VALUES (
@@ -247,6 +327,7 @@ class AddressService:
                     :geocoding_status,
                     :geocoding_provider,
                     :confidence_score,
+                    :geocoding_query_used,
                     now()
                 )
                 ON CONFLICT (normalized_address)
@@ -258,6 +339,7 @@ class AddressService:
                     geocoding_status = EXCLUDED.geocoding_status,
                     geocoding_provider = EXCLUDED.geocoding_provider,
                     confidence_score = EXCLUDED.confidence_score,
+                    geocoding_query_used = EXCLUDED.geocoding_query_used,
                     last_used_at = now()
                 RETURNING
                     id,
@@ -278,6 +360,7 @@ class AddressService:
                 "confidence_score": confidence_score,
                 "geocoding_status": geocoding_status,
                 "geocoding_provider": geocoding_provider,
+                "geocoding_query_used": geocoding_query_used,
             },
         )
 
@@ -289,6 +372,7 @@ class AddressService:
         original_address: str,
         normalized_address: str,
         geocoding_provider: str = "nominatim",
+        geocoding_query_used: str | None = None,
     ) -> dict:
         result = await self.db.execute(
             text(
@@ -298,6 +382,7 @@ class AddressService:
                     normalized_address,
                     geocoding_status,
                     geocoding_provider,
+                    geocoding_query_used,
                     last_used_at
                 )
                 VALUES (
@@ -305,6 +390,7 @@ class AddressService:
                     :normalized_address,
                     'not_found',
                     :geocoding_provider,
+                    :geocoding_query_used,
                     now()
                 )
                 ON CONFLICT (normalized_address)
@@ -312,6 +398,7 @@ class AddressService:
                     original_address = EXCLUDED.original_address,
                     geocoding_status = 'not_found',
                     geocoding_provider = :geocoding_provider,
+                    geocoding_query_used = EXCLUDED.geocoding_query_used,
                     last_used_at = now()
                 RETURNING
                     id,
@@ -328,6 +415,7 @@ class AddressService:
                 "original_address": original_address,
                 "normalized_address": normalized_address,
                 "geocoding_provider": geocoding_provider,
+                "geocoding_query_used": geocoding_query_used,
             },
         )
 
