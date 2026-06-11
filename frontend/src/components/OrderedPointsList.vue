@@ -11,6 +11,8 @@
           <th>Нормализованный адрес</th>
           <th>Координаты</th>
           <th>Статус</th>
+          <th>Провайдер</th>
+          <th>Источник</th>
           <th>Из кэша</th>
         </tr>
       </thead>
@@ -23,6 +25,8 @@
           <td>{{ point.address?.normalized_address || '-' }}</td>
           <td>{{ formatCoordinate(point.latitude) }}, {{ formatCoordinate(point.longitude) }}</td>
           <td>{{ point.address?.geocoding_status || '-' }}</td>
+          <td>{{ point.address?.geocoding_provider || '-' }}</td>
+          <td>{{ point.address?.source || '-' }}</td>
           <td>{{ point.address?.from_cache ? 'Да' : 'Нет' }}</td>
         </tr>
       </tbody>

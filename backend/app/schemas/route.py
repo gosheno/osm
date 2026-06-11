@@ -48,6 +48,8 @@ class FailedAddressResult(BaseModel):
     normalized_address: str | None = None
     place_name: str | None = None
     geocoding_status: str | None = None
+    geocoding_provider: str | None = None
+    source: str | None = None
     error: str
     reason: str | None = None
     code: str | None = None

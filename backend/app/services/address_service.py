@@ -2,8 +2,8 @@
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.clients.geocoder_factory import get_geocoder
+from app.clients.opencage_client import OpenCageClient, OpenCageConfigError
 from app.core.config import settings
-from app.services.manual_geocoding import find_manual_geocoding
 from app.utils.address_normalizer import NormalizedAddress, normalize_address
 
 
@@ -28,59 +28,12 @@ class AddressService:
         provider = settings.GEOCODER_PROVIDER.lower().strip()
 
         existing = await self._get_by_normalized_address(normalized.normalized_address)
-        manual_candidate = find_manual_geocoding(normalized.normalized_address)
-
-        if manual_candidate is not None:
-            if (
-                existing
-                and not force_refresh
-                and existing["geocoding_status"] in ("found", "manual", "ambiguous")
-                and existing["latitude"] is not None
-                and existing["longitude"] is not None
-            ):
-                await self._touch_address(existing["id"])
-
-                return self._response_from_row(
-                    existing,
-                    source="database",
-                    normalized=normalized,
-                )
-
-            row = await self._upsert_found(
-                original_address=normalized.address_for_geocoding,
-                normalized_address=normalized.normalized_address,
-                latitude=manual_candidate.latitude,
-                longitude=manual_candidate.longitude,
-                confidence_score=manual_candidate.confidence_score,
-                geocoding_status="manual",
-                geocoding_provider="manual",
-            )
-
-            return {
-                "id": row["id"],
-                "original_address": normalized.original_address,
-                "address_for_geocoding": normalized.address_for_geocoding,
-                "normalized_address": row["normalized_address"],
-                "place_name": normalized.place_name,
-                "latitude": row["latitude"],
-                "longitude": row["longitude"],
-                "geocoding_status": row["geocoding_status"],
-                "geocoding_provider": row["geocoding_provider"],
-                "confidence_score": (
-                    float(row["confidence_score"])
-                    if row["confidence_score"] is not None
-                    else None
-                ),
-                "source": "manual",
-                "display_name": manual_candidate.display_name,
-                "error": None,
-            }
 
         if (
             existing
             and not force_refresh
             and existing["geocoding_status"]
-            in ("found", "manual", "ambiguous", "not_found")
+            in ("found", "not_found")
         ):
             await self._touch_address(existing["id"])
 
@@ -90,13 +43,16 @@ class AddressService:
                 normalized=normalized,
             )
 
-        candidates = await self.geocoder.search(normalized.normalized_address)
+        candidates, used_provider = await self._search_with_optional_fallback(
+            normalized.normalized_address,
+            provider,
+        )
 
         if not candidates:
             row = await self._upsert_not_found(
                 original_address=normalized.address_for_geocoding,
                 normalized_address=normalized.normalized_address,
-                geocoding_provider=provider,
+                geocoding_provider=used_provider,
             )
 
             return {
@@ -110,7 +66,7 @@ class AddressService:
                 "geocoding_status": "not_found",
                 "geocoding_provider": row["geocoding_provider"],
                 "confidence_score": None,
-                "source": provider,
+                "source": used_provider,
                 "display_name": None,
                 "error": "Address was not found",
             }
@@ -121,12 +77,7 @@ class AddressService:
         longitude = best.longitude
         display_name = best.display_name
 
-        # Handle confidence_score based on provider
-        if provider == "opencage":
-            confidence_score = float(best.confidence) if best.confidence is not None else None
-        else:  # nominatim
-            importance = best.importance
-            confidence_score = round(float(importance) * 100, 2) if importance is not None else None
+        confidence_score = self._calculate_confidence(best, used_provider)
 
         row = await self._upsert_found(
             original_address=normalized.address_for_geocoding,
@@ -134,7 +85,7 @@ class AddressService:
             latitude=latitude,
             longitude=longitude,
             confidence_score=confidence_score,
-            geocoding_provider=provider,
+            geocoding_provider=used_provider,
         )
 
         return {
@@ -148,10 +99,49 @@ class AddressService:
             "geocoding_status": row["geocoding_status"],
             "geocoding_provider": row["geocoding_provider"],
             "confidence_score": float(row["confidence_score"]) if row["confidence_score"] is not None else None,
-            "source": provider,
+            "source": used_provider,
             "display_name": display_name,
             "error": None,
         }
+
+    async def _search_with_optional_fallback(
+        self,
+        query: str,
+        provider: str,
+    ) -> tuple[list, str]:
+        try:
+            candidates = await self.geocoder.search(query)
+        except Exception:
+            if provider == "nominatim":
+                fallback_candidates = await self._search_opencage_fallback(query)
+                if fallback_candidates:
+                    return fallback_candidates, "opencage"
+            raise
+
+        if candidates:
+            return candidates, provider
+
+        if provider == "nominatim":
+            fallback_candidates = await self._search_opencage_fallback(query)
+            if fallback_candidates:
+                return fallback_candidates, "opencage"
+
+        return [], provider
+
+    async def _search_opencage_fallback(self, query: str) -> list:
+        try:
+            return await OpenCageClient().search(query)
+        except OpenCageConfigError:
+            return []
+        except Exception:
+            return []
+
+    def _calculate_confidence(self, best, provider: str) -> float | None:
+        if provider == "opencage":
+            return float(best.confidence) if best.confidence is not None else None
+
+        importance = getattr(best, "importance", None)
+        return round(float(importance) * 100, 2) if importance is not None else None
 
     def _response_from_row(
         self,

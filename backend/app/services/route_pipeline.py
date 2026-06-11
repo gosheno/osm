@@ -4,6 +4,7 @@ from typing import Callable
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.clients.osrm_client import OsrmClient
+from app.core.config import settings
 from app.schemas.batching import BatchPointInput, BatchRouteRequest, RouteLegInput
 from app.schemas.optimization import CoordinateInput, OptimizeRouteRequest
 from app.schemas.route import (
@@ -107,6 +108,8 @@ async def geocode_route_addresses(
                     original_index=prepared.original_index,
                     input_address=prepared.address,
                     geocoding_status="error",
+                    geocoding_provider=settings.GEOCODER_PROVIDER.lower().strip(),
+                    source=settings.GEOCODER_PROVIDER.lower().strip(),
                     error=str(exc),
                 )
             )
@@ -161,6 +164,8 @@ def validate_geocoding_results(
                 normalized_address=result.normalized_address,
                 place_name=result.place_name,
                 geocoding_status=result.geocoding_status,
+                geocoding_provider=result.geocoding_provider,
+                source=result.source,
                 error=result.error or "Address coordinates were not found",
                 reason="Адрес не найден геокодером.",
                 code="ADDRESS_NOT_FOUND",

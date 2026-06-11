@@ -208,6 +208,41 @@ class RoutePipelineTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(context.exception.failed_addresses[0]["input_address"], missing)
         self.assertEqual(osrm_client.calls, [])
 
+    async def test_error_geocoding_address_includes_provider_and_source(self):
+        start = "Start"
+        end = "End"
+
+        class ErrorAddressService(FakeAddressService):
+            async def geocode_address(self, address, **kwargs):
+                if address == start:
+                    return geocoded(start, latitude=59.8, longitude=30.1)
+                if address == end:
+                    return geocoded(end, latitude=59.9, longitude=30.2)
+                raise Exception("Geocoder failure")
+
+        service = ErrorAddressService({})
+        osrm_client = FakeOsrmClient()
+
+        with self.assertRaises(AppError) as context:
+            await optimize_route_by_addresses(
+                OptimizeRouteByAddressesRequest(
+                    start_address=start,
+                    end_address=end,
+                    addresses=["Broken"],
+                ),
+                db=None,
+                address_service_factory=lambda db: service,
+                osrm_client=osrm_client,
+            )
+
+        self.assertEqual(context.exception.code, "WAYPOINT_ADDRESS_NOT_FOUND")
+        self.assertEqual(len(context.exception.failed_addresses), 1)
+        failed = context.exception.failed_addresses[0]
+        self.assertEqual(failed["input_address"], "Broken")
+        self.assertEqual(failed["geocoding_provider"], "nominatim")
+        self.assertEqual(failed["source"], "nominatim")
+        self.assertEqual(osrm_client.calls, [])
+
 
 if __name__ == "__main__":
     unittest.main()

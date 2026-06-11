@@ -21,6 +21,8 @@
           <div>Код: {{ failed.code || "ADDRESS_NOT_FOUND" }}</div>
           <div>Причина: {{ failed.reason || failed.error || "-" }}</div>
           <div>Статус: {{ failed.geocoding_status || "-" }}</div>
+          <div>Провайдер: {{ failed.geocoding_provider || "-" }}</div>
+          <div>Источник: {{ failed.source || "-" }}</div>
           <div v-if="failed.normalized_address">Нормализованный адрес: {{ failed.normalized_address }}</div>
         </li>
       </ul>
