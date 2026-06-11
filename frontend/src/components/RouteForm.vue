@@ -3,6 +3,26 @@
     <fieldset :disabled="loading">
       <legend>Создать маршрут</legend>
 
+      <div class="test-sets" aria-label="Тестовые наборы адресов">
+        <div class="test-sets__header">
+          <span>Тестовые наборы</span>
+          <button type="button" class="test-sets__random" @click="applyRandomTestSet">
+            Случайный набор
+          </button>
+        </div>
+        <div class="test-sets__buttons">
+          <button
+            v-for="set in TEST_ADDRESS_SETS"
+            :key="set.id"
+            type="button"
+            @click="applyTestSet(set)"
+          >
+            {{ set.label }} · {{ set.addresses.length }}
+          </button>
+        </div>
+        <p v-if="testSetMessage" class="test-sets__message">{{ testSetMessage }}</p>
+      </div>
+
       <label>
         Начальный адрес
         <input v-model.trim="form.start_address" type="text" placeholder="Санкт-Петербург, Дворцовая площадь" />
@@ -33,10 +53,17 @@
         </label>
       </div>
 
-      <label>
-        City slug
-        <input v-model.trim="form.city_slug" type="text" placeholder="saint-petersburg" />
-      </label>
+      <div class="row">
+        <label>
+          Город по умолчанию
+          <input v-model.trim="form.default_city" type="text" placeholder="Санкт-Петербург" />
+        </label>
+
+        <label>
+          City slug
+          <input v-model.trim="form.city_slug" type="text" placeholder="saint-petersburg" />
+        </label>
+      </div>
 
       <div class="errors" v-if="errors.length">
         <p class="errors__title">Пожалуйста, исправьте ошибки:</p>
@@ -52,6 +79,11 @@
 
 <script setup>
 import { reactive, ref } from 'vue';
+import {
+  TEST_ADDRESS_SETS,
+  pickRandomAddressSet,
+  shuffleAddresses,
+} from '../data/testAddressSets';
 
 const emit = defineEmits(['submit']);
 const props = defineProps({
@@ -68,9 +100,11 @@ const form = reactive({
   batch_size: 15,
   optimization_metric: 'duration',
   city_slug: 'saint-petersburg',
+  default_city: 'Санкт-Петербург',
 });
 
 const errors = ref([]);
+const testSetMessage = ref('');
 
 function parseAddresses(text) {
   return text
@@ -100,6 +134,20 @@ function validate() {
   return list;
 }
 
+function applyTestSet(set) {
+  form.addresses_text = shuffleAddresses(set.addresses).join('\n');
+  form.city_slug = set.citySlug || 'saint-petersburg';
+  form.default_city = set.defaultCity || 'Санкт-Петербург';
+  form.start_address = set.startAddress || form.start_address || 'Санкт-Петербург, Дворцовая площадь';
+  form.end_address = set.endAddress || form.end_address || 'Санкт-Петербург, Московский вокзал';
+  errors.value = [];
+  testSetMessage.value = `${set.label} вставлен: ${set.addresses.length} адресов, порядок перемешан.`;
+}
+
+function applyRandomTestSet() {
+  applyTestSet(pickRandomAddressSet());
+}
+
 function handleSubmit() {
   errors.value = validate();
   if (errors.value.length) {
@@ -113,6 +161,7 @@ function handleSubmit() {
     batch_size: Number(form.batch_size),
     optimization_metric: form.optimization_metric,
     city_slug: form.city_slug,
+    default_city: form.default_city || null,
   });
 }
 </script>
@@ -165,6 +214,56 @@ textarea {
   gap: 16px;
 }
 
+.test-sets {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+  padding: 12px;
+  border: 1px solid #dbe5f7;
+  border-radius: 8px;
+  background: #f8fbff;
+}
+
+.test-sets__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: #22303f;
+  font-weight: 700;
+}
+
+.test-sets__buttons {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.test-sets button {
+  border: 1px solid #bfd0ef;
+  border-radius: 8px;
+  padding: 9px 10px;
+  background: #ffffff;
+  color: #1a3d7c;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.test-sets button:hover {
+  border-color: #2f6dde;
+}
+
+.test-sets__random {
+  flex: 0 0 auto;
+}
+
+.test-sets__message {
+  margin: 0;
+  color: #475569;
+  font-size: 0.9rem;
+}
+
 .errors {
   background: #fff1f0;
   border: 1px solid #ffccd5;
@@ -196,6 +295,15 @@ textarea {
 
 @media (max-width: 720px) {
   .row {
+    grid-template-columns: 1fr;
+  }
+
+  .test-sets__header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .test-sets__buttons {
     grid-template-columns: 1fr;
   }
 }

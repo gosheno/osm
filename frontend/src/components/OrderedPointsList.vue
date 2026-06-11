@@ -7,6 +7,7 @@
           <th>#</th>
           <th>Тип</th>
           <th>Адрес</th>
+          <th>Район</th>
           <th>Нормализованный адрес</th>
           <th>Координаты</th>
           <th>Статус</th>
@@ -15,11 +16,12 @@
       </thead>
       <tbody>
         <tr v-for="point in orderedPoints" :key="point.order">
-          <td>{{ point.order + 1 }}</td>
+          <td>{{ pointNumber(point) }}</td>
           <td>{{ point.type }}</td>
-          <td>{{ point.address?.original_address || point.label || '-' }}</td>
+          <td>{{ formatAddressLabel(point) }}</td>
+          <td>{{ point.district || '-' }}</td>
           <td>{{ point.address?.normalized_address || '-' }}</td>
-          <td>{{ point.latitude.toFixed(6) }}, {{ point.longitude.toFixed(6) }}</td>
+          <td>{{ formatCoordinate(point.latitude) }}, {{ formatCoordinate(point.longitude) }}</td>
           <td>{{ point.address?.geocoding_status || '-' }}</td>
           <td>{{ point.address?.from_cache ? 'Да' : 'Нет' }}</td>
         </tr>
@@ -29,12 +31,19 @@
 </template>
 
 <script setup>
+import { formatAddressLabel, formatCoordinate } from '../utils/formatters';
+
 const props = defineProps({
   orderedPoints: {
     type: Array,
     required: true,
   },
 });
+
+function pointNumber(point) {
+  const order = Number(point.order);
+  return Number.isFinite(order) ? order + 1 : '-';
+}
 </script>
 
 <style scoped>

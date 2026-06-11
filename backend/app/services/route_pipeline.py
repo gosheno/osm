@@ -22,9 +22,12 @@ from app.schemas.yandex_links import (
     YandexLinkBatchInput,
     YandexLinkPointInput,
 )
+from app.core.exceptions import AppError
+from app.repositories.route_repository import save_route_batches
 from app.services.address_service import AddressService
 from app.services.route_batching import batch_optimized_route
 from app.services.route_optimizer import build_optimized_route
+from app.services.spb_districts import infer_spb_district
 from app.services.yandex_link_builder import add_yandex_links_to_batches
 
 
@@ -150,7 +153,7 @@ def validate_geocoding_results(
 
         failed_addresses.append(
             FailedAddressResult(
-                role=result.role,
+                type=result.role,
                 input_index=result.input_index,
                 original_index=result.original_index,
                 input_address=result.input_address,
@@ -159,6 +162,8 @@ def validate_geocoding_results(
                 place_name=result.place_name,
                 geocoding_status=result.geocoding_status,
                 error=result.error or "Address coordinates were not found",
+                reason="Адрес не найден геокодером.",
+                code="ADDRESS_NOT_FOUND",
             )
         )
 
@@ -200,11 +205,16 @@ async def run_route_optimization(
 def run_route_batching(
     payload: OptimizeRouteByAddressesRequest,
     optimization_result,
+    geocoded_addresses: list[RouteAddressResult],
 ):
+    address_by_original_index = {
+        address.original_index: address for address in geocoded_addresses
+    }
+
     return batch_optimized_route(
         BatchRouteRequest(
             ordered_points=[
-                BatchPointInput(**point.model_dump())
+                _batch_point_input(point, address_by_original_index)
                 for point in optimization_result.ordered_points
             ],
             legs=[
@@ -265,8 +275,18 @@ async def optimize_route_by_addresses(
         geocoded_addresses,
         osrm_client=osrm_client,
     )
-    batching_result = run_route_batching(payload, optimization_result)
+    batching_result = run_route_batching(
+        payload,
+        optimization_result,
+        geocoded_addresses,
+    )
     yandex_result = run_yandex_link_generation(payload, batching_result)
+    route_job_id = await persist_route_result(
+        db,
+        optimization_result,
+        batching_result,
+        yandex_result,
+    )
 
     return build_final_route_response(
         payload,
@@ -274,6 +294,7 @@ async def optimize_route_by_addresses(
         optimization_result,
         batching_result,
         yandex_result,
+        route_job_id,
     )
 
 
@@ -282,18 +303,42 @@ def build_failed_response(
     geocoded_addresses: list[RouteAddressResult],
     failed_addresses: list[FailedAddressResult],
 ) -> OptimizeRouteByAddressesResponse:
-    return OptimizeRouteByAddressesResponse(
-        status="failed",
-        total_input_addresses=len(payload.addresses),
-        total_addresses=len(payload.addresses),
-        total_points=0,
-        optimization_metric=payload.optimization_metric,
-        batch_size=payload.batch_size,
-        city_slug=payload.city_slug,
-        geocoded_addresses=geocoded_addresses,
-        failed_addresses=failed_addresses,
-        warnings=["Route was not built because some addresses were not geocoded"],
+    raise AppError(
+        code=_failed_address_code(failed_addresses),
+        message=_failed_address_message(failed_addresses),
+        details="Некоторые адреса не удалось геокодировать.",
+        status_code=400,
+        failed_addresses=[address.model_dump() for address in failed_addresses],
+        warnings=["Маршрут не построен, потому что часть адресов не удалось геокодировать."],
     )
+
+
+def _failed_address_code(failed_addresses: list[FailedAddressResult]) -> str:
+    has_start = any(address.type == "start" for address in failed_addresses)
+    has_end = any(address.type == "end" for address in failed_addresses)
+    has_waypoints = any(address.type == "waypoint" for address in failed_addresses)
+
+    if has_start and not (has_end or has_waypoints):
+        return "START_ADDRESS_NOT_FOUND"
+    if has_end and not (has_start or has_waypoints):
+        return "END_ADDRESS_NOT_FOUND"
+    if has_waypoints and not (has_start or has_end):
+        return "WAYPOINT_ADDRESS_NOT_FOUND"
+    return "ADDRESS_NOT_FOUND"
+
+
+def _failed_address_message(failed_addresses: list[FailedAddressResult]) -> str:
+    has_start = any(address.type == "start" for address in failed_addresses)
+    has_end = any(address.type == "end" for address in failed_addresses)
+    has_waypoints = any(address.type == "waypoint" for address in failed_addresses)
+
+    if has_start and not (has_end or has_waypoints):
+        return "Начальный адрес не найден."
+    if has_end and not (has_start or has_waypoints):
+        return "Конечный адрес не найден."
+    if has_waypoints and not (has_start or has_end):
+        return "Один или несколько промежуточных адресов не найдены."
+    return "Некоторые адреса не удалось обработать."
 
 
 def build_final_route_response(
@@ -302,6 +347,7 @@ def build_final_route_response(
     optimization_result,
     batching_result,
     yandex_result,
+    route_job_id: int | None = None,
 ) -> OptimizeRouteByAddressesResponse:
     address_by_original_index = {
         address.original_index: address for address in geocoded_addresses
@@ -313,6 +359,7 @@ def build_final_route_response(
 
     return OptimizeRouteByAddressesResponse(
         status=yandex_result.status,
+        route_job_id=route_job_id,
         total_input_addresses=len(payload.addresses),
         total_addresses=len(payload.addresses),
         total_points=optimization_result.points_count,
@@ -327,6 +374,10 @@ def build_final_route_response(
             OptimizedRoutePointResult(
                 **point.model_dump(),
                 address=address_by_original_index.get(point.original_index),
+                district=_point_district(
+                    point,
+                    address_by_original_index.get(point.original_index),
+                ),
             )
             for point in optimization_result.ordered_points
         ],
@@ -339,6 +390,28 @@ def build_final_route_response(
             for batch in batching_result.batches
         ],
         warnings=warnings,
+    )
+
+
+async def persist_route_result(
+    db: AsyncSession | None,
+    optimization_result,
+    batching_result,
+    yandex_result,
+) -> int | None:
+    if db is None:
+        return None
+
+    yandex_batches_by_number = {
+        batch.batch_number: batch for batch in yandex_result.batches
+    }
+
+    return await save_route_batches(
+        db,
+        total_distance_m=optimization_result.total_distance_m,
+        total_duration_s=optimization_result.total_duration_s,
+        batches=batching_result.batches,
+        yandex_batches_by_number=yandex_batches_by_number,
     )
 
 
@@ -357,6 +430,8 @@ def merge_batch_with_yandex(batch, yandex_batch) -> RouteBatchResult:
     return RouteBatchResult(
         batch_number=batch.batch_number,
         points_count=batch.points_count,
+        district=batch.district,
+        districts=batch.districts,
         distance_m=batch.distance_m,
         duration_s=batch.duration_s,
         url_length=yandex_batch.url_length if yandex_batch is not None else None,
@@ -369,6 +444,46 @@ def merge_batch_with_yandex(batch, yandex_batch) -> RouteBatchResult:
             RouteBatchPointResult(**point.model_dump())
             for point in batch.points
         ],
+    )
+
+
+def _batch_point_input(
+    point,
+    address_by_original_index: dict[int, RouteAddressResult],
+) -> BatchPointInput:
+    address = address_by_original_index.get(point.original_index)
+
+    return BatchPointInput(
+        **point.model_dump(),
+        district=_point_district(point, address),
+    )
+
+
+def _point_district(point, address: RouteAddressResult | None) -> str | None:
+    return infer_spb_district(
+        latitude=point.latitude,
+        longitude=point.longitude,
+        address_text=_district_address_text(address, point.label),
+    )
+
+
+def _district_address_text(
+    address: RouteAddressResult | None,
+    fallback_label: str | None,
+) -> str:
+    if address is None:
+        return fallback_label or ""
+
+    return " ".join(
+        value
+        for value in (
+            address.input_address,
+            address.original_address,
+            address.normalized_address,
+            address.address_for_geocoding,
+            fallback_label,
+        )
+        if value
     )
 
 

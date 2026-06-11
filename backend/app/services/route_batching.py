@@ -83,11 +83,47 @@ def split_waypoints(
     batch_size: int,
 ) -> list[list[BatchPointInput]]:
     waypoints = ordered_points[1:-1]
+    if any(point.district for point in waypoints):
+        return split_waypoints_by_district(waypoints, batch_size)
 
     return [
         waypoints[index : index + batch_size]
         for index in range(0, len(waypoints), batch_size)
     ]
+
+
+def split_waypoints_by_district(
+    waypoints: list[BatchPointInput],
+    batch_size: int,
+) -> list[list[BatchPointInput]]:
+    groups: list[list[BatchPointInput]] = []
+    current_group: list[BatchPointInput] = []
+    current_district: str | None = None
+
+    for point in waypoints:
+        point_district = point.district
+        district_changed = (
+            current_group
+            and current_district is not None
+            and point_district is not None
+            and point_district != current_district
+        )
+        size_limit_reached = len(current_group) >= batch_size
+
+        if district_changed or size_limit_reached:
+            groups.append(current_group)
+            current_group = []
+            current_district = None
+
+        current_group.append(point)
+
+        if current_district is None and point_district is not None:
+            current_district = point_district
+
+    if current_group:
+        groups.append(current_group)
+
+    return groups
 
 
 def validate_legs(
@@ -177,6 +213,8 @@ def build_route_batches(
             RouteBatch(
                 batch_number=group_index + 1,
                 points_count=len(batch_points),
+                district=_batch_primary_district(batch_points, transition_order),
+                districts=_batch_districts(batch_points, transition_order),
                 distance_m=distance_m,
                 duration_s=duration_s,
                 points=_batch_points(batch_points, transition_order),
@@ -219,6 +257,7 @@ def _batch_points(
             latitude=point.latitude,
             longitude=point.longitude,
             original_index=point.original_index,
+            district=point.district,
             is_transition_point=(
                 index == 0
                 and transition_order is not None
@@ -227,3 +266,30 @@ def _batch_points(
         )
         for index, point in enumerate(points)
     ]
+
+
+def _batch_districts(
+    points: list[BatchPointInput],
+    transition_order: int | None = None,
+) -> list[str]:
+    districts: list[str] = []
+
+    for point in points:
+        if transition_order is not None and point.order == transition_order:
+            continue
+        if point.type != "waypoint" or point.district is None:
+            continue
+        if point.district not in districts:
+            districts.append(point.district)
+
+    return districts
+
+
+def _batch_primary_district(
+    points: list[BatchPointInput],
+    transition_order: int | None = None,
+) -> str | None:
+    districts = _batch_districts(points, transition_order)
+    if len(districts) == 1:
+        return districts[0]
+    return None

@@ -9,7 +9,11 @@ from app.services.route_batching import (
 )
 
 
-def make_points(waypoints_count: int) -> list[BatchPointInput]:
+def make_points(
+    waypoints_count: int,
+    *,
+    districts: list[str | None] | None = None,
+) -> list[BatchPointInput]:
     points = [
         BatchPointInput(
             order=0,
@@ -30,6 +34,11 @@ def make_points(waypoints_count: int) -> list[BatchPointInput]:
                 latitude=59.9 + index * 0.001,
                 longitude=30.3 + index * 0.001,
                 original_index=index,
+                district=(
+                    districts[index - 1]
+                    if districts is not None and index <= len(districts)
+                    else None
+                ),
             )
         )
 
@@ -178,6 +187,52 @@ class RouteBatchingTests(unittest.TestCase):
         self.assertEqual(global_orders(result.batches[0]), [0, 1, 2])
         self.assertEqual(global_orders(result.batches[1]), [3, 4])
         self.assertFalse(result.batches[1].points[0].is_transition_point)
+
+    def test_district_change_starts_new_batch_even_below_size_limit(self):
+        points = make_points(
+            4,
+            districts=[
+                "Центральный",
+                "Центральный",
+                "Петроградский",
+                "Петроградский",
+            ],
+        )
+
+        result = batch_optimized_route(
+            BatchRouteRequest(
+                ordered_points=points,
+                legs=make_legs(points),
+                batch_size=10,
+            )
+        )
+
+        self.assertEqual(result.batches_count, 2)
+        self.assertEqual(global_orders(result.batches[0]), [0, 1, 2])
+        self.assertEqual(global_orders(result.batches[1]), [2, 3, 4, 5])
+        self.assertEqual(result.batches[0].district, "Центральный")
+        self.assertEqual(result.batches[0].districts, ["Центральный"])
+        self.assertEqual(result.batches[1].district, "Петроградский")
+        self.assertEqual(result.batches[1].districts, ["Петроградский"])
+        self.assertTrue(result.batches[1].points[0].is_transition_point)
+        self.assertEqual(result.batches[1].points[0].district, "Центральный")
+
+    def test_same_district_still_respects_batch_size(self):
+        result = batch_optimized_route(
+            BatchRouteRequest(
+                ordered_points=make_points(
+                    3,
+                    districts=["Центральный", "Центральный", "Центральный"],
+                ),
+                batch_size=2,
+            )
+        )
+
+        self.assertEqual(result.batches_count, 2)
+        self.assertEqual(global_orders(result.batches[0]), [0, 1, 2])
+        self.assertEqual(global_orders(result.batches[1]), [2, 3, 4])
+        self.assertEqual(result.batches[0].district, "Центральный")
+        self.assertEqual(result.batches[1].district, "Центральный")
 
     def test_unsorted_points_are_sorted_by_order(self):
         points = make_points(2)

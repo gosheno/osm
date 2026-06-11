@@ -2,11 +2,12 @@
   <section class="batches-block">
     <h2>Пакеты маршрута</h2>
     <div v-if="!batches.length" class="empty">Пакеты отсутствуют.</div>
-    <div v-for="batch in batches" :key="batch.batch_number" class="batch-card">
+    <div v-for="(batch, batchIndex) in batches" :key="batch.batch_number || batchIndex" class="batch-card">
       <div class="batch-header">
         <div>
           <strong>Пакет {{ batch.batch_number }}</strong>
           <div>Точек: {{ batch.points_count }}</div>
+          <div v-if="districtText(batch)">Район: {{ districtText(batch) }}</div>
         </div>
         <div>
           <div>Дистанция: {{ formatDistance(batch.distance_m) }}</div>
@@ -17,7 +18,7 @@
       <div v-if="batch.warnings?.length" class="batch-warnings">
         <strong>Предупреждения:</strong>
         <ul>
-          <li v-for="(warning, index) in batch.warnings" :key="index">{{ warning }}</li>
+          <li v-for="(warning, index) in batch.warnings" :key="index">{{ warningText(warning) }}</li>
         </ul>
       </div>
 
@@ -41,8 +42,9 @@
       <div class="batch-points">
         <h3>Точки пакета</h3>
         <ol>
-          <li v-for="point in batch.points" :key="point.global_order">
-            {{ point.batch_order + 1 }}. {{ point.type }} — {{ point.label || '-' }} ({{ point.latitude.toFixed(6) }}, {{ point.longitude.toFixed(6) }})
+          <li v-for="(point, pointIndex) in batch.points" :key="point.global_order ?? pointIndex">
+            {{ batchPointNumber(point) }}. {{ point.type }} — {{ formatAddressLabel(point) }} ({{ formatCoordinate(point.latitude) }}, {{ formatCoordinate(point.longitude) }})
+            <span v-if="point.district" class="point-district">· {{ point.district }}</span>
           </li>
         </ol>
       </div>
@@ -52,7 +54,12 @@
 
 <script setup>
 import { ref } from 'vue';
-import { formatDistance, formatDuration } from '../utils/formatters';
+import {
+  formatAddressLabel,
+  formatCoordinate,
+  formatDistance,
+  formatDuration,
+} from '../utils/formatters';
 const props = defineProps({
   batches: {
     type: Array,
@@ -64,6 +71,33 @@ const copiedBatch = ref(null);
 
 function openYandex(url) {
   window.open(url, '_blank');
+}
+
+function batchPointNumber(point) {
+  const order = Number(point.batch_order);
+  return Number.isFinite(order) ? order + 1 : '-';
+}
+
+function districtText(batch) {
+  if (batch.districts?.length) {
+    return batch.districts.join(', ');
+  }
+  return batch.district || '';
+}
+
+function warningText(warning) {
+  if (typeof warning === 'string') {
+    return warning;
+  }
+  if (warning?.message) {
+    return warning.message;
+  }
+  if (warning?.details) {
+    return typeof warning.details === 'string'
+      ? warning.details
+      : JSON.stringify(warning.details);
+  }
+  return warning?.code || 'Предупреждение без описания.';
 }
 
 async function copyLink(url, batchNumber) {
@@ -132,5 +166,9 @@ async function copyLink(url, batchNumber) {
 .batch-points ol {
   margin: 0;
   padding-left: 20px;
+}
+
+.point-district {
+  color: #475569;
 }
 </style>

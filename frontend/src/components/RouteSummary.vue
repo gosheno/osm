@@ -6,6 +6,10 @@
         <dt>Статус</dt>
         <dd>{{ result.status }}</dd>
       </div>
+      <div v-if="result.route_job_id">
+        <dt>ID маршрута</dt>
+        <dd>{{ result.route_job_id }}</dd>
+      </div>
       <div>
         <dt>Адресов</dt>
         <dd>{{ result.total_input_addresses }}</dd>

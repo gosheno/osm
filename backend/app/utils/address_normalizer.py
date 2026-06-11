@@ -19,6 +19,8 @@ REPLACEMENTS = [
     (r"\bс\.?\s*петербург\b", "санкт-петербург"),
     (r"\bсанкт петербург\b", "санкт-петербург"),
     (r"\bпитер\b", "санкт-петербург"),
+    (r"\bлен(?:инградская)?\.?\s*обл\.?(?=\s|,|$)", "ленинградская область"),
+    (r"\bленобласть\b", "ленинградская область"),
 
     (r"\bул\.?(?=\s|,|$)\s*", "улица "),
     (r"\bулиц[аы]\b", "улица"),
@@ -52,6 +54,10 @@ ADDRESS_MARKER_PATTERNS = [
     r"\bсанкт(?:[-\s]+петербург)?\b",
     r"\bпетербург\b",
     r"\bленинградская\s+область\b",
+    r"\bлен(?:инградская)?\.?\s*обл\.?(?=\s|,|$)",
+    r"\bленобласть\b",
+    r"\bкириши\b",
+    r"\bнурма\b",
     r"\bул\.?\b",
     r"\bулиц[аы]\b",
     r"\bпр-т\.?\b",
@@ -84,6 +90,14 @@ ADDRESS_MARKER_PATTERNS = [
 ]
 
 
+CITY_CONTEXT_MARKERS = [
+    "санкт-петербург",
+    "ленинградская область",
+    "кириши",
+    "нурма",
+]
+
+
 def normalize_spaces(value: str) -> str:
     value = re.sub(r"\s+", " ", value)
     value = re.sub(r"\s*,\s*", ", ", value)
@@ -102,6 +116,15 @@ def clean_place_name(value: str | None) -> str | None:
 def has_address_marker(value: str) -> bool:
     value = normalize_spaces(value.lower().replace("ё", "е"))
     return any(re.search(pattern, value) for pattern in ADDRESS_MARKER_PATTERNS)
+
+
+def normalize_default_city(value: str) -> str:
+    value = normalize_spaces(value.lower().replace("ё", "е"))
+
+    for pattern, replacement in REPLACEMENTS:
+        value = re.sub(pattern, replacement, value)
+
+    return normalize_spaces(value)
 
 
 def looks_like_address(value: str) -> bool:
@@ -184,9 +207,9 @@ def normalize_address(
 
     value = normalize_spaces(value)
 
-    has_city = any(city in value for city in ["санкт-петербург", "ленинградская область"])
+    has_city = any(city in value for city in CITY_CONTEXT_MARKERS)
     if default_city and not has_city:
-        value = f"{default_city}, {value}"
+        value = f"{normalize_default_city(default_city)}, {value}"
 
     value = normalize_spaces(value)
 

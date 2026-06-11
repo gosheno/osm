@@ -41,10 +41,11 @@ class FakeDb:
                 "normalized_address": params["normalized_address"],
                 "latitude": params.get("latitude"),
                 "longitude": params.get("longitude"),
-                "geocoding_status": (
-                    "found" if params.get("latitude") is not None else "not_found"
+                "geocoding_status": params.get(
+                    "geocoding_status",
+                    "found" if params.get("latitude") is not None else "not_found",
                 ),
-                "geocoding_provider": "nominatim",
+                "geocoding_provider": params.get("geocoding_provider", "nominatim"),
                 "confidence_score": params.get("confidence_score"),
             }
         )
@@ -186,6 +187,50 @@ class AddressServiceTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(result["source"], "database")
         self.assertEqual(result["error"], "Address was not found")
         self.assertEqual(db.commits, 1)
+
+    async def test_manual_geocoding_overrides_cached_not_found_demo_address(self):
+        db = FakeDb(
+            existing={
+                "id": 3,
+                "original_address": "Санкт-Петербург, 6-я линия В.О. 15",
+                "normalized_address": "санкт-петербург, 6-я линия васильевского острова 15",
+                "latitude": None,
+                "longitude": None,
+                "geocoding_status": "not_found",
+                "geocoding_provider": "nominatim",
+                "confidence_score": None,
+            }
+        )
+        service = AddressService(db)
+        service.geocoder = FakeGeocoder([])
+
+        result = await service.geocode_address("Санкт-Петербург, 6-я линия В.О. 15")
+
+        self.assertEqual(service.geocoder.queries, [])
+        self.assertEqual(result["geocoding_status"], "manual")
+        self.assertEqual(result["geocoding_provider"], "manual")
+        self.assertEqual(result["source"], "manual")
+        self.assertEqual(result["latitude"], 59.9434)
+        self.assertEqual(result["longitude"], 30.2787)
+        self.assertIsNone(result["error"])
+
+    async def test_manual_geocoding_supports_kirishi_test_set_address(self):
+        db = FakeDb()
+        service = AddressService(db)
+        service.geocoder = FakeGeocoder([])
+
+        result = await service.geocode_address(
+            "Нефтехимиков 18А",
+            default_city="Кириши, Ленинградская область",
+        )
+
+        self.assertEqual(service.geocoder.queries, [])
+        self.assertEqual(result["geocoding_status"], "manual")
+        self.assertEqual(result["geocoding_provider"], "manual")
+        self.assertEqual(result["source"], "manual")
+        self.assertIsNotNone(result["latitude"])
+        self.assertIsNotNone(result["longitude"])
+        self.assertIsNone(result["error"])
 
 
 if __name__ == "__main__":

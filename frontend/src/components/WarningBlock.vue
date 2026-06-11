@@ -2,7 +2,9 @@
   <section class="warning-block">
     <h2>Предупреждения</h2>
     <ul>
-      <li v-for="(warning, index) in warnings" :key="index">{{ warning }}</li>
+      <li v-for="(warning, index) in warnings" :key="index">
+        {{ warningText(warning) }}
+      </li>
     </ul>
   </section>
 </template>
@@ -14,6 +16,21 @@ const props = defineProps({
     required: true,
   },
 });
+
+function warningText(warning) {
+  if (typeof warning === 'string') {
+    return warning;
+  }
+  if (warning?.message) {
+    return warning.message;
+  }
+  if (warning?.details) {
+    return typeof warning.details === 'string'
+      ? warning.details
+      : JSON.stringify(warning.details);
+  }
+  return warning?.code || 'Предупреждение без описания.';
+}
 </script>
 
 <style scoped>

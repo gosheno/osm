@@ -13,6 +13,7 @@ class BatchPointInput(BaseModel):
     latitude: float = Field(..., ge=-90, le=90)
     longitude: float = Field(..., ge=-180, le=180)
     original_index: int = Field(..., ge=0)
+    district: str | None = None
 
 
 class RouteLegInput(BaseModel):
@@ -38,11 +39,14 @@ class BatchRoutePoint(BaseModel):
     longitude: float
     original_index: int
     is_transition_point: bool
+    district: str | None = None
 
 
 class RouteBatch(BaseModel):
     batch_number: int
     points_count: int
+    district: str | None = None
+    districts: list[str] = Field(default_factory=list)
     distance_m: float | None = None
     duration_s: float | None = None
     points: list[BatchRoutePoint]

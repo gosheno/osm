@@ -27,6 +27,10 @@ export async function optimizeRoute(payload) {
     const data = await response.json().catch(() => null);
 
     if (!response.ok) {
+      if (data?.error) {
+        throw data;
+      }
+
       const message = data?.detail ? normalizeDetail(data.detail) : "Backend недоступен. Проверьте, запущен ли docker compose.";
       throw new Error(message);
     }

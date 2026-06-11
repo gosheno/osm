@@ -1,19 +1,26 @@
+function toFiniteNumber(value) {
+  const number = Number(value);
+  return Number.isFinite(number) ? number : null;
+}
+
 export function formatDistance(meters) {
-  if (meters == null || Number.isNaN(meters)) {
+  const value = toFiniteNumber(meters);
+  if (value == null) {
     return "-";
   }
-  if (meters < 1000) {
-    return `${Math.round(meters)} м`;
+  if (value < 1000) {
+    return `${Math.round(value)} м`;
   }
-  const km = meters / 1000;
+  const km = value / 1000;
   return `${km.toFixed(1).replace('.', ',')} км`;
 }
 
 export function formatDuration(seconds) {
-  if (seconds == null || Number.isNaN(seconds)) {
+  const value = toFiniteNumber(seconds);
+  if (value == null) {
     return "-";
   }
-  const totalSeconds = Math.round(seconds);
+  const totalSeconds = Math.round(value);
   const hours = Math.floor(totalSeconds / 3600);
   const minutes = Math.round((totalSeconds % 3600) / 60);
 
@@ -27,12 +34,21 @@ export function formatDuration(seconds) {
 }
 
 export function formatCoordinate(value) {
-  if (value == null || Number.isNaN(value)) {
+  const number = toFiniteNumber(value);
+  if (number == null) {
     return "-";
   }
-  return value.toFixed(6);
+  return number.toFixed(6);
 }
 
 export function formatAddressLabel(point) {
-  return point.address?.original_address || point.address?.normalized_address || point.label || "-";
+  return (
+    point.address?.original_address ||
+    point.address?.input_address ||
+    point.address?.normalized_address ||
+    point.input_address ||
+    point.original_address ||
+    point.label ||
+    "-"
+  );
 }

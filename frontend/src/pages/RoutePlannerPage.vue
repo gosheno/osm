@@ -10,26 +10,17 @@
       <section class="layout__result">
         <div v-if="message" class="empty-state">{{ message }}</div>
         <div v-if="loading" class="loading-state">Строим маршрут...</div>
-        <ErrorBlock v-if="error" :message="error" />
+        <ErrorBlock
+          v-if="error"
+          :error="error"
+          :failedAddresses="failedAddresses"
+        />
         <WarningBlock v-if="warnings.length" :warnings="warnings" />
 
         <RouteSummary v-if="result" :result="result" />
-        <RouteMap v-if="result" :orderedPoints="result.ordered_points" />
-        <OrderedPointsList v-if="result" :orderedPoints="result.ordered_points" />
-        <RouteBatches v-if="result" :batches="result.batches" />
-
-        <section v-if="failedAddresses.length" class="failed-addresses">
-          <h2>Не удалось обработать адреса</h2>
-          <ul>
-            <li v-for="failed in failedAddresses" :key="`${failed.input_index}-${failed.input_address}`">
-              <strong>{{ failed.input_address }}</strong>
-              <div>Тип: {{ failed.role }}</div>
-              <div>Причина: {{ failed.error }}</div>
-              <div>Статус: {{ failed.geocoding_status || "-" }}</div>
-              <div v-if="failed.normalized_address">Нормализованный адрес: {{ failed.normalized_address }}</div>
-            </li>
-          </ul>
-        </section>
+        <RouteMap v-if="result" :orderedPoints="result.ordered_points || []" />
+        <OrderedPointsList v-if="result" :orderedPoints="result.ordered_points || []" />
+        <RouteBatches v-if="result" :batches="result.batches || []" />
       </section>
     </div>
   </main>
@@ -45,6 +36,7 @@ import RouteBatches from '../components/RouteBatches.vue';
 import ErrorBlock from '../components/ErrorBlock.vue';
 import WarningBlock from '../components/WarningBlock.vue';
 import { optimizeRoute } from '../api/routesApi';
+import { normalizeApiError } from '../utils/errorUtils';
 
 const loading = ref(false);
 const result = ref(null);
@@ -75,7 +67,14 @@ async function handleSubmit(payload) {
     warnings.value = response.warnings || [];
     failedAddresses.value = response.failed_addresses || [];
   } catch (err) {
-    error.value = err?.message || 'Произошла ошибка при запросе маршрута.';
+    const normalizedError = normalizeApiError(err);
+    error.value = {
+      message: normalizedError.message,
+      code: normalizedError.code,
+      details: normalizedError.details,
+    };
+    warnings.value = normalizedError.warnings;
+    failedAddresses.value = normalizedError.failed_addresses;
   } finally {
     loading.value = false;
   }
@@ -114,24 +113,6 @@ h1 {
   color: #1a3d7c;
   border-radius: 12px;
   margin-bottom: 18px;
-}
-
-.failed-addresses {
-  margin-top: 24px;
-}
-
-.failed-addresses ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.failed-addresses li {
-  padding: 14px;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  margin-bottom: 12px;
-  background: #fff7f6;
 }
 
 @media (min-width: 1000px) {

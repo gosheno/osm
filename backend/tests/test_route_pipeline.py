@@ -1,5 +1,6 @@
 import unittest
 
+from app.core.exceptions import AppError
 from app.schemas.route import OptimizeRouteByAddressesRequest
 from app.services.route_pipeline import optimize_route_by_addresses
 
@@ -163,6 +164,10 @@ class RoutePipelineTests(unittest.IsolatedAsyncioTestCase):
         )
         self.assertEqual(result.batches[0].points_count, 2)
         self.assertEqual(result.batches[1].points_count, 3)
+        self.assertEqual(result.ordered_points[1].district, "Василеостровский")
+        self.assertEqual(result.batches[0].district, "Василеостровский")
+        self.assertEqual(result.batches[0].districts, ["Василеостровский"])
+        self.assertEqual(result.batches[0].points[1].district, "Василеостровский")
         self.assertTrue(result.batches[0].yandex_maps_url.startswith("https://yandex.ru/maps/2/"))
         self.assertEqual(len(osrm_client.calls), 1)
         self.assertTrue(result.geocoded_addresses[2].from_cache)
@@ -186,22 +191,21 @@ class RoutePipelineTests(unittest.IsolatedAsyncioTestCase):
         )
         osrm_client = FakeOsrmClient()
 
-        result = await optimize_route_by_addresses(
-            OptimizeRouteByAddressesRequest(
-                start_address=start,
-                end_address=end,
-                addresses=[missing],
-            ),
-            db=None,
-            address_service_factory=lambda db: service,
-            osrm_client=osrm_client,
-        )
+        with self.assertRaises(AppError) as context:
+            await optimize_route_by_addresses(
+                OptimizeRouteByAddressesRequest(
+                    start_address=start,
+                    end_address=end,
+                    addresses=[missing],
+                ),
+                db=None,
+                address_service_factory=lambda db: service,
+                osrm_client=osrm_client,
+            )
 
-        self.assertEqual(result.status, "failed")
-        self.assertEqual(len(result.failed_addresses), 1)
-        self.assertEqual(result.failed_addresses[0].input_address, missing)
-        self.assertEqual(result.ordered_points, [])
-        self.assertEqual(result.batches, [])
+        self.assertEqual(context.exception.code, "WAYPOINT_ADDRESS_NOT_FOUND")
+        self.assertEqual(len(context.exception.failed_addresses), 1)
+        self.assertEqual(context.exception.failed_addresses[0]["input_address"], missing)
         self.assertEqual(osrm_client.calls, [])
 
 

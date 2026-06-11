@@ -40,7 +40,7 @@ class RouteAddressResult(BaseModel):
 
 
 class FailedAddressResult(BaseModel):
-    role: RouteAddressRole
+    type: RouteAddressRole
     input_index: int
     original_index: int
     input_address: str
@@ -49,6 +49,8 @@ class FailedAddressResult(BaseModel):
     place_name: str | None = None
     geocoding_status: str | None = None
     error: str
+    reason: str | None = None
+    code: str | None = None
 
 
 class RouteLegResult(BaseModel):
@@ -65,6 +67,7 @@ class OptimizedRoutePointResult(BaseModel):
     latitude: float
     longitude: float
     original_index: int
+    district: str | None = None
     address: RouteAddressResult | None = None
 
 
@@ -77,11 +80,14 @@ class RouteBatchPointResult(BaseModel):
     longitude: float
     original_index: int
     is_transition_point: bool
+    district: str | None = None
 
 
 class RouteBatchResult(BaseModel):
     batch_number: int
     points_count: int
+    district: str | None = None
+    districts: list[str] = Field(default_factory=list)
     distance_m: float | None = None
     duration_s: float | None = None
     url_length: int | None = None
@@ -93,6 +99,7 @@ class RouteBatchResult(BaseModel):
 
 class OptimizeRouteByAddressesResponse(BaseModel):
     status: RouteBuildStatus
+    route_job_id: int | None = None
     total_input_addresses: int
     total_addresses: int
     total_points: int

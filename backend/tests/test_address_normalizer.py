@@ -57,6 +57,35 @@ class AddressNormalizerTests(unittest.TestCase):
             "санкт-петербург, 7 линия, дом 9",
         )
 
+    def test_expands_vasileostrovsky_abbreviation_for_line_addresses(self):
+        result = normalize_address("Санкт-Петербург, 6-я линия В.О. 15")
+
+        self.assertEqual(
+            result.normalized_address,
+            "санкт-петербург, 6-я линия васильевский остров 15",
+        )
+
+    def test_uses_non_spb_default_city_for_short_regional_address(self):
+        result = normalize_address(
+            "Нефтехимиков 18А",
+            default_city="Кириши, Ленинградская обл.",
+        )
+
+        self.assertEqual(
+            result.normalized_address,
+            "кириши, ленинградская область, нефтехимиков 18а",
+        )
+
+    def test_does_not_prefix_spb_to_full_lenoblast_address(self):
+        result = normalize_address(
+            "ул. Нефтехимиков, 18а, Кириши, Ленинградская обл.",
+        )
+
+        self.assertEqual(
+            result.normalized_address,
+            "улица нефтехимиков, 18а, кириши, ленинградская область",
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

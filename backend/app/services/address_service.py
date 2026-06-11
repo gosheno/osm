@@ -2,6 +2,7 @@
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.clients.nominatim_client import NominatimClient
+from app.services.manual_geocoding import find_manual_geocoding
 from app.utils.address_normalizer import NormalizedAddress, normalize_address
 
 
@@ -24,6 +25,53 @@ class AddressService:
         )
 
         existing = await self._get_by_normalized_address(normalized.normalized_address)
+        manual_candidate = find_manual_geocoding(normalized.normalized_address)
+
+        if manual_candidate is not None:
+            if (
+                existing
+                and not force_refresh
+                and existing["geocoding_status"] in ("found", "manual", "ambiguous")
+                and existing["latitude"] is not None
+                and existing["longitude"] is not None
+            ):
+                await self._touch_address(existing["id"])
+
+                return self._response_from_row(
+                    existing,
+                    source="database",
+                    normalized=normalized,
+                )
+
+            row = await self._upsert_found(
+                original_address=normalized.address_for_geocoding,
+                normalized_address=normalized.normalized_address,
+                latitude=manual_candidate.latitude,
+                longitude=manual_candidate.longitude,
+                confidence_score=manual_candidate.confidence_score,
+                geocoding_status="manual",
+                geocoding_provider="manual",
+            )
+
+            return {
+                "id": row["id"],
+                "original_address": normalized.original_address,
+                "address_for_geocoding": normalized.address_for_geocoding,
+                "normalized_address": row["normalized_address"],
+                "place_name": normalized.place_name,
+                "latitude": row["latitude"],
+                "longitude": row["longitude"],
+                "geocoding_status": row["geocoding_status"],
+                "geocoding_provider": row["geocoding_provider"],
+                "confidence_score": (
+                    float(row["confidence_score"])
+                    if row["confidence_score"] is not None
+                    else None
+                ),
+                "source": "manual",
+                "display_name": manual_candidate.display_name,
+                "error": None,
+            }
 
         if (
             existing
@@ -173,6 +221,8 @@ class AddressService:
         latitude: float,
         longitude: float,
         confidence_score: float | None,
+        geocoding_status: str = "found",
+        geocoding_provider: str = "nominatim",
     ) -> dict:
         result = await self.db.execute(
             text(
@@ -194,8 +244,8 @@ class AddressService:
                     :latitude,
                     :longitude,
                     ST_SetSRID(ST_MakePoint(:longitude, :latitude), 4326),
-                    'found',
-                    'nominatim',
+                    :geocoding_status,
+                    :geocoding_provider,
                     :confidence_score,
                     now()
                 )
@@ -205,8 +255,8 @@ class AddressService:
                     latitude = EXCLUDED.latitude,
                     longitude = EXCLUDED.longitude,
                     geom = EXCLUDED.geom,
-                    geocoding_status = 'found',
-                    geocoding_provider = 'nominatim',
+                    geocoding_status = EXCLUDED.geocoding_status,
+                    geocoding_provider = EXCLUDED.geocoding_provider,
                     confidence_score = EXCLUDED.confidence_score,
                     last_used_at = now()
                 RETURNING
@@ -226,6 +276,8 @@ class AddressService:
                 "latitude": latitude,
                 "longitude": longitude,
                 "confidence_score": confidence_score,
+                "geocoding_status": geocoding_status,
+                "geocoding_provider": geocoding_provider,
             },
         )
 
