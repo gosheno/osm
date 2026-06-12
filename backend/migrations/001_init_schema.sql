@@ -10,6 +10,25 @@ CREATE TABLE IF NOT EXISTS addresses (
     geocoding_status VARCHAR(20) NOT NULL DEFAULT 'pending',
     geocoding_provider VARCHAR(50),
     confidence_score NUMERIC(5, 2),
+    geocoding_query_used TEXT,
+    geocoding_score NUMERIC(5, 2),
+    display_name TEXT,
+    osm_type VARCHAR(20),
+    osm_id BIGINT,
+    place_id BIGINT,
+    raw_response JSONB,
+    candidates_json JSONB,
+    cleaned_address TEXT,
+    normalized_key TEXT,
+    region_hint TEXT,
+    settlement_hint TEXT,
+    manual_reason TEXT,
+    source_note TEXT,
+    geocoding_context_label TEXT,
+    geocoding_context_latitude DOUBLE PRECISION,
+    geocoding_context_longitude DOUBLE PRECISION,
+    geocoding_context_radius_km NUMERIC(8, 2),
+    geocoding_context_source VARCHAR(50),
     created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
     updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
     last_used_at TIMESTAMPTZ,
@@ -32,6 +51,30 @@ CREATE INDEX IF NOT EXISTS ix_addresses_geom
 
 CREATE INDEX IF NOT EXISTS ix_addresses_geocoding_status
     ON addresses (geocoding_status);
+
+CREATE TABLE IF NOT EXISTS geocoding_attempts (
+    id BIGSERIAL PRIMARY KEY,
+    address_id BIGINT REFERENCES addresses(id) ON DELETE CASCADE,
+    original_address TEXT,
+    normalized_address TEXT,
+    query TEXT NOT NULL,
+    provider VARCHAR(50),
+    status VARCHAR(30) NOT NULL,
+    candidates_count INTEGER NOT NULL DEFAULT 0,
+    score NUMERIC(5, 2),
+    selected BOOLEAN NOT NULL DEFAULT false,
+    viewbox TEXT,
+    bounded BOOLEAN DEFAULT false,
+    distance_to_context_m NUMERIC(12, 2),
+    error TEXT,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+
+CREATE INDEX IF NOT EXISTS ix_geocoding_attempts_address_id
+    ON geocoding_attempts (address_id);
+
+CREATE INDEX IF NOT EXISTS ix_geocoding_attempts_created_at
+    ON geocoding_attempts (created_at);
 
 CREATE TABLE IF NOT EXISTS route_jobs (
     id BIGSERIAL PRIMARY KEY,

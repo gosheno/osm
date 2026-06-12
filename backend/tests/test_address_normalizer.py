@@ -35,6 +35,13 @@ class AddressNormalizerTests(unittest.TestCase):
             "санкт-петербург, невский проспект дом 9",
         )
 
+    def test_does_not_extract_settlement_as_place_name(self):
+        result = normalize_address("Петергоф, Санкт-Петербург")
+
+        self.assertIsNone(result.place_name)
+        self.assertEqual(result.address_for_geocoding, "Петергоф, Санкт-Петербург")
+        self.assertEqual(result.normalized_address, "петергоф, санкт-петербург")
+
     def test_explicit_place_name_keeps_address_field_as_geocoding_input(self):
         result = normalize_address(
             "СПБ, Невский пр-т д. 9",

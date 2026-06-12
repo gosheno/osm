@@ -1,12 +1,22 @@
-from typing import Literal
+from typing import Any, Literal
 
 from pydantic import BaseModel, Field
 
+from app.schemas.geocoding import GeocodingContextInput
 from app.schemas.optimization import OptimizationMetric, RoutePointType
 
 
 RouteBuildStatus = Literal["completed", "failed", "completed_with_warnings"]
 RouteAddressRole = Literal["start", "waypoint", "end"]
+
+
+class SelectedRouteAddress(BaseModel):
+    address_id: int | None = None
+    display_name: str
+    latitude: float = Field(..., ge=-90, le=90)
+    longitude: float = Field(..., ge=-180, le=180)
+    confidence_score: float | None = None
+    geocoding_status: str | None = "found"
 
 
 class OptimizeRouteByAddressesRequest(BaseModel):
@@ -18,9 +28,15 @@ class OptimizeRouteByAddressesRequest(BaseModel):
     city_slug: str = "saint-petersburg"
     default_city: str | None = "санкт-петербург"
     force_refresh: bool = False
+    geocoding_context: GeocodingContextInput | None = None
+    geocoding_area: str | None = None
+    start_selected: SelectedRouteAddress | None = None
+    end_selected: SelectedRouteAddress | None = None
+    waypoints_selected: list[SelectedRouteAddress | None] = Field(default_factory=list, max_length=100)
 
 
 class RouteAddressResult(BaseModel):
+    id: int | None = None
     role: RouteAddressRole
     input_index: int
     original_index: int
@@ -34,6 +50,10 @@ class RouteAddressResult(BaseModel):
     geocoding_status: str | None = None
     geocoding_provider: str | None = None
     confidence_score: float | None = None
+    geocoding_score: float | None = None
+    geocoding_query: str | None = None
+    geocoding_context_label: str | None = None
+    distance_to_context_m: float | None = None
     source: str | None = None
     from_cache: bool = False
     error: str | None = None
@@ -49,6 +69,9 @@ class FailedAddressResult(BaseModel):
     place_name: str | None = None
     geocoding_status: str | None = None
     geocoding_provider: str | None = None
+    geocoding_score: float | None = None
+    geocoding_query: str | None = None
+    geocoding_context_label: str | None = None
     source: str | None = None
     error: str
     reason: str | None = None
@@ -113,6 +136,7 @@ class OptimizeRouteByAddressesResponse(BaseModel):
     geocoded_addresses: list[RouteAddressResult] = Field(default_factory=list)
     failed_addresses: list[FailedAddressResult] = Field(default_factory=list)
     ordered_points: list[OptimizedRoutePointResult] = Field(default_factory=list)
+    route_geometry: dict[str, Any] | None = None
     legs: list[RouteLegResult] = Field(default_factory=list)
     batches: list[RouteBatchResult] = Field(default_factory=list)
     warnings: list[str] = Field(default_factory=list)

@@ -85,6 +85,7 @@ def build_yandex_maps_url(
     round_coordinates: int = DEFAULT_ROUND_COORDINATES,
 ) -> str:
     points = validate_batch_points(batch)
+    city_slug = normalize_city_slug(city_slug)
     query = urlencode(
         {
             "ll": build_ll(points, round_coordinates),
@@ -101,8 +102,11 @@ def build_yandex_maps_url(
 def add_yandex_links_to_batches(
     payload: BuildYandexLinksRequest,
 ) -> BuildYandexLinksResponse:
-    city_slug_defaulted = "city_slug" not in payload.model_fields_set
-    city_slug = payload.city_slug
+    city_slug_defaulted = (
+        "city_slug" not in payload.model_fields_set
+        or not payload.city_slug.strip()
+    )
+    city_slug = normalize_city_slug(payload.city_slug)
     route_type = payload.route_type
 
     validate_city_slug(city_slug)
@@ -199,6 +203,11 @@ def validate_batch_points(batch: YandexLinkBatchInput) -> list[YandexLinkPointIn
 def validate_city_slug(city_slug: str) -> None:
     if not re.fullmatch(r"[a-z0-9-]+", city_slug):
         raise YandexLinkValidationError("invalid city_slug")
+
+
+def normalize_city_slug(city_slug: str | None) -> str:
+    value = (city_slug or "").strip()
+    return value or DEFAULT_CITY_SLUG
 
 
 def validate_route_type(route_type: str) -> None:

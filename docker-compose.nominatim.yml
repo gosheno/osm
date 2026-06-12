@@ -1,0 +1,30 @@
+services:
+  nominatim:
+    image: mediagis/nominatim:${NOMINATIM_IMAGE_TAG:-5.1}
+    container_name: osm_nominatim
+    restart: unless-stopped
+    ports:
+      - "${NOMINATIM_PORT:-8080}:8080"
+    environment:
+      PBF_PATH: /nominatim/data/${NOMINATIM_PBF_FILE:-northwestern-fed-district-latest.osm.pbf}
+      NOMINATIM_PASSWORD: ${NOMINATIM_PASSWORD:-nominatim_password}
+      IMPORT_WIKIPEDIA: "false"
+      IMPORT_US_POSTCODES: "false"
+      IMPORT_GB_POSTCODES: "false"
+      THREADS: ${NOMINATIM_THREADS:-4}
+    volumes:
+      - ./data/osm:/nominatim/data
+      - ./data/nominatim/postgres:/var/lib/postgresql/14/main
+      - ./data/nominatim/flatnode:/nominatim/flatnode
+      - ./data/nominatim/logs:/nominatim/logs
+    shm_size: ${NOMINATIM_SHM_SIZE:-1gb}
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "curl -fsS http://127.0.0.1:8080/status >/dev/null || wget -qO- http://127.0.0.1:8080/status >/dev/null || exit 1",
+        ]
+      interval: 30s
+      timeout: 10s
+      retries: 10
+      start_period: 60s

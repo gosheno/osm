@@ -6,12 +6,19 @@ from app.schemas.address import (
     AddressBulkNormalizeItem,
     AddressBulkNormalizeRequest,
     AddressBulkNormalizeResponse,
+    AddressConfirmRequest,
+    AddressConfirmResponse,
     AddressGeocodeRequest,
     AddressGeocodeResponse,
     AddressNormalizeRequest,
     AddressNormalizeResponse,
+    AddressSuggestResponse,
 )
 from app.services.address_service import AddressService
+from app.services.address_suggestions import (
+    AddressSuggestQueryTooShortError,
+    AddressSuggestionService,
+)
 from app.utils.address_normalizer import normalize_address
 
 
@@ -74,6 +81,72 @@ def normalize_bulk_addresses(payload: AddressBulkNormalizeRequest):
     )
 
 
+@router.get("/suggest", response_model=AddressSuggestResponse)
+async def suggest_addresses(
+    query: str,
+    limit: int = 5,
+    lang: str = "ru",
+    bounded: bool | None = None,
+    viewbox: str | None = None,
+    context_city: str | None = None,
+    context_region: str | None = None,
+    db: AsyncSession = Depends(get_db),
+):
+    try:
+        service = AddressSuggestionService(db)
+        normalized_query, items = await service.suggest(
+            query=query,
+            limit=limit,
+            lang=lang,
+            bounded=bounded,
+            viewbox=viewbox,
+            context_city=context_city,
+            context_region=context_region,
+        )
+        return AddressSuggestResponse(
+            query=query,
+            normalized_query=normalized_query,
+            status="ok",
+            items=items,
+        )
+    except AddressSuggestQueryTooShortError as exc:
+        raise HTTPException(status_code=400, detail=str(exc))
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc))
+    except Exception as exc:
+        raise HTTPException(
+            status_code=503,
+            detail=f"Address suggestions failed: {exc}",
+        )
+
+
+@router.post("/confirm", response_model=AddressConfirmResponse)
+async def confirm_address(
+    payload: AddressConfirmRequest,
+    db: AsyncSession = Depends(get_db),
+):
+    try:
+        service = AddressSuggestionService(db)
+        result = await service.confirm(
+            original_query=payload.original_query,
+            selected_candidate=payload.selected_candidate,
+        )
+        return AddressConfirmResponse(
+            status="saved",
+            address_id=result["id"],
+            latitude=result["latitude"],
+            longitude=result["longitude"],
+            geocoding_status=result["geocoding_status"],
+        )
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc))
+    except Exception as exc:
+        raise HTTPException(
+            status_code=503,
+            detail=f"Address confirmation failed: {exc}",
+        )
+
+
 @router.post("/geocode", response_model=AddressGeocodeResponse)
 async def geocode_address(
     payload: AddressGeocodeRequest,
@@ -86,6 +159,8 @@ async def geocode_address(
             default_city=payload.default_city,
             place_name=payload.place_name,
             force_refresh=payload.force_refresh,
+            geocoding_context=payload.geocoding_context,
+            geocoding_area=payload.geocoding_area,
         )
 
         return AddressGeocodeResponse(**result)

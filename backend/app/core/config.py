@@ -15,11 +15,18 @@ class Settings(BaseSettings):
     NOMINATIM_USER_AGENT: str = "osm-route-mvp/0.1 contact:local-dev@example.com"
     NOMINATIM_EMAIL: str | None = None
     NOMINATIM_COUNTRY_CODES: str = "ru"
+    NOMINATIM_TIMEOUT_S: float = 10.0
+    NOMINATIM_MIN_REQUEST_INTERVAL_S: float = 1.1
+    NOMINATIM_ACCEPT_LANGUAGE: str = "ru"
+    NOMINATIM_DEFAULT_VIEWBOX: str | None = None
+    NOMINATIM_DEFAULT_BOUNDED: bool = False
+    NOMINATIM_DEFAULT_LIMIT: int = 5
 
     DEFAULT_CITY: str = "санкт-петербург"
     DEFAULT_COUNTRY_CODES: str = "ru"
 
     GEOCODER_PROVIDER: str = "nominatim"
+    GEOCODER_ENABLE_FALLBACK: bool = True
 
     OPENCAGE_BASE_URL: str = "https://api.opencagedata.com/geocode/v1"
     OPENCAGE_API_KEY: str | None = None

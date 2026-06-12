@@ -16,6 +16,8 @@ class FakeAddressService:
         default_city="санкт-петербург",
         place_name=None,
         force_refresh=False,
+        geocoding_context=None,
+        geocoding_area=None,
     ):
         self.calls.append(
             {
@@ -23,6 +25,8 @@ class FakeAddressService:
                 "default_city": default_city,
                 "place_name": place_name,
                 "force_refresh": force_refresh,
+                "geocoding_context": geocoding_context,
+                "geocoding_area": geocoding_area,
             }
         )
         return self.results[address]
@@ -31,6 +35,7 @@ class FakeAddressService:
 class FakeOsrmClient:
     def __init__(self):
         self.calls = []
+        self.route_calls = []
 
     async def get_table(self, points, *, max_points):
         self.calls.append((points, max_points))
@@ -50,6 +55,23 @@ class FakeOsrmClient:
             ],
             "sources": [],
             "destinations": [],
+        }
+
+    async def get_route(self, points, *, overview=True, steps=False):
+        self.route_calls.append((points, overview, steps))
+        return {
+            "code": "Ok",
+            "distance_m": 1200.0,
+            "duration_s": 240.0,
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [30.1768, 59.8314],
+                    [30.2000, 59.8800],
+                    [30.236862, 59.950368],
+                ],
+            },
+            "waypoints": [],
         }
 
 
@@ -170,6 +192,9 @@ class RoutePipelineTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(result.batches[0].points[1].district, "Василеостровский")
         self.assertTrue(result.batches[0].yandex_maps_url.startswith("https://yandex.ru/maps/2/"))
         self.assertEqual(len(osrm_client.calls), 1)
+        self.assertEqual(len(osrm_client.route_calls), 1)
+        self.assertEqual(result.route_geometry["type"], "LineString")
+        self.assertEqual(len(result.route_geometry["coordinates"]), 3)
         self.assertTrue(result.geocoded_addresses[2].from_cache)
 
     async def test_returns_failed_response_when_any_address_is_not_geocoded(self):
@@ -235,12 +260,14 @@ class RoutePipelineTests(unittest.IsolatedAsyncioTestCase):
                 osrm_client=osrm_client,
             )
 
-        self.assertEqual(context.exception.code, "WAYPOINT_ADDRESS_NOT_FOUND")
+        self.assertEqual(context.exception.code, "GEOCODER_ERROR")
         self.assertEqual(len(context.exception.failed_addresses), 1)
         failed = context.exception.failed_addresses[0]
         self.assertEqual(failed["input_address"], "Broken")
         self.assertEqual(failed["geocoding_provider"], "nominatim")
         self.assertEqual(failed["source"], "nominatim")
+        self.assertEqual(failed["code"], "ADDRESS_GEOCODER_ERROR")
+        self.assertEqual(failed["reason"], "Geocoder failure")
         self.assertEqual(osrm_client.calls, [])
 
 

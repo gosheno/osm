@@ -23,6 +23,11 @@
           <div>Статус: {{ failed.geocoding_status || "-" }}</div>
           <div>Провайдер: {{ failed.geocoding_provider || "-" }}</div>
           <div>Источник: {{ failed.source || "-" }}</div>
+          <div v-if="failed.geocoding_context_label">Область поиска: {{ failed.geocoding_context_label }}</div>
+          <div v-if="failed.geocoding_query">Запрос: {{ failed.geocoding_query }}</div>
+          <div v-if="failed.geocoding_score !== null && failed.geocoding_score !== undefined">
+            Оценка: {{ failed.geocoding_score }}
+          </div>
           <div v-if="failed.normalized_address">Нормализованный адрес: {{ failed.normalized_address }}</div>
         </li>
       </ul>
@@ -58,7 +63,7 @@ function addressTitle(failed) {
   background: #fff1f0;
   color: #b91c1c;
   border: 1px solid #f8d7da;
-  border-radius: 14px;
+  border-radius: 8px;
   margin-bottom: 18px;
 }
 
@@ -75,7 +80,7 @@ function addressTitle(failed) {
 .failed-addresses li {
   padding: 12px;
   border: 1px solid #f8d7da;
-  border-radius: 10px;
+  border-radius: 8px;
   margin-top: 10px;
   background: #fff7f6;
 }

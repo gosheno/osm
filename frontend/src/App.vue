@@ -9,14 +9,22 @@ import RoutePlannerPage from './pages/RoutePlannerPage.vue';
 </script>
 
 <style>
-body {
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  width: 100%;
+  height: 100%;
   margin: 0;
+}
+
+body {
+  overflow: hidden;
   font-family: Inter, Arial, sans-serif;
   background: #f4f6fb;
   color: #1f2937;
-}
-
-#app {
-  min-height: 100vh;
 }
 </style>

@@ -179,6 +179,33 @@ class YandexLinkBuilderTests(unittest.TestCase):
             response.batches[0].warnings,
         )
 
+    def test_empty_city_slug_uses_default_city_slug(self):
+        response = add_yandex_links_to_batches(
+            BuildYandexLinksRequest(
+                city_slug="",
+                batches=[
+                    YandexLinkBatchInput(
+                        batch_number=1,
+                        points=[
+                            point(0, 0, point_type="start"),
+                            point(1, 1, point_type="end"),
+                        ],
+                    )
+                ],
+            )
+        )
+
+        self.assertEqual(response.city_slug, "saint-petersburg")
+        self.assertEqual(response.status, "completed_with_warnings")
+        self.assertIn(
+            "/maps/2/saint-petersburg/",
+            response.batches[0].yandex_maps_url,
+        )
+        self.assertIn(
+            "City slug was not provided, default value used",
+            response.batches[0].warnings,
+        )
+
     def test_warns_when_later_batch_transition_point_is_missing(self):
         response = add_yandex_links_to_batches(
             BuildYandexLinksRequest(

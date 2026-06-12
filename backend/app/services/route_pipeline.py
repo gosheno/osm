@@ -93,14 +93,28 @@ async def geocode_route_addresses(
     results: list[RouteAddressResult] = []
 
     for prepared in prepared_addresses:
+        selected = _selected_address_for_role(
+            payload,
+            prepared.role,
+            prepared.input_index,
+        )
+        if selected is not None:
+            results.append(route_address_from_selected(prepared, selected))
+            continue
+
         try:
             result = await service.geocode_address(
                 prepared.address,
                 default_city=payload.default_city,
                 force_refresh=payload.force_refresh,
+                geocoding_context=payload.geocoding_context,
+                geocoding_area=payload.geocoding_area,
             )
             results.append(route_address_from_geocode(prepared, result))
         except Exception as exc:
+            rollback = getattr(db, "rollback", None)
+            if rollback is not None:
+                await rollback()
             results.append(
                 RouteAddressResult(
                     role=prepared.role,
@@ -117,11 +131,59 @@ async def geocode_route_addresses(
     return results
 
 
+def _selected_address_for_role(
+    payload: OptimizeRouteByAddressesRequest,
+    role: RouteAddressRole,
+    input_index: int,
+):
+    if role == "start":
+        return payload.start_selected
+    if role == "end":
+        return payload.end_selected
+    if role == "waypoint":
+        waypoint_index = input_index - 1
+        if 0 <= waypoint_index < len(payload.waypoints_selected):
+            return payload.waypoints_selected[waypoint_index]
+    return None
+
+
+def route_address_from_selected(
+    prepared: PreparedRouteAddress,
+    selected,
+) -> RouteAddressResult:
+    selected_status = selected.geocoding_status or "found"
+    route_status = (
+        selected_status
+        if selected_status in {"not_found", "error"}
+        else "found"
+    )
+
+    return RouteAddressResult(
+        id=selected.address_id,
+        role=prepared.role,
+        input_index=prepared.input_index,
+        original_index=prepared.original_index,
+        input_address=prepared.address,
+        original_address=selected.display_name,
+        address_for_geocoding=selected.display_name,
+        normalized_address=None,
+        latitude=selected.latitude,
+        longitude=selected.longitude,
+        geocoding_status=route_status,
+        geocoding_provider="nominatim",
+        confidence_score=selected.confidence_score,
+        source="selected",
+        from_cache=False,
+        error=None,
+    )
+
+
 def route_address_from_geocode(
     prepared: PreparedRouteAddress,
     result: dict,
 ) -> RouteAddressResult:
     return RouteAddressResult(
+        id=result.get("id"),
         role=prepared.role,
         input_index=prepared.input_index,
         original_index=prepared.original_index,
@@ -135,6 +197,10 @@ def route_address_from_geocode(
         geocoding_status=result.get("geocoding_status"),
         geocoding_provider=result.get("geocoding_provider"),
         confidence_score=result.get("confidence_score"),
+        geocoding_score=result.get("geocoding_score"),
+        geocoding_query=result.get("geocoding_query"),
+        geocoding_context_label=result.get("geocoding_context_label"),
+        distance_to_context_m=result.get("distance_to_context_m"),
         source=result.get("source"),
         from_cache=result.get("source") == "database",
         error=result.get("error"),
@@ -150,9 +216,12 @@ def validate_geocoding_results(
         if (
             result.latitude is not None
             and result.longitude is not None
-            and result.geocoding_status in ("found", "manual", "ambiguous")
+            and result.geocoding_status in ("found", "manual")
         ):
             continue
+
+        is_ambiguous = result.geocoding_status == "ambiguous"
+        is_geocoder_error = result.geocoding_status == "error"
 
         failed_addresses.append(
             FailedAddressResult(
@@ -165,10 +234,34 @@ def validate_geocoding_results(
                 place_name=result.place_name,
                 geocoding_status=result.geocoding_status,
                 geocoding_provider=result.geocoding_provider,
+                geocoding_score=result.geocoding_score,
+                geocoding_query=result.geocoding_query,
+                geocoding_context_label=result.geocoding_context_label,
                 source=result.source,
-                error=result.error or "Address coordinates were not found",
-                reason="Адрес не найден геокодером.",
-                code="ADDRESS_NOT_FOUND",
+                error=(
+                    result.error
+                    or (
+                        "Address was resolved ambiguously"
+                        if is_ambiguous
+                        else "Address coordinates were not found"
+                    )
+                ),
+                reason=(
+                    "Адрес найден неоднозначно. Проверьте область поиска или уточните дом."
+                    if is_ambiguous
+                    else result.error
+                    if is_geocoder_error and result.error
+                    else "Сбой геокодера. Проверьте настройки провайдера или повторите попытку."
+                    if is_geocoder_error
+                    else "Адрес не найден геокодером."
+                ),
+                code=(
+                    "ADDRESS_AMBIGUOUS"
+                    if is_ambiguous
+                    else "ADDRESS_GEOCODER_ERROR"
+                    if is_geocoder_error
+                    else "ADDRESS_NOT_FOUND"
+                ),
             )
         )
 
@@ -252,6 +345,59 @@ def run_yandex_link_generation(
     )
 
 
+async def fetch_route_geometry(
+    optimization_result,
+    *,
+    osrm_client: OsrmClient | None = None,
+) -> dict | None:
+    if not getattr(optimization_result, "ordered_points", None):
+        return None
+
+    client = osrm_client or OsrmClient()
+    get_route = getattr(client, "get_route", None)
+    if get_route is None:
+        return None
+
+    try:
+        route = await get_route(
+            optimization_result.ordered_points,
+            overview=True,
+            steps=False,
+        )
+    except Exception:
+        return None
+
+    geometry = route.get("geometry") if isinstance(route, dict) else None
+    if not _is_linestring_geometry(geometry):
+        return None
+
+    return geometry
+
+
+def _is_linestring_geometry(geometry) -> bool:
+    if not isinstance(geometry, dict):
+        return False
+    if geometry.get("type") != "LineString":
+        return False
+
+    coordinates = geometry.get("coordinates")
+    if not isinstance(coordinates, list) or len(coordinates) < 2:
+        return False
+
+    for coordinate in coordinates:
+        if not isinstance(coordinate, (list, tuple)) or len(coordinate) < 2:
+            return False
+        try:
+            longitude = float(coordinate[0])
+            latitude = float(coordinate[1])
+        except (TypeError, ValueError):
+            return False
+        if not -180 <= longitude <= 180 or not -90 <= latitude <= 90:
+            return False
+
+    return True
+
+
 async def optimize_route_by_addresses(
     payload: OptimizeRouteByAddressesRequest,
     db: AsyncSession,
@@ -285,12 +431,17 @@ async def optimize_route_by_addresses(
         optimization_result,
         geocoded_addresses,
     )
+    route_geometry = await fetch_route_geometry(
+        optimization_result,
+        osrm_client=osrm_client,
+    )
     yandex_result = run_yandex_link_generation(payload, batching_result)
     route_job_id = await persist_route_result(
         db,
         optimization_result,
         batching_result,
         yandex_result,
+        geocoded_addresses,
     )
 
     return build_final_route_response(
@@ -300,6 +451,7 @@ async def optimize_route_by_addresses(
         batching_result,
         yandex_result,
         route_job_id,
+        route_geometry=route_geometry,
     )
 
 
@@ -319,6 +471,11 @@ def build_failed_response(
 
 
 def _failed_address_code(failed_addresses: list[FailedAddressResult]) -> str:
+    if any(address.code == "ADDRESS_AMBIGUOUS" for address in failed_addresses):
+        return "ADDRESS_REVIEW_REQUIRED"
+    if any(address.code == "ADDRESS_GEOCODER_ERROR" for address in failed_addresses):
+        return "GEOCODER_ERROR"
+
     has_start = any(address.type == "start" for address in failed_addresses)
     has_end = any(address.type == "end" for address in failed_addresses)
     has_waypoints = any(address.type == "waypoint" for address in failed_addresses)
@@ -333,6 +490,11 @@ def _failed_address_code(failed_addresses: list[FailedAddressResult]) -> str:
 
 
 def _failed_address_message(failed_addresses: list[FailedAddressResult]) -> str:
+    if any(address.code == "ADDRESS_AMBIGUOUS" for address in failed_addresses):
+        return "Некоторые адреса найдены неоднозначно."
+    if any(address.code == "ADDRESS_GEOCODER_ERROR" for address in failed_addresses):
+        return "Не удалось выполнить резервное геокодирование."
+
     has_start = any(address.type == "start" for address in failed_addresses)
     has_end = any(address.type == "end" for address in failed_addresses)
     has_waypoints = any(address.type == "waypoint" for address in failed_addresses)
@@ -353,6 +515,7 @@ def build_final_route_response(
     batching_result,
     yandex_result,
     route_job_id: int | None = None,
+    route_geometry: dict | None = None,
 ) -> OptimizeRouteByAddressesResponse:
     address_by_original_index = {
         address.original_index: address for address in geocoded_addresses
@@ -372,7 +535,7 @@ def build_final_route_response(
         total_duration_s=optimization_result.total_duration_s,
         optimization_metric=payload.optimization_metric,
         batch_size=batching_result.batch_size,
-        city_slug=payload.city_slug,
+        city_slug=yandex_result.city_slug,
         geocoded_addresses=geocoded_addresses,
         failed_addresses=[],
         ordered_points=[
@@ -386,6 +549,7 @@ def build_final_route_response(
             )
             for point in optimization_result.ordered_points
         ],
+        route_geometry=route_geometry,
         legs=[
             RouteLegResult(**leg.model_dump())
             for leg in optimization_result.legs
@@ -403,6 +567,7 @@ async def persist_route_result(
     optimization_result,
     batching_result,
     yandex_result,
+    geocoded_addresses: list[RouteAddressResult],
 ) -> int | None:
     if db is None:
         return None
@@ -417,6 +582,9 @@ async def persist_route_result(
         total_duration_s=optimization_result.total_duration_s,
         batches=batching_result.batches,
         yandex_batches_by_number=yandex_batches_by_number,
+        ordered_points=optimization_result.ordered_points,
+        legs=optimization_result.legs,
+        geocoded_addresses=geocoded_addresses,
     )
 
 

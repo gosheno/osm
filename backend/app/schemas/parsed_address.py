@@ -1,21 +1,33 @@
-from typing import List, Optional
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 
 class GeocodingQuery(BaseModel):
     query: str
     priority: int = 0
-    region_hint: Optional[str] = None
-    note: Optional[str] = None
+    region_hint: str | None = None
+    settlement_hint: str | None = None
+    note: str | None = None
 
 
 class ParsedAddress(BaseModel):
-    original: str
-    cleaned: str
+    original_address: str
+    place_name: str | None = None
+    cleaned_address: str
+    normalized_address: str
     normalized_key: str
-    region_hint: Optional[str] = None
-    settlement_hint: Optional[str] = None
-    street: Optional[str] = None
-    house: Optional[str] = None
-    building: Optional[str] = None
-    geocoding_queries: List[GeocodingQuery] = []
+    region_hint: str | None = None
+    settlement_hint: str | None = None
+    street: str | None = None
+    house: str | None = None
+    building: str | None = None
+    corpus: str | None = None
+    letter: str | None = None
+    geocoding_queries: list[GeocodingQuery] = Field(default_factory=list)
+
+    @property
+    def original(self) -> str:
+        return self.original_address
+
+    @property
+    def cleaned(self) -> str:
+        return self.cleaned_address

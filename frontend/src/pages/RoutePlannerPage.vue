@@ -1,28 +1,41 @@
 <template>
   <main class="planner-page">
-    <h1>Оптимизация маршрута по адресам</h1>
+    <RouteMap
+      class="planner-map"
+      :orderedPoints="result?.ordered_points || []"
+    />
 
-    <div class="layout">
-      <section class="layout__form">
-        <RouteForm :loading="loading" @submit="handleSubmit" />
-      </section>
+    <aside class="side-panel">
+      <h1>Оптимизация маршрута</h1>
 
-      <section class="layout__result">
+      <RouteForm :loading="loading" @submit="handleSubmit" />
+
+      <div class="side-panel__result">
         <div v-if="message" class="empty-state">{{ message }}</div>
+
         <div v-if="loading" class="loading-state">Строим маршрут...</div>
+
         <ErrorBlock
           v-if="error"
           :error="error"
           :failedAddresses="failedAddresses"
         />
+
         <WarningBlock v-if="warnings.length" :warnings="warnings" />
 
         <RouteSummary v-if="result" :result="result" />
-        <RouteMap v-if="result" :orderedPoints="result.ordered_points || []" />
-        <OrderedPointsList v-if="result" :orderedPoints="result.ordered_points || []" />
-        <RouteBatches v-if="result" :batches="result.batches || []" />
-      </section>
-    </div>
+
+        <OrderedPointsList
+          v-if="result"
+          :orderedPoints="result.ordered_points || []"
+        />
+
+        <RouteBatches
+          v-if="result"
+          :batches="result.batches || []"
+        />
+      </div>
+    </aside>
   </main>
 </template>
 
@@ -43,12 +56,19 @@ const result = ref(null);
 const error = ref('');
 const warnings = ref([]);
 const failedAddresses = ref([]);
+const draftSelectedPoints = ref([]);
+
+const mapPoints = computed(() => (
+  result.value
+    ? result.value.ordered_points || []
+    : draftSelectedPoints.value
+));
 
 const message = computed(() => {
   if (loading.value) {
     return '';
   }
-  if (!result.value && !error.value) {
+  if (!result.value && !error.value && !draftSelectedPoints.value.length) {
     return 'Введите адреса и нажмите «Оптимизировать маршрут».';
   }
   return '';
@@ -79,46 +99,73 @@ async function handleSubmit(payload) {
     loading.value = false;
   }
 }
+
+function handleSelectedPointsChange(points) {
+  draftSelectedPoints.value = points || [];
+}
 </script>
 
 <style scoped>
 .planner-page {
-  padding: 24px;
-  max-width: 1200px;
-  margin: 0 auto;
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #e5e7eb;
+}
+
+.planner-map {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.side-panel {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  bottom: 16px;
+  z-index: 10;
+
+  width: 420px;
+  max-width: calc(100vw - 32px);
+
+  overflow-y: auto;
+  overscroll-behavior: contain;
+
+  padding: 18px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 12px 36px rgba(15, 23, 42, 0.22);
 }
 
 h1 {
-  margin-bottom: 24px;
-  font-size: 2rem;
+  margin: 0 0 16px;
+  font-size: 1.35rem;
 }
 
-.layout {
-  display: grid;
-  gap: 24px;
-}
-
-.layout__form,
-.layout__result {
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
-  padding: 20px;
+.side-panel__result {
+  margin-top: 18px;
 }
 
 .loading-state,
 .empty-state {
-  padding: 18px 20px;
+  padding: 14px 16px;
   background: #f4f8ff;
   color: #1a3d7c;
   border-radius: 12px;
-  margin-bottom: 18px;
+  margin-bottom: 14px;
 }
 
-@media (min-width: 1000px) {
-  .layout {
-    grid-template-columns: 360px 1fr;
-    align-items: start;
+@media (max-width: 720px) {
+  .side-panel {
+    top: auto;
+    right: 12px;
+    left: 12px;
+    bottom: 12px;
+    width: auto;
+    max-height: 55vh;
   }
 }
 </style>

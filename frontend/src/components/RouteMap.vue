@@ -1,7 +1,6 @@
 <template>
   <section class="route-map">
-    <h2>Карта порядка посещения точек</h2>
-    <p class="map-note">Ломаная линия показывает порядок точек, а не точный дорожный маршрут.</p>
+    <h2>Карта маршрута</h2>
     <div ref="mapContainer" class="map-container"></div>
   </section>
 </template>
@@ -26,6 +25,10 @@ const props = defineProps({
   orderedPoints: {
     type: Array,
     required: true,
+  },
+  routeGeometry: {
+    type: Object,
+    default: null,
   },
 });
 
@@ -75,6 +78,30 @@ function formatPointCoordinates(point) {
   return `${formatCoordinate(point.latitude)}, ${formatCoordinate(point.longitude)}`;
 }
 
+function routeGeometryLatLngs() {
+  const geometry = props.routeGeometry;
+  const coordinates = geometry?.type === 'LineString' ? geometry.coordinates : null;
+  if (!Array.isArray(coordinates)) {
+    return [];
+  }
+
+  return coordinates
+    .map((coordinate) => {
+      if (!Array.isArray(coordinate) || coordinate.length < 2) {
+        return null;
+      }
+
+      const longitude = coordinateValue(coordinate[0]);
+      const latitude = coordinateValue(coordinate[1]);
+      if (latitude === null || longitude === null) {
+        return null;
+      }
+
+      return [latitude, longitude];
+    })
+    .filter(Boolean);
+}
+
 function createPopupContent(point, index) {
   const container = document.createElement('div');
   const lines = [
@@ -84,6 +111,7 @@ function createPopupContent(point, index) {
     point.batch_number != null ? `Пакет: ${point.batch_number}` : null,
     formatAddressLabel(point),
     formatPointCoordinates(point),
+    point.confidence_score != null ? `Точность: ${Math.round(Number(point.confidence_score))}` : null,
   ].filter(Boolean);
 
   lines.forEach((line) => {
@@ -113,13 +141,15 @@ function updateMap() {
     return;
   }
 
-  const latLngs = points.map((point) => [
+  const pointLatLngs = points.map((point) => [
     coordinateValue(point.latitude),
     coordinateValue(point.longitude),
   ]);
+  const geometryLatLngs = routeGeometryLatLngs();
+  const routeLatLngs = geometryLatLngs.length > 1 ? geometryLatLngs : pointLatLngs;
 
   points.forEach((point, index) => {
-    const latLng = latLngs[index];
+    const latLng = pointLatLngs[index];
     const marker = L.marker(latLng, {
       icon: createNumberedIcon(point, index),
     }).addTo(map);
@@ -128,12 +158,18 @@ function updateMap() {
     markers.push(marker);
   });
 
-  if (latLngs.length > 1) {
-    routeLine = L.polyline(latLngs, { color: '#2563eb', weight: 4 }).addTo(map);
-    const bounds = L.latLngBounds(latLngs);
+  if (routeLatLngs.length > 1) {
+    routeLine = L.polyline(routeLatLngs, {
+      color: '#2563eb',
+      weight: 5,
+      opacity: 0.82,
+      lineJoin: 'round',
+      lineCap: 'round',
+    }).addTo(map);
+    const bounds = L.latLngBounds([...routeLatLngs, ...pointLatLngs]);
     map.fitBounds(bounds, { padding: [40, 40] });
   } else {
-    map.setView(latLngs[0], 13);
+    map.setView(pointLatLngs[0], 16);
   }
 }
 
@@ -147,6 +183,10 @@ function createMap() {
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; OpenStreetMap contributors',
   }).addTo(map);
+
+  setTimeout(() => {
+    map?.invalidateSize();
+  }, 0);
 }
 
 onMounted(() => {
@@ -162,7 +202,7 @@ onUnmounted(() => {
 });
 
 watch(
-  () => props.orderedPoints,
+  () => [props.orderedPoints, props.routeGeometry],
   () => {
     updateMap();
   },
@@ -171,23 +211,68 @@ watch(
 </script>
 
 <style scoped>
-.route-map {
-  margin-bottom: 24px;
-}
-
-.map-note {
-  margin: 0 0 12px;
-  color: #475569;
-  font-size: 0.95rem;
-}
-
-.map-container {
-  height: 460px;
-  border-radius: 18px;
+.planner-page {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
   overflow: hidden;
-  border: 1px solid #cbd5e1;
+  background: #e5e7eb;
 }
 
+.planner-map {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.side-panel {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  bottom: 16px;
+  z-index: 10;
+
+  width: 420px;
+  max-width: calc(100vw - 32px);
+
+  overflow-y: auto;
+  overscroll-behavior: contain;
+
+  padding: 18px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 12px 36px rgba(15, 23, 42, 0.22);
+}
+
+h1 {
+  margin: 0 0 16px;
+  font-size: 1.35rem;
+}
+
+.side-panel__result {
+  margin-top: 18px;
+}
+
+.loading-state,
+.empty-state {
+  padding: 14px 16px;
+  background: #f4f8ff;
+  color: #1a3d7c;
+  border-radius: 12px;
+  margin-bottom: 14px;
+}
+
+@media (max-width: 720px) {
+  .side-panel {
+    top: auto;
+    right: 12px;
+    left: 12px;
+    bottom: 12px;
+    width: auto;
+    max-height: 55vh;
+  }
+}
 </style>
 
 <style>
