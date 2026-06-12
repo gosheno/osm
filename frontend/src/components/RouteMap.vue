@@ -21,7 +21,7 @@ L.Icon.Default.mergeOptions({
 });
 
 const props = defineProps({
-  orderedPoints: {
+   orderedPoints: {
     type: Array,
     required: true,
   },
@@ -145,8 +145,7 @@ function updateMap() {
     coordinateValue(point.longitude),
   ]);
   const geometryLatLngs = routeGeometryLatLngs();
-  const routeLatLngs = geometryLatLngs.length > 1 ? geometryLatLngs : pointLatLngs;
-
+ 
   points.forEach((point, index) => {
     const latLng = pointLatLngs[index];
     const marker = L.marker(latLng, {
@@ -157,18 +156,30 @@ function updateMap() {
     markers.push(marker);
   });
 
+  const routeLatLngs = geometryToLatLngs(props.routeGeometry);
+
   if (routeLatLngs.length > 1) {
     routeLine = L.polyline(routeLatLngs, {
       color: '#2563eb',
       weight: 5,
-      opacity: 0.82,
-      lineJoin: 'round',
-      lineCap: 'round',
+      opacity: 0.9,
     }).addTo(map);
-    const bounds = L.latLngBounds([...routeLatLngs, ...pointLatLngs]);
+
+    const bounds = L.latLngBounds([...routeLatLngs, ...latLngs]);
+
+    map.fitBounds(bounds, { padding: [40, 40] });
+  } else if (latLngs.length > 1) {
+    routeLine = L.polyline(latLngs, {
+      color: '#94a3b8',
+      weight: 3,
+      dashArray: '8 8',
+    }).addTo(map);
+
+    const bounds = L.latLngBounds(latLngs);
+
     map.fitBounds(bounds, { padding: [40, 40] });
   } else {
-    map.setView(pointLatLngs[0], 16);
+    map.setView(latLngs[0], 13);
   }
 }
 
@@ -186,6 +197,31 @@ function createMap() {
   setTimeout(() => {
     map?.invalidateSize();
   }, 0);
+}
+
+function geometryToLatLngs(geometry) {
+  if (!geometry || geometry.type !== 'LineString') {
+    return [];
+  }
+
+  const coordinates = geometry.coordinates;
+
+  if (!Array.isArray(coordinates)) {
+    return [];
+  }
+
+  return coordinates
+    .map((coordinate) => {
+      const longitude = Number(coordinate?.[0]);
+      const latitude = Number(coordinate?.[1]);
+
+      if (!Number.isFinite(latitude) || !Number.isFinite(longitude)) {
+        return null;
+      }
+
+      return [latitude, longitude];
+    })
+    .filter(Boolean);
 }
 
 onMounted(() => {

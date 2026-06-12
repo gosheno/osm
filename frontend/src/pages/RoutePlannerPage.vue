@@ -34,6 +34,11 @@
           v-if="result"
           :batches="result.batches || []"
         />
+        <RouteMap
+          v-if="result"
+          :orderedPoints="result.ordered_points || []"
+          :routeGeometry="result.route_geometry"
+        />
       </div>
     </aside>
   </main>
