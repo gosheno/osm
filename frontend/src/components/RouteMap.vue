@@ -1,6 +1,5 @@
 <template>
   <section class="route-map">
-    <h2>Карта маршрута</h2>
     <div ref="mapContainer" class="map-container"></div>
   </section>
 </template>
@@ -211,67 +210,15 @@ watch(
 </script>
 
 <style scoped>
-.planner-page {
-  position: fixed;
-  inset: 0;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  background: #e5e7eb;
+.route-map {
+  width: 100%;
+  height: 100%;
+  margin: 0;
 }
 
-.planner-map {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-}
-
-.side-panel {
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  bottom: 16px;
-  z-index: 10;
-
-  width: 420px;
-  max-width: calc(100vw - 32px);
-
-  overflow-y: auto;
-  overscroll-behavior: contain;
-
-  padding: 18px;
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.96);
-  box-shadow: 0 12px 36px rgba(15, 23, 42, 0.22);
-}
-
-h1 {
-  margin: 0 0 16px;
-  font-size: 1.35rem;
-}
-
-.side-panel__result {
-  margin-top: 18px;
-}
-
-.loading-state,
-.empty-state {
-  padding: 14px 16px;
-  background: #f4f8ff;
-  color: #1a3d7c;
-  border-radius: 12px;
-  margin-bottom: 14px;
-}
-
-@media (max-width: 720px) {
-  .side-panel {
-    top: auto;
-    right: 12px;
-    left: 12px;
-    bottom: 12px;
-    width: auto;
-    max-height: 55vh;
-  }
+.map-container {
+  width: 100%;
+  height: 100%;
 }
 </style>
 
