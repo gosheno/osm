@@ -1,0 +1,58 @@
+region:
+  name: spb_lenobl
+  default_country: Russia
+  bbox:
+    min_lat: 58.35
+    max_lat: 61.35
+    min_lon: 27.0
+    max_lon: 35.8
+  allowed_regions:
+    - "Санкт-Петербург"
+    - "Ленинградская область"
+
+chains:
+  - canonical_brand: "Пятёрочка"
+    aliases:
+      - "Пятёрочка"
+      - "Пятерочка"
+      - "ПЯТЁРОЧКА"
+      - "ПЯТЕРОЧКА"
+      - "5ka"
+      - "5-ka"
+
+  - canonical_brand: "Семишагофф"
+    aliases:
+      - "Семишагофф"
+      - "Семишагов"
+      - "Семишагоф"
+      - "7 шагов"
+      - "7шагов"
+
+  - canonical_brand: "Лента"
+    aliases:
+      - "Лента"
+      - "ЛЕНТА"
+      - "Lenta"
+
+  - canonical_brand: "ОКЕЙ"
+    aliases:
+      - "ОКЕЙ"
+      - "О'КЕЙ"
+      - "О’КЕЙ"
+      - "Окей"
+      - "OKEY"
+      - "O'KEY"
+
+  - canonical_brand: "Азбука вкуса"
+    aliases:
+      - "Азбука вкуса"
+      - "АВ"
+      - "Azbuka Vkusa"
+
+  - canonical_brand: "ВкусВилл"
+    aliases:
+      - "ВкусВилл"
+      - "ВкусВил"
+      - "Вкус Вилл"
+      - "VkusVill"
+

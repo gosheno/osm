@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from fastapi import APIRouter, Depends, File, HTTPException, UploadFile
+from fastapi import APIRouter, Depends, File, Form, HTTPException, UploadFile
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.core.exceptions import AppError
@@ -22,11 +22,19 @@ router = APIRouter(prefix="/api/imports", tags=["imports"])
 @router.post("/route-sheet", response_model=RouteImportCreateResponse)
 async def upload_route_sheet(
     files: list[UploadFile] = File(...),
+    debug: bool = Form(False),
+    line_mode: str = Form("aggressive"),
+    cell_mode: str = Form("auto"),
     db: AsyncSession = Depends(get_db),
 ):
     try:
         service = RouteImportService(db)
-        result = await service.create_from_uploads(files)
+        result = await service.create_from_uploads(
+            files,
+            debug=debug,
+            line_mode=line_mode,
+            cell_mode=cell_mode,
+        )
         return RouteImportCreateResponse(
             import_id=result["import_id"],
             status=result["status"],

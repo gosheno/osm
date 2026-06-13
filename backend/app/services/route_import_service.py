@@ -30,7 +30,14 @@ class RouteImportService:
         self.ocr = OcrServiceClient()
         self.parser = RouteSheetParser()
 
-    async def create_from_uploads(self, files: list[UploadFile]) -> dict[str, Any]:
+    async def create_from_uploads(
+        self,
+        files: list[UploadFile],
+        *,
+        debug: bool = False,
+        line_mode: str = "aggressive",
+        cell_mode: str = "auto",
+    ) -> dict[str, Any]:
         if not files:
             raise RouteImportError("Upload at least one route sheet image.")
         if len(files) > settings.OCR_MAX_FILES:
@@ -43,7 +50,12 @@ class RouteImportService:
         for image_order, file in enumerate(files, start=1):
             await self._save_upload(import_id, upload_dir, image_order, file)
 
-        await self.process_import(import_id)
+        await self.process_import(
+            import_id,
+            debug=debug,
+            line_mode=line_mode,
+            cell_mode=cell_mode,
+        )
         return await self.get_import(import_id)
 
     async def create_from_local_directory(self, route_name: str | None = None) -> dict[str, Any]:
@@ -76,7 +88,14 @@ class RouteImportService:
         await self.process_import(import_id)
         return await self.get_import(import_id)
 
-    async def process_import(self, import_id: int) -> None:
+    async def process_import(
+        self,
+        import_id: int,
+        *,
+        debug: bool = False,
+        line_mode: str = "aggressive",
+        cell_mode: str = "auto",
+    ) -> None:
         await self._set_import_status(import_id, "processing")
         images = await self._images(import_id)
         raw_texts: list[str] = []
@@ -98,6 +117,9 @@ class RouteImportService:
                     ocr_result = await self._recognize_best_image(
                         source_path=source_path,
                         preprocessed_path=preprocessed_path,
+                        debug=debug,
+                        line_mode=line_mode,
+                        cell_mode=cell_mode,
                     )
                     ocr_engines.add(ocr_result.engine)
                     raw_texts.append(ocr_result.raw_text)
@@ -124,8 +146,21 @@ class RouteImportService:
             await self._set_import_status(import_id, "failed", error_message=str(exc))
             raise
 
-    async def _recognize_best_image(self, *, source_path: Path, preprocessed_path: Path) -> OcrResult:
-        preprocessed_result = await self.ocr.recognize_image(preprocessed_path)
+    async def _recognize_best_image(
+        self,
+        *,
+        source_path: Path,
+        preprocessed_path: Path,
+        debug: bool = False,
+        line_mode: str = "aggressive",
+        cell_mode: str = "auto",
+    ) -> OcrResult:
+        preprocessed_result = await self.ocr.recognize_image(
+            preprocessed_path,
+            debug=debug,
+            line_mode=line_mode,
+            cell_mode=cell_mode,
+        )
         preprocessed_rows = self.parser.parse(preprocessed_result)
 
         should_try_original = (
@@ -136,7 +171,12 @@ class RouteImportService:
         if not should_try_original:
             return preprocessed_result
 
-        original_result = await self.ocr.recognize_image(source_path)
+        original_result = await self.ocr.recognize_image(
+            source_path,
+            debug=debug,
+            line_mode=line_mode,
+            cell_mode=cell_mode,
+        )
         original_rows = self.parser.parse(original_result)
 
         preprocessed_score = (len(preprocessed_rows), len(preprocessed_result.raw_text or ""))

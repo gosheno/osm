@@ -21,8 +21,33 @@
         />
         <span>Выбрать фото маршрутных листов</span>
       </label>
+      <div class="ocr-options">
+        <label>
+          Режим линий
+          <select v-model="lineMode" :disabled="busy">
+            <option value="aggressive">Агрессивный</option>
+            <option value="soft">Мягкий</option>
+          </select>
+        </label>
+        <label>
+          Режим ячеек
+          <select v-model="cellMode" :disabled="busy">
+            <option value="auto">Авто</option>
+            <option value="raw">Raw</option>
+            <option value="gray">Gray</option>
+            <option value="binary">Binary</option>
+          </select>
+        </label>
+        <label class="inline-toggle">
+          <input v-model="debugMode" type="checkbox" :disabled="busy" />
+          <span>Debug OCR</span>
+        </label>
+      </div>
       <button type="button" class="primary-button" :disabled="busy || !selectedFiles.length" @click="uploadFiles">
         Распознать
+      </button>
+      <button type="button" class="ghost-button" :disabled="busy || !selectedFiles.length" @click="rerunDebug">
+        Запустить OCR с debug
       </button>
     </div>
 
@@ -144,6 +169,9 @@ const routeImport = ref(null);
 const errorMessage = ref('');
 const progressMessage = ref('');
 const excludeProblematic = ref(false);
+const debugMode = ref(false);
+const lineMode = ref('aggressive');
+const cellMode = ref('auto');
 const buildForm = reactive({
   start_address: 'Санкт-Петербург, Дворцовая площадь',
   end_address: 'Санкт-Петербург, Московский вокзал',
@@ -171,9 +199,22 @@ function handleFileChange(event) {
 
 async function uploadFiles() {
   await runImportTask('Загружаем изображения...', async () => {
-    const created = await uploadRouteSheet(selectedFiles.value);
+    const created = await uploadRouteSheet(selectedFiles.value, ocrOptions());
     routeImport.value = await getRouteImport(created.import_id);
   });
+}
+
+async function rerunDebug() {
+  debugMode.value = true;
+  await uploadFiles();
+}
+
+function ocrOptions() {
+  return {
+    debug: debugMode.value,
+    lineMode: lineMode.value,
+    cellMode: cellMode.value,
+  };
 }
 
 async function loadSample() {
@@ -324,6 +365,33 @@ function formatConfidence(value) {
 .route-import p {
   margin: 0;
   color: #475569;
+}
+
+.ocr-options {
+  display: flex;
+  flex: 1 1 260px;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 10px;
+}
+
+.ocr-options label {
+  display: flex;
+  min-width: 120px;
+  flex: 1 1 120px;
+  flex-direction: column;
+  gap: 5px;
+  color: #22303f;
+  font-weight: 700;
+}
+
+.ocr-options select {
+  box-sizing: border-box;
+  width: 100%;
+  border: 1px solid #d2dae6;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font: inherit;
 }
 
 .upload-panel__drop {

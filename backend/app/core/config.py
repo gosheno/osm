@@ -29,7 +29,7 @@ class Settings(BaseSettings):
     GEOCODER_ENABLE_FALLBACK: bool = True
 
     OCR_SERVICE_URL: str = "http://ocr:8088"
-    OCR_ENGINE: str = "paddleocr"
+    OCR_ENGINE: str = "auto"
     OCR_REQUEST_TIMEOUT_S: float = 120.0
     OCR_UPLOAD_DIR: str = "data/imports"
     OCR_SAMPLE_ROUTES_DIR: str = "data/routes"

@@ -7,6 +7,7 @@ from app.api.routes.health import router as health_router
 from app.api.routes.imports import router as imports_router
 from app.api.routes.optimize import router as optimize_router
 from app.api.routes.osrm import router as osrm_router
+from app.api.routes.pois import router as pois_router
 from app.api.routes.yandex_links import router as yandex_links_router
 from app.api.routes.routes import router as routes_router
 from app.core.error_handlers import register_error_handlers
@@ -33,6 +34,7 @@ app.include_router(health_router)
 app.include_router(imports_router)
 app.include_router(addresses_router)
 app.include_router(osrm_router)
+app.include_router(pois_router)
 app.include_router(optimize_router)
 app.include_router(batches_router)
 app.include_router(yandex_links_router)

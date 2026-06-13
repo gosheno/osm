@@ -10,3 +10,5 @@ httpx==0.28.1
 python-dotenv==1.0.1
 python-multipart==0.0.20
 pillow==11.1.0
+PyYAML==6.0.2
+osmium==4.0.2

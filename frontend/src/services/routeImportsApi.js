@@ -19,11 +19,14 @@ async function parseResponse(response, fallback) {
   return data;
 }
 
-export async function uploadRouteSheet(files) {
+export async function uploadRouteSheet(files, options = {}) {
   const formData = new FormData();
   Array.from(files || []).forEach((file) => {
     formData.append("files", file);
   });
+  formData.append("debug", options.debug ? "true" : "false");
+  formData.append("line_mode", options.lineMode || "aggressive");
+  formData.append("cell_mode", options.cellMode || "auto");
 
   const response = await fetch(`${API_BASE_URL}/api/imports/route-sheet`, {
     method: "POST",

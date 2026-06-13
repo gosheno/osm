@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import re
 from dataclasses import dataclass
 from typing import Any
@@ -20,6 +21,8 @@ from app.services.geocoding_context import (
     distance_to_context,
     is_within_work_area,
 )
+from app.services.poi_matcher import PoiCandidate as KnownPoiCandidate
+from app.services.poi_matcher import PoiMatcher
 from app.utils.address_normalizer import NormalizedAddress, normalize_address
 
 
@@ -92,6 +95,28 @@ class AddressService:
         )
 
         provider = settings.GEOCODER_PROVIDER.lower().strip()
+        if not force_refresh:
+            try:
+                poi_resolution = await PoiMatcher(self.db).resolve_or_return_candidates(
+                    normalized.original_address
+                )
+                if poi_resolution.matched is not None:
+                    row = await self._upsert_known_poi_address(
+                        normalized=normalized,
+                        poi=poi_resolution.matched,
+                    )
+                    return self._response_from_known_poi(
+                        row,
+                        normalized=normalized,
+                        poi=poi_resolution.matched,
+                        context=context,
+                    )
+            except Exception:
+                rollback = getattr(self.db, "rollback", None)
+                if rollback is not None:
+                    await rollback()
+                pass
+
         existing = await self._get_by_normalized_address(normalized.normalized_address)
 
         if (
@@ -615,6 +640,38 @@ class AddressService:
             "distance_to_context_m": None,
         }
 
+    def _response_from_known_poi(
+        self,
+        row: dict,
+        *,
+        normalized: NormalizedAddress,
+        poi: KnownPoiCandidate,
+        context: GeocodingContext,
+    ) -> dict:
+        return {
+            "id": row["id"],
+            "original_address": normalized.original_address,
+            "address_for_geocoding": normalized.address_for_geocoding,
+            "normalized_address": row["normalized_address"],
+            "place_name": normalized.place_name,
+            "latitude": row["latitude"],
+            "longitude": row["longitude"],
+            "geocoding_status": row["geocoding_status"],
+            "geocoding_provider": row["geocoding_provider"],
+            "confidence_score": (
+                float(row["confidence_score"])
+                if row["confidence_score"] is not None
+                else None
+            ),
+            "geocoding_score": self._row_get_float(row, "geocoding_score"),
+            "source": "known_poi",
+            "geocoding_query": self._row_get(row, "geocoding_query_used"),
+            "display_name": row["display_name"] or poi.address or poi.name,
+            "error": None,
+            "distance_to_context_m": poi.distance_m,
+            **self._context_response(context),
+        }
+
     async def _get_by_normalized_address(self, normalized_address: str) -> dict | None:
         result = await self.db.execute(
             text(
@@ -772,6 +829,108 @@ class AddressService:
             },
         )
 
+        await self.db.commit()
+        return result.mappings().one()
+
+    async def _upsert_known_poi_address(
+        self,
+        *,
+        normalized: NormalizedAddress,
+        poi: KnownPoiCandidate,
+    ) -> dict:
+        raw_json = json.dumps(
+            {
+                "source": "known_pois",
+                "known_poi_id": poi.id,
+                "canonical_brand": poi.canonical_brand,
+                "name": poi.name,
+                "address": poi.address,
+                "distance_m": poi.distance_m,
+                "match_score": poi.score,
+            },
+            ensure_ascii=False,
+        )
+        result = await self.db.execute(
+            text(
+                """
+                INSERT INTO addresses (
+                    original_address,
+                    normalized_address,
+                    latitude,
+                    longitude,
+                    geom,
+                    geocoding_status,
+                    geocoding_provider,
+                    confidence_score,
+                    geocoding_query_used,
+                    geocoding_score,
+                    display_name,
+                    osm_type,
+                    osm_id,
+                    raw_response,
+                    last_used_at
+                )
+                VALUES (
+                    :original_address,
+                    :normalized_address,
+                    :latitude,
+                    :longitude,
+                    ST_SetSRID(ST_MakePoint(:longitude, :latitude), 4326),
+                    'found',
+                    'known_poi',
+                    :confidence_score,
+                    :geocoding_query_used,
+                    :geocoding_score,
+                    :display_name,
+                    :osm_type,
+                    :osm_id,
+                    CAST(:raw_response AS jsonb),
+                    now()
+                )
+                ON CONFLICT (normalized_address)
+                DO UPDATE SET
+                    original_address = EXCLUDED.original_address,
+                    latitude = EXCLUDED.latitude,
+                    longitude = EXCLUDED.longitude,
+                    geom = EXCLUDED.geom,
+                    geocoding_status = 'found',
+                    geocoding_provider = 'known_poi',
+                    confidence_score = EXCLUDED.confidence_score,
+                    geocoding_query_used = EXCLUDED.geocoding_query_used,
+                    geocoding_score = EXCLUDED.geocoding_score,
+                    display_name = EXCLUDED.display_name,
+                    osm_type = EXCLUDED.osm_type,
+                    osm_id = EXCLUDED.osm_id,
+                    raw_response = EXCLUDED.raw_response,
+                    last_used_at = now()
+                RETURNING
+                    id,
+                    original_address,
+                    normalized_address,
+                    latitude,
+                    longitude,
+                    geocoding_status,
+                    geocoding_provider,
+                    confidence_score,
+                    geocoding_query_used,
+                    geocoding_score,
+                    display_name
+                """
+            ),
+            {
+                "original_address": normalized.address_for_geocoding,
+                "normalized_address": normalized.normalized_address,
+                "latitude": poi.latitude,
+                "longitude": poi.longitude,
+                "confidence_score": round((poi.confidence_score or 0.0) * 100, 2),
+                "geocoding_query_used": normalized.normalized_address,
+                "geocoding_score": round(poi.score * 100, 2),
+                "display_name": poi.address or poi.name or poi.canonical_brand,
+                "osm_type": poi.osm_type,
+                "osm_id": poi.osm_id,
+                "raw_response": raw_json,
+            },
+        )
         await self.db.commit()
         return result.mappings().one()
 

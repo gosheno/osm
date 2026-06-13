@@ -19,6 +19,21 @@ class ParsedRouteSheetRow:
 
 class RouteSheetParser:
     def parse(self, ocr_result: OcrResult, *, row_offset: int = 0) -> list[ParsedRouteSheetRow]:
+        if ocr_result.route_points:
+            return _dedupe_similar_rows(
+                [
+                    ParsedRouteSheetRow(
+                        row_number=row_offset + index,
+                        raw_ocr_text=point.raw_row_text or point.address,
+                        store_name=point.name,
+                        address=point.address,
+                        confidence_score=_safe_confidence(point.confidence),
+                    )
+                    for index, point in enumerate(ocr_result.route_points, start=1)
+                ],
+                row_offset=row_offset,
+            )
+
         rows: list[ParsedRouteSheetRow] = []
         seen_addresses: set[str] = set()
         lines = [line.text for line in ocr_result.lines if line.text.strip()]
@@ -154,3 +169,12 @@ def _row_quality(row: ParsedRouteSheetRow) -> float:
         score += 0.15
     score += min(len(address), 80) / 1000
     return score
+
+
+def _safe_confidence(value: float | None) -> float:
+    try:
+        if value is None:
+            return 0.65
+        return max(0.0, min(float(value), 0.99))
+    except (TypeError, ValueError):
+        return 0.65
