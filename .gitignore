@@ -11,6 +11,7 @@ dist/
 data/osm/*
 data/osrm/*
 data/nominatim/*
+data/imports/*
 !data/osm/.gitkeep
 !data/osrm/.gitkeep
 !data/nominatim/.gitkeep

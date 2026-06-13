@@ -2,17 +2,23 @@
   <main class="planner-page">
     <RouteMap
       class="planner-map"
-      :orderedPoints="result?.ordered_points || []"
+      :orderedPoints="mapPoints"
+      :routeGeometry="result?.route_geometry || null"
     />
 
     <aside class="side-panel">
       <h1>Оптимизация маршрута</h1>
 
-      <RouteForm :loading="loading" @submit="handleSubmit" />
+      <RouteForm
+        :loading="loading"
+        @submit="handleSubmit"
+        @selected-points-change="handleSelectedPointsChange"
+      />
+
+      <RouteSheetImport @route-created="handleImportedRouteCreated" />
 
       <div class="side-panel__result">
         <div v-if="message" class="empty-state">{{ message }}</div>
-
         <div v-if="loading" class="loading-state">Строим маршрут...</div>
 
         <ErrorBlock
@@ -24,29 +30,17 @@
         <WarningBlock v-if="warnings.length" :warnings="warnings" />
 
         <RouteSummary v-if="result" :result="result" />
-
-        <OrderedPointsList
-          v-if="result"
-          :orderedPoints="result.ordered_points || []"
-        />
-
-        <RouteBatches
-          v-if="result"
-          :batches="result.batches || []"
-        />
-        <RouteMap
-          v-if="result"
-          :orderedPoints="result.ordered_points || []"
-          :routeGeometry="result.route_geometry"
-        />
+        <OrderedPointsList v-if="result" :orderedPoints="result.ordered_points || []" />
+        <RouteBatches v-if="result" :batches="result.batches || []" />
       </div>
     </aside>
   </main>
 </template>
 
 <script setup>
-import { ref, computed } from 'vue';
+import { computed, ref } from 'vue';
 import RouteForm from '../components/RouteForm.vue';
+import RouteSheetImport from '../components/RouteSheetImport.vue';
 import RouteSummary from '../components/RouteSummary.vue';
 import RouteMap from '../components/RouteMap.vue';
 import OrderedPointsList from '../components/OrderedPointsList.vue';
@@ -63,19 +57,23 @@ const warnings = ref([]);
 const failedAddresses = ref([]);
 const draftSelectedPoints = ref([]);
 
-const mapPoints = computed(() => (
-  result.value
-    ? result.value.ordered_points || []
-    : draftSelectedPoints.value
-));
+const mapPoints = computed(() => {
+  if (result.value) {
+    return result.value.ordered_points || [];
+  }
+
+  return draftSelectedPoints.value;
+});
 
 const message = computed(() => {
   if (loading.value) {
     return '';
   }
+
   if (!result.value && !error.value && !draftSelectedPoints.value.length) {
     return 'Введите адреса и нажмите «Оптимизировать маршрут».';
   }
+
   return '';
 });
 
@@ -98,15 +96,23 @@ async function handleSubmit(payload) {
       code: normalizedError.code,
       details: normalizedError.details,
     };
-    warnings.value = normalizedError.warnings;
-    failedAddresses.value = normalizedError.failed_addresses;
+    warnings.value = normalizedError.warnings || [];
+    failedAddresses.value = normalizedError.failed_addresses || [];
   } finally {
     loading.value = false;
   }
 }
 
 function handleSelectedPointsChange(points) {
-  draftSelectedPoints.value = points || [];
+  draftSelectedPoints.value = Array.isArray(points) ? points : [];
+}
+
+function handleImportedRouteCreated(route) {
+  result.value = route;
+  error.value = '';
+  warnings.value = route?.warnings || [];
+  failedAddresses.value = route?.failed_addresses || [];
+  draftSelectedPoints.value = [];
 }
 </script>
 
@@ -133,7 +139,7 @@ function handleSelectedPointsChange(points) {
   bottom: 16px;
   z-index: 10;
 
-  width: 420px;
+  width: 430px;
   max-width: calc(100vw - 32px);
 
   overflow-y: auto;

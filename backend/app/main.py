@@ -4,6 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.api.routes.addresses import router as addresses_router
 from app.api.routes.batches import router as batches_router
 from app.api.routes.health import router as health_router
+from app.api.routes.imports import router as imports_router
 from app.api.routes.optimize import router as optimize_router
 from app.api.routes.osrm import router as osrm_router
 from app.api.routes.yandex_links import router as yandex_links_router
@@ -29,6 +30,7 @@ app.add_middleware(
 )
 
 app.include_router(health_router)
+app.include_router(imports_router)
 app.include_router(addresses_router)
 app.include_router(osrm_router)
 app.include_router(optimize_router)

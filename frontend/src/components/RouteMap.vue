@@ -21,7 +21,7 @@ L.Icon.Default.mergeOptions({
 });
 
 const props = defineProps({
-   orderedPoints: {
+  orderedPoints: {
     type: Array,
     required: true,
   },
@@ -42,27 +42,29 @@ function coordinateValue(value) {
 }
 
 function isValidPoint(point) {
-  return coordinateValue(point.latitude) !== null && coordinateValue(point.longitude) !== null;
+  return coordinateValue(point?.latitude) !== null && coordinateValue(point?.longitude) !== null;
 }
 
 function pointNumber(point, index) {
-  const order = Number(point.order);
+  const order = Number(point?.order);
   return Number.isFinite(order) ? order + 1 : index + 1;
 }
 
 function pointLabel(point, index) {
-  if (point.type === 'start') {
+  if (point?.type === 'start') {
     return 'S';
   }
-  if (point.type === 'end') {
+
+  if (point?.type === 'end') {
     return 'F';
   }
+
   return String(pointNumber(point, index));
 }
 
 function createNumberedIcon(point, index) {
   return L.divIcon({
-    className: `route-marker route-marker--${point.type || 'waypoint'}`,
+    className: `route-marker route-marker--${point?.type || 'waypoint'}`,
     html: `<span>${pointLabel(point, index)}</span>`,
     iconSize: [34, 34],
     iconAnchor: [17, 34],
@@ -74,24 +76,25 @@ function formatPointCoordinates(point) {
   if (!isValidPoint(point)) {
     return '-';
   }
+
   return `${formatCoordinate(point.latitude)}, ${formatCoordinate(point.longitude)}`;
 }
 
-function routeGeometryLatLngs() {
-  const geometry = props.routeGeometry;
-  const coordinates = geometry?.type === 'LineString' ? geometry.coordinates : null;
-  if (!Array.isArray(coordinates)) {
+function geometryToLatLngs(geometry) {
+  if (!geometry || geometry.type !== 'LineString' || !Array.isArray(geometry.coordinates)) {
     return [];
   }
 
-  return coordinates
+  return geometry.coordinates
     .map((coordinate) => {
       if (!Array.isArray(coordinate) || coordinate.length < 2) {
         return null;
       }
 
+      // GeoJSON/OSRM: [longitude, latitude]. Leaflet: [latitude, longitude].
       const longitude = coordinateValue(coordinate[0]);
       const latitude = coordinateValue(coordinate[1]);
+
       if (latitude === null || longitude === null) {
         return null;
       }
@@ -105,12 +108,12 @@ function createPopupContent(point, index) {
   const container = document.createElement('div');
   const lines = [
     `Точка ${pointNumber(point, index)}`,
-    `Тип: ${point.type || '-'}`,
-    point.district ? `Район: ${point.district}` : null,
-    point.batch_number != null ? `Пакет: ${point.batch_number}` : null,
+    `Тип: ${point?.type || '-'}`,
+    point?.district ? `Район: ${point.district}` : null,
+    point?.batch_number != null ? `Пакет: ${point.batch_number}` : null,
     formatAddressLabel(point),
     formatPointCoordinates(point),
-    point.confidence_score != null ? `Точность: ${Math.round(Number(point.confidence_score))}` : null,
+    point?.confidence_score != null ? `Точность: ${Math.round(Number(point.confidence_score))}` : null,
   ].filter(Boolean);
 
   lines.forEach((line) => {
@@ -122,33 +125,37 @@ function createPopupContent(point, index) {
   return container;
 }
 
+function clearMapLayers() {
+  markers.forEach((marker) => marker.remove());
+  markers = [];
+
+  if (routeLine) {
+    routeLine.remove();
+    routeLine = null;
+  }
+}
+
 function updateMap() {
   if (!map) {
     return;
   }
 
-  markers.forEach((marker) => map.removeLayer(marker));
-  markers = [];
-  if (routeLine) {
-    map.removeLayer(routeLine);
-    routeLine = null;
-  }
+  clearMapLayers();
 
   const points = (props.orderedPoints || []).filter(isValidPoint);
-  if (!points.length) {
-    map.setView(DEFAULT_MAP_CENTER, 11);
-    return;
-  }
-
   const pointLatLngs = points.map((point) => [
     coordinateValue(point.latitude),
     coordinateValue(point.longitude),
   ]);
-  const geometryLatLngs = routeGeometryLatLngs();
- 
+
+  if (!points.length) {
+    map.setView(DEFAULT_MAP_CENTER, 11);
+    setTimeout(() => map?.invalidateSize(), 0);
+    return;
+  }
+
   points.forEach((point, index) => {
-    const latLng = pointLatLngs[index];
-    const marker = L.marker(latLng, {
+    const marker = L.marker(pointLatLngs[index], {
       icon: createNumberedIcon(point, index),
     }).addTo(map);
 
@@ -160,30 +167,35 @@ function updateMap() {
 
   if (routeLatLngs.length > 1) {
     routeLine = L.polyline(routeLatLngs, {
-      color: '#2563eb',
       weight: 5,
       opacity: 0.9,
     }).addTo(map);
 
-    const bounds = L.latLngBounds([...routeLatLngs, ...latLngs]);
-
+    const bounds = L.latLngBounds([...routeLatLngs, ...pointLatLngs]);
     map.fitBounds(bounds, { padding: [40, 40] });
-  } else if (latLngs.length > 1) {
-    routeLine = L.polyline(latLngs, {
-      color: '#94a3b8',
+  } else if (pointLatLngs.length > 1) {
+    // Fallback: если backend не вернул дорожную геометрию OSRM,
+    // показываем пунктирную прямую линию только как индикатор порядка точек.
+    routeLine = L.polyline(pointLatLngs, {
       weight: 3,
+      opacity: 0.75,
       dashArray: '8 8',
     }).addTo(map);
 
-    const bounds = L.latLngBounds(latLngs);
-
+    const bounds = L.latLngBounds(pointLatLngs);
     map.fitBounds(bounds, { padding: [40, 40] });
   } else {
-    map.setView(latLngs[0], 13);
+    map.setView(pointLatLngs[0], 13);
   }
+
+  setTimeout(() => map?.invalidateSize(), 0);
 }
 
 function createMap() {
+  if (!mapContainer.value) {
+    return;
+  }
+
   map = L.map(mapContainer.value, {
     center: DEFAULT_MAP_CENTER,
     zoom: 11,
@@ -199,37 +211,14 @@ function createMap() {
   }, 0);
 }
 
-function geometryToLatLngs(geometry) {
-  if (!geometry || geometry.type !== 'LineString') {
-    return [];
-  }
-
-  const coordinates = geometry.coordinates;
-
-  if (!Array.isArray(coordinates)) {
-    return [];
-  }
-
-  return coordinates
-    .map((coordinate) => {
-      const longitude = Number(coordinate?.[0]);
-      const latitude = Number(coordinate?.[1]);
-
-      if (!Number.isFinite(latitude) || !Number.isFinite(longitude)) {
-        return null;
-      }
-
-      return [latitude, longitude];
-    })
-    .filter(Boolean);
-}
-
 onMounted(() => {
   createMap();
   updateMap();
 });
 
 onUnmounted(() => {
+  clearMapLayers();
+
   if (map) {
     map.remove();
     map = null;
@@ -271,6 +260,7 @@ watch(
   font-size: 14px;
   font-weight: 700;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 6px 14px rgba(15, 23, 42, 0.25);
 }
 
 .route-marker--start {

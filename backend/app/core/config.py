@@ -28,6 +28,14 @@ class Settings(BaseSettings):
     GEOCODER_PROVIDER: str = "nominatim"
     GEOCODER_ENABLE_FALLBACK: bool = True
 
+    OCR_SERVICE_URL: str = "http://ocr:8088"
+    OCR_ENGINE: str = "paddleocr"
+    OCR_REQUEST_TIMEOUT_S: float = 120.0
+    OCR_UPLOAD_DIR: str = "data/imports"
+    OCR_SAMPLE_ROUTES_DIR: str = "data/routes"
+    OCR_MAX_FILES: int = 10
+    OCR_MAX_FILE_SIZE_MB: int = 15
+
     OPENCAGE_BASE_URL: str = "https://api.opencagedata.com/geocode/v1"
     OPENCAGE_API_KEY: str | None = None
     OPENCAGE_LANGUAGE: str = "ru"
