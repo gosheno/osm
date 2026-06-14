@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import re
 from typing import Any
 
 from sqlalchemy import text
@@ -18,6 +19,69 @@ from app.utils.address_normalizer import normalize_address
 
 MIN_SUGGEST_QUERY_LENGTH = 3
 MAX_SUGGEST_LIMIT = 10
+
+CITY_MATCH_TOKENS = {
+    "санкт",
+    "петербург",
+    "ленинградская",
+    "область",
+    "россия",
+}
+
+STREET_TYPE_TOKENS = {
+    "ул",
+    "улица",
+    "улицы",
+    "пр",
+    "просп",
+    "проспект",
+    "пр-т",
+    "пер",
+    "переулок",
+    "наб",
+    "набережная",
+    "пл",
+    "площадь",
+    "ш",
+    "шоссе",
+    "б-р",
+    "бул",
+    "бульвар",
+    "проезд",
+    "дорога",
+}
+
+STREET_TYPE_PATTERN = (
+    r"улица|улицы|ул\.?|проспект|просп\.?|пр-т\.?|пр\.?|"
+    r"переулок|пер\.?|набережная|наб\.?|площадь|пл\.?|"
+    r"шоссе|ш\.?|бульвар|б-р\.?|бул\.?|проезд|дорога|линия"
+)
+
+STREET_TYPE_CANONICAL = {
+    "ул": "улица",
+    "улица": "улица",
+    "улицы": "улица",
+    "пр": "проспект",
+    "просп": "проспект",
+    "пр-т": "проспект",
+    "проспект": "проспект",
+    "пер": "переулок",
+    "переулок": "переулок",
+    "наб": "набережная",
+    "набережная": "набережная",
+    "пл": "площадь",
+    "площадь": "площадь",
+    "ш": "шоссе",
+    "шоссе": "шоссе",
+    "б-р": "бульвар",
+    "бул": "бульвар",
+    "бульвар": "бульвар",
+}
+
+HOUSE_NUMBER_PATTERN = (
+    r"\d+(?!-?[яйе]\b)[0-9a-zа-я/-]*"
+    r"(?:\s*(?:корпус|корп|к|строение|стр|литера|лит)\.?\s*[0-9a-zа-я/-]+)*"
+)
 
 
 class AddressSuggestQueryTooShortError(ValueError):
@@ -41,12 +105,24 @@ def split_display_name(display_name: str) -> tuple[str, str | None]:
 
 def address_secondary_text(address: dict[str, Any], display_name: str) -> str | None:
     values = [
-        address.get("city")
-        or address.get("town")
-        or address.get("village")
-        or address.get("municipality")
-        or address.get("suburb"),
+        address.get("shop"),
+        address.get("amenity"),
+        address.get("tourism"),
+        address.get("building"),
+        address.get("allotments"),
+        address.get("neighbourhood"),
+        address.get("quarter"),
+        address.get("suburb"),
+        address.get("city_district"),
+        address.get("municipality"),
+        address.get("hamlet"),
+        address.get("village"),
+        address.get("town"),
+        address.get("city"),
+        address.get("county"),
+        address.get("state_district"),
         address.get("state") or address.get("region"),
+        address.get("postcode"),
         address.get("country"),
     ]
     cleaned: list[str] = []
@@ -130,6 +206,319 @@ def safe_int(value: Any) -> int | None:
         return int(value) if value is not None else None
     except (TypeError, ValueError):
         return None
+
+
+def query_has_house_number(query: str) -> bool:
+    value = query.lower().replace("ё", "е").strip()
+    if re.search(r"(^|[\s,])(дом|д)\.?\s*\d", value):
+        return True
+    return bool(re.search(rf"(^|[\s,]){HOUSE_NUMBER_PATTERN}$", value))
+
+
+def item_is_street_completion(item: AddressSuggestionItem) -> bool:
+    address = item.address or {}
+    if address.get("house_number"):
+        return False
+    if (
+        address.get("road")
+        or address.get("pedestrian")
+        or address.get("footway")
+        or address.get("path")
+    ):
+        return True
+
+    category = (item.category or "").lower()
+    item_type = (item.type or "").lower()
+    return category == "highway" or item_type in {
+        "road",
+        "residential",
+        "primary",
+        "secondary",
+        "tertiary",
+        "unclassified",
+        "service",
+        "living_street",
+        "pedestrian",
+    }
+
+
+def street_text_from_item(item: AddressSuggestionItem) -> str:
+    address = item.address or {}
+    explicit_street = (
+        address.get("road")
+        or address.get("pedestrian")
+        or address.get("footway")
+        or address.get("path")
+    )
+    if explicit_street:
+        return str(explicit_street)
+
+    raw_address = address.get("address")
+    if isinstance(raw_address, str):
+        parsed = extract_street_text(raw_address)
+        if parsed:
+            return parsed
+
+    for value in (item.main_text, item.display_name):
+        parsed = extract_street_text(value or "")
+        if parsed:
+            return parsed
+    return str(item.main_text or "")
+
+
+def street_completion_matches_query(item: AddressSuggestionItem, query: str) -> bool:
+    street_tokens = match_tokens(street_text_from_item(item))
+    query_tokens = match_tokens(query)
+    if not street_tokens or not query_tokens:
+        return False
+    return any(
+        street_token == query_token
+        or street_token.startswith(query_token)
+        or query_token.startswith(street_token)
+        for street_token in street_tokens
+        for query_token in query_tokens
+    )
+
+
+def match_tokens(value: str) -> set[str]:
+    return {
+        token
+        for token in re.findall(r"[0-9a-zA-Zа-яА-Я]+", value.lower().replace("ё", "е"))
+        if (token.isdigit() or len(token) >= 3)
+        and token not in CITY_MATCH_TOKENS
+        and token not in STREET_TYPE_TOKENS
+    }
+
+
+def extract_street_text(value: str) -> str | None:
+    value = normalize_street_source(value)
+    if not value:
+        return None
+
+    parts = [part.strip() for part in value.split(",") if part.strip()]
+    for part in parts:
+        if street_part_has_type(part):
+            return format_street_text(part)
+
+    stripped = strip_house_suffix(strip_city_prefix(value))
+    if stripped != value and has_alpha_token(stripped):
+        return format_street_text(stripped)
+    return None
+
+
+def normalize_street_source(value: str) -> str:
+    value = (value or "").strip()
+    value = value.replace("ё", "е")
+    value = value.replace(";", ",").replace("|", ",").replace("\t", " ")
+    value = re.sub(r"\s+", " ", value)
+    value = re.sub(r"\s*,\s*", ", ", value)
+    return value.strip(" ,")
+
+
+def strip_city_prefix(value: str) -> str:
+    prefixes = (
+        "санкт-петербург",
+        "санкт петербург",
+        "спб",
+        "петербург",
+        "ленинградская область",
+        "россия",
+    )
+    stripped = value.strip(" ,")
+    for prefix in prefixes:
+        stripped = re.sub(
+            rf"^{re.escape(prefix)}\s*,?\s*",
+            "",
+            stripped,
+            flags=re.IGNORECASE,
+        )
+    return stripped.strip(" ,")
+
+
+def strip_house_suffix(value: str) -> str:
+    value = value.strip(" ,")
+    value = re.sub(
+        rf"\b(?:дом|д)\.?\s*{HOUSE_NUMBER_PATTERN}\s*$",
+        "",
+        value,
+        flags=re.IGNORECASE,
+    )
+    value = re.sub(
+        rf",\s*{HOUSE_NUMBER_PATTERN}\s*$",
+        "",
+        value,
+        flags=re.IGNORECASE,
+    )
+    value = re.sub(
+        rf"\s+{HOUSE_NUMBER_PATTERN}\s*$",
+        "",
+        value,
+        flags=re.IGNORECASE,
+    )
+    return value.strip(" ,")
+
+
+def looks_like_house_part(value: str | None) -> bool:
+    if not value:
+        return False
+    value = value.lower().replace("ё", "е").strip(" ,")
+    return bool(
+        re.fullmatch(
+            rf"(?:дом|д)?\.?\s*{HOUSE_NUMBER_PATTERN}",
+            value,
+            flags=re.IGNORECASE,
+        )
+    )
+
+
+def street_part_has_type(value: str) -> bool:
+    return bool(
+        re.search(
+            rf"(^|\s)({STREET_TYPE_PATTERN})($|\s)",
+            value,
+            flags=re.IGNORECASE,
+        )
+    )
+
+
+def has_alpha_token(value: str) -> bool:
+    return bool(re.search(r"[a-zA-Zа-яА-Я]{3,}", value))
+
+
+def format_street_text(value: str) -> str:
+    value = strip_house_suffix(strip_city_prefix(normalize_street_source(value)))
+    value = re.sub(r"\s+", " ", value).strip(" ,")
+
+    prefix = re.match(
+        rf"^({STREET_TYPE_PATTERN})\s+(.+)$",
+        value,
+        flags=re.IGNORECASE,
+    )
+    if prefix:
+        street_type = canonical_street_type(prefix.group(1))
+        street_name = prefix.group(2).strip(" ,")
+        return f"{street_type} {street_name}" if street_type else value
+
+    suffix = re.match(r"^(.+?)\s+(ул\.?|улица|улицы)$", value, flags=re.IGNORECASE)
+    if suffix:
+        street_name = suffix.group(1).strip(" ,")
+        return f"улица {street_name}"
+
+    return value
+
+
+def canonical_street_type(value: str) -> str | None:
+    key = value.lower().replace(".", "").strip()
+    return STREET_TYPE_CANONICAL.get(key, key or None)
+
+
+def street_secondary_text(item: AddressSuggestionItem, street: str) -> str | None:
+    display_parts = [
+        part.strip()
+        for part in (item.display_name or "").split(",")
+        if part.strip()
+    ]
+    street_key = " ".join(sorted(match_tokens(street)))
+    useful_parts: list[str] = []
+    for part in display_parts:
+        part_lower = part.lower().replace("ё", "е")
+        if part_lower in {"санкт-петербург", "санкт петербург", "спб"}:
+            useful_parts.append(part)
+            continue
+        if looks_like_house_part(part):
+            continue
+
+        part_tokens = " ".join(sorted(match_tokens(part)))
+        if not part_tokens or part_tokens == street_key:
+            continue
+        if part_lower in CITY_MATCH_TOKENS:
+            continue
+        useful_parts.append(part)
+
+    if useful_parts:
+        return ", ".join(useful_parts[:3])
+
+    if item.secondary_text and not looks_like_house_part(item.secondary_text):
+        return item.secondary_text
+    return None
+
+
+def street_completion_items_from_items(
+    items: list[AddressSuggestionItem],
+    *,
+    query: str,
+) -> list[AddressSuggestionItem]:
+    best_by_street: dict[str, AddressSuggestionItem] = {}
+
+    for item in items:
+        if item.geocoding_status not in {"found", "manual"}:
+            continue
+
+        street = street_text_from_item(item)
+        if not street:
+            continue
+
+        address = dict(item.address or {})
+        address.pop("house_number", None)
+        address.pop("house", None)
+        address["road"] = street
+
+        street_item = AddressSuggestionItem(
+            id=f"street:{normalize_street_source(street).lower()}",
+            provider=item.provider,
+            display_name=street,
+            main_text=street,
+            secondary_text=street_secondary_text(item, street),
+            latitude=item.latitude,
+            longitude=item.longitude,
+            osm_type=item.osm_type,
+            osm_id=item.osm_id,
+            place_id=item.place_id,
+            category="highway",
+            type="road",
+            importance=item.importance,
+            confidence_score=item.confidence_score,
+            address=address,
+            geocoding_status="found",
+            source=item.source,
+            outside_supported_region=item.outside_supported_region,
+        )
+
+        if not street_completion_matches_query(street_item, query):
+            continue
+
+        key = " ".join(sorted(match_tokens(street)))
+        if not key:
+            continue
+        current = best_by_street.get(key)
+        if current is None or (street_item.confidence_score or 0) > (
+            current.confidence_score or 0
+        ):
+            best_by_street[key] = street_item
+
+    return list(best_by_street.values())
+
+
+def sort_suggestion_items(
+    items: list[AddressSuggestionItem],
+    *,
+    query: str,
+) -> list[AddressSuggestionItem]:
+    prefer_streets = not query_has_house_number(query)
+    return sorted(
+        items,
+        key=lambda item: (
+            0
+            if (
+                prefer_streets
+                and item_is_street_completion(item)
+                and street_completion_matches_query(item, query)
+            )
+            else 1,
+            item.source != "database",
+            -(item.confidence_score or 0),
+        ),
+    )
 
 
 def item_from_candidate(candidate: GeocodingCandidate) -> AddressSuggestionItem:
@@ -242,17 +631,24 @@ class AddressSuggestionService:
         normalized = normalize_address(clean_query, default_city=default_city)
         normalized_query = normalized.normalized_address
         result_limit = clamp_limit(limit)
+        prefer_streets = not query_has_house_number(clean_query)
 
         cached = await self._cached_suggestions(
             normalized_query=normalized_query,
             query=clean_query,
-            limit=result_limit,
+            limit=result_limit * 3 if prefer_streets else result_limit,
         )
 
-        items = deduplicate_items(cached)[:result_limit]
+        if prefer_streets:
+            items = deduplicate_items(
+                street_completion_items_from_items(cached, query=clean_query) + cached
+            )
+        else:
+            items = deduplicate_items(cached)[:result_limit]
+
         remaining = result_limit - len(items)
-        if remaining <= 0:
-            return normalized_query, items
+        if remaining <= 0 and not prefer_streets:
+            return normalized_query, sort_suggestion_items(items, query=clean_query)
 
         search_query = normalized_query
         if context_region and context_region.lower() not in search_query.lower():
@@ -260,7 +656,7 @@ class AddressSuggestionService:
 
         candidates = await NominatimClient().search(
             search_query,
-            limit=remaining,
+            limit=result_limit if prefer_streets else remaining,
             language=lang,
             viewbox=viewbox,
             bounded=bounded,
@@ -274,12 +670,7 @@ class AddressSuggestionService:
             seen.add(key)
             items.append(item)
 
-        items.sort(
-            key=lambda item: (
-                item.source != "database",
-                -(item.confidence_score or 0),
-            )
-        )
+        items = sort_suggestion_items(deduplicate_items(items), query=clean_query)
         return normalized_query, items[:result_limit]
 
     async def _cached_suggestions(

@@ -14,8 +14,7 @@ services:
       THREADS: ${NOMINATIM_THREADS:-4}
     volumes:
       - ./data/osm:/nominatim/data
-      - ./data/nominatim/postgres:/var/lib/postgresql/14/main
-      - ./data/nominatim/flatnode:/nominatim/flatnode
+      - ./data/nominatim/postgres:/var/lib/postgresql/16/main
       - ./data/nominatim/logs:/nominatim/logs
     shm_size: ${NOMINATIM_SHM_SIZE:-1gb}
     healthcheck:

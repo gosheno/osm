@@ -1,0 +1,2 @@
+﻿canonical_brand,name,address,latitude,longitude,confidence_score,warnings,osm_type,osm_id,source,is_duplicate
+Пятёрочка,Пятёрочка,,58.5410709,31.2306892,0.5,ADDRESS_MISSING,node,273126786,osm_pbf,False

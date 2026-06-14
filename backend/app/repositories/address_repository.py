@@ -40,6 +40,9 @@ async def upsert_address(
     geocoding_provider: str | None,
     confidence_score: float | None,
 ) -> dict:
+    if geocoding_status == "not_found":
+        raise ValueError("not_found addresses must not be saved to addresses cache")
+
     result = await db.execute(
         text(
             """

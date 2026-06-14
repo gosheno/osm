@@ -66,6 +66,47 @@ python -m app.scripts.import_known_pois `
 
 The script refuses `nominatim.openstreetmap.org` for enrichment.
 
+## Reverse-geocode Existing Reports
+
+If POI reports were generated without address enrichment, fill missing `address`
+values from coordinates using a local Nominatim instance:
+
+```powershell
+# Start the separate Nominatim compose stack from the project root.
+Copy-Item .env.nominatim.example .env.nominatim
+docker compose --env-file .env.nominatim `
+  -f docker-compose.nominatim.yml `
+  up -d nominatim
+
+# Run the report reverse-geocoder inside the existing backend container.
+docker compose exec -e NOMINATIM_BASE_URL=http://nominatim:8080 `
+  backend `
+  python -m app.scripts.reverse_geocode_poi_reports `
+  --reports-dir /reports/pois
+```
+
+The script writes `*_reverse_geocoded_*.csv` files next to the source reports,
+adds `reverse_*` diagnostic columns, and uses the same `NOMINATIM_BASE_URL`,
+headers, timeout, language, and request interval as backend route geocoding.
+For bulk enrichment, point `NOMINATIM_BASE_URL` at a local Nominatim instance.
+
+Apply the enriched main import report back to `known_pois`:
+
+```powershell
+docker compose exec backend `
+  python -m app.scripts.apply_reverse_geocoded_poi_report `
+  --report /reports/pois/poi_import_20260613_141619_reverse_geocoded_20260614_090544.csv `
+  --refresh-confidence
+```
+
+Materialize usable POIs into the regular `addresses` cache used by routing:
+
+```powershell
+docker compose exec backend `
+  python -m app.scripts.sync_known_pois_to_addresses `
+  --overwrite-existing
+```
+
 ## Search API
 
 Known POIs can be searched through:

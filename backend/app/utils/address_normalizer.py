@@ -128,6 +128,12 @@ def normalize_spaces(value: str) -> str:
     return value.strip(" ,")
 
 
+def normalize_house_suffixes(value: str) -> str:
+    value = re.sub(r"(\d+)\s*a(?=$|[\s,])", r"\1а", value, flags=re.IGNORECASE)
+    value = re.sub(r"(\d+)\s+([а-я])(?=$|[\s,])", r"\1\2", value, flags=re.IGNORECASE)
+    return value
+
+
 def clean_place_name(value: str | None) -> str | None:
     if value is None:
         return None
@@ -224,17 +230,23 @@ def normalize_address(
     value = value.replace("\t", " ")
 
     value = normalize_spaces(value)
+    value = re.sub(r"(?<=\d)\s*к\s*(?=\d)", " корпус ", value, flags=re.IGNORECASE)
+    value = re.sub(r"(?<=\d)\s*корп\.?\s*(?=\d)", " корпус ", value, flags=re.IGNORECASE)
+    value = re.sub(r"(?<=\d)\s*стр\.?\s*(?=\d)", " строение ", value, flags=re.IGNORECASE)
+    value = re.sub(r"(?<=\d)\s*лит\.?\s*(?=[a-zа-я])", " литера ", value, flags=re.IGNORECASE)
 
     for pattern, replacement in REPLACEMENTS:
         value = re.sub(pattern, replacement, value)
 
     value = normalize_spaces(value)
+    value = normalize_house_suffixes(value)
 
     has_city = any(city in value for city in CITY_CONTEXT_MARKERS)
     if default_city and not has_city:
         value = f"{normalize_default_city(default_city)}, {value}"
 
     value = normalize_spaces(value)
+    value = normalize_house_suffixes(value)
 
     tokens = [
         token

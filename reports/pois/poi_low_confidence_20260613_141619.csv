@@ -1,0 +1,1744 @@
+﻿canonical_brand,name,address,latitude,longitude,confidence_score,warnings,osm_type,osm_id,source,is_duplicate
+Пятёрочка,Пятёрочка,,58.5410709,31.2306892,0.5,ADDRESS_MISSING,node,273126786,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.5267475,31.2255704,0.5,ADDRESS_MISSING,node,281688535,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.5434224,31.3179729,0.5,ADDRESS_MISSING,node,286966172,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.5379625,31.3000114,0.5,ADDRESS_MISSING,node,287820352,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.5266373,31.2930522,0.5,ADDRESS_MISSING,node,287826434,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.5403882,31.245546,0.5,ADDRESS_MISSING,node,301421115,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.0982289,35.2252374,0.5,ADDRESS_MISSING,node,369482683,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.518509,31.2493199,0.5,ADDRESS_MISSING,node,377614965,osm_pbf,False
+ОКЕЙ,супермаркет «О'Кей»,,59.8279794,30.3232282,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,410525407,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9368426,30.4836375,0.5,ADDRESS_MISSING,node,428882376,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9392389,30.4753217,0.5,ADDRESS_MISSING,node,428942365,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9365111,30.4891133,0.5,ADDRESS_MISSING,node,429923619,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9002424,30.4794242,0.5,ADDRESS_MISSING,node,441597759,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8590975,30.1847402,0.5,ADDRESS_MISSING,node,442269659,osm_pbf,False
+Лента,Дом Лента,,59.8950846,30.5185282,0.3,ADDRESS_MISSING,node,442515596,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.5393452,31.3137323,0.5,ADDRESS_MISSING,node,462080671,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.5800114,31.3126752,0.5,ADDRESS_MISSING,node,475101210,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8509289,30.1768481,0.5,ADDRESS_MISSING,node,476808163,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9988716,29.7682549,0.5,ADDRESS_MISSING,node,483741545,osm_pbf,False
+Реалъ,РеалЪ,,59.9178996,30.2893587,0.5,ADDRESS_MISSING,node,487274925,osm_pbf,False
+Семишагофф,Семишагофф,,59.7334049,30.5771521,0.5,ADDRESS_MISSING,node,490670904,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8727648,30.3914417,0.5,ADDRESS_MISSING,node,522606825,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8487739,30.3126445,0.5,ADDRESS_MISSING,node,524598539,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.012577,30.2422787,0.5,ADDRESS_MISSING,node,536743884,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8472275,30.3305281,0.5,ADDRESS_MISSING,node,571202794,osm_pbf,False
+Пятёрочка,"Автостоянка при супермакете ""Пятерочка""",,59.4512154,29.4854931,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,577511857,osm_pbf,False
+Лента,Дом Лента,,59.8710571,30.349361,0.3,ADDRESS_MISSING,node,604938975,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.2566768,29.5913169,0.5,ADDRESS_MISSING,node,614493826,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8284987,30.3980625,0.5,ADDRESS_MISSING,node,616507120,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0071788,30.3520746,0.5,ADDRESS_MISSING,node,619313181,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8120158,30.2904344,0.5,ADDRESS_MISSING,node,621446068,osm_pbf,False
+Лента,Торговый комплекс «Лента»,,59.8100127,30.3184135,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,621455194,osm_pbf,False
+Лента,Торговый комплекс «Лента»,,59.810193,30.3183762,0.0,ADDRESS_MISSING;SHOP_TAG_MISSING;DUPLICATE_CANDIDATE,node,621455195,osm_pbf,True
+Пятёрочка,Пятёрочка,,59.8644392,30.313389,0.5,ADDRESS_MISSING,node,633582445,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9645353,30.3103533,0.5,ADDRESS_MISSING,node,639563442,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8562287,30.2234066,0.5,ADDRESS_MISSING,node,640444992,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8687791,30.31305,0.5,ADDRESS_MISSING,node,642164934,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8527835,30.3821077,0.5,ADDRESS_MISSING,node,643815000,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.7480903,30.5675259,0.5,ADDRESS_MISSING,node,649569494,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8757977,30.4464687,0.5,ADDRESS_MISSING,node,651391433,osm_pbf,False
+Семишагофф,Семишагофф,,59.8397995,30.3291796,0.5,ADDRESS_MISSING,node,651661478,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9346832,30.2711543,0.5,ADDRESS_MISSING,node,652699378,osm_pbf,False
+Азбука вкуса,Азбука Вкуса,,59.9942777,30.1460337,0.5,ADDRESS_MISSING,node,659228415,osm_pbf,False
+Лента,Лента,,59.840657,30.3175466,0.5,ADDRESS_MISSING,node,659748436,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8870323,29.8614209,0.5,ADDRESS_MISSING,node,659977194,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8821179,29.8922049,0.5,ADDRESS_MISSING,node,664696466,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9254723,30.4235541,0.5,ADDRESS_MISSING,node,667582359,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8903944,29.0925045,0.5,ADDRESS_MISSING,node,668675180,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.7292286,30.0835227,0.5,ADDRESS_MISSING,node,672643749,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8285718,30.1565101,0.5,ADDRESS_MISSING,node,672653447,osm_pbf,False
+Реалъ,РеалЪ,,59.9033459,30.2201925,0.5,ADDRESS_MISSING,node,701604259,osm_pbf,False
+Лента,Дом Лента,,60.0900999,30.3827723,0.3,ADDRESS_MISSING,node,720732745,osm_pbf,False
+Пятёрочка,торговый центр «Пятерочка»,,59.7459036,30.0916274,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,727776023,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.8324421,30.5063395,0.5,ADDRESS_MISSING,node,775650456,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8329921,30.5070632,0.5,ADDRESS_MISSING,node,775657521,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9304573,30.2448581,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,799905326,osm_pbf,False
+Реалъ,РеалЪ,,59.9589439,30.3496178,0.5,ADDRESS_MISSING,node,806959127,osm_pbf,False
+Пятёрочка,Пятёрочка,,61.0427824,30.1454657,0.5,ADDRESS_MISSING,node,824623316,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.956959,30.2289086,0.5,ADDRESS_MISSING,node,825152672,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9520931,30.2166638,0.5,ADDRESS_MISSING,node,825152797,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9491968,30.229477,0.5,ADDRESS_MISSING,node,825152923,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9360541,30.2429516,0.5,ADDRESS_MISSING,node,842081375,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9376588,30.2380163,0.5,ADDRESS_MISSING,node,842081474,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9182547,30.3572146,0.5,ADDRESS_MISSING,node,849150602,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0057908,30.4283023,0.5,ADDRESS_MISSING,node,873551062,osm_pbf,False
+Лента,Супер Лента,,59.7404464,30.5834323,0.5,ADDRESS_MISSING,node,873561540,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9976407,30.3716625,0.5,ADDRESS_MISSING,node,873657900,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.7073072,28.7558841,0.5,ADDRESS_MISSING,node,882393195,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8382066,30.2699787,0.5,ADDRESS_MISSING,node,893147286,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8350613,30.1412673,0.5,ADDRESS_MISSING,node,911837047,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9149981,30.486173,0.5,ADDRESS_MISSING,node,912438463,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8925148,32.3488367,0.5,ADDRESS_MISSING,node,914395838,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.847191,30.207579,0.5,ADDRESS_MISSING,node,914800862,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.810229,30.3812411,0.5,ADDRESS_MISSING,node,922439823,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.92667,30.3083673,0.5,ADDRESS_MISSING,node,922666754,osm_pbf,False
+Реалъ,РеалЪ,,60.0348447,30.3937294,0.5,ADDRESS_MISSING,node,928206485,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0212249,30.2272919,0.5,ADDRESS_MISSING,node,933650081,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.6192494,30.3925772,0.5,ADDRESS_MISSING,node,970796344,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9221417,30.443945,0.5,ADDRESS_MISSING,node,974419887,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.967036,30.3134408,0.5,ADDRESS_MISSING,node,976760221,osm_pbf,False
+Семишагофф,Семишагофф,,59.9535946,30.4347968,0.5,ADDRESS_MISSING,node,979100626,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8423673,30.3627534,0.5,ADDRESS_MISSING,node,982779814,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9424573,30.2615063,0.5,ADDRESS_MISSING,node,988594359,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8456074,30.3781449,0.5,ADDRESS_MISSING,node,988719054,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8099963,30.5692999,0.5,ADDRESS_MISSING,node,993707294,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8548966,30.3746354,0.5,ADDRESS_MISSING,node,995137439,osm_pbf,False
+ОКЕЙ,О’КЕЙ,,59.7388968,30.6228076,0.5,ADDRESS_MISSING,node,998422248,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.732961,33.5557634,0.5,ADDRESS_MISSING,node,1000929826,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.7362871,30.6175579,0.5,ADDRESS_MISSING,node,1005896697,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.3521575,29.440829,0.5,ADDRESS_MISSING,node,1012688843,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.707196,30.4157213,0.5,ADDRESS_MISSING,node,1016132787,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0278607,30.2236178,0.5,ADDRESS_MISSING,node,1029386598,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8988112,30.2744521,0.5,ADDRESS_MISSING,node,1034246710,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9839979,30.4006162,0.5,ADDRESS_MISSING,node,1056291260,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.8784291,30.3190392,0.5,ADDRESS_MISSING,node,1056399186,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8746664,29.8995863,0.5,ADDRESS_MISSING,node,1056742643,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9884066,30.3112042,0.5,ADDRESS_MISSING,node,1057547828,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9270056,30.308372,0.5,ADDRESS_MISSING,node,1083188023,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9284697,30.3048304,0.5,ADDRESS_MISSING,node,1083189791,osm_pbf,False
+Лента,Дом Лента,,59.9933833,30.1470525,0.3,ADDRESS_MISSING,node,1085321927,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0894701,29.953784,0.5,ADDRESS_MISSING,node,1088135998,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.3772,28.2288243,0.5,ADDRESS_MISSING,node,1091991300,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.1035311,29.9758128,0.5,ADDRESS_MISSING,node,1092317197,osm_pbf,False
+Семишагофф,Семишагофф,,59.86332,30.3040345,0.5,ADDRESS_MISSING,node,1095054082,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.944049,30.227546,0.5,ADDRESS_MISSING,node,1106419325,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0149715,30.3159563,0.5,ADDRESS_MISSING,node,1108264501,osm_pbf,False
+Семишагофф,Семишагофф,,59.9157367,30.3048399,0.5,ADDRESS_MISSING,node,1118534000,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9249362,30.4952649,0.5,ADDRESS_MISSING,node,1126137401,osm_pbf,False
+Лента,торговый комплекс «Лента»,,59.9854864,30.2264919,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,1126168166,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9184085,30.4960431,0.5,ADDRESS_MISSING,node,1129309815,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9187965,30.482377,0.5,ADDRESS_MISSING,node,1140385418,osm_pbf,False
+ВкусВилл,ВкусВилл,,60.0130191,30.3241535,0.5,ADDRESS_MISSING,node,1146914628,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.000095,30.2479798,0.5,ADDRESS_MISSING,node,1157717818,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.913195,30.2772759,0.5,ADDRESS_MISSING,node,1161917581,osm_pbf,False
+Семишагофф,Семишагофф,,59.8365457,30.2456021,0.5,ADDRESS_MISSING,node,1176699425,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8420711,30.4897164,0.5,ADDRESS_MISSING,node,1180116697,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8371577,30.5112775,0.5,ADDRESS_MISSING,node,1180134887,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.7503749,30.5670817,0.5,ADDRESS_MISSING,node,1188861566,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8786646,30.460559,0.5,ADDRESS_MISSING,node,1196738691,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8642638,30.3993911,0.5,ADDRESS_MISSING,node,1202269455,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.2565207,29.5987295,0.5,ADDRESS_MISSING,node,1214441804,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9391178,31.0409233,0.5,ADDRESS_MISSING,node,1226386106,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.5428656,31.3046854,0.5,ADDRESS_MISSING,node,1231238008,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.6460765,33.5127571,0.5,ADDRESS_MISSING,node,1236459142,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8642899,30.3727861,0.5,ADDRESS_MISSING,node,1239317252,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9592456,30.4904647,0.5,ADDRESS_MISSING,node,1257098039,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9223189,30.2924764,0.5,ADDRESS_MISSING,node,1269368956,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8766777,30.392301,0.5,ADDRESS_MISSING,node,1270991084,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.7384425,30.4090713,0.5,ADDRESS_MISSING,node,1271935463,osm_pbf,False
+Семишагофф,Семишагофф,,59.9549289,30.4689533,0.5,ADDRESS_MISSING,node,1277224217,osm_pbf,False
+Лента,Лента-тур,,59.9308218,30.3595212,0.3,ADDRESS_MISSING,node,1284680689,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.6410997,33.5198548,0.5,ADDRESS_MISSING,node,1289295435,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.1103194,30.2833753,0.5,ADDRESS_MISSING,node,1289907436,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.7236685,30.6089154,0.5,ADDRESS_MISSING,node,1301926947,osm_pbf,False
+Семишагофф,Семишагофф,,59.7072805,30.0192264,0.5,ADDRESS_MISSING,node,1312752822,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.713706,28.7491857,0.5,ADDRESS_MISSING,node,1313315163,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.5473787,30.8640336,0.5,ADDRESS_MISSING,node,1316985240,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9444662,30.2384445,0.5,ADDRESS_MISSING,node,1326613517,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.1430538,30.216472,0.5,ADDRESS_MISSING,node,1329401746,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.1514798,30.2055917,0.5,ADDRESS_MISSING,node,1329402139,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.7059814,28.7675564,0.5,ADDRESS_MISSING,node,1330668999,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.92954,32.3000183,0.5,ADDRESS_MISSING,node,1334531715,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9276567,32.3230636,0.5,ADDRESS_MISSING,node,1342105680,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.950575,30.4703052,0.5,ADDRESS_MISSING,node,1342428165,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.7270262,29.8589624,0.5,ADDRESS_MISSING,node,1351821439,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.1202776,30.4990205,0.5,ADDRESS_MISSING,node,1353091293,osm_pbf,False
+Семишагофф,Семишагофф,,59.9535095,30.4785478,0.5,ADDRESS_MISSING,node,1359552598,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.3724015,30.3689282,0.5,ADDRESS_MISSING,node,1366942875,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.4017144,33.2938316,0.5,ADDRESS_MISSING,node,1375601834,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0105714,30.4181474,0.5,ADDRESS_MISSING,node,1378560048,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.021,28.185033,0.5,ADDRESS_MISSING,node,1382982302,osm_pbf,False
+Реалъ,РеалЪ,,59.8445741,30.2637986,0.5,ADDRESS_MISSING,node,1398268755,osm_pbf,False
+Реалъ,РеалЪ,,59.9158688,30.3254833,0.5,ADDRESS_MISSING,node,1400008247,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9720528,30.387506,0.5,ADDRESS_MISSING,node,1410495521,osm_pbf,False
+Реалъ,Магазин реальных цен,,59.9276489,30.3163239,0.3,ADDRESS_MISSING,node,1422754864,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.5464368,30.8595655,0.5,ADDRESS_MISSING,node,1430793935,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9113636,30.2894225,0.5,ADDRESS_MISSING,node,1456696175,osm_pbf,False
+Лента,торговый комплекс «Лента»,,59.9855844,30.2265365,0.0,ADDRESS_MISSING;SHOP_TAG_MISSING;DUPLICATE_CANDIDATE,node,1461953472,osm_pbf,True
+Пятёрочка,Пятёрочка,,60.1425553,30.2082487,0.5,ADDRESS_MISSING,node,1496489956,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.4011283,33.0233261,0.5,ADDRESS_MISSING,node,1507319817,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.904992,30.4832148,0.5,ADDRESS_MISSING,node,1510213234,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.6737187,30.6979088,0.5,ADDRESS_MISSING,node,1515214929,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8851904,30.4270619,0.5,ADDRESS_MISSING,node,1517360819,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.8426999,32.2219858,0.5,ADDRESS_MISSING,node,1529352518,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8741073,30.3046004,0.5,ADDRESS_MISSING,node,1538289211,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9117096,30.2825035,0.5,ADDRESS_MISSING,node,1542528995,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9116236,30.3180296,0.5,ADDRESS_MISSING,node,1554518130,osm_pbf,False
+Реалъ,РеалЪ,,59.9068784,30.3188311,0.5,ADDRESS_MISSING,node,1556206442,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8604946,30.3145939,0.5,ADDRESS_MISSING,node,1557195885,osm_pbf,False
+ОКЕЙ,супермаркет «О'Кей»,,59.8272416,30.3224152,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,1557354817,osm_pbf,False
+ОКЕЙ,супермаркет «О'Кей»,,59.8279718,30.3229703,0.0,ADDRESS_MISSING;SHOP_TAG_MISSING;DUPLICATE_CANDIDATE,node,1557354819,osm_pbf,True
+Пятёрочка,Пятёрочка,,59.8658821,30.4556443,0.5,ADDRESS_MISSING,node,1562182492,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.91487,30.3184519,0.5,ADDRESS_MISSING,node,1567307034,osm_pbf,False
+ОКЕЙ,О’Кей,,59.8782033,30.3574527,0.5,ADDRESS_MISSING,node,1570231737,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8525045,30.2603398,0.5,ADDRESS_MISSING,node,1579302654,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.925525,30.2834147,0.5,ADDRESS_MISSING,node,1579801422,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0634475,30.3076831,0.5,ADDRESS_MISSING,node,1579965694,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0075231,30.2938732,0.5,ADDRESS_MISSING,node,1581489474,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.941862,30.2736515,0.5,ADDRESS_MISSING,node,1585571405,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8474909,30.3053795,0.5,ADDRESS_MISSING,node,1586234428,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.5599094,31.0205944,0.5,ADDRESS_MISSING,node,1589533568,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.5010012,34.6612477,0.5,ADDRESS_MISSING,node,1589698252,osm_pbf,False
+Семишагофф,Семишагофф,,59.9399036,30.2669531,0.5,ADDRESS_MISSING,node,1606591417,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8412834,30.1743555,0.5,ADDRESS_MISSING,node,1613403059,osm_pbf,False
+Лента,Гипермаркет «Лента»,,59.9355409,30.4955945,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,1633771772,osm_pbf,False
+Семишагофф,Семишагофф,,59.9306011,30.6252577,0.5,ADDRESS_MISSING,node,1649273026,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0910318,30.8378781,0.5,ADDRESS_MISSING,node,1656308593,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0262939,30.2245685,0.5,ADDRESS_MISSING,node,1657136408,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8827002,30.9889637,0.5,ADDRESS_MISSING,node,1667784437,osm_pbf,False
+Семишагофф,Семишагофф,,60.0179416,30.2437278,0.5,ADDRESS_MISSING,node,1667829459,osm_pbf,False
+Лента,торговый комплекс «Лента»,,59.9857078,30.2266313,0.0,ADDRESS_MISSING;SHOP_TAG_MISSING;DUPLICATE_CANDIDATE,node,1669466215,osm_pbf,True
+Семишагофф,Семишагофф,,59.8971618,30.2775638,0.5,ADDRESS_MISSING,node,1673200525,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.899423,30.2754545,0.5,ADDRESS_MISSING,node,1673276821,osm_pbf,False
+Лента,ТК Лента,,59.7996492,30.4019,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,1675720356,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.3764748,28.6028633,0.5,ADDRESS_MISSING,node,1703305392,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8709832,30.3113125,0.5,ADDRESS_MISSING,node,1705785124,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9458419,30.4895632,0.5,ADDRESS_MISSING,node,1722236726,osm_pbf,False
+Лента,торговый комплекс «Лента»,,59.9858122,30.2256445,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,1727753150,osm_pbf,False
+Лента,Торговый комплекс «Лента»,,59.908111,30.4482679,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,1734565692,osm_pbf,False
+Лента,Торговый комплекс «Лента»,,59.9082317,30.4479325,0.0,ADDRESS_MISSING;SHOP_TAG_MISSING;DUPLICATE_CANDIDATE,node,1734565693,osm_pbf,True
+Семишагофф,Семишагофф,,60.0851683,29.9544849,0.5,ADDRESS_MISSING,node,1746952779,osm_pbf,False
+ОКЕЙ,О’КЕЙ,,60.0835372,29.9547778,0.5,ADDRESS_MISSING,node,1749441652,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8739201,30.2580803,0.5,ADDRESS_MISSING,node,1752564497,osm_pbf,False
+Пятёрочка,,,59.9392409,30.4752719,0.0,ADDRESS_MISSING;SHOP_TAG_MISSING;DUPLICATE_CANDIDATE,node,1754622542,osm_pbf,True
+ОКЕЙ,Гипермаркет «О'Кей»,,59.9868625,30.2278485,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,1776350393,osm_pbf,False
+ОКЕЙ,Гипермаркет «О'Кей»,,59.9867769,30.2276682,0.0,ADDRESS_MISSING;SHOP_TAG_MISSING;DUPLICATE_CANDIDATE,node,1777786553,osm_pbf,True
+ОКЕЙ,Ленинградское шоссе/Гипермаркет «О'кей»,,59.5832268,30.1412796,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,1784950691,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9801652,30.5079674,0.5,ADDRESS_MISSING,node,1786986184,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0238207,30.6319869,0.5,ADDRESS_MISSING,node,1790785870,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.1016365,32.3050946,0.5,ADDRESS_MISSING,node,1800262029,osm_pbf,False
+Лента,торговый комплекс «Лента»,,59.9860479,30.2255831,0.0,ADDRESS_MISSING;SHOP_TAG_MISSING;DUPLICATE_CANDIDATE,node,1801877377,osm_pbf,True
+Пятёрочка,Пятёрочка,,58.6044229,35.7988314,0.5,ADDRESS_MISSING,node,1848279276,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.856218,30.3063585,0.5,ADDRESS_MISSING,node,1855871074,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8601161,30.3065989,0.5,ADDRESS_MISSING,node,1855871081,osm_pbf,False
+ВкусВилл,ВкусВилл,,60.0015539,30.2479167,0.5,ADDRESS_MISSING,node,1864027898,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.5639687,30.1313706,0.5,ADDRESS_MISSING,node,1872928791,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.5312221,28.6675179,0.5,ADDRESS_MISSING,node,1883971924,osm_pbf,False
+Семишагофф,Семишагофф,,60.25843,29.5964775,0.5,ADDRESS_MISSING,node,1887375185,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.559662,30.0908076,0.5,ADDRESS_MISSING,node,1891418809,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.6999776,29.9469819,0.5,ADDRESS_MISSING,node,1891782237,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0464616,30.7098625,0.5,ADDRESS_MISSING,node,1895176806,osm_pbf,False
+Пятёрочка,,"Павловск, Слуцкая улица, 3",59.6910908,30.4305138,0.6,SHOP_TAG_MISSING,node,1903053271,osm_pbf,False
+Пятёрочка,,"Пушкин, Октябрьский бульвар, 7",59.7247965,30.4066876,0.6,SHOP_TAG_MISSING,node,1903053309,osm_pbf,False
+ОКЕЙ,,"Санкт-Петербург, Пулковское шоссе, 17 к2",59.8271409,30.3170885,0.6,SHOP_TAG_MISSING,node,1905674850,osm_pbf,False
+ОКЕЙ,,"Санкт-Петербург, Пулковское шоссе, 17 к2",59.82778,30.3170532,0.4,SHOP_TAG_MISSING;DUPLICATE_CANDIDATE,node,1905674852,osm_pbf,True
+Семишагофф,Семишагофф,,60.0337019,30.4254468,0.5,ADDRESS_MISSING,node,1912166541,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.725812,29.8490765,0.5,ADDRESS_MISSING,node,1913649457,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9833833,30.2147719,0.5,ADDRESS_MISSING,node,1929275017,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.5753438,30.1192053,0.5,ADDRESS_MISSING,node,1931391581,osm_pbf,False
+Пятёрочка,Пятёрочка,"Новый Свет, 4А",59.5596181,30.2001291,0.7,,node,1934181439,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.4132517,30.343731,0.5,ADDRESS_MISSING,node,1934381314,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.5695765,30.1383546,0.5,ADDRESS_MISSING,node,1934381317,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.6638739,30.1190512,0.5,ADDRESS_MISSING,node,1934381322,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.927633,30.4714382,0.5,ADDRESS_MISSING,node,1935544798,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.1207203,31.6775817,0.5,ADDRESS_MISSING,node,1952325891,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.7301155,29.4100691,0.5,ADDRESS_MISSING,node,1955231997,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.1433797,32.5446615,0.5,ADDRESS_MISSING,node,1989770335,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8396045,30.1471122,0.5,ADDRESS_MISSING,node,1990728708,osm_pbf,False
+Реалъ,РеалЪ,,59.8404981,30.3104125,0.5,ADDRESS_MISSING,node,1995797624,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8335117,30.1783915,0.5,ADDRESS_MISSING,node,1999712799,osm_pbf,False
+Пятёрочка,Пятёрочка,,61.1051458,28.8710611,0.5,ADDRESS_MISSING,node,2044820135,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8559694,30.3603663,0.5,ADDRESS_MISSING,node,2048051243,osm_pbf,False
+Семишагофф,Семишагофф,,59.9285957,30.377509,0.5,ADDRESS_MISSING,node,2049712442,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.4732855,33.8388127,0.5,ADDRESS_MISSING,node,2093494703,osm_pbf,False
+Лента,Гипер Лента,,59.7302564,30.6155342,0.5,ADDRESS_MISSING,node,2095411360,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0076803,30.6126066,0.5,ADDRESS_MISSING,node,2101327769,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.7435432,29.8503114,0.5,ADDRESS_MISSING,node,2101761613,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.7401194,29.8502631,0.5,ADDRESS_MISSING,node,2101777444,osm_pbf,False
+Лента,Лента,,58.7325198,29.8435938,0.5,ADDRESS_MISSING,node,2101790375,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.7302577,29.8427089,0.5,ADDRESS_MISSING,node,2101792278,osm_pbf,False
+Реалъ,РеалЪ,,59.8501642,30.2812881,0.5,ADDRESS_MISSING,node,2104836109,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.6145505,30.1751135,0.5,ADDRESS_MISSING,node,2105901227,osm_pbf,False
+Семишагофф,Семишагофф,,59.9112807,30.3476646,0.5,ADDRESS_MISSING,node,2115201597,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9361697,30.348503,0.5,ADDRESS_MISSING,node,2119361828,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.743825,27.8217353,0.5,ADDRESS_MISSING,node,2151502663,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9164407,29.7715185,0.5,ADDRESS_MISSING,node,2152082040,osm_pbf,False
+ОКЕЙ,О’кей,,60.0568599,30.3088164,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,2168315878,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8283332,30.3839659,0.5,ADDRESS_MISSING,node,2178370646,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8674307,30.2748403,0.5,ADDRESS_MISSING,node,2182368639,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8586263,30.3382009,0.5,ADDRESS_MISSING,node,2184059762,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9185299,30.2812814,0.5,ADDRESS_MISSING,node,2194724763,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.549461,31.2253899,0.5,ADDRESS_MISSING,node,2201859756,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.3456788,31.2448332,0.5,ADDRESS_MISSING,node,2205527704,osm_pbf,False
+Семишагофф,Семишагофф,,59.7982719,30.6354409,0.5,ADDRESS_MISSING,node,2207953634,osm_pbf,False
+Лента,"Таллинское шоссе, 159, торговый центр «Лента»",,59.8070566,30.164801,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,2209011930,osm_pbf,False
+Лента,"Таллинское шоссе, 159, торговый центр «Лента»",,59.8078169,30.166527,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,2209011961,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9102224,30.314021,0.5,ADDRESS_MISSING,node,2235157361,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8658752,30.3844395,0.5,ADDRESS_MISSING,node,2250291560,osm_pbf,False
+Семишагофф,Семишагофф,,59.9589473,30.4274901,0.5,ADDRESS_MISSING,node,2255907426,osm_pbf,False
+ОКЕЙ,Локейшн,,59.9219119,30.35641,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,2261582011,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.4242337,29.3654262,0.5,ADDRESS_MISSING,node,2279212729,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9389699,30.3480213,0.5,ADDRESS_MISSING,node,2283384148,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9440814,30.3576185,0.5,ADDRESS_MISSING,node,2283512326,osm_pbf,False
+Реалъ,РеалЪ,,59.9441023,30.3556076,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,2283512341,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.9810144,32.9800596,0.5,ADDRESS_MISSING,node,2291637823,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9462137,30.3666034,0.5,ADDRESS_MISSING,node,2303318645,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8448627,30.2718899,0.5,ADDRESS_MISSING,node,2304925853,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.7184149,29.8084257,0.5,ADDRESS_MISSING,node,2310054258,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9352282,30.2711784,0.5,ADDRESS_MISSING,node,2322597958,osm_pbf,False
+Семишагофф,Семишагофф,,59.8906788,30.4175433,0.5,ADDRESS_MISSING,node,2324958148,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.562237,30.0863858,0.5,ADDRESS_MISSING,node,2327568854,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9122573,29.7768828,0.5,ADDRESS_MISSING,node,2334189602,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9104274,29.7727893,0.5,ADDRESS_MISSING,node,2334205419,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9043655,29.7700743,0.5,ADDRESS_MISSING,node,2334989471,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9218638,30.2858149,0.5,ADDRESS_MISSING,node,2343478383,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9786125,31.0377463,0.5,ADDRESS_MISSING,node,2347365103,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8903639,32.3606253,0.5,ADDRESS_MISSING,node,2356878983,osm_pbf,False
+Реалъ,РеалЪ,,59.8523841,30.2304389,0.5,ADDRESS_MISSING,node,2366060466,osm_pbf,False
+Семишагофф,Семишагофф,,60.0076754,30.420873,0.5,ADDRESS_MISSING,node,2374750821,osm_pbf,False
+Лента,Гипермаркет «Лента»,,59.9354941,30.4955706,0.0,ADDRESS_MISSING;SHOP_TAG_MISSING;DUPLICATE_CANDIDATE,node,2382359600,osm_pbf,True
+Лента,Гипермаркет «Лента»,,59.9357115,30.4950347,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,2382359605,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.5160596,31.2575512,0.5,ADDRESS_MISSING,node,2388602871,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.4513581,29.496465,0.5,ADDRESS_MISSING,node,2409601266,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8758374,30.2710482,0.5,ADDRESS_MISSING,node,2426880168,osm_pbf,False
+Семишагофф,Семишагофф,,59.9809749,30.3523142,0.5,ADDRESS_MISSING,node,2444459672,osm_pbf,False
+Азбука вкуса,Азбука Вкуса,,59.942119,30.3488338,0.5,ADDRESS_MISSING,node,2462384830,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.6451215,30.2911364,0.5,ADDRESS_MISSING,node,2471379974,osm_pbf,False
+Лента,Лента,,59.4440277,32.0245804,0.5,ADDRESS_MISSING,node,2483377709,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9441031,31.038872,0.5,ADDRESS_MISSING,node,2495424133,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.4463574,32.0224076,0.5,ADDRESS_MISSING,node,2499558311,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.2853661,32.445355,0.5,ADDRESS_MISSING,node,2512781074,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.7217647,30.2650668,0.5,ADDRESS_MISSING,node,2524285288,osm_pbf,False
+Семишагофф,Семишагофф,,59.9137795,30.326822,0.5,ADDRESS_MISSING,node,2541917507,osm_pbf,False
+Семишагофф,Семишагофф,,59.5605288,30.0947709,0.5,ADDRESS_MISSING,node,2562164914,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8922265,30.2632455,0.5,ADDRESS_MISSING,node,2608448046,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.6993026,28.7700743,0.5,ADDRESS_MISSING,node,2610206297,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.6997985,28.7824091,0.5,ADDRESS_MISSING,node,2610206299,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.5812236,28.7570927,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,2631338358,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.7341441,30.5824797,0.5,ADDRESS_MISSING,node,2638295481,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.735362,30.583182,0.5,ADDRESS_MISSING,node,2638295507,osm_pbf,False
+ОКЕЙ,,,59.8517839,30.3505075,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,2666879844,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.727102,30.4169806,0.5,ADDRESS_MISSING,node,2678450612,osm_pbf,False
+Лента,,,59.8495819,30.3988673,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,2681760588,osm_pbf,False
+Реалъ,РеалЪ,,59.9725226,30.2696541,0.5,ADDRESS_MISSING,node,2687141087,osm_pbf,False
+Реалъ,РеалЪ,,59.9847619,30.2790798,0.5,ADDRESS_MISSING,node,2687194065,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.7157396,30.4237109,0.5,ADDRESS_MISSING,node,2694793054,osm_pbf,False
+Реалъ,РеалЪ,,59.6871733,30.4285221,0.5,ADDRESS_MISSING,node,2694793059,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.2178848,30.3070117,0.5,ADDRESS_MISSING,node,2702239046,osm_pbf,False
+Реалъ,РеалЪ,,59.8657398,30.3800444,0.5,ADDRESS_MISSING,node,2702357248,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9602404,30.2288443,0.5,ADDRESS_MISSING,node,2708838097,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.5258379,31.2591191,0.5,ADDRESS_MISSING,node,2712534238,osm_pbf,False
+Семишагофф,Семишагофф,,59.8340123,30.3819268,0.5,ADDRESS_MISSING,node,2721299922,osm_pbf,False
+Лента,урочище Лента-Сельга,,60.9563392,33.753562,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,2726632721,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9706892,30.4029813,0.5,ADDRESS_MISSING,node,2751351836,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.4390134,32.0249523,0.5,ADDRESS_MISSING,node,2758493910,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.4503767,32.0268884,0.5,ADDRESS_MISSING,node,2763907318,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.4445299,32.038969,0.5,ADDRESS_MISSING,node,2792150469,osm_pbf,False
+Реалъ,РеалЪ,,59.9740251,30.2615818,0.5,ADDRESS_MISSING,node,2811971257,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.7471454,29.6275758,0.5,ADDRESS_MISSING,node,2897074739,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8713928,30.3787639,0.5,ADDRESS_MISSING,node,2965497706,osm_pbf,False
+Пятёрочка,,,59.5751903,30.1290724,0.0,ADDRESS_MISSING;SHOP_TAG_MISSING;DUPLICATE_CANDIDATE,node,2985577978,osm_pbf,True
+Пятёрочка,Пятёрочка,,59.8764426,31.3295909,0.5,ADDRESS_MISSING,node,3010637159,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8341763,30.1462505,0.5,ADDRESS_MISSING,node,3013597658,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9452652,30.4140861,0.5,ADDRESS_MISSING,node,3014340236,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.5728954,30.5453241,0.5,ADDRESS_MISSING,node,3060429433,osm_pbf,False
+Лента,Гипермаркет «Лента»,,59.9356514,30.4950392,0.0,ADDRESS_MISSING;SHOP_TAG_MISSING;DUPLICATE_CANDIDATE,node,3062459551,osm_pbf,True
+Пятёрочка,Пятёрочка,,58.5258072,31.2781396,0.5,ADDRESS_MISSING,node,3062514739,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8109474,30.0740284,0.5,ADDRESS_MISSING,node,3066178016,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.9106723,34.1735675,0.5,ADDRESS_MISSING,node,3066321930,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9207462,30.3563134,0.5,ADDRESS_MISSING,node,3066600135,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0615788,32.3559509,0.5,ADDRESS_MISSING,node,3068351161,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8561136,30.298814,0.5,ADDRESS_MISSING,node,3070701051,osm_pbf,False
+Лента,торговый комплекс «Лента»,,59.9859636,30.2255323,0.0,ADDRESS_MISSING;SHOP_TAG_MISSING;DUPLICATE_CANDIDATE,node,3071413470,osm_pbf,True
+Семишагофф,Семишагофф,,59.8075609,30.0765813,0.5,ADDRESS_MISSING,node,3080824371,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.5556622,30.2526083,0.5,ADDRESS_MISSING,node,3099199131,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.8125195,33.3961708,0.5,ADDRESS_MISSING,node,3128178741,osm_pbf,False
+Семишагофф,Семишагофф,,59.8560517,30.3385594,0.5,ADDRESS_MISSING,node,3135946969,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.7004522,31.3948078,0.5,ADDRESS_MISSING,node,3148784730,osm_pbf,False
+ОКЕЙ,О’Кей,,59.9882164,30.3533516,0.5,ADDRESS_MISSING,node,3149775020,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.7692992,28.4731231,0.5,ADDRESS_MISSING,node,3168923094,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9350751,30.2466487,0.5,ADDRESS_MISSING,node,3183699887,osm_pbf,False
+Реалъ,РеалЪ,,59.9716562,30.3475892,0.5,ADDRESS_MISSING,node,3206129112,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8525249,30.3574153,0.5,ADDRESS_MISSING,node,3208850766,osm_pbf,False
+Лента,Супер Лента,,59.8813853,29.8934533,0.5,ADDRESS_MISSING,node,3238518924,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.3597876,28.7553524,0.5,ADDRESS_MISSING,node,3253582962,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.4083436,29.4739614,0.5,ADDRESS_MISSING,node,3253582963,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.7208635,33.5466113,0.5,ADDRESS_MISSING,node,3277038570,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.7389471,30.5809423,0.5,ADDRESS_MISSING,node,3277391582,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.7415725,30.5647547,0.5,ADDRESS_MISSING,node,3277391583,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.7973828,30.634585,0.5,ADDRESS_MISSING,node,3298716680,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9593168,30.3058511,0.5,ADDRESS_MISSING,node,3302900620,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9519438,30.4223334,0.5,ADDRESS_MISSING,node,3312569494,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.4597049,33.1619206,0.5,ADDRESS_MISSING,node,3325230062,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9735656,30.3988586,0.3,ADDRESS_MISSING;DUPLICATE_CANDIDATE,node,3347836569,osm_pbf,True
+Пятёрочка,Пятёрочка,,59.5597407,30.1248965,0.5,ADDRESS_MISSING,node,3368860032,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8648089,30.4142745,0.5,ADDRESS_MISSING,node,3380521868,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9560584,30.3269304,0.5,ADDRESS_MISSING,node,3392859254,osm_pbf,False
+Семишагофф,Семишагофф,,59.8404741,30.4905154,0.5,ADDRESS_MISSING,node,3405777593,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.847224,30.4060523,0.5,ADDRESS_MISSING,node,3410469186,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.7264703,30.4641828,0.5,ADDRESS_MISSING,node,3413231384,osm_pbf,False
+Реалъ,РеалЪ,,59.9648373,30.4865226,0.5,ADDRESS_MISSING,node,3451431625,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8358268,30.1322952,0.5,ADDRESS_MISSING,node,3459750230,osm_pbf,False
+Семишагофф,Семишагофф,,59.9576693,30.4218683,0.5,ADDRESS_MISSING,node,3468119777,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.5843485,29.3051945,0.5,ADDRESS_MISSING,node,3481236089,osm_pbf,False
+Семишагофф,Семишагофф,,59.8555241,30.2408719,0.5,ADDRESS_MISSING,node,3509853279,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.7412086,30.090767,0.5,ADDRESS_MISSING,node,3533691762,osm_pbf,False
+Семишагофф,Семишагофф,,59.8730084,30.3067957,0.5,ADDRESS_MISSING,node,3542026593,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.1133353,28.0979347,0.5,ADDRESS_MISSING,node,3584344998,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8637119,30.4938365,0.5,ADDRESS_MISSING,node,3587415743,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.1173732,28.0917395,0.5,ADDRESS_MISSING,node,3595395684,osm_pbf,False
+Реалъ,РеалЪ,,59.9339821,30.3134871,0.5,ADDRESS_MISSING,node,3596943893,osm_pbf,False
+Семишагофф,Семишагофф,,59.9227614,30.3504795,0.5,ADDRESS_MISSING,node,3632674832,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.3619333,30.0669271,0.5,ADDRESS_MISSING,node,3639019798,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0178823,30.3754554,0.5,ADDRESS_MISSING,node,3655480090,osm_pbf,False
+Реалъ,РеалЪ,,60.0144582,30.2582573,0.5,ADDRESS_MISSING,node,3677384253,osm_pbf,False
+Пятёрочка,"ООО Пятёрочка, административный офис",,59.9992251,30.2936004,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,3687099694,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9329511,30.4630892,0.5,ADDRESS_MISSING,node,3696588671,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.7310921,29.8465168,0.5,ADDRESS_MISSING,node,3706113536,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.2318819,29.8535339,0.5,ADDRESS_MISSING,node,3711743435,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.5643271,31.290491,0.5,ADDRESS_MISSING,node,3720603586,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8642049,30.4729589,0.5,ADDRESS_MISSING,node,3730980640,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8438609,30.2768091,0.5,ADDRESS_MISSING,node,3734653044,osm_pbf,False
+Пятёрочка,Пятёрочка,"улица Шувалова, 3",60.0518345,30.4236435,0.3,SHOP_TAG_MISSING;DUPLICATE_CANDIDATE,node,3751518139,osm_pbf,True
+Пятёрочка,ПВ-10м3,,59.4130232,30.3438089,0.0,ADDRESS_MISSING;SHOP_TAG_MISSING;DUPLICATE_CANDIDATE,node,3757443626,osm_pbf,True
+Пятёрочка,Пятёрочка,,59.8407828,30.2386645,0.5,ADDRESS_MISSING,node,3793826838,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8514607,30.2937449,0.5,ADDRESS_MISSING,node,3841924257,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8603346,30.3636817,0.5,ADDRESS_MISSING,node,3841924457,osm_pbf,False
+Реалъ,РеалЪ,,59.739759,30.3951554,0.5,ADDRESS_MISSING,node,3866104609,osm_pbf,False
+Семишагофф,Семишагофф,,59.9156813,30.4862956,0.5,ADDRESS_MISSING,node,3874332565,osm_pbf,False
+Реалъ,РеалЪ,,59.9724821,30.3059127,0.5,ADDRESS_MISSING,node,3878638631,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.1134553,28.0943398,0.5,ADDRESS_MISSING,node,3884755814,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9553008,30.3026382,0.5,ADDRESS_MISSING,node,3899284272,osm_pbf,False
+Семишагофф,Семишагофф,,60.0410999,30.4153643,0.5,ADDRESS_MISSING,node,3903088392,osm_pbf,False
+Лента,Супер Лента,,59.9408878,30.390436,0.5,ADDRESS_MISSING,node,3909594208,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8810098,30.4647613,0.5,ADDRESS_MISSING,node,3914388607,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9482236,30.2396795,0.5,ADDRESS_MISSING,node,3929674207,osm_pbf,False
+Семишагофф,Семишагофф,,60.0278683,30.6424869,0.5,ADDRESS_MISSING,node,3952122208,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0441351,30.3889006,0.5,ADDRESS_MISSING,node,3952642584,osm_pbf,False
+ОКЕЙ,Ленинградское шоссе/Гипермаркет «О'кей»,,59.5839657,30.1426019,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,3973073215,osm_pbf,False
+Семишагофф,Семишагофф,,59.8434315,30.2285882,0.5,ADDRESS_MISSING,node,3976775381,osm_pbf,False
+Семишагофф,Семишагофф,,60.0023864,30.3584238,0.5,ADDRESS_MISSING,node,3988550459,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8600178,30.2407888,0.5,ADDRESS_MISSING,node,3995551058,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9367944,30.3408586,0.5,ADDRESS_MISSING,node,4013153229,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.5413726,30.3812404,0.5,ADDRESS_MISSING,node,4018764288,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.5117386,34.1929913,0.5,ADDRESS_MISSING,node,4029610422,osm_pbf,False
+Реалъ,РеалЪ,,60.0133313,30.2679241,0.5,ADDRESS_MISSING,node,4031801113,osm_pbf,False
+Семишагофф,Семишагофф,,59.5704102,30.1297733,0.5,ADDRESS_MISSING,node,4037517490,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.5139182,34.1727963,0.5,ADDRESS_MISSING,node,4042848147,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.7439559,30.5826235,0.5,ADDRESS_MISSING,node,4057675978,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.1217108,28.0830902,0.5,ADDRESS_MISSING,node,4058391184,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8397645,30.139345,0.5,ADDRESS_MISSING,node,4062524897,osm_pbf,False
+Семишагофф,Семишагофф,,59.827345,30.2158983,0.5,ADDRESS_MISSING,node,4066030688,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9210515,30.3535032,0.5,ADDRESS_MISSING,node,4069356166,osm_pbf,False
+Семишагофф,Семишагофф,,59.9292749,30.3120929,0.5,ADDRESS_MISSING,node,4069356167,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.4424214,32.0183182,0.5,ADDRESS_MISSING,node,4069902907,osm_pbf,False
+Лента,Супер Лента,,59.4448772,32.0429174,0.5,ADDRESS_MISSING,node,4070411934,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9337177,30.3693817,0.5,ADDRESS_MISSING,node,4083217923,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9963462,30.2056964,0.5,ADDRESS_MISSING,node,4086489884,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8800949,30.4580316,0.5,ADDRESS_MISSING,node,4097266287,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9842182,30.3493358,0.5,ADDRESS_MISSING,node,4121094999,osm_pbf,False
+Семишагофф,Семишагофф,,59.8378815,30.3968103,0.5,ADDRESS_MISSING,node,4123744791,osm_pbf,False
+Лента,Лентабак,,59.9469219,30.2733349,0.3,ADDRESS_MISSING,node,4132496470,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9608211,30.3324449,0.5,ADDRESS_MISSING,node,4153078790,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8199678,30.3259255,0.5,ADDRESS_MISSING,node,4157992961,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8718531,30.3001793,0.5,ADDRESS_MISSING,node,4172978877,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9535558,30.4705006,0.5,ADDRESS_MISSING,node,4178985494,osm_pbf,False
+ОКЕЙ,,,59.8814661,30.3161868,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,4179051212,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8506626,30.027373,0.5,ADDRESS_MISSING,node,4187933389,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0489757,30.4281186,0.5,ADDRESS_MISSING,node,4192460749,osm_pbf,False
+Семишагофф,Семишагофф,,59.9001984,30.4902669,0.5,ADDRESS_MISSING,node,4195151398,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9129956,30.2978177,0.5,ADDRESS_MISSING,node,4196768367,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.6677368,29.8935965,0.5,ADDRESS_MISSING,node,4198477689,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8612686,30.398609,0.5,ADDRESS_MISSING,node,4217309672,osm_pbf,False
+Реалъ,"Свадебный салон ""Реальная любовь""",,59.9581761,30.3001061,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,4231639491,osm_pbf,False
+Реалъ,РеалЪ,,59.9074973,29.7751783,0.5,ADDRESS_MISSING,node,4241553589,osm_pbf,False
+Реалъ,Реал,,59.853506,30.1410828,0.5,ADDRESS_MISSING,node,4249911694,osm_pbf,False
+Семишагофф,Семишагофф,,59.9632133,30.3013321,0.5,ADDRESS_MISSING,node,4270008651,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9429481,30.3784893,0.5,ADDRESS_MISSING,node,4271092101,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9389566,30.2838105,0.5,ADDRESS_MISSING,node,4273745389,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.6491421,33.5456476,0.5,ADDRESS_MISSING,node,4287633590,osm_pbf,False
+Лента,Ва Лента,,60.1446471,30.5586137,0.5,ADDRESS_MISSING,node,4308084756,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9046134,32.3472129,0.5,ADDRESS_MISSING,node,4316812389,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9284014,32.3137575,0.5,ADDRESS_MISSING,node,4317559523,osm_pbf,False
+Пятёрочка,,,59.9026869,30.274028,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,4325931790,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.810153,30.8793571,0.5,ADDRESS_MISSING,node,4329964790,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.626843,28.5648661,0.5,ADDRESS_MISSING,node,4331011066,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8645616,30.3718959,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,4335522592,osm_pbf,False
+Пятёрочка,,"Октябрьский бульвар, 7",59.7248353,30.4065893,0.3,SHOP_TAG_MISSING;DUPLICATE_CANDIDATE,node,4336029059,osm_pbf,True
+Пятёрочка,,"Пушкин, Октябрьский бульвар, 7",59.7248425,30.4065685,0.4,SHOP_TAG_MISSING;DUPLICATE_CANDIDATE,node,4336029060,osm_pbf,True
+Пятёрочка,Пятёрочка,,59.6282628,30.4002923,0.5,ADDRESS_MISSING,node,4339442602,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.6650807,28.2833245,0.5,ADDRESS_MISSING,node,4348222591,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.6399652,30.7632733,0.5,ADDRESS_MISSING,node,4355507195,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9208871,30.3106096,0.5,ADDRESS_MISSING,node,4356734190,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0848346,29.9577534,0.5,ADDRESS_MISSING,node,4360092600,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8557014,30.3460068,0.5,ADDRESS_MISSING,node,4366524467,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.4510914,29.4859837,0.5,ADDRESS_MISSING,node,4375494498,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8720247,30.9892866,0.5,ADDRESS_MISSING,node,4376043607,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.7042263,29.0456996,0.5,ADDRESS_MISSING,node,4377134990,osm_pbf,False
+Лента,Гипер Лента,,59.9400986,30.4176366,0.5,ADDRESS_MISSING,node,4387444993,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.6257032,29.530599,0.5,ADDRESS_MISSING,node,4391814990,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8489988,30.3873991,0.5,ADDRESS_MISSING,node,4393820459,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8511281,30.3953866,0.5,ADDRESS_MISSING,node,4393820460,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8592214,30.3766749,0.5,ADDRESS_MISSING,node,4403273616,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8456224,30.2539716,0.5,ADDRESS_MISSING,node,4407018192,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.451099,29.4859921,0.3,ADDRESS_MISSING;DUPLICATE_CANDIDATE,node,4407796994,osm_pbf,True
+Пятёрочка,Пятёрочка,,59.8550954,30.2651648,0.5,ADDRESS_MISSING,node,4411443889,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.5244958,30.0694853,0.5,ADDRESS_MISSING,node,4419040066,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.725144,33.5703211,0.5,ADDRESS_MISSING,node,4430379989,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.279401,30.1242501,0.5,ADDRESS_MISSING,node,4445057991,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9081234,31.0772235,0.5,ADDRESS_MISSING,node,4459805589,osm_pbf,False
+Семишагофф,Семишагофф,,59.9851093,30.2133582,0.5,ADDRESS_MISSING,node,4470143365,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.6450636,33.5228637,0.5,ADDRESS_MISSING,node,4474753890,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.4728173,33.8600928,0.5,ADDRESS_MISSING,node,4475513806,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.3970999,33.9129589,0.5,ADDRESS_MISSING,node,4479107500,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8903443,30.3174101,0.5,ADDRESS_MISSING,node,4481174430,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9879647,30.3722489,0.5,ADDRESS_MISSING,node,4483635590,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.3201774,29.9458226,0.5,ADDRESS_MISSING,node,4490328311,osm_pbf,False
+Лента,Лента Кафе,"улица Руставели, 61",60.0312801,30.4341181,0.3,SHOP_TAG_MISSING;DUPLICATE_CANDIDATE,node,4495445690,osm_pbf,True
+Пятёрочка,Пятёрочка,,59.4379895,28.8277282,0.5,ADDRESS_MISSING,node,4501887090,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.6172437,30.0422525,0.5,ADDRESS_MISSING,node,4515160790,osm_pbf,False
+Реалъ,"Телекомпания ""Реалтв""",,59.6218047,30.3928484,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,4517326293,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.3839778,28.6137314,0.5,ADDRESS_MISSING,node,4518254289,osm_pbf,False
+ВкусВилл,ВкусВилл,,60.0535675,30.424877,0.5,ADDRESS_MISSING,node,4525192095,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.6475685,33.5409801,0.5,ADDRESS_MISSING,node,4529581989,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.6454551,33.5576674,0.5,ADDRESS_MISSING,node,4535009789,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8440995,30.3354001,0.5,ADDRESS_MISSING,node,4535332596,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.5727607,30.1059375,0.5,ADDRESS_MISSING,node,4540147192,osm_pbf,False
+Реалъ,РеалЪ,,59.855038,30.2054927,0.5,ADDRESS_MISSING,node,4543618790,osm_pbf,False
+Реалъ,Ареал-мед,,59.9117016,30.2755434,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,4552027156,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8631922,30.1798631,0.5,ADDRESS_MISSING,node,4559976228,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.3785397,28.6099816,0.5,ADDRESS_MISSING,node,4591678489,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.3716404,28.6063349,0.5,ADDRESS_MISSING,node,4593937289,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.4558679,32.0241127,0.5,ADDRESS_MISSING,node,4594648995,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.371284,28.6130275,0.5,ADDRESS_MISSING,node,4594831490,osm_pbf,False
+Реалъ,РеалЪ,,59.9030098,30.3153878,0.5,ADDRESS_MISSING,node,4595757989,osm_pbf,False
+Лента,Супер Лента,,60.0293336,30.2457661,0.5,ADDRESS_MISSING,node,4596418018,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.1426507,32.5552413,0.5,ADDRESS_MISSING,node,4596824890,osm_pbf,False
+Семишагофф,Семишагофф,,59.9030815,30.2765788,0.5,ADDRESS_MISSING,node,4602327645,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0039309,30.2382674,0.5,ADDRESS_MISSING,node,4604383308,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9114778,30.3537218,0.5,ADDRESS_MISSING,node,4642887995,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.7182916,30.0765454,0.5,ADDRESS_MISSING,node,4661514724,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9067261,30.2439377,0.5,ADDRESS_MISSING,node,4665974173,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.5479936,30.8656119,0.5,ADDRESS_MISSING,node,4683808196,osm_pbf,False
+Лента,,,59.9149754,29.0575809,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,4696823070,osm_pbf,False
+Лента,,,59.9148028,29.0548063,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,4696823071,osm_pbf,False
+Лента,,,59.9133544,29.0559641,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,4696823072,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.854254,30.3699859,0.5,ADDRESS_MISSING,node,4698076989,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8725177,30.4384801,0.5,ADDRESS_MISSING,node,4700091691,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9619906,30.4322488,0.5,ADDRESS_MISSING,node,4700556489,osm_pbf,False
+Реалъ,Комитет по межнациональным отношениям и реализации миграционной политики в Санкт-Петербурге,,59.9241619,30.3179896,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,4704450970,osm_pbf,False
+Реалъ,Портал,,59.9146717,30.3126962,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,4715956042,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.7248448,30.4064847,0.3,ADDRESS_MISSING;DUPLICATE_CANDIDATE,node,4718332112,osm_pbf,True
+Реалъ,Реал,,59.9848099,30.3426463,0.3,ADDRESS_MISSING,node,4722197900,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9227904,30.3335482,0.5,ADDRESS_MISSING,node,4724691691,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9861367,30.2699075,0.5,ADDRESS_MISSING,node,4742513622,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9888571,30.2065712,0.5,ADDRESS_MISSING,node,4743617427,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8568657,29.9378645,0.5,ADDRESS_MISSING,node,4744811442,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9018266,30.2739097,0.5,ADDRESS_MISSING,node,4752147303,osm_pbf,False
+Лента,Лента,,59.9063587,29.0781892,0.5,ADDRESS_MISSING,node,4754082321,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9292225,30.4832427,0.5,ADDRESS_MISSING,node,4759724327,osm_pbf,False
+Азбука вкуса,,,59.8890347,30.3188864,0.1,ADDRESS_MISSING;DUPLICATE_CANDIDATE,node,4782922833,osm_pbf,True
+Пятёрочка,Пятёрочка,,59.9046426,30.3255255,0.5,ADDRESS_MISSING,node,4796608319,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9383826,30.6455614,0.5,ADDRESS_MISSING,node,4801979395,osm_pbf,False
+Реалъ,РеалЪ,,59.952237,30.4155584,0.5,ADDRESS_MISSING,node,4810926722,osm_pbf,False
+Реалъ,Креал,,59.9293806,30.3123277,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,4816367739,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.7058475,30.4061787,0.5,ADDRESS_MISSING,node,4846711423,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.5501073,29.1134007,0.5,ADDRESS_MISSING,node,4847005958,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9214823,30.4615294,0.5,ADDRESS_MISSING,node,4850469421,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.4960181,31.2093845,0.5,ADDRESS_MISSING,node,4851205785,osm_pbf,False
+Реалъ,РеалЪ,,60.0521721,30.4317916,0.5,ADDRESS_MISSING,node,4889973122,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.4411826,32.0135607,0.5,ADDRESS_MISSING,node,4907692022,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.5708746,30.5122143,0.5,ADDRESS_MISSING,node,4927049211,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8274642,30.4172727,0.5,ADDRESS_MISSING,node,4933140621,osm_pbf,False
+Лента,Супер Лента,,59.9031253,29.7681921,0.5,ADDRESS_MISSING,node,4945592078,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.5266228,31.2428596,0.5,ADDRESS_MISSING,node,4947140204,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9210744,30.3388217,0.5,ADDRESS_MISSING,node,4957672421,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.4696448,29.2857024,0.5,ADDRESS_MISSING,node,4972502122,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0810988,30.3330487,0.5,ADDRESS_MISSING,node,4994928421,osm_pbf,False
+ОКЕЙ,Гипермаркет «О'кей»,,59.5833369,30.139376,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,5006009405,osm_pbf,False
+Семишагофф,Семишагофф,,59.56493,30.1319187,0.5,ADDRESS_MISSING,node,5007982051,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.561224,30.1285299,0.5,ADDRESS_MISSING,node,5008201030,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.5485207,30.0874215,0.5,ADDRESS_MISSING,node,5012518430,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.4511372,32.0204838,0.5,ADDRESS_MISSING,node,5027775621,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.6636789,30.5304333,0.5,ADDRESS_MISSING,node,5039353222,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.2711632,30.457221,0.5,ADDRESS_MISSING,node,5041154197,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9499923,30.2626819,0.5,ADDRESS_MISSING,node,5043243851,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.7060943,30.3885583,0.5,ADDRESS_MISSING,node,5043503625,osm_pbf,False
+Реалъ,РосРеал,,59.9351982,30.3195432,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,5043643984,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.852999,30.1433182,0.5,ADDRESS_MISSING,node,5058656023,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.6341212,30.1393352,0.5,ADDRESS_MISSING,node,5068379621,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8887339,30.3273901,0.5,ADDRESS_MISSING,node,5069152531,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8320103,30.3444137,0.5,ADDRESS_MISSING,node,5070916821,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.5705051,30.1167523,0.5,ADDRESS_MISSING,node,5077129030,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.3532203,30.0645673,0.5,ADDRESS_MISSING,node,5077152281,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.964428,30.4082694,0.5,ADDRESS_MISSING,node,5082473821,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.057875,30.4210148,0.5,ADDRESS_MISSING,node,5098716621,osm_pbf,False
+Лента,Экобокс,,59.9566911,30.2445796,0.0,ADDRESS_MISSING;SHOP_TAG_MISSING;DUPLICATE_CANDIDATE,node,5106084744,osm_pbf,True
+Пятёрочка,Пятёрочка,,60.1087346,30.3498012,0.5,ADDRESS_MISSING,node,5120484933,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0333307,30.1430049,0.5,ADDRESS_MISSING,node,5130084021,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.926993,30.2963327,0.5,ADDRESS_MISSING,node,5136618515,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0995092,29.9721924,0.5,ADDRESS_MISSING,node,5137425412,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0940385,29.9612667,0.5,ADDRESS_MISSING,node,5137425413,osm_pbf,False
+Лента,Супер Лента,,59.867528,30.2684415,0.5,ADDRESS_MISSING,node,5138716157,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.946973,30.2299908,0.5,ADDRESS_MISSING,node,5148471434,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9061918,30.5201279,0.5,ADDRESS_MISSING,node,5149490460,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0599188,30.4701956,0.5,ADDRESS_MISSING,node,5152479755,osm_pbf,False
+Реалъ,«Газпром корпоративный институт»,"Санкт-Петербург, улица Профессора Попова, 23",59.9723526,30.3116863,0.6,SHOP_TAG_MISSING,node,5165152988,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9236101,30.3696905,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,5171407622,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.3671136,28.6184977,0.5,ADDRESS_MISSING,node,5171498921,osm_pbf,False
+Семишагофф,Семишагофф,,59.9342322,30.2682581,0.5,ADDRESS_MISSING,node,5204024185,osm_pbf,False
+Семишагофф,Семишагофф,,59.9386554,30.3596583,0.5,ADDRESS_MISSING,node,5205110878,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8577864,30.3655551,0.5,ADDRESS_MISSING,node,5218871681,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9661631,30.4119827,0.5,ADDRESS_MISSING,node,5222877621,osm_pbf,False
+ОКЕЙ,,,59.8290557,30.3839129,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,5236536022,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9341896,30.3608012,0.5,ADDRESS_MISSING,node,5240892267,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.7321494,30.6180189,0.5,ADDRESS_MISSING,node,5245518387,osm_pbf,False
+Реалъ,Реал Лидер,"Санкт-Петербург, Комендантская площадь, 1",60.0078303,30.2595397,0.6,SHOP_TAG_MISSING,node,5251833947,osm_pbf,False
+Лента,,,60.0507489,30.4228105,0.0,ADDRESS_MISSING;SHOP_TAG_MISSING;DUPLICATE_CANDIDATE,node,5274652626,osm_pbf,True
+Пятёрочка,Пятёрочка,,59.7330576,30.6058241,0.5,ADDRESS_MISSING,node,5274755410,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9149041,30.4740106,0.5,ADDRESS_MISSING,node,5292232821,osm_pbf,False
+Лента,Челентано,"Пушкин, Октябрьский бульвар, 5А",59.7259518,30.403113,0.6,SHOP_TAG_MISSING,node,5310286421,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9305351,30.2436057,0.5,ADDRESS_MISSING,node,5312132145,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9886754,30.3719521,0.5,ADDRESS_MISSING,node,5329294425,osm_pbf,False
+Семишагофф,Семишагофф,,59.8334938,30.1999268,0.5,ADDRESS_MISSING,node,5338593027,osm_pbf,False
+Лента,Супер Лента,,59.8534293,30.3034802,0.5,ADDRESS_MISSING,node,5358248514,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.5210649,29.9705871,0.5,ADDRESS_MISSING,node,5361131134,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.7474693,27.8104708,0.5,ADDRESS_MISSING,node,5370183876,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.1237929,28.0887097,0.5,ADDRESS_MISSING,node,5370215964,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.1147414,28.0850619,0.5,ADDRESS_MISSING,node,5370215968,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8545052,30.147797,0.5,ADDRESS_MISSING,node,5385120921,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8998133,30.4259362,0.5,ADDRESS_MISSING,node,5418201034,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0574111,30.4774475,0.5,ADDRESS_MISSING,node,5419705112,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.856392,30.2293354,0.5,ADDRESS_MISSING,node,5426859423,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0317364,30.1396215,0.5,ADDRESS_MISSING,node,5430887122,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0286993,30.2522278,0.5,ADDRESS_MISSING,node,5472595262,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0241735,30.7506382,0.5,ADDRESS_MISSING,node,5474098645,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0200874,30.6696592,0.5,ADDRESS_MISSING,node,5474098647,osm_pbf,False
+Реалъ,Газпромнефть - Региональные продажи,,59.9430288,30.3704825,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,5479680480,osm_pbf,False
+Реалъ,РеалЪ,,59.9676136,30.3841793,0.5,ADDRESS_MISSING,node,5484234823,osm_pbf,False
+Реалъ,РеалЪ,,59.9635944,30.379831,0.5,ADDRESS_MISSING,node,5484325525,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9072444,29.7689171,0.5,ADDRESS_MISSING,node,5484762672,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9047503,29.7806394,0.5,ADDRESS_MISSING,node,5486163306,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0444289,30.4501409,0.5,ADDRESS_MISSING,node,5495980323,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8357174,30.2139446,0.5,ADDRESS_MISSING,node,5496628991,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.956852,30.4084423,0.5,ADDRESS_MISSING,node,5496732523,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9281005,30.3213197,0.5,ADDRESS_MISSING,node,5508195953,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.1125948,30.4910087,0.5,ADDRESS_MISSING,node,5534507750,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9416724,30.2203395,0.5,ADDRESS_MISSING,node,5549838233,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.7015537,30.1210456,0.5,ADDRESS_MISSING,node,5551675321,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9361151,30.3725435,0.5,ADDRESS_MISSING,node,5581363832,osm_pbf,False
+Семишагофф,Семишагофф,,59.7270966,30.4176532,0.5,ADDRESS_MISSING,node,5590140005,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.5752196,30.1290309,0.5,ADDRESS_MISSING,node,5614751302,osm_pbf,False
+ОКЕЙ,О’кей,,59.8516752,30.3514626,0.3,ADDRESS_MISSING,node,5625376828,osm_pbf,False
+Лента,,,60.0507347,30.4227974,0.0,ADDRESS_MISSING;SHOP_TAG_MISSING;DUPLICATE_CANDIDATE,node,5625789355,osm_pbf,True
+Семишагофф,Семишагофф,,59.8807374,30.4586296,0.5,ADDRESS_MISSING,node,5640508521,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.97797,30.373,0.5,ADDRESS_MISSING,node,5655939122,osm_pbf,False
+Семишагофф,Семишагофф,,59.5544042,30.1322371,0.5,ADDRESS_MISSING,node,5661547882,osm_pbf,False
+Семишагофф,Семишагофф,,59.8757298,30.4345807,0.5,ADDRESS_MISSING,node,5670440070,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.5381263,31.2185571,0.5,ADDRESS_MISSING,node,5676187661,osm_pbf,False
+Семишагофф,Семишагофф,,59.8931894,30.4539432,0.5,ADDRESS_MISSING,node,5705265823,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8930551,30.4519815,0.5,ADDRESS_MISSING,node,5705332222,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8420508,30.495363,0.5,ADDRESS_MISSING,node,5711950624,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.55878,30.202539,0.5,ADDRESS_MISSING,node,5713956907,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9974679,30.2178834,0.5,ADDRESS_MISSING,node,5761511802,osm_pbf,False
+Реалъ,Реалист Банк,,59.9208372,30.3426246,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,5780478081,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.1259568,31.7049774,0.5,ADDRESS_MISSING,node,5793732555,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8864122,30.3589462,0.5,ADDRESS_MISSING,node,5801849655,osm_pbf,False
+Пятёрочка,Пятёрочка,,61.039699,30.1311165,0.5,ADDRESS_MISSING,node,5824600595,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.5804995,30.1371732,0.5,ADDRESS_MISSING,node,5827598385,osm_pbf,False
+ОКЕЙ,Smokey Bones,,59.8586537,30.32166,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,5831479985,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.739437,29.8416152,0.5,ADDRESS_MISSING,node,5855843317,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.968076,30.3413393,0.5,ADDRESS_MISSING,node,5861602640,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.7425856,30.6173421,0.5,ADDRESS_MISSING,node,5877942686,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.6459837,30.7796877,0.5,ADDRESS_MISSING,node,5881433285,osm_pbf,False
+Лента,Супер Лента,,59.9331378,30.4396745,0.5,ADDRESS_MISSING,node,5902079795,osm_pbf,False
+Лента,,,60.0226712,30.292558,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,5902847539,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.7230181,29.8450174,0.5,ADDRESS_MISSING,node,5918215512,osm_pbf,False
+ОКЕЙ,Сантехника Окей,,59.9880929,30.2272484,0.3,ADDRESS_MISSING,node,5923014424,osm_pbf,False
+Реалъ,Arena Space - сеть парков виртуальной реальности,,59.8918388,30.511092,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,5933650086,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0715834,30.2383172,0.5,ADDRESS_MISSING,node,5937823520,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8638754,30.5150213,0.5,ADDRESS_MISSING,node,5966181689,osm_pbf,False
+Семишагофф,Семишагофф,,59.8632125,30.5015953,0.5,ADDRESS_MISSING,node,5966217285,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.7553175,30.3705667,0.5,ADDRESS_MISSING,node,5969115416,osm_pbf,False
+Лента,Супер Лента,,60.0426112,30.4639664,0.5,ADDRESS_MISSING,node,5983189985,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8567035,29.9507529,0.5,ADDRESS_MISSING,node,6013369987,osm_pbf,False
+Семишагофф,Семишагофф,,59.9093606,30.2462714,0.5,ADDRESS_MISSING,node,6040440385,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9092673,30.2555961,0.5,ADDRESS_MISSING,node,6040440485,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.7419115,30.5784959,0.5,ADDRESS_MISSING,node,6053090986,osm_pbf,False
+Реалъ,Матрёна,,59.8444217,30.2801196,0.3,ADDRESS_MISSING,node,6061758293,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.5677508,30.0634702,0.5,ADDRESS_MISSING,node,6071340885,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9572364,30.4807241,0.5,ADDRESS_MISSING,node,6092403481,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9037336,30.3128256,0.5,ADDRESS_MISSING,node,6133359272,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9045679,30.3149158,0.5,ADDRESS_MISSING,node,6133359276,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8995535,30.5181155,0.5,ADDRESS_MISSING,node,6152531564,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8440408,30.3589294,0.5,ADDRESS_MISSING,node,6189896586,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9018023,30.5129451,0.5,ADDRESS_MISSING,node,6190300604,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.5503042,31.2121668,0.5,ADDRESS_MISSING,node,6205628186,osm_pbf,False
+Семишагофф,Семишагофф,,59.8454173,30.3716242,0.5,ADDRESS_MISSING,node,6214694586,osm_pbf,False
+Реалъ,Ави Дисплей,,59.971555,30.3001388,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,6232930682,osm_pbf,False
+Лента,Супер Лента,,59.5438778,30.8803363,0.5,ADDRESS_MISSING,node,6242444399,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8874865,30.313787,0.5,ADDRESS_MISSING,node,6276269786,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.3792078,28.6022586,0.5,ADDRESS_MISSING,node,6307314089,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0973181,29.973893,0.5,ADDRESS_MISSING,node,6307314103,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.8584036,30.1954616,0.5,ADDRESS_MISSING,node,6341518485,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9476897,30.5643795,0.5,ADDRESS_MISSING,node,6356084191,osm_pbf,False
+Пятёрочка,КООП Пятёрочка,,60.0082824,30.6072146,0.5,ADDRESS_MISSING,node,6356084200,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.4704707,33.8509158,0.5,ADDRESS_MISSING,node,6364731382,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0493379,30.4444637,0.5,ADDRESS_MISSING,node,6388416359,osm_pbf,False
+ВкусВилл,ВкусВилл,,60.0577883,30.4277275,0.5,ADDRESS_MISSING,node,6392119811,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8523813,30.1564941,0.5,ADDRESS_MISSING,node,6397123485,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9595832,30.3169964,0.5,ADDRESS_MISSING,node,6398581886,osm_pbf,False
+ВкусВилл,ВкусВилл,,60.0059795,30.2111006,0.5,ADDRESS_MISSING,node,6448374685,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9391439,30.2016161,0.5,ADDRESS_MISSING,node,6451273485,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8522597,30.2728868,0.5,ADDRESS_MISSING,node,6482482442,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.7283729,30.4187619,0.5,ADDRESS_MISSING,node,6501148427,osm_pbf,False
+Семишагофф,Семишагофф,,60.2000855,29.7075375,0.5,ADDRESS_MISSING,node,6520310122,osm_pbf,False
+Лента,Супер Лента,,60.0159756,30.3174107,0.5,ADDRESS_MISSING,node,6525620604,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8690493,30.3690095,0.5,ADDRESS_MISSING,node,6533677985,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0002902,30.3526511,0.5,ADDRESS_MISSING,node,6537033886,osm_pbf,False
+Лента,Супер Лента,,59.829564,30.3792311,0.5,ADDRESS_MISSING,node,6540194429,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9818341,30.4087736,0.5,ADDRESS_MISSING,node,6544892386,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8811873,30.468933,0.5,ADDRESS_MISSING,node,6546923686,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.5105477,31.239602,0.5,ADDRESS_MISSING,node,6571050390,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.168584,35.3270468,0.5,ADDRESS_MISSING,node,6576362805,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0207817,30.6791179,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,6592930332,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9448071,30.3589246,0.5,ADDRESS_MISSING,node,6611366065,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.7046291,28.7665325,0.5,ADDRESS_MISSING,node,6635002186,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9097741,30.3459656,0.5,ADDRESS_MISSING,node,6635897569,osm_pbf,False
+Реалъ,ООО «Сервис М»,"Санкт-Петербург, Малая Балканская улица, 59 литА к1",59.8286729,30.4299827,0.6,SHOP_TAG_MISSING,node,6657146868,osm_pbf,False
+Семишагофф,Семишагофф,,59.8661227,30.4668094,0.5,ADDRESS_MISSING,node,6689577713,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9577435,30.299405,0.5,ADDRESS_MISSING,node,6690411285,osm_pbf,False
+Семишагофф,Семишагофф,,59.8524733,30.3545887,0.5,ADDRESS_MISSING,node,6710995785,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8504748,30.368467,0.5,ADDRESS_MISSING,node,6711158485,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.827101,30.3372605,0.5,ADDRESS_MISSING,node,6712980185,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.6853584,30.4228677,0.5,ADDRESS_MISSING,node,6721947085,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0510093,30.4496365,0.5,ADDRESS_MISSING,node,6743007150,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8104962,30.5805239,0.5,ADDRESS_MISSING,node,6750741385,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9505204,30.5771633,0.5,ADDRESS_MISSING,node,6761081688,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9315538,30.2407424,0.5,ADDRESS_MISSING,node,6786409798,osm_pbf,False
+Реалъ,РеалЪ,,60.1894701,29.7259009,0.5,ADDRESS_MISSING,node,6795848785,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.5172858,30.9063323,0.5,ADDRESS_MISSING,node,6798925555,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.6400232,33.5333664,0.5,ADDRESS_MISSING,node,6801913586,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0290415,30.4053298,0.5,ADDRESS_MISSING,node,6819663695,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0282089,30.3382429,0.5,ADDRESS_MISSING,node,6819837285,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8293971,30.1772949,0.5,ADDRESS_MISSING,node,6831621620,osm_pbf,False
+ОКЕЙ,супермаркет «О'Кей»,,59.8272362,30.3221811,0.0,ADDRESS_MISSING;SHOP_TAG_MISSING;DUPLICATE_CANDIDATE,node,6845435209,osm_pbf,True
+ВкусВилл,ВкусВилл,,60.0287704,30.2462692,0.5,ADDRESS_MISSING,node,6848890492,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.8640685,30.1707182,0.5,ADDRESS_MISSING,node,6852208797,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.8369459,30.3579061,0.5,ADDRESS_MISSING,node,6867953553,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.8469406,30.4062413,0.5,ADDRESS_MISSING,node,6868015601,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.833512,30.2008236,0.5,ADDRESS_MISSING,node,6868035842,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9140373,30.4491346,0.5,ADDRESS_MISSING,node,6868052609,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8596971,30.350533,0.5,ADDRESS_MISSING,node,6883790885,osm_pbf,False
+Семишагофф,Семишагофф,,59.8435456,30.1480267,0.5,ADDRESS_MISSING,node,6898610155,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.5585253,30.255319,0.5,ADDRESS_MISSING,node,6910775096,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.556437,30.2536641,0.5,ADDRESS_MISSING,node,6910775110,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8355123,30.1688794,0.5,ADDRESS_MISSING,node,6913203185,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.8543891,30.3708369,0.5,ADDRESS_MISSING,node,6919797285,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.4064487,33.9016676,0.5,ADDRESS_MISSING,node,6926975681,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9448205,30.4964257,0.5,ADDRESS_MISSING,node,6955727185,osm_pbf,False
+Реалъ,Sintez Event,,59.8975387,30.4331288,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,6966244024,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9376252,30.4361018,0.5,ADDRESS_MISSING,node,6967448885,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.7412915,30.4702786,0.5,ADDRESS_MISSING,node,7004318985,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.7195736,30.4088398,0.5,ADDRESS_MISSING,node,7011089186,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8962281,29.7741129,0.3,ADDRESS_MISSING;DUPLICATE_CANDIDATE,node,7021749585,osm_pbf,True
+Пятёрочка,Пятёрочка,,59.8537723,30.4760122,0.5,ADDRESS_MISSING,node,7023792890,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9039907,30.5061442,0.5,ADDRESS_MISSING,node,7038427085,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9892453,30.2987539,0.5,ADDRESS_MISSING,node,7044883486,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.7357693,30.61452,0.5,ADDRESS_MISSING,node,7072367872,osm_pbf,False
+Реалъ,Евразия,,60.053895,30.3894949,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,7079798570,osm_pbf,False
+ВкусВилл,ВкусВилл,,60.032822,30.4577735,0.5,ADDRESS_MISSING,node,7080430585,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.066576,30.4569572,0.5,ADDRESS_MISSING,node,7082379688,osm_pbf,False
+Реалъ,ООО ЛР Трейд,"Санкт-Петербург, Бухарестская улица, 32",59.8825058,30.3709733,0.6,SHOP_TAG_MISSING,node,7085520481,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8675019,30.4431659,0.5,ADDRESS_MISSING,node,7104720685,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.722424,30.6087449,0.5,ADDRESS_MISSING,node,7110964680,osm_pbf,False
+Реалъ,Квесты в реальности «Взаперти»,,59.9324881,30.3215232,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,7131874685,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8994031,30.5124147,0.5,ADDRESS_MISSING,node,7141605874,osm_pbf,False
+Реалъ,Русский Размер,"Санкт-Петербург, Балканская площадь, 5 литВ секция 1-39",59.8300142,30.3780816,0.6,SHOP_TAG_MISSING,node,7156295319,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.913884,30.4378948,0.5,ADDRESS_MISSING,node,7190733058,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8609151,30.3297666,0.5,ADDRESS_MISSING,node,7190743182,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.946288,30.2711684,0.5,ADDRESS_MISSING,node,7227771347,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.064831,30.4340305,0.5,ADDRESS_MISSING,node,7229472000,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9223285,30.2811288,0.5,ADDRESS_MISSING,node,7230877451,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.5671763,30.1337187,0.5,ADDRESS_MISSING,node,7297038091,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.574696,30.1279074,0.5,ADDRESS_MISSING,node,7297038092,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.8754393,30.3125886,0.5,ADDRESS_MISSING,node,7304473882,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9216699,30.3043033,0.5,ADDRESS_MISSING,node,7308450285,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9939521,30.3159647,0.5,ADDRESS_MISSING,node,7326438443,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8899017,30.9941268,0.5,ADDRESS_MISSING,node,7357279240,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.3829287,28.6172886,0.5,ADDRESS_MISSING,node,7357337114,osm_pbf,False
+Семишагофф,Семишагофф,,59.8780213,30.4422718,0.5,ADDRESS_MISSING,node,7373197785,osm_pbf,False
+Семишагофф,Семишагофф,,59.8195466,30.3392931,0.5,ADDRESS_MISSING,node,7376683285,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.811193,30.3675217,0.5,ADDRESS_MISSING,node,7376716786,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0029978,30.4471989,0.5,ADDRESS_MISSING,node,7382950185,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9571988,30.4735354,0.5,ADDRESS_MISSING,node,7383380685,osm_pbf,False
+Семишагофф,Семишагофф,,59.8542917,30.387561,0.5,ADDRESS_MISSING,node,7387539185,osm_pbf,False
+Семишагофф,Семишагофф,,60.1436918,30.224334,0.5,ADDRESS_MISSING,node,7406422486,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.1396715,30.2168812,0.5,ADDRESS_MISSING,node,7406434185,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9892362,30.6538831,0.5,ADDRESS_MISSING,node,7407777485,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.961431,30.3069938,0.5,ADDRESS_MISSING,node,7429180285,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.7385943,30.4773519,0.5,ADDRESS_MISSING,node,7433187998,osm_pbf,False
+Реалъ,РеалЪ,,59.9290947,30.4599659,0.5,ADDRESS_MISSING,node,7439788685,osm_pbf,False
+Семишагофф,Семишагофф,,59.9118415,30.4686827,0.5,ADDRESS_MISSING,node,7441266685,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8818347,30.4715009,0.5,ADDRESS_MISSING,node,7441749185,osm_pbf,False
+Семишагофф,Семишагофф,,59.8454147,30.2536147,0.5,ADDRESS_MISSING,node,7446755286,osm_pbf,False
+Реалъ,РеалЪ,,59.8441357,30.2309523,0.5,ADDRESS_MISSING,node,7446770585,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.7428286,30.4842981,0.5,ADDRESS_MISSING,node,7447188385,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.4567364,32.0118877,0.5,ADDRESS_MISSING,node,7449722285,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.6981825,30.7785147,0.5,ADDRESS_MISSING,node,7453031422,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.7022618,30.7883095,0.5,ADDRESS_MISSING,node,7453031428,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.7054691,30.7881453,0.5,ADDRESS_MISSING,node,7453031430,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.7088788,30.7815356,0.5,ADDRESS_MISSING,node,7453031448,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.708233,30.7757517,0.5,ADDRESS_MISSING,node,7453358442,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9506563,30.2633786,0.5,ADDRESS_MISSING,node,7459435360,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.5391504,31.3031107,0.5,ADDRESS_MISSING,node,7462279208,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8864905,30.360294,0.5,ADDRESS_MISSING,node,7476715554,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8714244,30.3686911,0.5,ADDRESS_MISSING,node,7481875485,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.4175745,30.3515215,0.5,ADDRESS_MISSING,node,7489279666,osm_pbf,False
+Пятёрочка,"Активатор ""Подорожника""","Санкт-Петербург, Замшина улица, 28",59.973565,30.3988348,0.6,SHOP_TAG_MISSING,node,7492536551,osm_pbf,False
+Семишагофф,Семишагофф,,59.9794902,30.5111927,0.5,ADDRESS_MISSING,node,7523875585,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8335383,30.3915922,0.5,ADDRESS_MISSING,node,7535476485,osm_pbf,False
+Реалъ,РеалЪ,,59.9441186,30.3918355,0.5,ADDRESS_MISSING,node,7541356685,osm_pbf,False
+Лента,Супер Лента,,59.9672785,30.2993744,0.5,ADDRESS_MISSING,node,7569530634,osm_pbf,False
+Лента,Гипер Лента,,60.0587008,30.4837275,0.5,ADDRESS_MISSING,node,7569585562,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.834624,30.5101302,0.5,ADDRESS_MISSING,node,7574704387,osm_pbf,False
+Семишагофф,Семишагофф,,59.8734036,30.4026689,0.5,ADDRESS_MISSING,node,7595441501,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8060359,30.3691984,0.5,ADDRESS_MISSING,node,7605015085,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.7029173,30.3946155,0.5,ADDRESS_MISSING,node,7623166374,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.1102489,28.0927543,0.5,ADDRESS_MISSING,node,7623568885,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8889237,30.4246704,0.5,ADDRESS_MISSING,node,7624375085,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.8072579,30.3738131,0.5,ADDRESS_MISSING,node,7656922885,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8643023,30.1696729,0.5,ADDRESS_MISSING,node,7693367086,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9485445,30.5673313,0.5,ADDRESS_MISSING,node,7717644385,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.94406,30.6064744,0.5,ADDRESS_MISSING,node,7717699885,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9039693,30.6716609,0.5,ADDRESS_MISSING,node,7721098198,osm_pbf,False
+Реалъ,РеалЪ,,59.8824193,30.985001,0.5,ADDRESS_MISSING,node,7727056485,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.4925463,30.3608263,0.5,ADDRESS_MISSING,node,7756749030,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.5535325,29.8469063,0.5,ADDRESS_MISSING,node,7775951486,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.899214,32.3492415,0.5,ADDRESS_MISSING,node,7804366185,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.03402,30.448823,0.5,ADDRESS_MISSING,node,7843346395,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0673141,30.401804,0.5,ADDRESS_MISSING,node,7845648287,osm_pbf,False
+Реалъ,РеалЪ,,59.9048673,30.4767658,0.5,ADDRESS_MISSING,node,7875326726,osm_pbf,False
+Лента,Лента Зоомаркет,,59.9342916,30.4970825,0.1,ADDRESS_MISSING;DUPLICATE_CANDIDATE,node,7902830463,osm_pbf,True
+Реалъ,РеалЪ,,60.0057882,30.28236,0.5,ADDRESS_MISSING,node,7903175085,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.632723,30.419708,0.5,ADDRESS_MISSING,node,7903330785,osm_pbf,False
+Пятёрочка,"1,5kapart",,59.9278162,30.3234506,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,7934321885,osm_pbf,False
+Реалъ,Мастерская-музей реалистической живописи,,58.51523,31.2643988,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,7965475626,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.1961012,29.6844061,0.5,ADDRESS_MISSING,node,7965695885,osm_pbf,False
+Реалъ,РеалЪ,,59.9541242,30.422598,0.5,ADDRESS_MISSING,node,7975088285,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8494157,30.935245,0.5,ADDRESS_MISSING,node,7995105890,osm_pbf,False
+Семишагофф,Семишагофф,,59.8028148,30.3769007,0.5,ADDRESS_MISSING,node,8016240885,osm_pbf,False
+Реалъ,Здание реального училища,,60.7096897,28.7400689,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,8042780386,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8653384,30.4436892,0.5,ADDRESS_MISSING,node,8043332067,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.1198707,30.1752434,0.5,ADDRESS_MISSING,node,8047082085,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9876175,30.2086048,0.5,ADDRESS_MISSING,node,8058453381,osm_pbf,False
+Семишагофф,Семишагофф,,59.8138881,30.5647611,0.5,ADDRESS_MISSING,node,8074907251,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8149415,30.5747323,0.5,ADDRESS_MISSING,node,8074907259,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8156333,30.5765882,0.5,ADDRESS_MISSING,node,8074907262,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9524363,30.2317223,0.5,ADDRESS_MISSING,node,8081047266,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9430009,30.261325,0.5,ADDRESS_MISSING,node,8092782533,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9388836,30.376266,0.5,ADDRESS_MISSING,node,8117039317,osm_pbf,False
+Лента,ТК «Лента»,,59.7996951,30.4019836,0.0,ADDRESS_MISSING;SHOP_TAG_MISSING;DUPLICATE_CANDIDATE,node,8117445855,osm_pbf,True
+Пятёрочка,Пятёрочка,,59.5699804,30.5498753,0.5,ADDRESS_MISSING,node,8138393715,osm_pbf,False
+Семишагофф,Семишагофф,,59.933243,30.3767711,0.5,ADDRESS_MISSING,node,8148963517,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8497018,30.256702,0.5,ADDRESS_MISSING,node,8171697674,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8383895,30.3488014,0.5,ADDRESS_MISSING,node,8181206261,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9306537,30.4110405,0.5,ADDRESS_MISSING,node,8227842543,osm_pbf,False
+ВкусВилл,ВкусВилл,,60.0292761,30.3303172,0.5,ADDRESS_MISSING,node,8240291496,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.5170508,31.2671621,0.5,ADDRESS_MISSING,node,8275687617,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9120921,30.321705,0.5,ADDRESS_MISSING,node,8309130930,osm_pbf,False
+Лента,Челлентани,"Комендантский проспект, 58",60.0337404,30.2267533,0.5,SHOP_TAG_MISSING,node,8313079617,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9655444,30.4362855,0.5,ADDRESS_MISSING,node,8364296683,osm_pbf,False
+Семишагофф,Семишагофф,,59.8305153,30.4250572,0.5,ADDRESS_MISSING,node,8375252321,osm_pbf,False
+Реалъ,Profi Credit,,59.9260103,30.3197938,0.3,ADDRESS_MISSING,node,8376569678,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.8599835,29.9364535,0.5,ADDRESS_MISSING,node,8419858217,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8382809,30.357357,0.5,ADDRESS_MISSING,node,8450324317,osm_pbf,False
+Семишагофф,Семишагофф,,59.9027952,30.5104501,0.5,ADDRESS_MISSING,node,8454586935,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.9101325,34.1598729,0.5,ADDRESS_MISSING,node,8463036196,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.9172231,34.1467247,0.5,ADDRESS_MISSING,node,8463049738,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8448705,30.3091565,0.5,ADDRESS_MISSING,node,8479374786,osm_pbf,False
+ВкусВилл,ВкусВилл,,60.0390808,30.4043972,0.5,ADDRESS_MISSING,node,8514337389,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.1319461,31.6951753,0.5,ADDRESS_MISSING,node,8520772717,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.5798011,31.2919486,0.5,ADDRESS_MISSING,node,8522021281,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.5581018,31.276212,0.5,ADDRESS_MISSING,node,8522092177,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.5227545,31.2959316,0.5,ADDRESS_MISSING,node,8522180641,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.5357113,31.2239814,0.5,ADDRESS_MISSING,node,8522261603,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.5217769,31.2544808,0.5,ADDRESS_MISSING,node,8522271163,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.5158141,31.2448034,0.5,ADDRESS_MISSING,node,8522271164,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.5254462,31.2121421,0.5,ADDRESS_MISSING,node,8522281964,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.543244,31.2265187,0.5,ADDRESS_MISSING,node,8522336094,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9872443,30.4269523,0.5,ADDRESS_MISSING,node,8528042444,osm_pbf,False
+Реалъ,РеалЪ,,60.1453737,30.2225116,0.5,ADDRESS_MISSING,node,8528304059,osm_pbf,False
+Лента,Супер Лента,,59.8984274,30.5129841,0.5,ADDRESS_MISSING,node,8537969995,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8406429,30.3396801,0.5,ADDRESS_MISSING,node,8558412896,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.8565966,30.2038473,0.5,ADDRESS_MISSING,node,8567495854,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.3499357,31.2507498,0.5,ADDRESS_MISSING,node,8621467996,osm_pbf,False
+Семишагофф,Семишагофф,,59.9242556,30.4539481,0.5,ADDRESS_MISSING,node,8621835994,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0125458,30.4112663,0.5,ADDRESS_MISSING,node,8621936936,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0777308,29.9680078,0.5,ADDRESS_MISSING,node,8636318445,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.5666812,29.8687367,0.5,ADDRESS_MISSING,node,8639750617,osm_pbf,False
+Семишагофф,Семишагофф,,60.0249034,30.3181966,0.5,ADDRESS_MISSING,node,8647655276,osm_pbf,False
+Лента,Мини Лента,,59.9387514,30.2443522,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,8650402985,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9367239,30.2559354,0.5,ADDRESS_MISSING,node,8661033057,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9443022,30.2849236,0.5,ADDRESS_MISSING,node,8676996960,osm_pbf,False
+Лента,"Таллинское шоссе, 159, торговый центр «Лента»",,59.8078408,30.1663728,0.0,ADDRESS_MISSING;SHOP_TAG_MISSING;DUPLICATE_CANDIDATE,node,8702586804,osm_pbf,True
+Лента,"Таллинское шоссе, 159, торговый центр «Лента»",,59.8069921,30.1650407,0.0,ADDRESS_MISSING;SHOP_TAG_MISSING;DUPLICATE_CANDIDATE,node,8702586805,osm_pbf,True
+Пятёрочка,торговый центр «Пятерочка»,,59.7458887,30.091815,0.0,ADDRESS_MISSING;SHOP_TAG_MISSING;DUPLICATE_CANDIDATE,node,8716038186,osm_pbf,True
+Пятёрочка,Пятёрочка,,60.0672911,30.7402069,0.5,ADDRESS_MISSING,node,8738187903,osm_pbf,False
+Семишагофф,Семишагофф,,60.11148,30.492336,0.5,ADDRESS_MISSING,node,8742007506,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8441897,30.3177741,0.5,ADDRESS_MISSING,node,8776650696,osm_pbf,False
+Лента,,,59.9146589,29.0543988,0.0,ADDRESS_MISSING;SHOP_TAG_MISSING;DUPLICATE_CANDIDATE,node,8777194990,osm_pbf,True
+Лента,Гипермаркет «Лента»,,59.9142502,29.0540126,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,8777194995,osm_pbf,False
+Лента,Гипермаркет «Лента»,,59.9134757,29.0540475,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,8777195002,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.3780444,28.6223322,0.5,ADDRESS_MISSING,node,8786012424,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9023429,30.3198699,0.5,ADDRESS_MISSING,node,8809256129,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8693342,30.2724617,0.5,ADDRESS_MISSING,node,8814563768,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9309554,30.3600725,0.5,ADDRESS_MISSING,node,8838170244,osm_pbf,False
+Лента,Лента зоомаркет,,59.8518908,30.0931837,0.1,ADDRESS_MISSING;DUPLICATE_CANDIDATE,node,8839218811,osm_pbf,True
+Пятёрочка,Пятёрочка,,59.0122714,29.0865942,0.5,ADDRESS_MISSING,node,8839746918,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9469476,30.2735356,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,8842530845,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.8373884,30.3507079,0.5,ADDRESS_MISSING,node,8855167792,osm_pbf,False
+ВкусВилл,ВкусВилл,,60.0349114,30.3232552,0.5,ADDRESS_MISSING,node,8858059417,osm_pbf,False
+Лента,Супер Лента,,59.8316186,30.3626908,0.5,ADDRESS_MISSING,node,8861296817,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9356758,30.3605172,0.5,ADDRESS_MISSING,node,8866697117,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9259475,30.3674995,0.5,ADDRESS_MISSING,node,8866704719,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.8329496,30.3463624,0.5,ADDRESS_MISSING,node,8870289497,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8636812,30.1727392,0.5,ADDRESS_MISSING,node,8900982931,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9379645,30.2368419,0.5,ADDRESS_MISSING,node,8910883596,osm_pbf,False
+ВкусВилл,ВкусВилл,,60.0090137,30.2596628,0.5,ADDRESS_MISSING,node,8914559739,osm_pbf,False
+ВкусВилл,ВкусВилл,,60.0261116,30.2974396,0.5,ADDRESS_MISSING,node,8928140241,osm_pbf,False
+ВкусВилл,ВкусВилл,,60.016118,30.3110978,0.5,ADDRESS_MISSING,node,8928140620,osm_pbf,False
+ВкусВилл,ВкусВилл,,60.0308282,30.2385829,0.5,ADDRESS_MISSING,node,8928144895,osm_pbf,False
+ВкусВилл,ВкусВилл,,60.0539164,30.3276809,0.5,ADDRESS_MISSING,node,8928149465,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9842606,30.2153225,0.5,ADDRESS_MISSING,node,8930780373,osm_pbf,False
+Реалъ,РеалЪ,,60.0152797,30.0098464,0.5,ADDRESS_MISSING,node,8932146769,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.5123507,31.2454511,0.5,ADDRESS_MISSING,node,9029770117,osm_pbf,False
+Семишагофф,Семишагофф,,59.946375,30.5614886,0.5,ADDRESS_MISSING,node,9049937317,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9978662,29.7652218,0.5,ADDRESS_MISSING,node,9052783057,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9973137,29.7669035,0.5,ADDRESS_MISSING,node,9052783060,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0416057,32.5790656,0.5,ADDRESS_MISSING,node,9110874542,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9229003,30.4200535,0.5,ADDRESS_MISSING,node,9112136129,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9287229,30.3706115,0.5,ADDRESS_MISSING,node,9124068817,osm_pbf,False
+Лента,Лента,,59.87762,30.442873,0.5,ADDRESS_MISSING,node,9144331817,osm_pbf,False
+Лента,Торговый комплекс «Лента»,,59.8101777,30.3184062,0.0,ADDRESS_MISSING;SHOP_TAG_MISSING;DUPLICATE_CANDIDATE,node,9156234934,osm_pbf,True
+Лента,Торговый комплекс «Лента»,,59.8100581,30.3183384,0.0,ADDRESS_MISSING;SHOP_TAG_MISSING;DUPLICATE_CANDIDATE,node,9156234935,osm_pbf,True
+Пятёрочка,Пятёрочка,,58.5109291,31.2361514,0.5,ADDRESS_MISSING,node,9173854212,osm_pbf,False
+Лента,Гипермаркет «Лента»,,59.9142375,29.053929,0.0,ADDRESS_MISSING;SHOP_TAG_MISSING;DUPLICATE_CANDIDATE,node,9179401029,osm_pbf,True
+Лента,Гипермаркет «Лента»,,59.9135133,29.0542239,0.0,ADDRESS_MISSING;SHOP_TAG_MISSING;DUPLICATE_CANDIDATE,node,9179401030,osm_pbf,True
+Пятёрочка,Пятёрочка,,60.0911655,30.8362053,0.5,ADDRESS_MISSING,node,9199745421,osm_pbf,False
+Семишагофф,Семишагофф,,60.0213981,30.2547583,0.5,ADDRESS_MISSING,node,9203242141,osm_pbf,False
+Лента,Супер Лента,,60.148567,30.5100973,0.5,ADDRESS_MISSING,node,9205752888,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9923569,30.308747,0.5,ADDRESS_MISSING,node,9207990236,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.4323733,31.1655341,0.5,ADDRESS_MISSING,node,9211929318,osm_pbf,False
+ВкусВилл,ВкусВилл,,58.5156078,31.2444577,0.5,ADDRESS_MISSING,node,9212419622,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.5384634,29.9167883,0.5,ADDRESS_MISSING,node,9213682018,osm_pbf,False
+Лента,Торговый комплекс «Лента»,,59.9082163,30.4479065,0.0,ADDRESS_MISSING;SHOP_TAG_MISSING;DUPLICATE_CANDIDATE,node,9219132858,osm_pbf,True
+Лента,Торговый комплекс «Лента»,,59.9081239,30.4482922,0.0,ADDRESS_MISSING;SHOP_TAG_MISSING;DUPLICATE_CANDIDATE,node,9219132859,osm_pbf,True
+Пятёрочка,Пятёрочка,,60.1503183,30.5112407,0.5,ADDRESS_MISSING,node,9219785635,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.7475849,29.8552026,0.5,ADDRESS_MISSING,node,9220873760,osm_pbf,False
+Лента,торговый комплекс «Лента»,,59.985747,30.2266522,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,9230651358,osm_pbf,False
+Лента,торговый комплекс «Лента»,,59.9857803,30.2256243,0.0,ADDRESS_MISSING;SHOP_TAG_MISSING;DUPLICATE_CANDIDATE,node,9230651360,osm_pbf,True
+Пятёрочка,Пятёрочка,,59.9446422,30.4983227,0.5,ADDRESS_MISSING,node,9232609803,osm_pbf,False
+Лента,Супер Лента,,59.6429495,33.546969,0.5,ADDRESS_MISSING,node,9266879006,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.1822291,30.3229561,0.5,ADDRESS_MISSING,node,9280197766,osm_pbf,False
+ВкусВилл,ВкусВилл,,60.1460346,30.2136202,0.5,ADDRESS_MISSING,node,9316540317,osm_pbf,False
+Лента,Супер Лента,,60.140984,30.2119585,0.5,ADDRESS_MISSING,node,9316540518,osm_pbf,False
+Лента,Супер Лента,,59.8630862,30.1904728,0.5,ADDRESS_MISSING,node,9321016256,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.6423518,33.5802859,0.5,ADDRESS_MISSING,node,9389173189,osm_pbf,False
+Пятёрочка,Пятёрочка,"1-й микрорайон, 8",59.6439982,33.5511912,0.7,,node,9389210526,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.964209,34.0291575,0.5,ADDRESS_MISSING,node,9439100169,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8789338,30.3140107,0.5,ADDRESS_MISSING,node,9444380363,osm_pbf,False
+ВкусВилл,ВкусВилл,,60.0349528,30.2492286,0.5,ADDRESS_MISSING,node,9484623360,osm_pbf,False
+Лента,Супер Лента,,60.0320241,30.232176,0.5,ADDRESS_MISSING,node,9500507984,osm_pbf,False
+ОКЕЙ,Гипермаркет «О'кей»,,59.5833167,30.1394592,0.0,ADDRESS_MISSING;SHOP_TAG_MISSING;DUPLICATE_CANDIDATE,node,9510726585,osm_pbf,True
+Пятёрочка,Пятёрочка,"посёлок Котельский, 6А",59.5838819,28.7534862,0.7,,node,9528843416,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.8897959,30.3188541,0.5,ADDRESS_MISSING,node,9670186317,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9207024,30.370779,0.5,ADDRESS_MISSING,node,9671890017,osm_pbf,False
+Семишагофф,Семишагофф,,59.8555731,30.3795464,0.5,ADDRESS_MISSING,node,9675683593,osm_pbf,False
+Семишагофф,Семишагофф,,59.9369464,30.4824186,0.5,ADDRESS_MISSING,node,9709148189,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.6145431,30.3644022,0.5,ADDRESS_MISSING,node,9711819098,osm_pbf,False
+Реалъ,РеалЪ,,59.8845694,30.3677716,0.5,ADDRESS_MISSING,node,9714206785,osm_pbf,False
+Лента,ТК «Лента»,,59.7977241,30.4059278,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,9714367855,osm_pbf,False
+Лента,ТК «Лента»,,59.797788,30.4060922,0.0,ADDRESS_MISSING;SHOP_TAG_MISSING;DUPLICATE_CANDIDATE,node,9714367856,osm_pbf,True
+Лента,,,59.8980436,30.3345833,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,9723809353,osm_pbf,False
+Лента,,,59.8979638,30.3344617,0.0,ADDRESS_MISSING;SHOP_TAG_MISSING;DUPLICATE_CANDIDATE,node,9724294685,osm_pbf,True
+ВкусВилл,ВкусВилл,,59.9041528,30.4533614,0.5,ADDRESS_MISSING,node,9739165114,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9007981,30.4565727,0.5,ADDRESS_MISSING,node,9751677193,osm_pbf,False
+Семишагофф,Семишагофф,,59.9306392,30.4224086,0.5,ADDRESS_MISSING,node,9757019215,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9843866,30.3781727,0.5,ADDRESS_MISSING,node,9757358396,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.3478422,30.1289861,0.5,ADDRESS_MISSING,node,9766941017,osm_pbf,False
+Семишагофф,Семишагофф,,60.042418,30.4479733,0.5,ADDRESS_MISSING,node,9770614125,osm_pbf,False
+Реалъ,РеалЪ,,59.6887561,30.4093059,0.5,ADDRESS_MISSING,node,9782126176,osm_pbf,False
+Реалъ,РеалЪ,,59.6953581,30.4194452,0.5,ADDRESS_MISSING,node,9782167389,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9989123,30.2206428,0.3,ADDRESS_MISSING,node,9784916782,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9529588,30.2166853,0.5,ADDRESS_MISSING,node,9786857452,osm_pbf,False
+Лента,Кудрово- ТК Лента,,59.9163396,30.5206412,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,9792628494,osm_pbf,False
+Лента,Кудрово- ТК Лента,,59.9167599,30.5199172,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,9792628495,osm_pbf,False
+Лента,Кудрово- ТК Лента,,59.9167441,30.51984,0.0,ADDRESS_MISSING;SHOP_TAG_MISSING;DUPLICATE_CANDIDATE,node,9792628496,osm_pbf,True
+Пятёрочка,Пятёрочка,,59.8994335,30.4459002,0.5,ADDRESS_MISSING,node,9799112745,osm_pbf,False
+Семишагофф,Семишагофф,,60.0298525,30.7549632,0.5,ADDRESS_MISSING,node,9810517417,osm_pbf,False
+Семишагофф,Семишагофф,,59.9589511,30.490849,0.5,ADDRESS_MISSING,node,9815304129,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.7234188,30.0809724,0.5,ADDRESS_MISSING,node,9818050730,osm_pbf,False
+Лента,Супер Лента,,59.9400219,30.2126142,0.5,ADDRESS_MISSING,node,9854339117,osm_pbf,False
+Лента,Супер Лента,,59.9048124,30.4396427,0.5,ADDRESS_MISSING,node,9875011594,osm_pbf,False
+Лента,Супер Лента,,60.0727956,30.3441816,0.5,ADDRESS_MISSING,node,9893464082,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9377499,30.3877452,0.5,ADDRESS_MISSING,node,9901926661,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9361861,30.4158962,0.5,ADDRESS_MISSING,node,9912654962,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8892328,30.6858574,0.5,ADDRESS_MISSING,node,9927479615,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.6816962,30.0026698,0.5,ADDRESS_MISSING,node,9929505380,osm_pbf,False
+Реалъ,РеалЪ,,59.9902699,29.7748692,0.5,ADDRESS_MISSING,node,9942701718,osm_pbf,False
+Лента,Супер Лента,,59.9543013,30.4696514,0.5,ADDRESS_MISSING,node,9955715377,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.802044,30.3788255,0.5,ADDRESS_MISSING,node,9955717238,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8315449,30.5333441,0.5,ADDRESS_MISSING,node,9956916105,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9605329,30.2902206,0.5,ADDRESS_MISSING,node,9979746731,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0331094,30.4470192,0.5,ADDRESS_MISSING,node,9994157165,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.7504459,30.3141164,0.5,ADDRESS_MISSING,node,10002714394,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.870954,30.3814097,0.5,ADDRESS_MISSING,node,10010823521,osm_pbf,False
+Лента,Мини Лента,,59.9563414,30.3081671,0.5,ADDRESS_MISSING,node,10011300626,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.3250317,30.4459461,0.5,ADDRESS_MISSING,node,10012665187,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.3828593,33.2949974,0.5,ADDRESS_MISSING,node,10028765579,osm_pbf,False
+Семишагофф,Семишагофф,,59.9426062,30.3455851,0.5,ADDRESS_MISSING,node,10032218281,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8581784,30.1500117,0.5,ADDRESS_MISSING,node,10049285317,osm_pbf,False
+Реалъ,РеалЪ,,59.9903084,30.3161084,0.5,ADDRESS_MISSING,node,10052028143,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.2734328,30.4563525,0.5,ADDRESS_MISSING,node,10067175605,osm_pbf,False
+Лента,Супер Лента,,59.9330321,30.4308257,0.5,ADDRESS_MISSING,node,10101668296,osm_pbf,False
+Семишагофф,Семишагофф,,60.0226637,30.3738659,0.5,ADDRESS_MISSING,node,10102752218,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0541776,30.2725908,0.5,ADDRESS_MISSING,node,10103631161,osm_pbf,False
+Семишагофф,Семишагофф,,59.5373077,30.8857342,0.5,ADDRESS_MISSING,node,10106405887,osm_pbf,False
+Реалъ,БИАР,,59.8407625,30.1571238,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,10109816349,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0291093,30.6390318,0.5,ADDRESS_MISSING,node,10126740484,osm_pbf,False
+ОКЕЙ,Ленинградское шоссе/Гипермаркет «О'кей»,,59.5831722,30.1415094,0.0,ADDRESS_MISSING;SHOP_TAG_MISSING;DUPLICATE_CANDIDATE,node,10140053669,osm_pbf,True
+ОКЕЙ,Ленинградское шоссе/Гипермаркет «О'кей»,,59.584,30.1423826,0.0,ADDRESS_MISSING;SHOP_TAG_MISSING;DUPLICATE_CANDIDATE,node,10140053713,osm_pbf,True
+Пятёрочка,Пятёрочка,,59.9375359,30.1964934,0.5,ADDRESS_MISSING,node,10154506217,osm_pbf,False
+Семишагофф,Семишагофф,,60.031355,30.250805,0.5,ADDRESS_MISSING,node,10163928219,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.8524034,30.2670935,0.5,ADDRESS_MISSING,node,10169961607,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8090363,30.0886408,0.5,ADDRESS_MISSING,node,10185695254,osm_pbf,False
+Пятёрочка,,,60.3723503,30.3688669,0.0,ADDRESS_MISSING;SHOP_TAG_MISSING;DUPLICATE_CANDIDATE,node,10188934404,osm_pbf,True
+Лента,,,59.8696218,29.8270717,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,10188989524,osm_pbf,False
+Лента,,,59.8696342,29.8271177,0.0,ADDRESS_MISSING;SHOP_TAG_MISSING;DUPLICATE_CANDIDATE,node,10188989525,osm_pbf,True
+Пятёрочка,Пятёрочка,,59.6774859,30.5021413,0.5,ADDRESS_MISSING,node,10197607817,osm_pbf,False
+Лента,,,59.9470701,30.4350698,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,10204046818,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8775333,30.3161273,0.5,ADDRESS_MISSING,node,10215037011,osm_pbf,False
+Лента,Супер Лента,,59.8665411,30.5107005,0.5,ADDRESS_MISSING,node,10219030757,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9112592,30.307038,0.5,ADDRESS_MISSING,node,10228615894,osm_pbf,False
+Лента,Мини-Лента,,59.9955077,30.2039749,0.5,ADDRESS_MISSING,node,10237895829,osm_pbf,False
+Семишагофф,Семишагофф,,59.8687111,30.3695507,0.5,ADDRESS_MISSING,node,10240958747,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.1127729,30.2642737,0.5,ADDRESS_MISSING,node,10241288594,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9245509,30.3034335,0.5,ADDRESS_MISSING,node,10247274523,osm_pbf,False
+Реалъ,Woo-hoo!,,59.9371256,30.317406,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,10283929801,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.6695754,31.3681452,0.5,ADDRESS_MISSING,node,10285943013,osm_pbf,False
+Реалъ,РеалЪ,,59.915474,30.3178591,0.5,ADDRESS_MISSING,node,10293608938,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.811243,30.0784261,0.5,ADDRESS_MISSING,node,10300824020,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.8489858,30.1553739,0.5,ADDRESS_MISSING,node,10302361284,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.7938661,30.7958098,0.5,ADDRESS_MISSING,node,10568760200,osm_pbf,False
+Лента,Кудрово- ТК Лента,,59.9163774,30.5207287,0.0,ADDRESS_MISSING;SHOP_TAG_MISSING;DUPLICATE_CANDIDATE,node,10574555717,osm_pbf,True
+Лента,Супер Лента,,59.8113572,30.3660802,0.5,ADDRESS_MISSING,node,10583918916,osm_pbf,False
+Лента,Супер Лента,,59.8026432,30.3823757,0.5,ADDRESS_MISSING,node,10583926372,osm_pbf,False
+ВкусВилл,ВкусВилл,,60.0047012,30.2235288,0.5,ADDRESS_MISSING,node,10605872399,osm_pbf,False
+Семишагофф,Семишагофф,,59.4100632,30.3492979,0.5,ADDRESS_MISSING,node,10606051305,osm_pbf,False
+Семишагофф,Семишагофф,,59.7564849,30.4715409,0.5,ADDRESS_MISSING,node,10656127393,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.948504,30.4757345,0.5,ADDRESS_MISSING,node,10657128999,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.538796,30.8718932,0.5,ADDRESS_MISSING,node,10681138409,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0193686,30.6449836,0.5,ADDRESS_MISSING,node,10683270662,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.5528652,30.8541021,0.5,ADDRESS_MISSING,node,10686718985,osm_pbf,False
+Семишагофф,Семишагофф,,59.8334577,30.1767437,0.5,ADDRESS_MISSING,node,10691997042,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8042745,30.078557,0.5,ADDRESS_MISSING,node,10692778865,osm_pbf,False
+Семишагофф,Семишагофф,,59.5712011,30.1424181,0.5,ADDRESS_MISSING,node,10699980513,osm_pbf,False
+Лента,Для покупателей «Лента»,,59.8521883,30.0936681,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,10701823406,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9835211,30.2352884,0.5,ADDRESS_MISSING,node,10720689906,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9297754,30.4146127,0.5,ADDRESS_MISSING,node,10722055608,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9219349,30.4599032,0.5,ADDRESS_MISSING,node,10722055609,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9182528,30.470801,0.5,ADDRESS_MISSING,node,10722055610,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9076624,30.4807547,0.5,ADDRESS_MISSING,node,10722055611,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9086468,30.5119756,0.5,ADDRESS_MISSING,node,10722055612,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.8321551,30.505482,0.5,ADDRESS_MISSING,node,10722055614,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.8276787,30.399402,0.5,ADDRESS_MISSING,node,10722055615,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.8332449,30.4211195,0.5,ADDRESS_MISSING,node,10722055616,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.7914734,30.1658446,0.5,ADDRESS_MISSING,node,10722055617,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.8417642,30.1131231,0.5,ADDRESS_MISSING,node,10722055618,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.8433381,30.1034617,0.5,ADDRESS_MISSING,node,10722055619,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.8528821,30.1478791,0.5,ADDRESS_MISSING,node,10722055620,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.8515811,30.1432658,0.5,ADDRESS_MISSING,node,10722055621,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.8667782,30.1596004,0.5,ADDRESS_MISSING,node,10722055622,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.8522732,30.2174637,0.5,ADDRESS_MISSING,node,10722055623,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.822378,30.3329137,0.5,ADDRESS_MISSING,node,10722055624,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.8256521,30.337168,0.5,ADDRESS_MISSING,node,10722055625,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9788187,30.3347431,0.5,ADDRESS_MISSING,node,10722072195,osm_pbf,False
+ВкусВилл,ВкусВилл,,60.0714492,30.3373289,0.5,ADDRESS_MISSING,node,10722072196,osm_pbf,False
+ВкусВилл,ВкусВилл,,60.034561,30.226205,0.5,ADDRESS_MISSING,node,10722072197,osm_pbf,False
+ВкусВилл,ВкусВилл,,60.037744,30.2254459,0.5,ADDRESS_MISSING,node,10722072198,osm_pbf,False
+ВкусВилл,ВкусВилл,,60.0348772,30.2438378,0.5,ADDRESS_MISSING,node,10722072199,osm_pbf,False
+ВкусВилл,ВкусВилл,,60.0047418,30.30025,0.5,ADDRESS_MISSING,node,10722072200,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9860147,30.2976269,0.5,ADDRESS_MISSING,node,10722072202,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.959028,30.2731839,0.5,ADDRESS_MISSING,node,10722072203,osm_pbf,False
+ВкусВилл,ВкусВилл,,60.7099253,28.7500177,0.5,ADDRESS_MISSING,node,10722083499,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.3807395,28.6137307,0.5,ADDRESS_MISSING,node,10722083500,osm_pbf,False
+ВкусВилл,ВкусВилл,,60.0157476,30.6483045,0.5,ADDRESS_MISSING,node,10722083501,osm_pbf,False
+ВкусВилл,ВкусВилл,,60.025099,30.6314842,0.5,ADDRESS_MISSING,node,10722083502,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.8826712,30.9852889,0.5,ADDRESS_MISSING,node,10722083503,osm_pbf,False
+ВкусВилл,ВкусВилл,,60.0320837,30.4053819,0.5,ADDRESS_MISSING,node,10722083504,osm_pbf,False
+ВкусВилл,ВкусВилл,,60.0392362,30.4527846,0.5,ADDRESS_MISSING,node,10722099405,osm_pbf,False
+ВкусВилл,ВкусВилл,,60.0513211,30.450848,0.5,ADDRESS_MISSING,node,10722099406,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9383927,30.3601384,0.5,ADDRESS_MISSING,node,10722099408,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9437398,30.3614943,0.5,ADDRESS_MISSING,node,10722099409,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.8261011,30.3273551,0.5,ADDRESS_MISSING,node,10722138306,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.8515936,30.3140661,0.5,ADDRESS_MISSING,node,10722138307,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.8691587,30.3116092,0.5,ADDRESS_MISSING,node,10722138309,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.4452019,32.0154771,0.5,ADDRESS_MISSING,node,10722138310,osm_pbf,False
+Семишагофф,Семишагофф,,59.8305436,30.3844338,0.5,ADDRESS_MISSING,node,10738664478,osm_pbf,False
+Семишагофф,Семишагофф,,59.9189715,30.4643026,0.5,ADDRESS_MISSING,node,10738671003,osm_pbf,False
+Семишагофф,Семишагофф,,59.9013991,30.4644856,0.5,ADDRESS_MISSING,node,10738711671,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.5369166,28.9334099,0.5,ADDRESS_MISSING,node,10768599816,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.3751208,28.61302,0.5,ADDRESS_MISSING,node,10768684066,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.3691587,28.6054733,0.5,ADDRESS_MISSING,node,10768684068,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.3807939,28.6109649,0.5,ADDRESS_MISSING,node,10768684073,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.4013272,28.5714683,0.5,ADDRESS_MISSING,node,10768710419,osm_pbf,False
+Лента,1 ПГ,,59.9133544,29.0559641,0.0,ADDRESS_MISSING;SHOP_TAG_MISSING;DUPLICATE_CANDIDATE,node,10790315430,osm_pbf,True
+Лента,2 ПГ,,59.9148028,29.0548063,0.0,ADDRESS_MISSING;SHOP_TAG_MISSING;DUPLICATE_CANDIDATE,node,10790315431,osm_pbf,True
+Лента,3 ПГ,,59.9149754,29.0575809,0.0,ADDRESS_MISSING;SHOP_TAG_MISSING;DUPLICATE_CANDIDATE,node,10790315432,osm_pbf,True
+Пятёрочка,Пятёрочка,,59.9147242,30.5204976,0.5,ADDRESS_MISSING,node,10826931711,osm_pbf,False
+ВкусВилл,ВкусВилл,,60.0516396,30.4335874,0.5,ADDRESS_MISSING,node,10871387108,osm_pbf,False
+ОКЕЙ,,,59.7955515,30.1475782,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,10884959769,osm_pbf,False
+Семишагофф,Семишагофф,,59.3539595,30.0649609,0.5,ADDRESS_MISSING,node,10895759315,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8990407,30.3074286,0.5,ADDRESS_MISSING,node,10905454084,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9570099,30.3172744,0.5,ADDRESS_MISSING,node,10911321290,osm_pbf,False
+Семишагофф,Семишагофф,,60.0181336,30.6465111,0.5,ADDRESS_MISSING,node,10916174079,osm_pbf,False
+Семишагофф,Семишагофф,,59.6277535,30.3951701,0.5,ADDRESS_MISSING,node,10916229307,osm_pbf,False
+Семишагофф,Семишагофф,,59.7556444,31.0670746,0.5,ADDRESS_MISSING,node,10916238139,osm_pbf,False
+Лента,Вингараж,,59.7916659,30.1657675,0.3,ADDRESS_MISSING,node,10926368486,osm_pbf,False
+ОКЕЙ,,,59.7955404,30.1461204,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,10942525779,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.5437809,31.3100031,0.5,ADDRESS_MISSING,node,10946246135,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.2058112,29.7044268,0.5,ADDRESS_MISSING,node,10961309602,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8087722,30.3612428,0.5,ADDRESS_MISSING,node,10967490630,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9372788,30.2150846,0.5,ADDRESS_MISSING,node,10971307705,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9180456,30.5180994,0.5,ADDRESS_MISSING,node,10982037578,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.3114068,29.5606497,0.5,ADDRESS_MISSING,node,10992281287,osm_pbf,False
+Семишагофф,Семишагофф,,59.7621998,30.772491,0.5,ADDRESS_MISSING,node,11006197003,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9705,31.0402366,0.5,ADDRESS_MISSING,node,11007946000,osm_pbf,False
+Семишагофф,Семишагофф,,59.788388,30.1632306,0.5,ADDRESS_MISSING,node,11008112746,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0325808,30.7495549,0.5,ADDRESS_MISSING,node,11008639021,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9426714,30.3468383,0.5,ADDRESS_MISSING,node,11018630005,osm_pbf,False
+Реалъ,Реал-тон,,59.9282986,30.3251995,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,11026138318,osm_pbf,False
+ВкусВилл,Вкус Вилл,,60.000378,30.3067478,0.3,ADDRESS_MISSING,node,11034443806,osm_pbf,False
+Лента,Мини Лента,,60.0494881,30.33383,0.5,ADDRESS_MISSING,node,11034680449,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0512879,30.3348003,0.5,ADDRESS_MISSING,node,11034697098,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9270184,30.3843632,0.5,ADDRESS_MISSING,node,11035960019,osm_pbf,False
+Семишагофф,Семишагофф,,59.9301524,30.3223468,0.5,ADDRESS_MISSING,node,11039880561,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.7881927,30.1627047,0.5,ADDRESS_MISSING,node,11047003340,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.6258025,28.7822009,0.5,ADDRESS_MISSING,node,11049314436,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.4368241,29.7459796,0.5,ADDRESS_MISSING,node,11049314441,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.420599,29.3802005,0.5,ADDRESS_MISSING,node,11049314454,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.9811569,32.9768157,0.5,ADDRESS_MISSING,node,11066774230,osm_pbf,False
+Лента,Мини Лента,,60.030492,30.637841,0.5,ADDRESS_MISSING,node,11076628896,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9861479,30.2049845,0.5,ADDRESS_MISSING,node,11080743469,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.5408952,31.2243006,0.5,ADDRESS_MISSING,node,11083341718,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.1206083,33.342427,0.5,ADDRESS_MISSING,node,11083408749,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.4530882,33.3695128,0.5,ADDRESS_MISSING,node,11083408750,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.8952929,34.5290386,0.5,ADDRESS_MISSING,node,11083408757,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.9001398,34.5258168,0.5,ADDRESS_MISSING,node,11083408758,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.5985305,35.7975166,0.5,ADDRESS_MISSING,node,11083408761,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.5995505,35.7898925,0.5,ADDRESS_MISSING,node,11083408762,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.5998916,35.7982954,0.5,ADDRESS_MISSING,node,11083408767,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.4369057,31.6943276,0.5,ADDRESS_MISSING,node,11083408769,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.5350876,31.2317648,0.5,ADDRESS_MISSING,node,11083408770,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.6168284,31.4032743,0.5,ADDRESS_MISSING,node,11083408781,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.532959,31.3129187,0.5,ADDRESS_MISSING,node,11083408782,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.5316212,31.2381715,0.5,ADDRESS_MISSING,node,11083408783,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.5479453,31.2240754,0.5,ADDRESS_MISSING,node,11083408784,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.5394365,31.2620689,0.5,ADDRESS_MISSING,node,11083408785,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.5317813,31.3023021,0.5,ADDRESS_MISSING,node,11083408788,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.5419117,31.2523513,0.5,ADDRESS_MISSING,node,11083408789,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.4035121,33.9017669,0.5,ADDRESS_MISSING,node,11083408790,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.3869339,33.9291788,0.5,ADDRESS_MISSING,node,11083408791,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.3940816,33.919245,0.5,ADDRESS_MISSING,node,11083408792,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.3770893,33.8986947,0.5,ADDRESS_MISSING,node,11083408793,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.3801155,33.9008227,0.5,ADDRESS_MISSING,node,11083408794,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.3991522,33.9682471,0.5,ADDRESS_MISSING,node,11083408795,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.3869052,33.8287565,0.5,ADDRESS_MISSING,node,11083408796,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.3832326,33.9007054,0.5,ADDRESS_MISSING,node,11083408797,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.3841552,33.9620459,0.5,ADDRESS_MISSING,node,11083408798,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.3917234,33.9142592,0.5,ADDRESS_MISSING,node,11083408799,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.3809944,33.9258465,0.5,ADDRESS_MISSING,node,11083408800,osm_pbf,False
+ОКЕЙ,О’кей,,59.822246,30.46941,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,11104674907,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8832418,30.741511,0.5,ADDRESS_MISSING,node,11108415680,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9032889,30.995986,0.5,ADDRESS_MISSING,node,11108749847,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.1646477,35.3304634,0.5,ADDRESS_MISSING,node,11108771888,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.5230159,31.2869482,0.5,ADDRESS_MISSING,node,11118593168,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.930118,30.259832,0.5,ADDRESS_MISSING,node,11134677908,osm_pbf,False
+Семишагофф,Семишагофф,,59.7221575,30.6097183,0.5,ADDRESS_MISSING,node,11146855518,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.1107104,30.2508376,0.5,ADDRESS_MISSING,node,11153624456,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9250068,30.3672317,0.5,ADDRESS_MISSING,node,11162597472,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.759173,30.3202053,0.5,ADDRESS_MISSING,node,11163182791,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9289318,30.370966,0.5,ADDRESS_MISSING,node,11176822873,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9530768,30.4091108,0.5,ADDRESS_MISSING,node,11188313637,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8603268,30.4117213,0.5,ADDRESS_MISSING,node,11200708020,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.7562388,30.371826,0.5,ADDRESS_MISSING,node,11207722772,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8971785,30.4559838,0.5,ADDRESS_MISSING,node,11212054577,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8405325,30.1153689,0.5,ADDRESS_MISSING,node,11214230776,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.7552953,30.36524,0.5,ADDRESS_MISSING,node,11226490751,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.810115,30.0773383,0.5,ADDRESS_MISSING,node,11226787196,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.224882,30.2734851,0.5,ADDRESS_MISSING,node,11226886817,osm_pbf,False
+Семишагофф,Семишагофф,,59.4559943,32.0148155,0.5,ADDRESS_MISSING,node,11232286977,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.8623559,30.3201863,0.5,ADDRESS_MISSING,node,11245971574,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.904979,30.3419127,0.5,ADDRESS_MISSING,node,11246289091,osm_pbf,False
+ВкусВилл,,,59.5437285,30.8811153,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,11251206838,osm_pbf,False
+Лента,,,59.5438746,30.8803373,0.0,ADDRESS_MISSING;SHOP_TAG_MISSING;DUPLICATE_CANDIDATE,node,11251225337,osm_pbf,True
+Реалъ,Студия дизайна «Interior Design Code»,,59.9414112,30.2888796,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,11271782229,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.8464926,30.416724,0.5,ADDRESS_MISSING,node,11279290980,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9094661,30.5230007,0.5,ADDRESS_MISSING,node,11330472262,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9028085,30.5229702,0.5,ADDRESS_MISSING,node,11330503044,osm_pbf,False
+Реалъ,Реалдент,,59.9094984,30.3245658,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,11355638905,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9057289,29.0703322,0.5,ADDRESS_MISSING,node,11359186820,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0250377,30.6315399,0.5,ADDRESS_MISSING,node,11382494469,osm_pbf,False
+ВкусВилл,ВкусВилл,,60.024743,30.6317242,0.5,ADDRESS_MISSING,node,11382500669,osm_pbf,False
+Лента,Супер Лента,,60.0114272,30.4022051,0.5,ADDRESS_MISSING,node,11383650540,osm_pbf,False
+Реалъ,Центр самореализации Станислава Казанского,,59.9198376,30.3062656,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,11384009553,osm_pbf,False
+ВкусВилл,ВкусВилл,,60.0536695,30.3107889,0.5,ADDRESS_MISSING,node,11396252575,osm_pbf,False
+Лента,Мини-Лента,,60.3577073,29.7411901,0.5,ADDRESS_MISSING,node,11401683532,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9843941,30.3867906,0.5,ADDRESS_MISSING,node,11402853867,osm_pbf,False
+Лента,Лента зоомаркет,,59.9072971,30.3027059,0.3,ADDRESS_MISSING,node,11407493507,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9047232,30.3083753,0.5,ADDRESS_MISSING,node,11409872014,osm_pbf,False
+Семишагофф,Семишагофф,,59.8689729,29.8666346,0.5,ADDRESS_MISSING,node,11412012735,osm_pbf,False
+Пятёрочка,Ozon,,60.4541457,28.7188149,0.3,ADDRESS_MISSING,node,11491309073,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8831036,31.0004333,0.5,ADDRESS_MISSING,node,11499856504,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.530556,31.2354988,0.5,ADDRESS_MISSING,node,11545875405,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.5483604,31.2254204,0.5,ADDRESS_MISSING,node,11545875406,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8559391,30.201526,0.5,ADDRESS_MISSING,node,11565373258,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.1811582,30.1292293,0.5,ADDRESS_MISSING,node,11575139463,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.3231667,29.1406068,0.5,ADDRESS_MISSING,node,11575139464,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.5675618,30.7696071,0.5,ADDRESS_MISSING,node,11575139465,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.1037004,30.2084783,0.5,ADDRESS_MISSING,node,11575139466,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.6842421,30.4908318,0.5,ADDRESS_MISSING,node,11575139467,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.1788995,30.3660423,0.5,ADDRESS_MISSING,node,11575139468,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.164484,29.8585692,0.5,ADDRESS_MISSING,node,11575147669,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8089184,30.8715385,0.5,ADDRESS_MISSING,node,11575147680,osm_pbf,False
+Пятёрочка,Пятёрочка,,61.0815646,28.9168107,0.5,ADDRESS_MISSING,node,11575147687,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8999926,30.7298192,0.5,ADDRESS_MISSING,node,11575147688,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.6638066,30.1058798,0.5,ADDRESS_MISSING,node,11575147693,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.2806621,32.4729544,0.5,ADDRESS_MISSING,node,11576409679,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9295621,34.2149112,0.5,ADDRESS_MISSING,node,11576409680,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.6506333,32.1189968,0.5,ADDRESS_MISSING,node,11576409685,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.336779,31.2125987,0.5,ADDRESS_MISSING,node,11576409686,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.3444244,30.0332128,0.5,ADDRESS_MISSING,node,11576409687,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9937102,30.651103,0.5,ADDRESS_MISSING,node,11576409688,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.173928,30.1660558,0.5,ADDRESS_MISSING,node,11576409689,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0663872,30.4421278,0.5,ADDRESS_MISSING,node,11576409690,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9190702,30.5173526,0.5,ADDRESS_MISSING,node,11576409691,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9137235,30.5111065,0.5,ADDRESS_MISSING,node,11576409692,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.1173108,28.1030065,0.5,ADDRESS_MISSING,node,11576409693,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.1176051,28.0857778,0.5,ADDRESS_MISSING,node,11576409694,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.4771898,33.8508596,0.5,ADDRESS_MISSING,node,11576409695,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.5480418,30.1342792,0.5,ADDRESS_MISSING,node,11576409696,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.6936833,28.7663086,0.5,ADDRESS_MISSING,node,11576409697,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.6408134,33.5041833,0.5,ADDRESS_MISSING,node,11576409698,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.7354023,33.5463386,0.5,ADDRESS_MISSING,node,11576409700,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.903301,32.3572182,0.5,ADDRESS_MISSING,node,11576409701,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9283996,32.3086928,0.5,ADDRESS_MISSING,node,11576409702,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.4514343,32.0359231,0.5,ADDRESS_MISSING,node,11576409703,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.5113618,34.2017712,0.5,ADDRESS_MISSING,node,11576409704,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.5101372,34.1742948,0.5,ADDRESS_MISSING,node,11576409705,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.3700307,28.2177695,0.5,ADDRESS_MISSING,node,11576409706,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.3584593,28.2077314,0.5,ADDRESS_MISSING,node,11576409707,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.7677111,30.7995111,0.5,ADDRESS_MISSING,node,11576409715,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.3556812,29.7394592,0.5,ADDRESS_MISSING,node,11576409716,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.2577372,29.6015789,0.5,ADDRESS_MISSING,node,11576409717,osm_pbf,False
+Пятёрочка,Пятёрочка,,61.1104462,28.8674005,0.5,ADDRESS_MISSING,node,11576409718,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.6999499,29.9431139,0.5,ADDRESS_MISSING,node,11576409723,osm_pbf,False
+Реалъ,РеалЪ,,59.8312735,30.3722808,0.5,ADDRESS_MISSING,node,11581404472,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.931059,30.4067118,0.5,ADDRESS_MISSING,node,11584453769,osm_pbf,False
+Лента,Гипермаркет «Лента»,,60.0608266,30.3929666,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,11630230858,osm_pbf,False
+Лента,Мини Лента,,59.9632485,30.2679466,0.5,ADDRESS_MISSING,node,11649597486,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.7081214,30.0146505,0.5,ADDRESS_MISSING,node,11668127964,osm_pbf,False
+Лента,Мини-Лента,,59.3860986,28.6105148,0.5,ADDRESS_MISSING,node,11707738557,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.5805144,30.1404067,0.5,ADDRESS_MISSING,node,11738201070,osm_pbf,False
+Семишагофф,Семишагофф,,59.98604,30.2683505,0.5,ADDRESS_MISSING,node,11740838704,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8324125,30.195314,0.5,ADDRESS_MISSING,node,11742961925,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9059497,30.3451851,0.5,ADDRESS_MISSING,node,11750945092,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.8566065,30.3148077,0.5,ADDRESS_MISSING,node,11753670282,osm_pbf,False
+Лента,Супер Лента,,59.6298261,29.5373713,0.5,ADDRESS_MISSING,node,11757543259,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.4375666,29.4719571,0.5,ADDRESS_MISSING,node,11766389090,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.443336,29.4797056,0.5,ADDRESS_MISSING,node,11766389093,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.1612888,30.4421393,0.5,ADDRESS_MISSING,node,11768695865,osm_pbf,False
+Лента,Супер Лента,,59.9853513,30.381757,0.5,ADDRESS_MISSING,node,11773826138,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.7955219,30.1616557,0.5,ADDRESS_MISSING,node,11784730165,osm_pbf,False
+ВкусВилл,Вкусвил,,60.0111987,30.3324521,0.5,ADDRESS_MISSING,node,11789546957,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0364968,30.6504245,0.5,ADDRESS_MISSING,node,11794034320,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.3557654,30.0620732,0.5,ADDRESS_MISSING,node,11832976848,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.0443729,28.5919178,0.5,ADDRESS_MISSING,node,11845337326,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9115961,29.7762759,0.5,ADDRESS_MISSING,node,11852168580,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9606271,30.2608144,0.5,ADDRESS_MISSING,node,11872090876,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.6273078,30.7225751,0.5,ADDRESS_MISSING,node,11872256150,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9856058,30.3228739,0.5,ADDRESS_MISSING,node,11894386563,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9819789,30.3161656,0.5,ADDRESS_MISSING,node,11896835362,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.7309795,30.1067476,0.5,ADDRESS_MISSING,node,11916597529,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.7512268,29.8902527,0.5,ADDRESS_MISSING,node,11927044507,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9354595,31.0298815,0.5,ADDRESS_MISSING,node,11931548063,osm_pbf,False
+Семишагофф,Семишагофф,,60.0002857,30.2870475,0.5,ADDRESS_MISSING,node,11950498790,osm_pbf,False
+ВкусВилл,ВкусВилл,,60.0734437,30.2436468,0.5,ADDRESS_MISSING,node,11958905576,osm_pbf,False
+ВкусВилл,ВкусВилл,,60.0322278,30.1973042,0.5,ADDRESS_MISSING,node,11961098581,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.8347193,30.1120578,0.5,ADDRESS_MISSING,node,11978937721,osm_pbf,False
+ВкусВилл,ВкусВилл,,60.1663432,30.1953814,0.5,ADDRESS_MISSING,node,11984967760,osm_pbf,False
+ВкусВилл,ВкусВилл,,60.0584626,30.2732305,0.5,ADDRESS_MISSING,node,11985468577,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.6984559,30.1025471,0.5,ADDRESS_MISSING,node,11998167983,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9012494,30.3125964,0.5,ADDRESS_MISSING,node,11999051568,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.9201003,29.7594808,0.5,ADDRESS_MISSING,node,12001210385,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9554993,30.254233,0.5,ADDRESS_MISSING,node,12007841625,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8784372,30.9855996,0.5,ADDRESS_MISSING,node,12020668865,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.7263673,30.4189038,0.5,ADDRESS_MISSING,node,12023181808,osm_pbf,False
+Семишагофф,Семишагофф,,60.0490588,30.3800277,0.5,ADDRESS_MISSING,node,12031731767,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0671874,30.4581862,0.5,ADDRESS_MISSING,node,12031808755,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.682292,30.4359958,0.5,ADDRESS_MISSING,node,12033749378,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9567568,30.4479698,0.5,ADDRESS_MISSING,node,12035291969,osm_pbf,False
+Реалъ,Реал М,,59.8963066,30.3197417,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,12042395333,osm_pbf,False
+Лента,Супер Лента,,59.930944,30.404223,0.5,ADDRESS_MISSING,node,12045622447,osm_pbf,False
+ВкусВилл,ВкусВилл,,60.007626,30.451149,0.5,ADDRESS_MISSING,node,12045644290,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8094547,30.0953266,0.5,ADDRESS_MISSING,node,12065169172,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8801624,30.42899,0.5,ADDRESS_MISSING,node,12071359407,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8961993,30.4599603,0.5,ADDRESS_MISSING,node,12074671213,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.8972014,30.4596085,0.5,ADDRESS_MISSING,node,12074671219,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.7574184,30.6274754,0.5,ADDRESS_MISSING,node,12104623279,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.5544523,30.0894133,0.5,ADDRESS_MISSING,node,12104648642,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.7073927,29.706799,0.5,ADDRESS_MISSING,node,12104769605,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9996762,30.4783582,0.5,ADDRESS_MISSING,node,12108711440,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9884652,29.7850015,0.5,ADDRESS_MISSING,node,12109173649,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.3932324,33.003117,0.5,ADDRESS_MISSING,node,12139485234,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8880889,30.685887,0.5,ADDRESS_MISSING,node,12143814499,osm_pbf,False
+Лента,Мини Лента,,60.2324425,29.8527503,0.5,ADDRESS_MISSING,node,12147093852,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9496825,30.5566756,0.5,ADDRESS_MISSING,node,12149699759,osm_pbf,False
+Семишагофф,Семишагофф,,59.8943339,32.3487635,0.5,ADDRESS_MISSING,node,12150154873,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9000537,32.3530618,0.5,ADDRESS_MISSING,node,12150172444,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.1739285,29.4350209,0.5,ADDRESS_MISSING,node,12155978715,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.7015582,28.9378139,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,12163827632,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0596764,30.2773512,0.5,ADDRESS_MISSING,node,12170985029,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.945193,30.4140416,0.5,ADDRESS_MISSING,node,12173684070,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.6496559,28.2603465,0.5,ADDRESS_MISSING,node,12174432612,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.772116,28.4744678,0.5,ADDRESS_MISSING,node,12174485289,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.8414997,30.3039786,0.5,ADDRESS_MISSING,node,12199700076,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8451953,30.0919564,0.5,ADDRESS_MISSING,node,12212412639,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0050461,30.4196819,0.5,ADDRESS_MISSING,node,12222749485,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.2005137,29.9399338,0.5,ADDRESS_MISSING,node,12224060681,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.7151896,28.7490714,0.5,ADDRESS_MISSING,node,12229275204,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.2007158,30.3042845,0.5,ADDRESS_MISSING,node,12248072859,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.1124017,30.5025287,0.5,ADDRESS_MISSING,node,12265710855,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.8944545,30.3128204,0.5,ADDRESS_MISSING,node,12277156774,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9352004,30.4347252,0.5,ADDRESS_MISSING,node,12300023775,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.8096477,30.0843496,0.5,ADDRESS_MISSING,node,12317681367,osm_pbf,False
+Реалъ,,,60.1928244,29.3335675,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,12341093076,osm_pbf,False
+ВкусВилл,ВкусВилл,,60.2003489,29.9399977,0.5,ADDRESS_MISSING,node,12347811538,osm_pbf,False
+Лента,Chelentano,,59.9318509,30.3457976,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,12351493808,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0136355,30.6489953,0.5,ADDRESS_MISSING,node,12367448360,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9619386,30.4060265,0.5,ADDRESS_MISSING,node,12375959001,osm_pbf,False
+ВкусВилл,ВкусВилл,,60.0271829,29.9999952,0.5,ADDRESS_MISSING,node,12379464818,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.3607502,28.9866433,0.5,ADDRESS_MISSING,node,12386739161,osm_pbf,False
+Лента,,,59.9894129,30.4381609,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,12408123716,osm_pbf,False
+Реалъ,ИнноТехМаш,,59.8782168,30.2466917,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,12454400398,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8850889,30.4863883,0.5,ADDRESS_MISSING,node,12458892392,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9017977,30.4257533,0.5,ADDRESS_MISSING,node,12462001793,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.7718419,30.599473,0.5,ADDRESS_MISSING,node,12469435387,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.8680385,30.2670002,0.5,ADDRESS_MISSING,node,12474401544,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.753566,30.3264338,0.5,ADDRESS_MISSING,node,12488240900,osm_pbf,False
+Лента,Супер лента,,59.8903392,30.6435335,0.5,ADDRESS_MISSING,node,12495873433,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9054656,30.2895731,0.5,ADDRESS_MISSING,node,12498653689,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.7168707,29.8489322,0.5,ADDRESS_MISSING,node,12500635829,osm_pbf,False
+ВкусВилл,ВкусВилл,,60.0346812,30.7401921,0.5,ADDRESS_MISSING,node,12518667554,osm_pbf,False
+ВкусВилл,Вкусвилл,,59.6133112,30.3607607,0.5,ADDRESS_MISSING,node,12520197421,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.7560227,30.4666311,0.5,ADDRESS_MISSING,node,12534420042,osm_pbf,False
+Семишагофф,Семишагофф,,59.8515118,30.2614677,0.5,ADDRESS_MISSING,node,12542906595,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.0148479,29.9452185,0.5,ADDRESS_MISSING,node,12569491748,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0188154,30.4749442,0.5,ADDRESS_MISSING,node,12595292407,osm_pbf,False
+Семишагофф,Семишагов,,60.0846814,30.4909551,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,12616288269,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.6299218,30.4022169,0.5,ADDRESS_MISSING,node,12623088290,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.7491213,30.3661559,0.5,ADDRESS_MISSING,node,12625711576,osm_pbf,False
+ВкусВилл,ВкусВилл,,60.1646772,29.8594317,0.5,ADDRESS_MISSING,node,12649811704,osm_pbf,False
+ВкусВилл,ВкусВилл,,60.0872703,29.9529223,0.5,ADDRESS_MISSING,node,12649811705,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.841081,30.0360163,0.5,ADDRESS_MISSING,node,12652889155,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9942448,30.1931977,0.5,ADDRESS_MISSING,node,12670725206,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.8992224,30.305597,0.5,ADDRESS_MISSING,node,12699310458,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9755896,30.6529525,0.5,ADDRESS_MISSING,node,12704567497,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.7197182,30.6184171,0.5,ADDRESS_MISSING,node,12714782257,osm_pbf,False
+Лента,Супер Лента,,59.9768193,30.3351956,0.5,ADDRESS_MISSING,node,12723744966,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9320194,30.2411172,0.5,ADDRESS_MISSING,node,12752798323,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9202158,30.3541883,0.5,ADDRESS_MISSING,node,12760674088,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.6219338,30.3838807,0.5,ADDRESS_MISSING,node,12771364981,osm_pbf,False
+ВкусВилл,ВкусВилл,,60.0571528,30.4400847,0.5,ADDRESS_MISSING,node,12812297972,osm_pbf,False
+Лента,Супер Лента,,59.9856454,30.2036435,0.5,ADDRESS_MISSING,node,12816946408,osm_pbf,False
+Семишагофф,Семишагофф,,59.4410217,32.0216752,0.5,ADDRESS_MISSING,node,12823551913,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.7503182,30.5760411,0.5,ADDRESS_MISSING,node,12824098472,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.7321235,30.622806,0.3,ADDRESS_MISSING,node,12831186104,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.8884796,30.3160447,0.5,ADDRESS_MISSING,node,12831618609,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0538984,30.7357165,0.5,ADDRESS_MISSING,node,12844783126,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.7891224,29.9328598,0.5,ADDRESS_MISSING,node,12852759262,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.7998113,29.9171233,0.5,ADDRESS_MISSING,node,12852759263,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8086814,29.8888508,0.5,ADDRESS_MISSING,node,12852759264,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8334569,29.8779393,0.5,ADDRESS_MISSING,node,12852759266,osm_pbf,False
+Лента,Вингараж,,60.045427,30.3605226,0.3,ADDRESS_MISSING,node,12852991077,osm_pbf,False
+Лента,Супер Лента,,60.0459318,30.3617021,0.5,ADDRESS_MISSING,node,12852991080,osm_pbf,False
+Лента,Супер Лента,,60.0492508,30.3408608,0.5,ADDRESS_MISSING,node,12852991087,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.9787763,32.9551477,0.5,ADDRESS_MISSING,node,12876959489,osm_pbf,False
+Семишагофф,,,60.1116046,30.4919549,0.0,ADDRESS_MISSING;SHOP_TAG_MISSING;DUPLICATE_CANDIDATE,node,12881332188,osm_pbf,True
+Пятёрочка,Пятёрочка,,59.8445422,30.5429061,0.5,ADDRESS_MISSING,node,12895071998,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.9517325,29.1316947,0.5,ADDRESS_MISSING,node,12896655482,osm_pbf,False
+Семишагофф,Семишагофф,,59.846109,30.3883601,0.5,ADDRESS_MISSING,node,12912704152,osm_pbf,False
+Лента,Лента,,60.1106999,30.2708817,0.5,ADDRESS_MISSING,node,12912832961,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.6441143,30.7824549,0.5,ADDRESS_MISSING,node,12927805154,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.841233,29.8778931,0.5,ADDRESS_MISSING,node,12927805167,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9950564,30.670588,0.5,ADDRESS_MISSING,node,12974331373,osm_pbf,False
+Семишагофф,Семишагофф,,60.052561,30.4546307,0.5,ADDRESS_MISSING,node,12995698375,osm_pbf,False
+Реалъ,РеалЪ,,59.8298769,30.3723956,0.5,ADDRESS_MISSING,node,13009010446,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9826006,30.3367278,0.5,ADDRESS_MISSING,node,13012127087,osm_pbf,False
+Пятёрочка,Пятёрочка,,61.0199837,30.135439,0.5,ADDRESS_MISSING,node,13026073303,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9555416,30.5765762,0.5,ADDRESS_MISSING,node,13030852748,osm_pbf,False
+Семишагофф,Семишагофф,,59.75069,30.5739672,0.5,ADDRESS_MISSING,node,13051607388,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0604233,30.4320602,0.5,ADDRESS_MISSING,node,13052526196,osm_pbf,False
+Лента,Супер Лента,,58.5451789,31.304388,0.5,ADDRESS_MISSING,node,13059379804,osm_pbf,False
+Семишагофф,Семишагофф,,59.916966,29.7686208,0.5,ADDRESS_MISSING,node,13069955208,osm_pbf,False
+ВкусВилл,ВкусВилл,,60.0624402,30.4253865,0.5,ADDRESS_MISSING,node,13071159266,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.8620248,29.9059925,0.5,ADDRESS_MISSING,node,13076505961,osm_pbf,False
+ОКЕЙ,Okey!,,59.9315316,30.3550851,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,13097019958,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.7385207,30.4819043,0.5,ADDRESS_MISSING,node,13108928092,osm_pbf,False
+Семишагофф,Семишагофф,,59.986016,29.7889902,0.5,ADDRESS_MISSING,node,13112352725,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.5405159,29.4916038,0.5,ADDRESS_MISSING,node,13112707548,osm_pbf,False
+Семишагофф,Семишагофф,,59.8423437,30.3623217,0.5,ADDRESS_MISSING,node,13114227816,osm_pbf,False
+Лента,Супер Лента,,59.4112107,30.3602608,0.5,ADDRESS_MISSING,node,13114433601,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0663882,30.4295508,0.5,ADDRESS_MISSING,node,13114737478,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8776773,30.4307724,0.5,ADDRESS_MISSING,node,13123485615,osm_pbf,False
+Реалъ,РеалЪ,,59.7859936,30.6270313,0.5,ADDRESS_MISSING,node,13127724182,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.5296076,30.5804884,0.5,ADDRESS_MISSING,node,13134737005,osm_pbf,False
+Лента,Челентано,,59.7408473,30.610874,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,13138361665,osm_pbf,False
+ВкусВилл,ВкусВилл,,60.002002,30.4498481,0.5,ADDRESS_MISSING,node,13140771978,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9434062,30.5514745,0.5,ADDRESS_MISSING,node,13158192983,osm_pbf,False
+Семишагофф,Семишагофф,,59.7762016,30.049429,0.5,ADDRESS_MISSING,node,13159980772,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.7553102,30.4712559,0.5,ADDRESS_MISSING,node,13165343839,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.7357402,30.613947,0.5,ADDRESS_MISSING,node,13176408734,osm_pbf,False
+Пятёрочка,,,59.8044207,30.078629,0.0,ADDRESS_MISSING;SHOP_TAG_MISSING;DUPLICATE_CANDIDATE,node,13190579463,osm_pbf,True
+Пятёрочка,Пятёрочка,,60.0601362,30.4234515,0.5,ADDRESS_MISSING,node,13190997616,osm_pbf,False
+Пятёрочка,,,59.8044198,30.0786121,0.0,ADDRESS_MISSING;SHOP_TAG_MISSING;DUPLICATE_CANDIDATE,node,13191119917,osm_pbf,True
+Семишагофф,Семишагофф,,59.9118851,30.4989664,0.5,ADDRESS_MISSING,node,13191132447,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9822323,30.3872904,0.5,ADDRESS_MISSING,node,13203965657,osm_pbf,False
+Лента,Супер Лента,,60.0606499,30.4392748,0.5,ADDRESS_MISSING,node,13227767165,osm_pbf,False
+ВкусВилл,ВкусВилл,,60.058914,30.4374537,0.5,ADDRESS_MISSING,node,13227817033,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8767354,30.3390428,0.5,ADDRESS_MISSING,node,13230914599,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0624504,30.4403826,0.5,ADDRESS_MISSING,node,13235127800,osm_pbf,False
+Семишагофф,Семишагофф,,59.9045845,29.779088,0.5,ADDRESS_MISSING,node,13241084650,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.929753,30.6304039,0.5,ADDRESS_MISSING,node,13252774273,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.3831957,28.8814828,0.5,ADDRESS_MISSING,node,13253829023,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0633028,30.4347125,0.5,ADDRESS_MISSING,node,13267403569,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.065788,30.4370436,0.5,ADDRESS_MISSING,node,13274181333,osm_pbf,False
+Семишагофф,Семишагофф,,60.0644771,30.4458098,0.5,ADDRESS_MISSING,node,13280079070,osm_pbf,False
+Лента,Супер Лента,,60.0688259,30.4424127,0.5,ADDRESS_MISSING,node,13280079099,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9555328,30.5776411,0.5,ADDRESS_MISSING,node,13285862874,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9036438,30.3248749,0.5,ADDRESS_MISSING,node,13291146748,osm_pbf,False
+Пятёрочка,Пятёрочка,"Коммунальный квартал, 25",59.6416471,33.5440334,0.7,,node,13307369993,osm_pbf,False
+Пятёрочка,Пятёрочка,"микрорайон 1А, 39",59.6459002,33.5633783,0.7,,node,13307391701,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9467528,30.3438665,0.5,ADDRESS_MISSING,node,13310821797,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0730758,30.4181072,0.5,ADDRESS_MISSING,node,13319551405,osm_pbf,False
+ВкусВилл,ВкусВилл,,60.0630647,30.4048468,0.1,ADDRESS_MISSING;SHOP_TAG_MISSING,node,13324612875,osm_pbf,False
+Семишагофф,Семишагофф,,59.6994346,29.9473428,0.5,ADDRESS_MISSING,node,13329139847,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9850202,30.3268905,0.5,ADDRESS_MISSING,node,13343216025,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.1444977,30.5258398,0.5,ADDRESS_MISSING,node,13344335325,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9577222,30.408918,0.5,ADDRESS_MISSING,node,13353796317,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0578896,30.3998092,0.5,ADDRESS_MISSING,node,13353899553,osm_pbf,False
+ВкусВилл,ВкусВилл,,60.0184035,30.6823004,0.5,ADDRESS_MISSING,node,13362254524,osm_pbf,False
+Лента,Лента,,59.7622117,30.7449202,0.6,ADDRESS_MISSING,node,13363103817,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.6738805,29.8548449,0.5,ADDRESS_MISSING,node,13380612965,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.734854,30.0819518,0.5,ADDRESS_MISSING,node,13385753942,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0612866,30.3987881,0.5,ADDRESS_MISSING,node,13390996062,osm_pbf,False
+Лента,Лента зоомаркет,,60.0610825,30.3922234,0.3,ADDRESS_MISSING,node,13392889748,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9384952,30.1985398,0.5,ADDRESS_MISSING,node,13409287666,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.749007,30.606494,0.5,ADDRESS_MISSING,node,13413371347,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.93569,30.4996547,0.5,ADDRESS_MISSING,node,13415006847,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.8997503,30.5181253,0.5,ADDRESS_MISSING,node,13416418636,osm_pbf,False
+Лента,Лента,,61.0395044,30.1166992,0.5,ADDRESS_MISSING,node,13440341276,osm_pbf,False
+Лента,Лента,,61.0394198,30.1169634,0.3,ADDRESS_MISSING;DUPLICATE_CANDIDATE,node,13442560801,osm_pbf,True
+Пятёрочка,Пятёрочка,,60.0073662,30.6076998,0.5,ADDRESS_MISSING,node,13450952608,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.6946116,30.7839717,0.5,ADDRESS_MISSING,node,13455473240,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8087151,30.0706038,0.5,ADDRESS_MISSING,node,13475438883,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9699619,30.4187272,0.5,ADDRESS_MISSING,node,13545184313,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.998734,30.2178415,0.5,ADDRESS_MISSING,node,13567186463,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.8578226,30.1536595,0.5,ADDRESS_MISSING,node,13580168357,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.7583979,30.6278799,0.5,ADDRESS_MISSING,node,13587211344,osm_pbf,False
+Лента,Супер Лента,,60.3513724,29.4404267,0.5,ADDRESS_MISSING,node,13612078548,osm_pbf,False
+Семишагофф,Семишагофф,,59.8608598,30.1759967,0.5,ADDRESS_MISSING,node,13614246561,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8089801,30.1030834,0.5,ADDRESS_MISSING,node,13618515240,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.953777,30.5859239,0.5,ADDRESS_MISSING,node,13625523682,osm_pbf,False
+Реалъ,РеалЪ,,60.0161553,30.4148133,0.5,ADDRESS_MISSING,node,13647964034,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.3821248,30.2402801,0.5,ADDRESS_MISSING,node,13667109713,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9335602,30.4337199,0.5,ADDRESS_MISSING,node,13706597217,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.60766,30.0831731,0.5,ADDRESS_MISSING,node,13711569414,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.5980018,30.0690838,0.5,ADDRESS_MISSING,node,13711569415,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8085222,30.8708017,0.3,ADDRESS_MISSING;DUPLICATE_CANDIDATE,node,13722605011,osm_pbf,True
+Семишагофф,Семишагофф,,59.5618267,30.0858303,0.5,ADDRESS_MISSING,node,13732466700,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.4644491,30.0012544,0.5,ADDRESS_MISSING,node,13741016440,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9792464,30.3768511,0.5,ADDRESS_MISSING,node,13755575208,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8002165,30.6406943,0.5,ADDRESS_MISSING,node,13760795839,osm_pbf,False
+Лента,Гипермаркет «Лента»,,60.0607958,30.3929423,0.0,ADDRESS_MISSING;SHOP_TAG_MISSING;DUPLICATE_CANDIDATE,node,13776892165,osm_pbf,True
+ВкусВилл,ВкусВилл,,59.9548295,30.3576934,0.5,ADDRESS_MISSING,node,13776956971,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.4955013,30.2677485,0.5,ADDRESS_MISSING,node,13794149396,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.0931324,30.1539785,0.5,ADDRESS_MISSING,node,13814083797,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.8723082,30.3197187,0.5,ADDRESS_MISSING,node,13815149778,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.3222108,29.2549146,0.5,ADDRESS_MISSING,node,13841190144,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.8533396,30.3163395,0.5,ADDRESS_MISSING,node,13894705007,osm_pbf,False
+Лента,Супер Лента,,59.7875944,30.0828468,0.0,ADDRESS_MISSING;SHOP_TAG_MISSING;DUPLICATE_CANDIDATE,node,13895348848,osm_pbf,True
+ВкусВилл,ВкусВилл,,60.1105939,30.4282962,0.5,ADDRESS_MISSING,node,13915432841,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.1177041,30.4271679,0.5,ADDRESS_MISSING,node,13915432848,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.5587141,31.0138713,0.5,ADDRESS_MISSING,node,13919617288,osm_pbf,False
+Лента,Гипер Лента,"улица Руставели, 61",60.031261982352945,30.434965488235292,0.5,GEOMETRY_UNCERTAIN,way,10066139,osm_pbf,False
+Лента,Гипер Лента,"улица Савушкина, 112",59.98468322666667,30.226589993333334,0.5,GEOMETRY_UNCERTAIN,way,10503632,osm_pbf,False
+ОКЕЙ,О’Кей,"проспект Просвещения, 80 к2",60.03902605625,30.40947199375,0.5,GEOMETRY_UNCERTAIN,way,22814041,osm_pbf,False
+Лента,Озеро Лента,,60.8084150755102,28.910546224489796,0.0,ADDRESS_MISSING;SHOP_TAG_MISSING;GEOMETRY_UNCERTAIN,way,22868717,osm_pbf,False
+ОКЕЙ,О’КЕЙ,"Выборгское шоссе, 3 к1",60.03825207948718,30.320783315384617,0.5,GEOMETRY_UNCERTAIN,way,23156872,osm_pbf,False
+Пятёрочка,Пятёрочка,"проспект Маршала Блюхера, 40",59.976277679999995,30.42299372,0.5,GEOMETRY_UNCERTAIN,way,23268562,osm_pbf,False
+Лента,Лента,"Выборгское шоссе, 11 литА",60.047146229999996,30.314801019999997,0.5,GEOMETRY_UNCERTAIN,way,23404548,osm_pbf,False
+Лента,Гипер Лента,"улица Симонова, 13 к2",60.06126878888889,30.328519333333336,0.5,GEOMETRY_UNCERTAIN,way,23404770,osm_pbf,False
+Пятёрочка,Пятёрочка,"проспект Королёва, 46 к2",60.0222271,30.250866199999997,0.5,GEOMETRY_UNCERTAIN,way,23508646,osm_pbf,False
+Пятёрочка,Пятёрочка,"проспект Авиаконструкторов, 35 к1",60.02118617142857,30.234479414285715,0.5,GEOMETRY_UNCERTAIN,way,23509775,osm_pbf,False
+Семишагофф,Семишагофф,"Ленская улица, 18",59.940320738095245,30.497470838095236,0.5,GEOMETRY_UNCERTAIN,way,23917606,osm_pbf,False
+ОКЕЙ,О’Кей,"Богатырский проспект, 13",60.000197423529414,30.271898894117644,0.5,GEOMETRY_UNCERTAIN,way,24935762,osm_pbf,False
+Пятёрочка,Пятёрочка,"Кондратьевский проспект, 62 к1",59.97956228235294,30.393611917647057,0.5,GEOMETRY_UNCERTAIN,way,25073995,osm_pbf,False
+Пятёрочка,Пятёрочка,"Байконурская улица, 9 к2",60.0019466,30.276125161538463,0.5,GEOMETRY_UNCERTAIN,way,25285937,osm_pbf,False
+Лента,Гипер Лента,"Великая улица, 22А",58.54273924444445,31.266964088888887,0.5,GEOMETRY_UNCERTAIN,way,27194377,osm_pbf,False
+Лента,Гипер Лента,"Бухарестская улица, 69",59.850032721052635,30.398109910526316,0.5,GEOMETRY_UNCERTAIN,way,27242316,osm_pbf,False
+Пятёрочка,Пятёрочка,"Дальневосточный проспект, 30 к3",59.89963031999999,30.462235900000003,0.5,GEOMETRY_UNCERTAIN,way,28204344,osm_pbf,False
+Пятёрочка,Пятёрочка,"Санкт-Петербург, проспект Энгельса, 27 литАБ",60.00968298888889,30.329296244444443,0.6,GEOMETRY_UNCERTAIN,way,28897722,osm_pbf,False
+Лента,Гипер Лента,"проспект Энергетиков, 16А",59.94688957142857,30.43426827142857,0.5,GEOMETRY_UNCERTAIN,way,29072656,osm_pbf,False
+Лента,Гипер Лента,"Таллинское шоссе, 159",59.80714984444445,30.162452555555554,0.5,GEOMETRY_UNCERTAIN,way,29360549,osm_pbf,False
+Семишагофф,Семишагофф,"Будапештская улица, 97 литА",59.829133500000005,30.405503333333332,0.5,GEOMETRY_UNCERTAIN,way,30692698,osm_pbf,False
+Лента,Гипер Лента,"Уральская улица, 29 к1",59.95655526363637,30.244331972727274,0.5,GEOMETRY_UNCERTAIN,way,30795524,osm_pbf,False
+Пятёрочка,Пятёрочка,"Ленинский проспект, 156",59.85241996,30.298200259999998,0.5,GEOMETRY_UNCERTAIN,way,31007175,osm_pbf,False
+Пятёрочка,Пятёрочка,"улица Турку, 35",59.866821433333335,30.41241557333333,0.5,GEOMETRY_UNCERTAIN,way,31616469,osm_pbf,False
+Пятёрочка,Пятёрочка,"проспект Маршала Жукова, 60 к1",59.83846139999999,30.204353479999998,0.5,GEOMETRY_UNCERTAIN,way,33063513,osm_pbf,False
+Пятёрочка,Пятёрочка,"улица Пограничника Гарькавого, 46 к1",59.82787711428572,30.147961199999997,0.5,GEOMETRY_UNCERTAIN,way,33098749,osm_pbf,False
+Пятёрочка,Пятёрочка,"Тихая улица, 1/81",60.7320368,33.5375013,0.5,GEOMETRY_UNCERTAIN,way,33499947,osm_pbf,False
+Пятёрочка,Пятёрочка,"проспект Ленина, 46А",60.734643,33.538389699999996,0.5,GEOMETRY_UNCERTAIN,way,33500381,osm_pbf,False
+Пятёрочка,Пятёрочка,"улица Рихарда Зорге, 20",59.850862719999995,30.193405739999996,0.5,GEOMETRY_UNCERTAIN,way,34508686,osm_pbf,False
+Лента,Гипер Лента,"Выборгское шоссе, 216 к1",60.07509941818182,30.272516527272728,0.5,GEOMETRY_UNCERTAIN,way,34617721,osm_pbf,False
+Пятёрочка,Пятёрочка,"Выборгское шоссе, 393",60.08374152727272,30.264110163636364,0.5,GEOMETRY_UNCERTAIN,way,35029092,osm_pbf,False
+Пятёрочка,,"Ораниенбаумский проспект, 39 литБ",59.89632154545455,29.77382848181818,0.1,SHOP_TAG_MISSING;GEOMETRY_UNCERTAIN,way,35042780,osm_pbf,False
+Лента,Гипер Лента,"Хасанская улица, 17 к1",59.93452432380952,30.49716442857143,0.5,GEOMETRY_UNCERTAIN,way,36882918,osm_pbf,False
+ОКЕЙ,О’Кей,"улица Руставели, 43",60.01720996153846,30.434837617948716,0.5,GEOMETRY_UNCERTAIN,way,37631652,osm_pbf,False
+Пятёрочка,Пятёрочка,"Молодёжная улица, 6",59.9107422,29.0951224125,0.5,GEOMETRY_UNCERTAIN,way,37701446,osm_pbf,False
+Пятёрочка,Пятёрочка,"Красный тракт, 2",59.94003276666667,31.030735316666664,0.5,GEOMETRY_UNCERTAIN,way,38184018,osm_pbf,False
+Пятёрочка,Пятёрочка,"улица Дыбенко, 14 к1",59.90326571666666,30.465394333333336,0.5,GEOMETRY_UNCERTAIN,way,38347451,osm_pbf,False
+Пятёрочка,Пятёрочка,"Бухарестская улица, 132",59.839199099999995,30.41389122142857,0.5,GEOMETRY_UNCERTAIN,way,39370254,osm_pbf,False
+Пятёрочка,Пятёрочка,"улица Гарькавого, 14А",61.10875847142857,28.870068695238096,0.5,GEOMETRY_UNCERTAIN,way,40430235,osm_pbf,False
+Пятёрочка,Пятёрочка,"Парашютная улица, 10",60.01585501428571,30.285705314285714,0.5,GEOMETRY_UNCERTAIN,way,42476091,osm_pbf,False
+ОКЕЙ,О’Кей,"Заневский проспект, 65 к1",59.930080394444445,30.433465438888888,0.5,GEOMETRY_UNCERTAIN,way,43234095,osm_pbf,False
+ОКЕЙ,О’КЕЙ,"Выборгское шоссе, 19 к1",60.05634321739131,30.309587973913043,0.5,GEOMETRY_UNCERTAIN,way,44068905,osm_pbf,False
+ОКЕЙ,О’Кей,"проспект Космонавтов, 45",59.85143089230769,30.35009240769231,0.5,GEOMETRY_UNCERTAIN,way,44195252,osm_pbf,False
+Пятёрочка,Пятёрочка,"Искровский проспект, 7",59.91238568333333,30.459519883333332,0.5,GEOMETRY_UNCERTAIN,way,45027584,osm_pbf,False
+Пятёрочка,Пятёрочка,"Колпино, Заводской проспект, 8",59.73864202857143,30.56079504285714,0.6,GEOMETRY_UNCERTAIN,way,45094305,osm_pbf,False
+Пятёрочка,Пятёрочка,"улица Котина, 3",59.85662484444444,30.211914788888887,0.5,GEOMETRY_UNCERTAIN,way,45725330,osm_pbf,False
+ОКЕЙ,О’Кей,"проспект Маршала Жукова, 31 к1",59.85845567352941,30.22914400294118,0.5,GEOMETRY_UNCERTAIN,way,45725845,osm_pbf,False
+Пятёрочка,Пятёрочка,"Ленинский проспект, 98",59.8537406,30.218495175,0.5,GEOMETRY_UNCERTAIN,way,45726180,osm_pbf,False
+Лента,Лента,"Санкт-Петербург, Московское шоссе, 16А",59.798902973333334,30.39929254666667,0.6,GEOMETRY_UNCERTAIN,way,46102608,osm_pbf,False
+Лента,Гипер Лента,"проспект Будённого, 31 к1",59.851740837499996,30.093421475,0.5,GEOMETRY_UNCERTAIN,way,46219791,osm_pbf,False
+ОКЕЙ,О’Кей,"Пулковское шоссе, 17 к2",59.82736265454546,30.316459063636366,0.5,GEOMETRY_UNCERTAIN,way,49899127,osm_pbf,False
+Лента,ОБИ,"Пулковское шоссе, 21 к1",59.82424491764706,30.316514317647062,0.3,GEOMETRY_UNCERTAIN,way,49899904,osm_pbf,False
+Лента,Гипер Лента,"Дальневосточный проспект, 16 к1",59.909810066666665,30.44938528888889,0.5,GEOMETRY_UNCERTAIN,way,50884104,osm_pbf,False
+Лента,Гипер Лента,"проспект Юрия Гагарина, 34 к2",59.8465045875,30.3395018625,0.5,GEOMETRY_UNCERTAIN,way,51002549,osm_pbf,False
+Реалъ,РеалЪ,"Малая Посадская улица, 13 литБ",59.95691318181818,30.327159954545458,0.5,GEOMETRY_UNCERTAIN,way,51138296,osm_pbf,False
+Пятёрочка,Пятёрочка,"Пулковское шоссе, 11 к1",59.83495923333333,30.318911222222223,0.5,GEOMETRY_UNCERTAIN,way,51667729,osm_pbf,False
+Лента,Гипер Лента,"Шереметьевская улица, 11",59.80828510833334,30.320213683333332,0.5,GEOMETRY_UNCERTAIN,way,51772812,osm_pbf,False
+Пятёрочка,Пятёрочка,"Стрельнинское шоссе, 4 к1",59.74553335862069,30.091111037931036,0.5,GEOMETRY_UNCERTAIN,way,51869361,osm_pbf,False
+Пятёрочка,Пятёрочка,"Малая Каштановая аллея, 8",59.845432714285714,30.39464824285714,0.5,GEOMETRY_UNCERTAIN,way,53019436,osm_pbf,False
+Пятёрочка,Пятёрочка,"Дунайский проспект, 44",59.839219899999996,30.39523489090909,0.5,GEOMETRY_UNCERTAIN,way,53365293,osm_pbf,False
+Пятёрочка,Пятёрочка,"Малая Бухарестская улица, 15",59.844909255555564,30.41587652222222,0.5,GEOMETRY_UNCERTAIN,way,53894436,osm_pbf,False
+Пятёрочка,Пятёрочка,"Бухарестская улица, 158",59.8291516173913,30.424467869565216,0.5,GEOMETRY_UNCERTAIN,way,54277591,osm_pbf,False
+Лента,Гипер Лента,"набережная Обводного канала, 118 к7",59.906857434375,30.30239298125,0.5,GEOMETRY_UNCERTAIN,way,56072887,osm_pbf,False
+Пятёрочка,Пятёрочка,"улица Тельмана, 56/41",59.893076683333334,30.489110283333332,0.5,GEOMETRY_UNCERTAIN,way,59226906,osm_pbf,False
+Пятёрочка,Пятёрочка,"Шлиссельбургский проспект, 20 к1",59.83732022857142,30.506350114285713,0.5,GEOMETRY_UNCERTAIN,way,61605892,osm_pbf,False
+Пятёрочка,Пятёрочка,"Шлиссельбургский проспект, 26",59.83510828,30.512640119999997,0.5,GEOMETRY_UNCERTAIN,way,61606092,osm_pbf,False
+Пятёрочка,Пятёрочка,"Андреевская улица, 25",59.41046146,30.350682439999996,0.5,GEOMETRY_UNCERTAIN,way,65047877,osm_pbf,False
+Пятёрочка,Пятёрочка,"проспект Художников, 32",60.05257388333333,30.355987225000003,0.5,GEOMETRY_UNCERTAIN,way,66832597,osm_pbf,False
+Пятёрочка,Пятёрочка,"Большая Пороховская улица, 50",59.9534732125,30.430766325,0.5,GEOMETRY_UNCERTAIN,way,70378356,osm_pbf,False
+Пятёрочка,Пятёрочка,"13-я Красноармейская улица, 4",59.91505981428571,30.304836314285716,0.5,GEOMETRY_UNCERTAIN,way,70836058,osm_pbf,False
+Пятёрочка,Пятёрочка,"Яльгелево, 10",59.72728852,29.94533526,0.3,GEOMETRY_UNCERTAIN,way,71844336,osm_pbf,False
+Пятёрочка,Пятёрочка,"Яхтенная улица, 38 к1",60.00702962857143,30.224526642857143,0.5,GEOMETRY_UNCERTAIN,way,75398702,osm_pbf,False
+Пятёрочка,Пятёрочка,"улица Брянцева, 19",60.04236148,30.40978561,0.5,GEOMETRY_UNCERTAIN,way,75860756,osm_pbf,False
+Пятёрочка,Пятёрочка,"проспект Художников, 22 к1",60.04443128333333,30.349445983333336,0.5,GEOMETRY_UNCERTAIN,way,75980713,osm_pbf,False
+Семишагофф,Семишагофф,"улица Руднева, 1 к2",60.038463539999995,30.360613089999998,0.5,GEOMETRY_UNCERTAIN,way,76842204,osm_pbf,False
+Лента,Лента,"улица Савушкина, 112 литБ",59.98439895454545,30.228082981818183,0.1,SHOP_TAG_MISSING;GEOMETRY_UNCERTAIN,way,77722650,osm_pbf,False
+Пятёрочка,Пятёрочка,"улица Савушкина, 136 к1",59.989114859999994,30.196874400000002,0.5,GEOMETRY_UNCERTAIN,way,77781569,osm_pbf,False
+Пятёрочка,Пятёрочка,"Ленсоветовский, 11",59.759291100000006,30.470855416666666,0.4,GEOMETRY_UNCERTAIN,way,78836897,osm_pbf,False
+Пятёрочка,Пятёрочка,"улица Строителей, 4",59.61680501428572,30.374336585714286,0.5,GEOMETRY_UNCERTAIN,way,79421799,osm_pbf,False
+Пятёрочка,Пятёрочка,"проспект Художников, 45",60.05472373333333,30.359916100000003,0.5,GEOMETRY_UNCERTAIN,way,79605414,osm_pbf,False
+Лента,Гипер Лента,"Шуваловский проспект, 45",60.029601185714284,30.238755757142858,0.5,GEOMETRY_UNCERTAIN,way,80319508,osm_pbf,False
+Пятёрочка,Пятёрочка,"Байконурская улица, 28",60.01547892,30.279395620000003,0.5,GEOMETRY_UNCERTAIN,way,80497899,osm_pbf,False
+Пятёрочка,Пятёрочка,"Стародеревенская улица, 25",60.00484263333333,30.24776575,0.5,GEOMETRY_UNCERTAIN,way,80638416,osm_pbf,False
+Пятёрочка,Пятёрочка,"Стародеревенская улица, 20 к1",59.99995977,30.24337769,0.5,GEOMETRY_UNCERTAIN,way,80638453,osm_pbf,False
+Пятёрочка,Пятёрочка,"Дорога Жизни, 11",60.032987066666664,30.628888211111114,0.5,GEOMETRY_UNCERTAIN,way,80746459,osm_pbf,False
+Пятёрочка,Пятёрочка,"улица Савушкина, 115 к5",59.987577259999995,30.235351206666667,0.5,GEOMETRY_UNCERTAIN,way,81535738,osm_pbf,False
+Семишагофф,Семишагофф,"Гатчинская улица, 12А",59.62001184,30.39027562,0.5,GEOMETRY_UNCERTAIN,way,83369179,osm_pbf,False
+Пятёрочка,Пятёрочка,"Клубный переулок, 9",59.622275699999996,30.395078657142857,0.5,GEOMETRY_UNCERTAIN,way,84327671,osm_pbf,False
+Пятёрочка,Пятёрочка,"улица Мира, 7",60.453841014285715,28.7184066,0.5,GEOMETRY_UNCERTAIN,way,86301626,osm_pbf,False
+Пятёрочка,Пятёрочка,"улица Шестакова, 2",60.7274463,28.70181114444445,0.5,GEOMETRY_UNCERTAIN,way,86610536,osm_pbf,False
+Пятёрочка,Пятёрочка,"Малая Бухарестская улица, 4",59.8509035,30.41196289,0.5,GEOMETRY_UNCERTAIN,way,87467207,osm_pbf,False
+Пятёрочка,Пятёрочка,"Любань, Московское шоссе, 7",59.34426452,31.241745579999996,0.6,GEOMETRY_UNCERTAIN,way,89591408,osm_pbf,False
+Пятёрочка,Пятёрочка,"улица Астанина, 1",59.94535592,29.566966559999997,0.5,GEOMETRY_UNCERTAIN,way,90384900,osm_pbf,False
+Пятёрочка,Пятёрочка,"улица Ломоносова, 25В",59.89651401,32.36091862,0.5,GEOMETRY_UNCERTAIN,way,93053341,osm_pbf,False
+Пятёрочка,Пятёрочка,"Парковая улица, 10В",59.6630409,29.8329129,0.5,GEOMETRY_UNCERTAIN,way,93342670,osm_pbf,False
+Пятёрочка,Пятёрочка,"улица Седова, 85",59.869262066666664,30.440431599999997,0.5,GEOMETRY_UNCERTAIN,way,93783455,osm_pbf,False
+Пятёрочка,Пятёрочка,"улица Мосина, 67",60.08009374000001,29.96792788,0.5,GEOMETRY_UNCERTAIN,way,94541428,osm_pbf,False
+Реалъ,Детский сад № 118,,59.91052301111111,30.3100126,0.0,ADDRESS_MISSING;SHOP_TAG_MISSING;GEOMETRY_UNCERTAIN,way,94902953,osm_pbf,False
+ОКЕЙ,,,59.988868190909095,30.225898290909093,0.0,ADDRESS_MISSING;SHOP_TAG_MISSING;GEOMETRY_UNCERTAIN,way,95858986,osm_pbf,False
+Пятёрочка,Пятёрочка,"Свободная улица, 32",59.64280652,30.75924233,0.5,GEOMETRY_UNCERTAIN,way,95993235,osm_pbf,False
+Пятёрочка,Пятёрочка,"Ленинградская улица, 14",60.46823442,29.3657602,0.5,GEOMETRY_UNCERTAIN,way,96050695,osm_pbf,False
+Семишагофф,Семишагофф,"проспект Тореза, 87",60.02564267142857,30.3259455,0.5,GEOMETRY_UNCERTAIN,way,96853467,osm_pbf,False
+Пятёрочка,Пятёрочка,"улица Тельмана, 33",59.89228498333333,30.479492699999998,0.5,GEOMETRY_UNCERTAIN,way,98030067,osm_pbf,False
+Пятёрочка,Пятёрочка,"Дальневосточный проспект, 42 к2",59.894048614285715,30.463946514285713,0.5,GEOMETRY_UNCERTAIN,way,98032525,osm_pbf,False
+Реалъ,РеалЪ,"улица Володарского, 4",60.103840160000004,30.215555059999996,0.5,GEOMETRY_UNCERTAIN,way,99896266,osm_pbf,False
+Пятёрочка,Пятёрочка,"Колпино, Вознесенское шоссе, 47",59.76069104,30.627721280000003,0.6,GEOMETRY_UNCERTAIN,way,101570259,osm_pbf,False
+Лента,Гипер Лента,"Вербная улица, 21",60.0226017125,30.293181716666666,0.5,GEOMETRY_UNCERTAIN,way,104233749,osm_pbf,False
+Пятёрочка,Пятёрочка,"Новоколомяжский проспект, 4 к5",60.02523272857143,30.2974487,0.5,GEOMETRY_UNCERTAIN,way,104396352,osm_pbf,False
+Пятёрочка,Пятёрочка,"Санкт-Петербург, Российский проспект, 15",59.929513840000006,30.47514046,0.6,GEOMETRY_UNCERTAIN,way,104643564,osm_pbf,False
+Пятёрочка,Пятёрочка,"Волховская улица, 30",60.90531965,34.17216005,0.5,GEOMETRY_UNCERTAIN,way,106280389,osm_pbf,False
+Пятёрочка,Пятёрочка,"улица Маяковского, 9",61.037245750000004,30.10792351666667,0.5,GEOMETRY_UNCERTAIN,way,107118093,osm_pbf,False
+Пятёрочка,Пятёрочка,"проспект Большевиков, 83",59.87212989,30.47732683,0.5,GEOMETRY_UNCERTAIN,way,108361431,osm_pbf,False
+Пятёрочка,Пятёрочка,"Красноармейская улица, 8",60.90717794,34.17833228,0.5,GEOMETRY_UNCERTAIN,way,109080681,osm_pbf,False
+Лента,Супер Лента,"Левашовский проспект, 21",59.9667604625,30.28305654375,0.5,GEOMETRY_UNCERTAIN,way,109359256,osm_pbf,False
+Пятёрочка,Пятёрочка,"Железнодорожная улица, 30",59.75535395,31.07010196666667,0.5,GEOMETRY_UNCERTAIN,way,110443581,osm_pbf,False
+Пятёрочка,Пятёрочка,"Форносово, Павловское шоссе, 26",59.56841712000001,30.54854628,0.6,GEOMETRY_UNCERTAIN,way,112602173,osm_pbf,False
+Пятёрочка,Пятёрочка,"проспект Ударников, 27",59.95225876666667,30.476744299999996,0.5,GEOMETRY_UNCERTAIN,way,113515963,osm_pbf,False
+Пятёрочка,Пятёрочка,"Горбунки, 3А",59.81397734444445,29.98416504444445,0.3,GEOMETRY_UNCERTAIN,way,128571298,osm_pbf,False
+Пятёрочка,Пятёрочка,"улица Карла Маркса, 30",58.74599388,27.822813619999998,0.5,GEOMETRY_UNCERTAIN,way,129970037,osm_pbf,False
+ОКЕЙ,О’КЕЙ,"проспект Науки, 17 к1",60.014444164,30.388744367999998,0.5,GEOMETRY_UNCERTAIN,way,130207859,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.14942919999999,30.518007263636363,0.1,ADDRESS_MISSING;GEOMETRY_UNCERTAIN,way,130318964,osm_pbf,False
+Семишагофф,Семишагофф,"Шлиссельбург, улица Кирова, 8",59.935836821428566,31.02845759285714,0.4,GEOMETRY_UNCERTAIN;DUPLICATE_CANDIDATE,way,137215461,osm_pbf,True
+Реалъ,ЖК «Монреаль»,"Ленинский проспект, 74 к2",59.861899816666664,30.185413066666666,0.1,SHOP_TAG_MISSING;GEOMETRY_UNCERTAIN,way,137534600,osm_pbf,False
+Пятёрочка,Пятёрочка,"Советская улица, 46",58.41035938,33.28123622,0.5,GEOMETRY_UNCERTAIN,way,138710108,osm_pbf,False
+Пятёрочка,Пятёрочка,"улица Революции, 51",58.84681276,32.217766080000004,0.5,GEOMETRY_UNCERTAIN,way,140580846,osm_pbf,False
+Пятёрочка,Пятёрочка,"улица Володарского, 12",59.4942975,34.665842680000004,0.5,GEOMETRY_UNCERTAIN,way,145486307,osm_pbf,False
+Пятёрочка,Пятёрочка,"Елизаветино, Вохоновское шоссе, 1Г",59.49221202,29.77698112,0.6,GEOMETRY_UNCERTAIN,way,146330043,osm_pbf,False
+Лента,Супер Лента,"Привокзальная площадь, 3Б",60.05300384444445,30.44618842222222,0.5,GEOMETRY_UNCERTAIN,way,146662591,osm_pbf,False
+Пятёрочка,Пятёрочка,"Центральная улица, 15",59.90113993999999,29.249618020000003,0.5,GEOMETRY_UNCERTAIN,way,150407114,osm_pbf,False
+Пятёрочка,Пятёрочка,"Корпиковское шоссе, 4",59.576183639999996,30.068694360000002,0.6,GEOMETRY_UNCERTAIN,way,151505770,osm_pbf,False
+Реалъ,ООО ОВЕН-ПРОМ,"Санкт-Петербург, Верхняя улица, 4 литА",60.061211783333334,30.3480184,0.2,SHOP_TAG_MISSING;GEOMETRY_UNCERTAIN,way,153217693,osm_pbf,False
+Пятёрочка,Пятёрочка,"Центральная улица, 15",59.66544916,30.531137660000002,0.5,GEOMETRY_UNCERTAIN,way,154372239,osm_pbf,False
+Пятёрочка,Пятёрочка,"улица Карла Маркса, 10А",58.81770228333334,30.332411866666664,0.5,GEOMETRY_UNCERTAIN,way,154560499,osm_pbf,False
+Пятёрочка,Пятёрочка,"Центральная улица, 22",59.633063660000005,30.54000448,0.5,GEOMETRY_UNCERTAIN,way,156460837,osm_pbf,False
+Пятёрочка,Пятёрочка,"проспект Наставников, 18",59.9433032,30.4889856,0.5,GEOMETRY_UNCERTAIN,way,160199392,osm_pbf,False
+Пятёрочка,Пятёрочка,"Токсово, улица Советов, 88А",60.16986758571428,30.54631152857143,0.6,GEOMETRY_UNCERTAIN,way,160415615,osm_pbf,False
+Пятёрочка,Пятёрочка,"Ленская улица, 6 к2",59.94124746153846,30.48497562307692,0.5,GEOMETRY_UNCERTAIN,way,162965513,osm_pbf,False
+Реалъ,Приозерская коррекционная начальная школа-детский сад,,61.0396439047619,30.125387523809525,0.0,ADDRESS_MISSING;SHOP_TAG_MISSING;GEOMETRY_UNCERTAIN,way,164887082,osm_pbf,False
+Пятёрочка,Пятёрочка,"1-я линия, 71",59.787119340000004,30.806221519999998,0.5,GEOMETRY_UNCERTAIN,way,166940463,osm_pbf,False
+Пятёрочка,Пятёрочка,"Московское шоссе, 13А",59.558810019999996,30.84364352,0.5,GEOMETRY_UNCERTAIN,way,167261415,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.57881896,28.177479740000003,0.1,ADDRESS_MISSING;GEOMETRY_UNCERTAIN,way,167296764,osm_pbf,False
+Реалъ,Реальное училище,"Новая Ладога, Пионерская улица, 7",60.10614520555555,32.31183484444445,0.2,SHOP_TAG_MISSING;GEOMETRY_UNCERTAIN,way,167991613,osm_pbf,False
+Пятёрочка,Пятёрочка,"проспект Карла Маркса, 44А",59.371240039999996,28.617364,0.5,GEOMETRY_UNCERTAIN,way,168140306,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.84362316666667,30.93025997777778,0.1,ADDRESS_MISSING;GEOMETRY_UNCERTAIN,way,168387480,osm_pbf,False
+Пятёрочка,Пятёрочка,"улица Композиторов, 5 к3",60.05050245,30.317608733333334,0.5,GEOMETRY_UNCERTAIN,way,172135581,osm_pbf,False
+Пятёрочка,Пятёрочка,"улица Ладожская, 6",59.882288159999995,30.99461304,0.5,GEOMETRY_UNCERTAIN,way,186123677,osm_pbf,False
+Пятёрочка,Пятёрочка,"Центральная улица, 23/1",60.008329133333326,32.14349848333333,0.5,GEOMETRY_UNCERTAIN,way,190328363,osm_pbf,False
+Лента,Гипер Лента,"Дорога Жизни, 12",60.027833466666664,30.6198744,0.5,GEOMETRY_UNCERTAIN,way,191715009,osm_pbf,False
+Пятёрочка,Пятёрочка,"улица Павлова, 6",59.47848186666667,33.843277888888885,0.5,GEOMETRY_UNCERTAIN,way,194133709,osm_pbf,False
+Лента,Гипер Лента,"Планерная улица, 17",59.998783833333334,30.236951700000002,0.5,GEOMETRY_UNCERTAIN,way,194621494,osm_pbf,False
+Пятёрочка,Пятёрочка,"улица Новостроек, 1",61.122954066666665,29.884476083333336,0.5,GEOMETRY_UNCERTAIN,way,197684472,osm_pbf,False
+ОКЕЙ,О’КЕЙ,"Санкт-Петербург, Таллинское шоссе, 27",59.79584507692308,30.146736215384617,0.6,GEOMETRY_UNCERTAIN,way,198459020,osm_pbf,False
+Пятёрочка,Пятёрочка,"улица Коллонтай, 25 к3",59.920212416666665,30.4746501,0.5,GEOMETRY_UNCERTAIN,way,203315603,osm_pbf,False
+Пятёрочка,Пятёрочка,"Кикерино, Гатчинское шоссе, 10",59.46616596,29.6226191,0.6,GEOMETRY_UNCERTAIN,way,210711611,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.60093716,30.3262562,0.1,ADDRESS_MISSING;GEOMETRY_UNCERTAIN,way,212439294,osm_pbf,False
+Пятёрочка,Пятёрочка,"улица Свободы, 5",60.97721946,32.962133290000004,0.5,GEOMETRY_UNCERTAIN,way,217122234,osm_pbf,False
+ОКЕЙ,О’КЕЙ,"Ленинградское шоссе, 12",59.58370714285714,30.13819845,0.5,GEOMETRY_UNCERTAIN,way,224336351,osm_pbf,False
+Пятёрочка,Пятёрочка,"Центральная улица, 56А",59.872734560000005,31.77910984,0.5,GEOMETRY_UNCERTAIN,way,225727692,osm_pbf,False
+Пятёрочка,Пятёрочка,"улица 10-й Пятилетки, 4А",59.77302754285714,30.049319414285716,0.5,GEOMETRY_UNCERTAIN,way,225763188,osm_pbf,False
+Лента,Мини Лента,"Большая Каменная улица, 9Б",60.69474344,28.785897490000004,0.5,GEOMETRY_UNCERTAIN,way,227282033,osm_pbf,False
+Реалъ,Школа № 500,,59.717596375,30.4156036375,0.0,ADDRESS_MISSING;SHOP_TAG_MISSING;GEOMETRY_UNCERTAIN,way,228896584,osm_pbf,False
+Пятёрочка,Пятёрочка,"Советская улица, 8А",58.94201212,31.0689093,0.5,GEOMETRY_UNCERTAIN,way,229129898,osm_pbf,False
+ОКЕЙ,О’Кей,"Богатырский проспект, 42",60.003134009523805,30.228927980952378,0.5,GEOMETRY_UNCERTAIN,way,230376251,osm_pbf,False
+Лента,Гипер Лента,"Пискарёвский проспект, 59",59.989596981481476,30.43992061851852,0.5,GEOMETRY_UNCERTAIN,way,232190461,osm_pbf,False
+Пятёрочка,Пятёрочка,"улица Есенина, 8",59.843814716666664,31.590781366666665,0.5,GEOMETRY_UNCERTAIN,way,236266928,osm_pbf,False
+Лента,Гипер Лента,"Урхов переулок, 7",59.893043809999995,30.28104389,0.5,GEOMETRY_UNCERTAIN,way,244762245,osm_pbf,False
+Лента,Гипер Лента,"улица Коллонтай, 10",59.9166213,30.45214856153846,0.5,GEOMETRY_UNCERTAIN,way,249376146,osm_pbf,False
+Пятёрочка,Пятёрочка,"Богатырский проспект, 63",60.008720675,30.20221715,0.5,GEOMETRY_UNCERTAIN,way,249522415,osm_pbf,False
+Пятёрочка,Пятёрочка,"Молодёжный проспект, 4",59.115144889999996,28.107958995,0.5,GEOMETRY_UNCERTAIN,way,250935157,osm_pbf,False
+Пятёрочка,Пятёрочка,"Прогресс, улица Гагарина, 15",58.3997796,33.935046657142856,0.6,GEOMETRY_UNCERTAIN,way,256607897,osm_pbf,False
+Лента,Гипер Лента,"Парашютная улица, 60",60.0390779875,30.23956875,0.5,GEOMETRY_UNCERTAIN,way,280280119,osm_pbf,False
+Пятёрочка,Пятёрочка,"проспект Речного Флота, 22А",60.915983000000004,34.06894795,0.5,GEOMETRY_UNCERTAIN,way,282227793,osm_pbf,False
+Азбука вкуса,,,59.94178402307693,30.225316046153846,0.0,ADDRESS_MISSING;SHOP_TAG_MISSING;GEOMETRY_UNCERTAIN,way,286817736,osm_pbf,False
+Азбука вкуса,,,59.941809077777776,30.224254322222222,0.0,ADDRESS_MISSING;SHOP_TAG_MISSING;GEOMETRY_UNCERTAIN,way,286817737,osm_pbf,False
+Азбука вкуса,,,59.9423737,30.2256948,0.0,ADDRESS_MISSING;SHOP_TAG_MISSING;GEOMETRY_UNCERTAIN;DUPLICATE_CANDIDATE,way,286817738,osm_pbf,True
+Пятёрочка,Пятёрочка,"Пионерская улица, 9",59.623468200000005,30.39012962,0.5,GEOMETRY_UNCERTAIN,way,289119748,osm_pbf,False
+Лента,Гипер Лента,"Псковская улица, 33",58.505604038461534,31.23138106153846,0.5,GEOMETRY_UNCERTAIN,way,304364804,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.6545398125,33.2065338625,0.1,ADDRESS_MISSING;GEOMETRY_UNCERTAIN,way,304918143,osm_pbf,False
+Лента,Лента,"улица Бабушкина, 125",59.85995474615384,30.467645415384617,0.5,GEOMETRY_UNCERTAIN,way,308749692,osm_pbf,False
+Пятёрочка,Пятёрочка,"улица Станюковича, 5",60.01017751818181,29.722231936363638,0.5,GEOMETRY_UNCERTAIN,way,318121608,osm_pbf,False
+Пятёрочка,Пятёрочка,"улица Свердлова, 12А",59.091219620000004,28.16422634,0.5,GEOMETRY_UNCERTAIN,way,322463739,osm_pbf,False
+Пятёрочка,Пятёрочка,"Оржицы, 27",59.75446345833333,29.711123391666664,0.3,GEOMETRY_UNCERTAIN,way,339357522,osm_pbf,False
+Лента,Гипер Лента,"Гостилицкое шоссе, 58",59.86955384,29.828069820000003,0.5,GEOMETRY_UNCERTAIN,way,354465409,osm_pbf,False
+Пятёрочка,Пятёрочка,"Сиреневый бульвар, 6",60.05438599,30.351740380000003,0.5,GEOMETRY_UNCERTAIN,way,361299044,osm_pbf,False
+Лента,Супер Лента,"Новгородский проспект, 10 к2",59.80706972,30.36989386,0.5,GEOMETRY_UNCERTAIN,way,365907688,osm_pbf,False
+Лента,Гипер Лента,"Дорога Жизни, 6",60.02172349166667,30.60533475833333,0.5,GEOMETRY_UNCERTAIN,way,375628135,osm_pbf,False
+Пятёрочка,Пятёрочка,"Олонец, Комсомольская улица, 7А",60.978145299999994,32.95728532,0.6,GEOMETRY_UNCERTAIN,way,384158564,osm_pbf,False
+Лента,Гипер Лента,"Лиговский проспект, 283 литА",59.89800208235294,30.334009288235293,0.5,GEOMETRY_UNCERTAIN,way,387048068,osm_pbf,False
+Лента,Гипер Лента,"проспект Строителей, 7",59.917193475,30.522201625,0.5,GEOMETRY_UNCERTAIN,way,388220528,osm_pbf,False
+Пятёрочка,Пятёрочка,"улица Ларина, 12",60.14589128,30.21287592,0.5,GEOMETRY_UNCERTAIN,way,407446526,osm_pbf,False
+ОКЕЙ,О’Кей,,59.881779726666664,30.314241793333334,0.1,ADDRESS_MISSING;GEOMETRY_UNCERTAIN,way,417344996,osm_pbf,False
+ОКЕЙ,О’Кей,,59.91182439000001,30.4802363,0.1,ADDRESS_MISSING;GEOMETRY_UNCERTAIN,way,422529501,osm_pbf,False
+ОКЕЙ,О’Кей,"Санкт-Петербург, улица Партизана Германа, 2",59.84416481111111,30.17903968888889,0.6,GEOMETRY_UNCERTAIN,way,423117589,osm_pbf,False
+Лента,Гипер Лента,"улица Академика Александрова, 2",59.91422688,29.05635256,0.5,GEOMETRY_UNCERTAIN,way,431574081,osm_pbf,False
+Лента,Гипер Лента,"Южная улица, 5",60.061531419999994,30.39249104,0.5,GEOMETRY_UNCERTAIN,way,432191481,osm_pbf,False
+Реалъ,ЖК «Реалист»,,59.971688758823525,30.34185104705882,0.0,ADDRESS_MISSING;SHOP_TAG_MISSING;GEOMETRY_UNCERTAIN,way,441116946,osm_pbf,False
+Лента,Гипер Лента,"Кингисепп, Крикковское шоссе, 69",59.394858039999995,28.60138738,0.6,GEOMETRY_UNCERTAIN,way,458363519,osm_pbf,False
+Пятёрочка,Пятёрочка,"улица Леселидзе, 77",61.01484703999999,32.67223632,0.5,GEOMETRY_UNCERTAIN,way,479372788,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.71798141764707,28.76137927647059,0.1,ADDRESS_MISSING;GEOMETRY_UNCERTAIN,way,480082020,osm_pbf,False
+Пятёрочка,Пятёрочка,"Гостилицкая улица, 4",59.87627306666666,29.857427833333336,0.5,GEOMETRY_UNCERTAIN,way,495269246,osm_pbf,False
+Пятёрочка,Пятёрочка,"Кингисепп, Большой бульвар, 8Д",59.38810108,28.615283499999997,0.6,GEOMETRY_UNCERTAIN,way,496331998,osm_pbf,False
+Пятёрочка,,,60.57081548,30.5119649,0.0,ADDRESS_MISSING;SHOP_TAG_MISSING;GEOMETRY_UNCERTAIN;DUPLICATE_CANDIDATE,way,502129922,osm_pbf,True
+Лента,Супер Лента,"улица Чехова, 14А с3",59.566101960000005,30.1399743,0.5,GEOMETRY_UNCERTAIN,way,514292826,osm_pbf,False
+Пятёрочка,Пятёрочка,"Советская улица, 4",60.35770661111111,29.739734,0.5,GEOMETRY_UNCERTAIN,way,514301615,osm_pbf,False
+Лента,Валента,,60.215186700000004,30.542678560000002,0.0,ADDRESS_MISSING;SHOP_TAG_MISSING;GEOMETRY_UNCERTAIN,way,514712587,osm_pbf,False
+Пятёрочка,Пятёрочка,,58.897362699999995,30.58877556,0.1,ADDRESS_MISSING;GEOMETRY_UNCERTAIN,way,517559803,osm_pbf,False
+Реалъ,Школа-интернат «Красные Зори»,"Петергоф, улица Демьяна Бедного, 2/58",59.86498941999999,29.9415999,0.2,SHOP_TAG_MISSING;GEOMETRY_UNCERTAIN,way,520233284,osm_pbf,False
+Пятёрочка,Пятёрочка,"Киевское шоссе, 8",59.614317875,30.173002037499998,0.5,GEOMETRY_UNCERTAIN,way,527287287,osm_pbf,False
+Пятёрочка,Пятёрочка,"Дивенский, улица Школьная, 16",59.20797133333334,30.011152316666667,0.6,GEOMETRY_UNCERTAIN,way,534194395,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.9281434,30.31576737142857,0.1,ADDRESS_MISSING;GEOMETRY_UNCERTAIN,way,561390423,osm_pbf,False
+Семишагофф,Семишагофф,"проспект Культуры, 12 к1",60.039595385,30.367705174999998,0.5,GEOMETRY_UNCERTAIN,way,561480993,osm_pbf,False
+Лента,Гипер Лента,"Колтушское шоссе, 305",59.99061155454546,30.658908218181818,0.5,GEOMETRY_UNCERTAIN,way,569339190,osm_pbf,False
+Пятёрочка,Пятёрочка,"Кингисепп, Вокзальная улица, 18",59.36902798,28.59858066,0.6,GEOMETRY_UNCERTAIN,way,638134884,osm_pbf,False
+Лента,Гипер Лента,"улица Восстановления, 17",59.72450667073171,30.08386148780488,0.5,GEOMETRY_UNCERTAIN,way,640233773,osm_pbf,False
+Пятёрочка,Пятёрочка,"Красноармейская улица, 33",59.90665272,29.778874339999998,0.5,GEOMETRY_UNCERTAIN,way,643473133,osm_pbf,False
+Азбука вкуса,АВ Daily,,59.90511565714286,30.31487182857143,0.1,ADDRESS_MISSING;GEOMETRY_UNCERTAIN,way,654561384,osm_pbf,False
+Лента,Супер Лента,"улица Михаила Дудина, 6 к1",60.0665609,30.337374388888886,0.5,GEOMETRY_UNCERTAIN,way,660354453,osm_pbf,False
+Пятёрочка,Пятёрочка,"Ленинградская улица, 117В",60.54375272,30.214788640000002,0.5,GEOMETRY_UNCERTAIN,way,661994820,osm_pbf,False
+Пятёрочка,Пятёрочка,"Луга, Комсомольский проспект, 24",58.734953366666666,29.865434883333336,0.6,GEOMETRY_UNCERTAIN,way,666661203,osm_pbf,False
+Пятёрочка,Пятёрочка,"Геологическая улица, 46 к1",59.74718975,30.08107835,0.5,GEOMETRY_UNCERTAIN,way,681198991,osm_pbf,False
+Пятёрочка,Пятёрочка,"Хвалынская улица, 18А",59.42743538,30.33087956,0.5,GEOMETRY_UNCERTAIN,way,707987355,osm_pbf,False
+Пятёрочка,Пятёрочка,"Мошенское, улица Калинина, 39",58.5125236625,34.584069125,0.6,GEOMETRY_UNCERTAIN,way,715027554,osm_pbf,False
+Азбука вкуса,АВ Daily,,59.931293257142855,30.355037771428574,0.1,ADDRESS_MISSING;GEOMETRY_UNCERTAIN,way,738257495,osm_pbf,False
+Пятёрочка,Пятёрочка,"Овцинская улица, 70",59.802315320000005,30.63238174,0.5,GEOMETRY_UNCERTAIN,way,751427024,osm_pbf,False
+Пятёрочка,Пятёрочка,"Средний проспект В.О., 39/42",59.94268074285714,30.275327985714284,0.5,GEOMETRY_UNCERTAIN,way,777349184,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.41995959999999,30.3984215,0.2,ADDRESS_MISSING;GEOMETRY_UNCERTAIN,way,788308973,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.91545347272727,30.30854385454546,0.1,ADDRESS_MISSING;GEOMETRY_UNCERTAIN,way,794155687,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.835070359999996,30.512590819999996,0.0,ADDRESS_MISSING;GEOMETRY_UNCERTAIN;DUPLICATE_CANDIDATE,way,824293742,osm_pbf,True
+Семишагофф,Семишагофф,"Приозерское шоссе, 126В",60.18282704000001,30.322619480000004,0.5,GEOMETRY_UNCERTAIN,way,879567428,osm_pbf,False
+Пятёрочка,Распределительный центр «Пятерочка»,,58.6678817625,31.36744719375,0.0,ADDRESS_MISSING;SHOP_TAG_MISSING;GEOMETRY_UNCERTAIN,way,919249539,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9422508125,30.2722002,0.1,ADDRESS_MISSING;GEOMETRY_UNCERTAIN,way,977040751,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.92773042,30.3018384,0.1,ADDRESS_MISSING;GEOMETRY_UNCERTAIN,way,982017297,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.92051318461539,30.2973668,0.1,ADDRESS_MISSING;GEOMETRY_UNCERTAIN,way,989160456,osm_pbf,False
+Лента,Супер Лента,"Гатчинское шоссе, 7А с1",59.697983480000005,30.10075243,0.5,GEOMETRY_UNCERTAIN,way,1022228847,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.91566636666667,30.297888575,0.1,ADDRESS_MISSING;GEOMETRY_UNCERTAIN,way,1041209298,osm_pbf,False
+Пятёрочка,Пятёрочка,"Ошта, Архангельский тракт, 63",60.85078435,35.55916865,0.6,GEOMETRY_UNCERTAIN,way,1046330861,osm_pbf,False
+Лента,Супер Лента,"Энколово, Центральная улица, 2",60.110091350000005,30.430454816666668,0.6,GEOMETRY_UNCERTAIN,way,1065815847,osm_pbf,False
+Пятёрочка,Пятёрочка,"Петергоф, Парковая улица, 22к2",59.856412533333334,29.93560773333333,0.6,GEOMETRY_UNCERTAIN,way,1066519834,osm_pbf,False
+Пятёрочка,Пятёрочка,"Кобрино, 89А",59.423013579999996,30.118419440000004,0.3,GEOMETRY_UNCERTAIN,way,1079495744,osm_pbf,False
+Реалъ,Коррекционная школа,,59.88980597,29.088778259999998,0.0,ADDRESS_MISSING;SHOP_TAG_MISSING;GEOMETRY_UNCERTAIN,way,1080243276,osm_pbf,False
+Лента,Мини Лента,"Яльгелево, Южная улица, 1",59.7274368,29.954076,0.2,SHOP_TAG_MISSING;GEOMETRY_UNCERTAIN,way,1101662177,osm_pbf,False
+Азбука вкуса,Азбука Вкуса,,59.93155574,30.35921002,0.1,ADDRESS_MISSING;GEOMETRY_UNCERTAIN,way,1125469239,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.95703234444444,30.31022358888889,0.1,ADDRESS_MISSING;GEOMETRY_UNCERTAIN,way,1148624476,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.95799196363637,30.29108518181818,0.1,ADDRESS_MISSING;GEOMETRY_UNCERTAIN,way,1152215700,osm_pbf,False
+ВкусВилл,ВкусВилл,,59.96240673333333,30.293968166666666,0.1,ADDRESS_MISSING;GEOMETRY_UNCERTAIN,way,1156385355,osm_pbf,False
+Семишагофф,Семишагофф,,59.962268466666664,30.29429364,0.1,ADDRESS_MISSING;GEOMETRY_UNCERTAIN,way,1156385363,osm_pbf,False
+Лента,СуперЛента,"Пески, Корабельный проезд, 1",60.172084399999996,29.295082233333332,0.6,GEOMETRY_UNCERTAIN,way,1187200002,osm_pbf,False
+Реалъ,ЗАО «Предпортовый»,"Красносельское шоссе, 50 с1",59.7896176375,30.1485257375,0.1,SHOP_TAG_MISSING;GEOMETRY_UNCERTAIN,way,1194161017,osm_pbf,False
+ОКЕЙ,"""Строительство участка улично-дорожной сети в г. Гатчина - продолжение ул. Крупской от Пушкинского до Ленинградского шоссе (от ЖК ""Q"" до ТК ""Окей"") 150м"".",,59.58326530000001,30.14284938,0.0,ADDRESS_MISSING;SHOP_TAG_MISSING;GEOMETRY_UNCERTAIN,way,1204514959,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.9027111,30.27415473,0.0,ADDRESS_MISSING;GEOMETRY_UNCERTAIN;DUPLICATE_CANDIDATE,way,1207595723,osm_pbf,True
+Азбука вкуса,Азбука Вкуса,"Санкт-Петербург, улица Нахимова, 5 к1",59.942166459999996,30.22539426,0.6,GEOMETRY_UNCERTAIN,way,1210812911,osm_pbf,False
+ВкусВилл,ВкусВилл,,60.195183066666665,29.684443700000003,0.1,ADDRESS_MISSING;GEOMETRY_UNCERTAIN,way,1234033831,osm_pbf,False
+Пятёрочка,Пятёрочка,"Советский проспект, 203",59.663165219999996,30.79667392,0.5,GEOMETRY_UNCERTAIN,way,1238534683,osm_pbf,False
+Пятёрочка,Пятёрочка,"Цветочная улица, 1",60.28103021481482,29.790213907407406,0.5,GEOMETRY_UNCERTAIN,way,1254337788,osm_pbf,False
+Пятёрочка,Пятёрочка,"Мегрега, Школьная улица, 19",60.930346199999995,33.10292077142857,0.6,GEOMETRY_UNCERTAIN,way,1337290521,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.97155612,32.90545316,0.2,ADDRESS_MISSING;GEOMETRY_UNCERTAIN,way,1337294906,osm_pbf,False
+Лента,Лента,,59.8999728,30.27235693,0.1,ADDRESS_MISSING;GEOMETRY_UNCERTAIN,way,1349574465,osm_pbf,False
+Лента,Супер Лента,"Общественно-деловая зона Пески, 2/1",59.787669837500005,30.08291825,0.3,GEOMETRY_UNCERTAIN,way,1366302840,osm_pbf,False
+Пятёрочка,Пятерочка,"Покровская, 216А",59.63663596,30.38488306,0.3,GEOMETRY_UNCERTAIN,way,1369010440,osm_pbf,False
+Пятёрочка,Пятёрочка,"Пикколово, Центральная улица, 10 с2",59.730265342857145,30.150309442857143,0.6,GEOMETRY_UNCERTAIN,way,1377081490,osm_pbf,False
+Пятёрочка,Пятёрочка,,59.24547888571429,29.931827585714284,0.1,ADDRESS_MISSING;GEOMETRY_UNCERTAIN,way,1396601065,osm_pbf,False
+Лента,Супер Лента,"Вербная улица, 2А",59.67471025,30.111552,0.5,GEOMETRY_UNCERTAIN,way,1409888211,osm_pbf,False
+Лента,Лента,,60.17615555555556,30.350410544444443,0.1,ADDRESS_MISSING;GEOMETRY_UNCERTAIN,way,1419955919,osm_pbf,False
+Пятёрочка,Пятёрочка,"Хиттолово, 1А",60.1994831,30.537922683333335,0.3,GEOMETRY_UNCERTAIN,way,1430902233,osm_pbf,False
+ВкусВилл,ВкусВилл,,60.257480799999996,29.602015599999998,0.1,ADDRESS_MISSING;GEOMETRY_UNCERTAIN,way,1456858266,osm_pbf,False
+Пятёрочка,Пятёрочка,,60.09321566,30.978743379999997,0.1,ADDRESS_MISSING;GEOMETRY_UNCERTAIN,way,1491827654,osm_pbf,False
+Пятёрочка,Пятёрочка,"Ленинградский проспект, 7А",59.80851851999999,30.870709320000003,0.5,GEOMETRY_UNCERTAIN,way,1498399012,osm_pbf,False
+Реалъ,,,61.0416657,29.07594345,0.0,ADDRESS_MISSING;SHOP_TAG_MISSING;GEOMETRY_UNCERTAIN,way,1502843566,osm_pbf,False

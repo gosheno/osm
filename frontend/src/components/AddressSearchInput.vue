@@ -8,6 +8,7 @@
     <div class="address-search__control">
       <input
         :id="inputId"
+        ref="inputEl"
         v-model="query"
         class="address-search__input"
         type="text"
@@ -55,6 +56,7 @@
           'address-search__option--active': highlightedIndex === index,
           'address-search__option--muted': isLowConfidence(suggestion),
         }"
+        :title="suggestion.display_name"
         type="button"
         role="option"
         :aria-selected="highlightedIndex === index"
@@ -66,7 +68,8 @@
           {{ suggestion.secondary_text }}
         </span>
         <span class="address-search__meta">
-          <span v-if="suggestion.type">{{ suggestion.type }}</span>
+          <span v-if="suggestionKindLabel(suggestion)">{{ suggestionKindLabel(suggestion) }}</span>
+          <span v-if="suggestionSourceLabel(suggestion)">{{ suggestionSourceLabel(suggestion) }}</span>
           <span v-if="showConfidence && suggestion.confidence_score != null">
             Точность: {{ Math.round(suggestion.confidence_score) }}
           </span>
@@ -89,7 +92,7 @@
 </template>
 
 <script setup>
-import { computed, ref, watch } from 'vue';
+import { computed, nextTick, ref, watch } from 'vue';
 import { suggestAddresses } from '../services/addressApi';
 
 const props = defineProps({
@@ -150,6 +153,7 @@ const emit = defineEmits([
 const minLength = 3;
 const debounceMs = 350;
 const query = ref(props.modelValue || '');
+const inputEl = ref(null);
 const suggestions = ref([]);
 const selectedCandidate = ref(null);
 const isLoading = ref(false);
@@ -180,6 +184,111 @@ function optionId(index) {
 
 function isLowConfidence(candidate) {
   return Number(candidate?.confidence_score ?? 100) < 75;
+}
+
+function suggestionKindLabel(candidate) {
+  const address = candidate?.address || {};
+  const category = String(candidate?.class || '').toLowerCase();
+  const type = String(candidate?.type || '').toLowerCase();
+
+  if (address.shop || category === 'shop') {
+    return 'магазин';
+  }
+  if (address.amenity || category === 'amenity') {
+    return 'объект';
+  }
+  if (address.house_number && address.road) {
+    return 'адрес';
+  }
+  if (suggestionStreetText(candidate)) {
+    return 'улица';
+  }
+  if (address.allotments) {
+    return 'садоводство';
+  }
+  if (address.village || address.hamlet) {
+    return 'посёлок';
+  }
+  if (address.town || address.city) {
+    return 'город';
+  }
+  if (category === 'highway') {
+    return 'дорога';
+  }
+  if (category === 'place') {
+    return 'место';
+  }
+  if (category === 'building' || type === 'yes') {
+    return 'здание';
+  }
+  return candidate?.type || '';
+}
+
+function suggestionSourceLabel(candidate) {
+  const source = String(candidate?.source || candidate?.provider || '').toLowerCase();
+  if (source === 'database') {
+    return 'БД';
+  }
+  if (source === 'nominatim') {
+    return 'Nominatim';
+  }
+  if (source === 'opencage') {
+    return 'OpenCage';
+  }
+  return '';
+}
+
+function suggestionStreetText(candidate) {
+  const address = candidate?.address || {};
+  return (
+    address.road
+    || address.pedestrian
+    || address.footway
+    || address.path
+    || ''
+  );
+}
+
+function isStreetCompletionSuggestion(candidate) {
+  const address = candidate?.address || {};
+  const category = String(candidate?.class || '').toLowerCase();
+  const type = String(candidate?.type || '').toLowerCase();
+
+  if (address.house_number) {
+    return false;
+  }
+  if (suggestionStreetText(candidate)) {
+    return true;
+  }
+  return category === 'highway' || [
+    'road',
+    'residential',
+    'primary',
+    'secondary',
+    'tertiary',
+    'unclassified',
+    'service',
+    'living_street',
+    'pedestrian',
+  ].includes(type);
+}
+
+async function completeStreetSuggestion(suggestion) {
+  const street = suggestionStreetText(suggestion) || suggestion.main_text || suggestion.display_name || '';
+  const nextValue = street.trim() ? `${street.trim()} ` : '';
+
+  window.clearTimeout(debounceTimer);
+  selectedCandidate.value = null;
+  query.value = nextValue;
+  suggestions.value = [];
+  errorMessage.value = '';
+  closeDropdown();
+  emit('update:modelValue', nextValue);
+  emit('cleared');
+
+  await nextTick();
+  inputEl.value?.focus();
+  inputEl.value?.setSelectionRange(nextValue.length, nextValue.length);
 }
 
 function setLoading(value) {
@@ -299,6 +408,11 @@ function selectHighlighted() {
 }
 
 function selectSuggestion(suggestion) {
+  if (isStreetCompletionSuggestion(suggestion)) {
+    completeStreetSuggestion(suggestion);
+    return;
+  }
+
   const originalQuery = query.value;
   selectedCandidate.value = suggestion;
   query.value = suggestion.display_name;

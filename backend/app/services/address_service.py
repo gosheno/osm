@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import re
 from dataclasses import dataclass
+from difflib import SequenceMatcher
 from typing import Any
 
 from sqlalchemy import text
@@ -95,6 +96,36 @@ class AddressService:
         )
 
         provider = settings.GEOCODER_PROVIDER.lower().strip()
+        existing = await self._get_by_normalized_address(normalized.normalized_address)
+
+        if (
+            existing
+            and not force_refresh
+            and self._is_usable_cached_found_row(existing)
+        ):
+            await self._touch_address(existing["id"])
+            return self._response_from_row(
+                existing,
+                source="database",
+                normalized=normalized,
+            )
+
+        parsed = parse_address(
+            normalized.normalized_address,
+            context=context,
+            place_name=normalized.place_name,
+        )
+
+        if not force_refresh:
+            similar = await self._get_similar_found_address(parsed)
+            if self._is_usable_cached_found_row(similar):
+                await self._touch_address(similar["id"])
+                return self._response_from_row(
+                    similar,
+                    source="database",
+                    normalized=normalized,
+                )
+
         if not force_refresh:
             try:
                 poi_resolution = await PoiMatcher(self.db).resolve_or_return_candidates(
@@ -116,26 +147,6 @@ class AddressService:
                 if rollback is not None:
                     await rollback()
                 pass
-
-        existing = await self._get_by_normalized_address(normalized.normalized_address)
-
-        if (
-            existing
-            and not force_refresh
-            and existing["geocoding_status"] == "found"
-        ):
-            await self._touch_address(existing["id"])
-            return self._response_from_row(
-                existing,
-                source="database",
-                normalized=normalized,
-            )
-
-        parsed = parse_address(
-            normalized.normalized_address,
-            context=context,
-            place_name=normalized.place_name,
-        )
 
         (
             candidates,
@@ -170,34 +181,16 @@ class AddressService:
             }
 
         if not candidates or geocoding_score is None or geocoding_score < 35:
-            row = await self._upsert_not_found(
-                original_address=normalized.address_for_geocoding,
-                normalized_address=normalized.normalized_address,
-                geocoding_provider=used_provider,
-                geocoding_query_used=used_query,
-                cleaned_address=parsed.cleaned_address,
-                normalized_key=parsed.normalized_key,
-                region_hint=region_hint,
-                settlement_hint=parsed.settlement_hint,
-                context=context,
-            )
-            await self._save_attempts(
-                row["id"],
-                normalized=normalized,
-                attempts=attempts,
-                context=context,
-            )
-
             return {
-                "id": row["id"],
+                "id": None,
                 "original_address": normalized.original_address,
                 "address_for_geocoding": normalized.address_for_geocoding,
-                "normalized_address": row["normalized_address"],
+                "normalized_address": normalized.normalized_address,
                 "place_name": normalized.place_name,
                 "latitude": None,
                 "longitude": None,
                 "geocoding_status": "not_found",
-                "geocoding_provider": row["geocoding_provider"],
+                "geocoding_provider": used_provider,
                 "confidence_score": None,
                 "geocoding_score": None,
                 "source": used_provider,
@@ -634,7 +627,7 @@ class AddressService:
             "geocoding_score": self._row_get_float(row, "geocoding_score"),
             "source": source,
             "geocoding_query": self._row_get(row, "geocoding_query_used"),
-            "display_name": None,
+            "display_name": self._row_get(row, "display_name"),
             "error": "Address was not found" if status == "not_found" else None,
             "geocoding_context_label": self._row_get(row, "geocoding_context_label"),
             "distance_to_context_m": None,
@@ -691,7 +684,11 @@ class AddressService:
                     geocoding_context_latitude,
                     geocoding_context_longitude,
                     geocoding_context_radius_km,
-                    geocoding_context_source
+                    geocoding_context_source,
+                    display_name,
+                    osm_type,
+                    osm_id,
+                    raw_response
                 FROM addresses
                 WHERE normalized_address = :normalized_address
                 """
@@ -700,6 +697,77 @@ class AddressService:
         )
 
         return result.mappings().first()
+
+    async def _get_similar_found_address(self, parsed: ParsedAddress) -> dict | None:
+        if not parsed.street or not parsed.house:
+            return None
+
+        lookup_token = self._street_lookup_token(parsed.street)
+        if lookup_token is None:
+            return None
+
+        result = await self.db.execute(
+            text(
+                """
+                SELECT
+                    id,
+                    original_address,
+                    normalized_address,
+                    latitude,
+                    longitude,
+                    geocoding_status,
+                    geocoding_provider,
+                    confidence_score,
+                    geocoding_query_used,
+                    geocoding_score,
+                    geocoding_context_label,
+                    geocoding_context_latitude,
+                    geocoding_context_longitude,
+                    geocoding_context_radius_km,
+                    geocoding_context_source,
+                    display_name,
+                    osm_type,
+                    osm_id,
+                    raw_response
+                FROM addresses
+                WHERE geocoding_status = 'found'
+                  AND latitude IS NOT NULL
+                  AND longitude IS NOT NULL
+                  AND (
+                    lower(normalized_address) LIKE :street_like
+                    OR lower(original_address) LIKE :street_like
+                    OR lower(coalesce(display_name, '')) LIKE :street_like
+                  )
+                ORDER BY
+                    CASE WHEN geocoding_provider = 'known_poi' THEN 0 ELSE 1 END,
+                    confidence_score DESC NULLS LAST,
+                    updated_at DESC NULLS LAST,
+                    id DESC
+                LIMIT 100
+                """
+            ),
+            {"street_like": f"%{lookup_token}%"},
+        )
+
+        best_row = None
+        best_score = 0.0
+        for row in result.mappings().all():
+            candidate = parse_address(
+                self._row_get(row, "normalized_address")
+                or self._row_get(row, "original_address")
+                or self._row_get(row, "display_name")
+                or ""
+            )
+            street_score = self._street_similarity(parsed.street, candidate.street)
+            if street_score < 0.82:
+                continue
+            if not self._house_matches_after_street(parsed.house, candidate.house):
+                continue
+            if street_score > best_score:
+                best_row = row
+                best_score = street_score
+
+        return best_row
 
     async def _touch_address(self, address_id: int) -> None:
         await self.db.execute(
@@ -934,109 +1002,6 @@ class AddressService:
         await self.db.commit()
         return result.mappings().one()
 
-    async def _upsert_not_found(
-        self,
-        *,
-        original_address: str,
-        normalized_address: str,
-        geocoding_provider: str,
-        geocoding_query_used: str | None,
-        cleaned_address: str | None,
-        normalized_key: str | None,
-        region_hint: str | None,
-        settlement_hint: str | None,
-        context: GeocodingContext,
-    ) -> dict:
-        result = await self.db.execute(
-            text(
-                """
-                INSERT INTO addresses (
-                    original_address,
-                    normalized_address,
-                    latitude,
-                    longitude,
-                    geom,
-                    geocoding_status,
-                    geocoding_provider,
-                    geocoding_query_used,
-                    cleaned_address,
-                    normalized_key,
-                    region_hint,
-                    settlement_hint,
-                    geocoding_context_label,
-                    geocoding_context_latitude,
-                    geocoding_context_longitude,
-                    geocoding_context_radius_km,
-                    geocoding_context_source,
-                    last_used_at
-                )
-                VALUES (
-                    :original_address,
-                    :normalized_address,
-                    NULL,
-                    NULL,
-                    NULL,
-                    'not_found',
-                    :geocoding_provider,
-                    :geocoding_query_used,
-                    :cleaned_address,
-                    :normalized_key,
-                    :region_hint,
-                    :settlement_hint,
-                    :geocoding_context_label,
-                    :geocoding_context_latitude,
-                    :geocoding_context_longitude,
-                    :geocoding_context_radius_km,
-                    :geocoding_context_source,
-                    now()
-                )
-                ON CONFLICT (normalized_address)
-                DO UPDATE SET
-                    original_address = EXCLUDED.original_address,
-                    latitude = NULL,
-                    longitude = NULL,
-                    geom = NULL,
-                    geocoding_status = 'not_found',
-                    geocoding_provider = :geocoding_provider,
-                    geocoding_query_used = EXCLUDED.geocoding_query_used,
-                    geocoding_score = NULL,
-                    cleaned_address = EXCLUDED.cleaned_address,
-                    normalized_key = EXCLUDED.normalized_key,
-                    region_hint = EXCLUDED.region_hint,
-                    settlement_hint = EXCLUDED.settlement_hint,
-                    geocoding_context_label = EXCLUDED.geocoding_context_label,
-                    geocoding_context_latitude = EXCLUDED.geocoding_context_latitude,
-                    geocoding_context_longitude = EXCLUDED.geocoding_context_longitude,
-                    geocoding_context_radius_km = EXCLUDED.geocoding_context_radius_km,
-                    geocoding_context_source = EXCLUDED.geocoding_context_source,
-                    last_used_at = now()
-                RETURNING
-                    id,
-                    original_address,
-                    normalized_address,
-                    latitude,
-                    longitude,
-                    geocoding_status,
-                    geocoding_provider,
-                    confidence_score
-                """
-            ),
-            {
-                "original_address": original_address,
-                "normalized_address": normalized_address,
-                "geocoding_provider": geocoding_provider,
-                "geocoding_query_used": geocoding_query_used,
-                "cleaned_address": cleaned_address,
-                "normalized_key": normalized_key,
-                "region_hint": region_hint,
-                "settlement_hint": settlement_hint,
-                **self._context_params(context),
-            },
-        )
-
-        await self.db.commit()
-        return result.mappings().one()
-
     async def _save_attempts(
         self,
         address_id: int,
@@ -1124,6 +1089,105 @@ class AddressService:
             "geocoding_context_radius_km": context.radius_km,
             "geocoding_context_source": context.source,
         }
+
+    def _street_lookup_token(self, street: str) -> str | None:
+        tokens = self._address_match_tokens(street)
+        return max(tokens, key=len) if tokens else None
+
+    def _street_similarity(self, input_street: str | None, candidate_street: str | None) -> float:
+        input_key = self._address_match_key(input_street)
+        candidate_key = self._address_match_key(candidate_street)
+        if not input_key or not candidate_key:
+            return 0.0
+
+        input_tokens = set(self._address_match_tokens(input_street))
+        candidate_tokens = set(self._address_match_tokens(candidate_street))
+        shared_tokens = input_tokens & candidate_tokens
+        ratio = SequenceMatcher(None, input_key, candidate_key).ratio()
+
+        if shared_tokens and (
+            input_tokens <= candidate_tokens
+            or candidate_tokens <= input_tokens
+            or ratio >= 0.72
+        ):
+            return max(ratio, 0.9)
+
+        return ratio if ratio >= 0.9 else 0.0
+
+    def _house_matches_after_street(
+        self,
+        input_house: str | None,
+        candidate_house: str | None,
+    ) -> bool:
+        if not input_house or not candidate_house:
+            return False
+
+        input_house = input_house.lower().replace("\u0451", "\u0435")
+        candidate_house = candidate_house.lower().replace("\u0451", "\u0435")
+        if input_house == candidate_house:
+            return True
+
+        input_match = re.fullmatch(r"(?P<number>\d+)(?P<letter>[a-z\u0430-\u044f]?)", input_house)
+        candidate_match = re.fullmatch(
+            r"(?P<number>\d+)(?P<letter>[a-z\u0430-\u044f]?)",
+            candidate_house,
+        )
+        return bool(
+            input_match
+            and candidate_match
+            and input_match.group("number") == candidate_match.group("number")
+            and (input_match.group("letter") or candidate_match.group("letter"))
+        )
+
+    def _address_match_key(self, value: str | None) -> str:
+        return "".join(self._address_match_tokens(value))
+
+    def _address_match_tokens(self, value: str | None) -> list[str]:
+        value = (value or "").lower().replace("\u0451", "\u0435")
+        ignored = set(self._address_match_ignored_terms())
+        return [
+            token
+            for token in re.findall(r"[0-9a-z\u0430-\u044f]+", value)
+            if len(token) > 1
+            and not token.isdigit()
+            and token not in ignored
+        ]
+
+    def _address_match_ignored_terms(self) -> tuple[str, ...]:
+        return (
+            "\u0441\u0430\u043d\u043a\u0442",
+            "\u043f\u0435\u0442\u0435\u0440\u0431\u0443\u0440\u0433",
+            "\u043b\u0435\u043d\u0438\u043d\u0433\u0440\u0430\u0434\u0441\u043a\u0430\u044f",
+            "\u043b\u0435\u043d\u043e\u0431\u043b\u0430\u0441\u0442\u044c",
+            "\u043e\u0431\u043b\u0430\u0441\u0442\u044c",
+            "\u0433\u043e\u0440\u043e\u0434",
+            "\u043a\u0438\u0440\u0438\u0448\u0438",
+            "\u0443\u043b\u0438\u0446\u0430",
+            "\u043f\u0440\u043e\u0441\u043f\u0435\u043a\u0442",
+            "\u043f\u0435\u0440\u0435\u0443\u043b\u043e\u043a",
+            "\u043d\u0430\u0431\u0435\u0440\u0435\u0436\u043d\u0430\u044f",
+            "\u043f\u043b\u043e\u0449\u0430\u0434\u044c",
+            "\u0448\u043e\u0441\u0441\u0435",
+            "\u0431\u0443\u043b\u044c\u0432\u0430\u0440",
+            "\u043b\u0438\u043d\u0438\u044f",
+            "\u0434\u043e\u043c",
+            "\u043a\u043e\u0440\u043f\u0443\u0441",
+            "\u0441\u0442\u0440\u043e\u0435\u043d\u0438\u0435",
+            "\u043b\u0438\u0442\u0435\u0440\u0430",
+        )
+
+    def _is_usable_cached_found_row(self, row: dict | None) -> bool:
+        if row is None:
+            return False
+        if self._row_get(row, "geocoding_status") != "found":
+            return False
+
+        latitude = self._row_get_float(row, "latitude")
+        longitude = self._row_get_float(row, "longitude")
+        if latitude is None or longitude is None:
+            return False
+
+        return is_within_work_area(latitude, longitude)
 
     def _row_get(self, row: dict, key: str):
         if hasattr(row, "get"):

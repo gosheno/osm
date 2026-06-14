@@ -100,11 +100,26 @@ class PoiMatcher:
         limit: int,
     ) -> list[dict[str, Any]]:
         clauses = ["is_active = true", "is_duplicate = false"]
-        params: dict[str, Any] = {"limit": limit * 4, "q_like": f"%{q}%", "normalized_like": f"%{normalized_q}%"}
+
+        candidate_limit = max(limit * 10, 100)
+        if brand:
+            candidate_limit = max(candidate_limit, 300)
+
+        params: dict[str, Any] = {
+            "limit": min(candidate_limit, 1000),
+            "q_like": f"%{q}%",
+            "normalized_like": f"%{normalized_q}%",
+            "lat": lat,
+            "lon": lon,
+        }
+
         if brand:
             clauses.append("canonical_brand = :brand")
             params["brand"] = brand
-        if q:
+
+        # Важно: если бренд уже найден, не режем кандидатов всей OCR-строкой.
+        # Иначе строка "Пятерочка Лиговский 10" не найдёт адрес "Лиговский 10".
+        if q and not brand:
             clauses.append(
                 """
                 (
@@ -116,6 +131,7 @@ class PoiMatcher:
                 )
                 """
             )
+
         if lat is not None and lon is not None:
             clauses.append(
                 """
@@ -132,7 +148,9 @@ class PoiMatcher:
                 )
                 """
             )
-            params.update({"lat": lat, "lon": lon, "radius_m": radius_m or 5000})
+            params.update({"radius_m": radius_m or 5000})
+        else:
+            params["radius_m"] = radius_m or 5000
 
         sql = f"""
             SELECT
@@ -162,11 +180,18 @@ class PoiMatcher:
                 END AS distance_m
             FROM known_pois
             WHERE {' AND '.join(clauses)}
-            ORDER BY confidence_score DESC NULLS LAST, updated_at DESC
+            ORDER BY
+                CASE
+                    WHEN normalized_address ILIKE :normalized_like THEN 0
+                    WHEN original_address ILIKE :q_like THEN 1
+                    WHEN name ILIKE :q_like THEN 2
+                    ELSE 3
+                END,
+                confidence_score DESC NULLS LAST,
+                updated_at DESC
             LIMIT :limit
         """
-        params.setdefault("lat", lat)
-        params.setdefault("lon", lon)
+
         result = await self.db.execute(text(sql), params)
         return [dict(row) for row in result.mappings().all()]
 
@@ -223,22 +248,32 @@ def _score_row(
     confidence: float,
     distance_m: float | None,
 ) -> float:
-    address_text = normalize_brand_text(normalized_address)
-    name_text = normalize_brand_text(name)
-    brand_text = normalize_brand_text(brand)
+    address_text = normalize_brand_text(normalized_address or "")
+    name_text = normalize_brand_text(name or "")
+    brand_text = normalize_brand_text(brand or "")
+
     haystack = " ".join(part for part in [address_text, name_text, brand_text] if part)
-    query = normalize_brand_text(normalized_query)
-    text_score = SequenceMatcher(None, query, normalize_brand_text(haystack)).ratio() if query and haystack else 0.0
+    query = normalize_brand_text(normalized_query or "")
+
+    text_score = SequenceMatcher(None, query, haystack).ratio() if query and haystack else 0.0
+
     query_has_locator = len(query.split()) >= 3 or any(char.isdigit() for char in query)
+
     if query and address_text and query == address_text:
         text_score = 1.0
-    elif query and query_has_locator and query in normalize_brand_text(haystack):
+    elif query and query_has_locator and query in haystack:
         text_score = max(text_score, 0.96)
-    elif query and query in normalize_brand_text(haystack):
+    elif query and query in haystack:
         text_score = max(text_score, 0.88)
+
+    # Если запрос только брендовый, не надо делать вид, что это точный адрес.
+    if query and query == brand_text:
+        text_score = min(text_score, 0.72)
+
     distance_score = 0.0
     if distance_m is not None:
         distance_score = max(0.0, min(1.0, 1.0 - (distance_m / 5000.0)))
+
     score = (text_score * 0.62) + (confidence * 0.28) + (distance_score * 0.10)
     return round(max(0.0, min(score, 1.0)), 4)
 

@@ -1,5 +1,6 @@
 import unittest
 
+from app.services.address_normalizer import normalize_address as parse_structured_address
 from app.utils.address_normalizer import normalize_address
 
 
@@ -92,6 +93,26 @@ class AddressNormalizerTests(unittest.TestCase):
             result.normalized_address,
             "улица нефтехимиков, 18а, кириши, ленинградская область",
         )
+
+    def test_parses_compact_corpus_after_house_number(self):
+        result = parse_structured_address("Кораблестроителей 14 к2")
+
+        self.assertEqual(result.street, "кораблестроителей")
+        self.assertEqual(result.house, "14")
+        self.assertEqual(result.corpus, "2")
+
+        legacy_result = normalize_address("Кораблестроителей 14 к2")
+        self.assertEqual(
+            legacy_result.normalized_address,
+            "санкт-петербург, кораблестроителей 14 корпус 2",
+        )
+
+    def test_parses_street_house_and_compact_corpus(self):
+        result = parse_structured_address("улица Кораблестроителей 32 к1")
+
+        self.assertEqual(result.street, "улица кораблестроителей")
+        self.assertEqual(result.house, "32")
+        self.assertEqual(result.corpus, "1")
 
 
 if __name__ == "__main__":

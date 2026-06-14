@@ -22,10 +22,18 @@ class FakeMappingResult:
     def one(self):
         return self.row
 
+    def all(self):
+        if self.row is None:
+            return []
+        if isinstance(self.row, list):
+            return self.row
+        return [self.row]
+
 
 class FakeDb:
-    def __init__(self, existing=None):
+    def __init__(self, existing=None, similar=None):
         self.existing = existing
+        self.similar = similar
         self.execute_calls = []
         self.commits = 0
 
@@ -34,6 +42,8 @@ class FakeDb:
         self.execute_calls.append((statement_text, params))
 
         if "SELECT" in statement_text and "FROM addresses" in statement_text:
+            if "geocoding_status = 'found'" in statement_text:
+                return FakeMappingResult(self.similar)
             return FakeMappingResult(self.existing)
 
         if "SET last_used_at = now()" in statement_text:
@@ -150,7 +160,12 @@ class AddressServiceTests(unittest.IsolatedAsyncioTestCase):
             ["Санкт-Петербург, невский проспект дом 9"],
         )
         self.assertEqual(result["source"], "nominatim")
-        self.assertEqual(db.execute_calls[1][1]["original_address"], "СПБ, Невский пр-т д. 9")
+        saved_addresses = [
+            params["original_address"]
+            for _, params in db.execute_calls
+            if "original_address" in params
+        ]
+        self.assertIn("СПБ, Невский пр-т д. 9", saved_addresses)
 
     async def test_geocode_keeps_explicit_place_name_when_result_is_cached(self):
         db = FakeDb(
@@ -178,6 +193,119 @@ class AddressServiceTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(result["source"], "database")
         self.assertEqual(result["address_for_geocoding"], "СПБ, Невский пр-т д. 9")
 
+    async def test_cached_found_outside_work_area_is_retried(self):
+        db = FakeDb(
+            existing={
+                "id": 8,
+                "original_address": "\u041d\u0443\u0440\u043c\u0430 12",
+                "normalized_address": "\u043d\u0443\u0440\u043c\u0430 12",
+                "latitude": 56.7088827,
+                "longitude": 47.7113122,
+                "geocoding_status": "found",
+                "geocoding_provider": "nominatim",
+                "confidence_score": 100.0,
+            }
+        )
+        service = AddressService(db)
+        service.geocoder = FakeGeocoder(
+            [
+                GeocodingCandidate(
+                    latitude=59.5621642,
+                    longitude=31.0166627,
+                    display_name=(
+                        "\u0428\u0430\u043f\u043a\u0438\u043d\u0441\u043a\u0430\u044f "
+                        "\u0443\u043b\u0438\u0446\u0430, 12, \u041d\u0443\u0440\u043c\u0430, "
+                        "\u041b\u0435\u043d\u0438\u043d\u0433\u0440\u0430\u0434\u0441\u043a\u0430\u044f "
+                        "\u043e\u0431\u043b\u0430\u0441\u0442\u044c"
+                    ),
+                    importance=0.8,
+                    place_rank=30,
+                    raw={"address": {"house_number": "12"}},
+                )
+            ]
+        )
+
+        result = await service.geocode_address(
+            "\u041d\u0443\u0440\u043c\u0430 12",
+            default_city="\u041a\u0438\u0440\u0438\u0448\u0438, \u041b\u0435\u043d\u0438\u043d\u0433\u0440\u0430\u0434\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c",
+        )
+
+        self.assertTrue(service.geocoder.queries)
+        self.assertEqual(result["source"], "nominatim")
+        self.assertEqual(result["geocoding_status"], "found")
+        self.assertEqual(result["latitude"], 59.5621642)
+        self.assertEqual(result["longitude"], 31.0166627)
+
+    async def test_geocode_uses_database_house_number_after_street_match(self):
+        input_address = "\u041a\u043e\u043d\u0441\u0442\u0430\u043d\u0442\u0438\u043d\u043e\u0432\u0441\u043a\u0438\u0439 20"
+        db = FakeDb(
+            existing={
+                "id": 10,
+                "original_address": input_address,
+                "normalized_address": "\u043a\u043e\u043d\u0441\u0442\u0430\u043d\u0442\u0438\u043d\u043e\u0432\u0441\u043a\u0438\u0439 20",
+                "latitude": 59.9724297,
+                "longitude": 30.269809,
+                "geocoding_status": "ambiguous",
+                "geocoding_provider": "nominatim",
+                "confidence_score": 0.01,
+            },
+            similar={
+                "id": 11,
+                "original_address": "\u0421\u0430\u043d\u043a\u0442-\u041f\u0435\u0442\u0435\u0440\u0431\u0443\u0440\u0433, \u041a\u043e\u043d\u0441\u0442\u0430\u043d\u0442\u0438\u043d\u043e\u0432\u0441\u043a\u0438\u0439 \u043f\u0440\u043e\u0441\u043f\u0435\u043a\u0442, 20\u0410",
+                "normalized_address": "\u0441\u0430\u043d\u043a\u0442-\u043f\u0435\u0442\u0435\u0440\u0431\u0443\u0440\u0433, \u043a\u043e\u043d\u0441\u0442\u0430\u043d\u0442\u0438\u043d\u043e\u0432\u0441\u043a\u0438\u0439 \u043f\u0440\u043e\u0441\u043f\u0435\u043a\u0442, 20\u0430",
+                "latitude": 59.9725226,
+                "longitude": 30.2696541,
+                "geocoding_status": "found",
+                "geocoding_provider": "known_poi",
+                "confidence_score": 95.0,
+                "display_name": "\u0421\u0430\u043d\u043a\u0442-\u041f\u0435\u0442\u0435\u0440\u0431\u0443\u0440\u0433, \u041a\u043e\u043d\u0441\u0442\u0430\u043d\u0442\u0438\u043d\u043e\u0432\u0441\u043a\u0438\u0439 \u043f\u0440\u043e\u0441\u043f\u0435\u043a\u0442, 20\u0410",
+            },
+        )
+        service = AddressService(db)
+        service.geocoder = FakeGeocoder([])
+
+        result = await service.geocode_address(input_address, default_city=None)
+
+        self.assertEqual(service.geocoder.queries, [])
+        self.assertEqual(result["source"], "database")
+        self.assertEqual(result["geocoding_status"], "found")
+        self.assertEqual(result["geocoding_provider"], "known_poi")
+        self.assertEqual(result["latitude"], 59.9725226)
+        self.assertEqual(result["longitude"], 30.2696541)
+
+    async def test_geocode_does_not_match_different_street_by_region_and_house_only(self):
+        input_address = "\u0420\u044b\u0447\u0438\u043d\u0430 14"
+        db = FakeDb(
+            similar=[
+                {
+                    "id": 15,
+                    "original_address": "\u041a\u0438\u0440\u0438\u0448\u0438, \u0443\u043b\u0438\u0446\u0430 \u0413\u0435\u0440\u043e\u0435\u0432, 14\u0410",
+                    "normalized_address": "\u043a\u0438\u0440\u0438\u0448\u0438, \u043b\u0435\u043d\u0438\u043d\u0433\u0440\u0430\u0434\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c, \u0433\u0435\u0440\u043e\u0435\u0432 14\u0430",
+                    "latitude": 59.4440116,
+                    "longitude": 32.024451,
+                    "geocoding_status": "found",
+                    "geocoding_provider": "nominatim",
+                    "confidence_score": 95.0,
+                    "display_name": "\u041a\u0438\u0440\u0438\u0448\u0438, \u0443\u043b\u0438\u0446\u0430 \u0413\u0435\u0440\u043e\u0435\u0432, 14\u0410",
+                }
+            ],
+        )
+        service = AddressService(db)
+        service.geocoder = FakeGeocoder([])
+        fallback = FakeOpenCageClient([])
+
+        with patch("app.services.address_service.OpenCageClient", return_value=fallback):
+            result = await service.geocode_address(
+                input_address,
+                default_city="\u041a\u0438\u0440\u0438\u0448\u0438, \u041b\u0435\u043d\u0438\u043d\u0433\u0440\u0430\u0434\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c",
+            )
+
+        self.assertEqual(result["geocoding_status"], "not_found")
+        self.assertEqual(result["source"], "opencage")
+        self.assertIsNone(result["id"])
+        self.assertIsNone(result["latitude"])
+        self.assertIsNone(result["longitude"])
+
     async def test_geocode_handles_no_candidates_as_not_found(self):
         db = FakeDb()
         service = AddressService(db)
@@ -193,6 +321,13 @@ class AddressServiceTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(result["geocoding_provider"], "opencage")
         self.assertEqual(result["source"], "opencage")
         self.assertEqual(result["error"], "Address was not found")
+        self.assertIsNone(result["id"])
+        self.assertFalse(
+            any(
+                "INSERT INTO addresses" in statement
+                for statement, _params in db.execute_calls
+            )
+        )
         self.assertIn(
             ("Санкт-Петербург, невский проспект дом 9", 5),
             fallback.queries,
@@ -272,11 +407,17 @@ class AddressServiceTests(unittest.IsolatedAsyncioTestCase):
 
         self.assertIn("Санкт-Петербург, string", service.geocoder.queries)
         self.assertIn(("Санкт-Петербург, string", 5), fallback.queries)
-        self.assertEqual(result["id"], 1)
+        self.assertIsNone(result["id"])
         self.assertEqual(result["geocoding_status"], "not_found")
         self.assertEqual(result["source"], "opencage")
         self.assertEqual(result["error"], "Address was not found")
-        self.assertEqual(db.commits, 2)
+        self.assertEqual(db.commits, 0)
+        self.assertFalse(
+            any(
+                "INSERT INTO addresses" in statement
+                for statement, _params in db.execute_calls
+            )
+        )
 
     async def test_cached_not_found_is_not_replaced_by_manual_demo_coordinates(self):
         db = FakeDb(
@@ -306,6 +447,13 @@ class AddressServiceTests(unittest.IsolatedAsyncioTestCase):
         self.assertIsNone(result["latitude"])
         self.assertIsNone(result["longitude"])
         self.assertEqual(result["error"], "Address was not found")
+        self.assertIsNone(result["id"])
+        self.assertFalse(
+            any(
+                "INSERT INTO addresses" in statement
+                for statement, _params in db.execute_calls
+            )
+        )
 
     async def test_kirishi_address_uses_regional_queries_instead_of_manual_coordinates(self):
         db = FakeDb()
@@ -333,6 +481,13 @@ class AddressServiceTests(unittest.IsolatedAsyncioTestCase):
         self.assertIsNone(result["latitude"])
         self.assertIsNone(result["longitude"])
         self.assertEqual(result["error"], "Address was not found")
+        self.assertIsNone(result["id"])
+        self.assertFalse(
+            any(
+                "INSERT INTO addresses" in statement
+                for statement, _params in db.execute_calls
+            )
+        )
 
     async def test_nominatim_empty_result_falls_back_to_opencage(self):
         db = FakeDb()

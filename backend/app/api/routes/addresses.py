@@ -15,6 +15,7 @@ from app.schemas.address import (
     AddressSuggestResponse,
 )
 from app.services.address_service import AddressService
+from app.services.gar_normalizer import GarAddressNormalizer
 from app.services.address_suggestions import (
     AddressSuggestQueryTooShortError,
     AddressSuggestionService,
@@ -26,7 +27,10 @@ router = APIRouter(prefix="/api/addresses", tags=["addresses"])
 
 
 @router.post("/normalize", response_model=AddressNormalizeResponse)
-def normalize_single_address(payload: AddressNormalizeRequest):
+async def normalize_single_address(
+    payload: AddressNormalizeRequest,
+    db: AsyncSession = Depends(get_db),
+):
     try:
         result = normalize_address(
             payload.address,
@@ -34,13 +38,42 @@ def normalize_single_address(payload: AddressNormalizeRequest):
             place_name=payload.place_name,
         )
 
-        return AddressNormalizeResponse(
+        response = AddressNormalizeResponse(
             original_address=result.original_address,
             address_for_geocoding=result.address_for_geocoding,
             normalized_address=result.normalized_address,
             tokens=result.tokens,
             place_name=result.place_name,
         )
+
+        if payload.use_gar:
+            try:
+                gar_result = await GarAddressNormalizer(db).normalize(
+                    payload.address,
+                    region_hint=payload.region_hint,
+                    city_hint=payload.city_hint,
+                )
+                response.status = gar_result.status
+                response.normalized_full_address = gar_result.normalized_full_address
+                response.region = gar_result.region
+                response.city = gar_result.city
+                response.settlement = gar_result.settlement
+                response.district = gar_result.district
+                response.street = gar_result.street
+                response.house = gar_result.house
+                response.building = gar_result.building
+                response.structure = gar_result.structure
+                response.postcode = gar_result.postcode
+                response.gar_object_id = gar_result.gar_object_id
+                response.gar_house_id = gar_result.gar_house_id
+                response.fias_id = gar_result.fias_id
+                response.confidence = gar_result.confidence
+                response.comment = gar_result.comment
+                response.variants = gar_result.variants
+            except Exception as exc:
+                response.comment = f"GAR/FIAS normalization is unavailable: {exc}"
+
+        return response
     except ValueError as exc:
         raise HTTPException(status_code=400, detail=str(exc))
 

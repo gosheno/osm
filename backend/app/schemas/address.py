@@ -3,12 +3,16 @@ from typing import Any
 from pydantic import BaseModel, ConfigDict, Field
 
 from app.schemas.geocoding import GeocodingContextInput
+from app.schemas.gar import GarAddressVariant
 
 
 class AddressNormalizeRequest(BaseModel):
     address: str = Field(..., min_length=1)
     default_city: str | None = "санкт-петербург"
     place_name: str | None = None
+    region_hint: str | None = None
+    city_hint: str | None = None
+    use_gar: bool = True
 
 
 class AddressNormalizeResponse(BaseModel):
@@ -17,6 +21,23 @@ class AddressNormalizeResponse(BaseModel):
     normalized_address: str
     tokens: list[str]
     place_name: str | None = None
+    status: str | None = None
+    normalized_full_address: str | None = None
+    region: str | None = None
+    city: str | None = None
+    settlement: str | None = None
+    district: str | None = None
+    street: str | None = None
+    house: str | None = None
+    building: str | None = None
+    structure: str | None = None
+    postcode: str | None = None
+    gar_object_id: int | None = None
+    gar_house_id: int | None = None
+    fias_id: str | None = None
+    confidence: float | None = None
+    comment: str | None = None
+    variants: list[GarAddressVariant] = Field(default_factory=list)
 
 
 class AddressBulkNormalizeRequest(BaseModel):

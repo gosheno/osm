@@ -102,3 +102,13 @@ BEFORE UPDATE ON known_pois
 FOR EACH ROW
 EXECUTE FUNCTION set_updated_at();
 
+CREATE EXTENSION IF NOT EXISTS pg_trgm;
+
+CREATE INDEX IF NOT EXISTS idx_known_pois_normalized_address_trgm
+ON known_pois USING GIN (normalized_address gin_trgm_ops);
+
+CREATE INDEX IF NOT EXISTS idx_known_pois_original_address_trgm
+ON known_pois USING GIN (original_address gin_trgm_ops);
+
+CREATE INDEX IF NOT EXISTS idx_known_pois_name_trgm
+ON known_pois USING GIN (name gin_trgm_ops);

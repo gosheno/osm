@@ -18,6 +18,8 @@ from app.services.poi_import.tag_matcher import candidate_brand_match
 class OsmiumUnavailableError(RuntimeError):
     pass
 
+class LimitReached(Exception):
+    pass
 
 def read_pbf_candidates(
     *,
@@ -68,8 +70,14 @@ def read_pbf_candidates(
             point: tuple[float, float] | None,
         ) -> None:
             self.stats["objects_scanned"] += 1
+            if self.stats["objects_scanned"] % 100000 == 0:
+                print(
+                    f"Scanned: {self.stats['objects_scanned']}, "
+                    f"candidates: {self.stats['candidates']}",
+                    flush=True,
+                )
             if limit is not None and len(self.candidates) >= limit:
-                return
+                raise LimitReached()
 
             match = candidate_brand_match(tags, matcher)
             if match is None:
@@ -137,8 +145,13 @@ def read_pbf_candidates(
             )
             self.candidates.append(candidate)
 
+
     handler = PoiHandler()
-    handler.apply_file(str(pbf_path), locations=True)
+    try:
+        handler.apply_file(str(pbf_path), locations=True)
+    except LimitReached:
+        pass
+
     return handler.candidates, handler.stats
 
 

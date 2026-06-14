@@ -1,6 +1,8 @@
 import asyncio
 from dataclasses import dataclass
+import ipaddress
 import time
+from urllib.parse import urlparse
 
 import httpx
 
@@ -15,6 +17,15 @@ class GeocodingCandidate:
     display_name: str
     importance: float | None = None
     place_rank: int | None = None
+    raw: dict | None = None
+
+
+@dataclass(frozen=True)
+class ReverseGeocodingCandidate:
+    display_name: str
+    address: dict
+    osm_type: str | None = None
+    osm_id: int | None = None
     raw: dict | None = None
 
 
@@ -42,6 +53,7 @@ class NominatimUnexpectedResponseError(Exception):
 class NominatimClient:
     _rate_limit_lock = asyncio.Lock()
     _last_request_at = 0.0
+    _LOCAL_HOSTS = {"localhost", "127.0.0.1", "::1", "host.docker.internal", "nominatim"}
 
     def __init__(self) -> None:
         self.base_url = settings.NOMINATIM_BASE_URL.rstrip("/")
@@ -115,10 +127,7 @@ class NominatimClient:
             timeout=settings.NOMINATIM_TIMEOUT_S,
             headers=self.headers,
         ) as client:
-            min_request_interval_s = max(
-                float(settings.NOMINATIM_MIN_REQUEST_INTERVAL_S),
-                0.0,
-            )
+            min_request_interval_s = self._min_request_interval_s()
             if min_request_interval_s <= 0:
                 response = await client.get(
                     f"{self.base_url}/search",
@@ -197,6 +206,87 @@ class NominatimClient:
 
         return candidates
 
+    async def reverse(
+        self,
+        latitude: float,
+        longitude: float,
+        *,
+        language: str | None = None,
+        zoom: int = 18,
+    ) -> ReverseGeocodingCandidate | None:
+        params: dict[str, str | int | float] = {
+            "format": "jsonv2",
+            "lat": latitude,
+            "lon": longitude,
+            "addressdetails": 1,
+            "extratags": 1,
+            "namedetails": 1,
+            "zoom": zoom,
+            "accept-language": language or settings.NOMINATIM_ACCEPT_LANGUAGE,
+        }
+
+        if settings.NOMINATIM_EMAIL:
+            params["email"] = settings.NOMINATIM_EMAIL
+
+        async with httpx.AsyncClient(
+            timeout=settings.NOMINATIM_TIMEOUT_S,
+            headers=self.headers,
+        ) as client:
+            min_request_interval_s = self._min_request_interval_s()
+            if min_request_interval_s <= 0:
+                response = await client.get(
+                    f"{self.base_url}/reverse",
+                    params=params,
+                )
+            else:
+                response = await self._rate_limited_get(
+                    client,
+                    f"{self.base_url}/reverse",
+                    params=params,
+                    min_request_interval_s=min_request_interval_s,
+                )
+
+        if response.status_code == 403:
+            raise NominatimAccessDeniedError(
+                "Nominatim rejected the request with 403 Forbidden. "
+                "Check User-Agent, email, usage policy, or use another/local geocoder."
+            )
+
+        if response.status_code == 429:
+            raise NominatimRateLimitError(
+                "Nominatim rejected the request with 429 Too Many Requests. "
+                "Retry later or use a local/geocoding provider with a higher limit."
+            )
+
+        response.raise_for_status()
+
+        data = response.json()
+
+        if not isinstance(data, dict):
+            raise NominatimUnexpectedResponseError(
+                f"Nominatim returned unexpected response type: {type(data).__name__}"
+            )
+
+        if data.get("error"):
+            return None
+
+        address = data.get("address") if isinstance(data.get("address"), dict) else {}
+
+        osm_id = None
+        if data.get("osm_id") is not None:
+            try:
+                osm_id = int(data["osm_id"])
+            except (TypeError, ValueError):
+                osm_id = None
+
+        return ReverseGeocodingCandidate(
+            display_name=data.get("display_name", ""),
+            address=address,
+            osm_type=data.get("osm_type"),
+            osm_id=osm_id,
+            raw=data,
+        )
+
     async def _rate_limited_get(
         self,
         client: httpx.AsyncClient,
@@ -215,3 +305,21 @@ class NominatimClient:
             self.__class__._last_request_at = time.monotonic()
 
         return response
+
+    def _min_request_interval_s(self) -> float:
+        if self._is_local_base_url():
+            return 0.0
+
+        return max(float(settings.NOMINATIM_MIN_REQUEST_INTERVAL_S), 0.0)
+
+    def _is_local_base_url(self) -> bool:
+        hostname = (urlparse(self.base_url).hostname or "").lower()
+        if hostname in self._LOCAL_HOSTS:
+            return True
+
+        try:
+            address = ipaddress.ip_address(hostname)
+        except ValueError:
+            return False
+
+        return address.is_private or address.is_loopback or address.is_link_local

@@ -1,0 +1,32 @@
+{
+  "region": "spb_lenobl",
+  "source_file": "/data/osm/northwestern-fed-district-latest.osm.pbf",
+  "stats": {
+    "objects_scanned": 395191,
+    "candidates": 1,
+    "skipped": 0,
+    "errors": 0,
+    "relations_seen": 0,
+    "duplicates": 0,
+    "imported": 1,
+    "updated": 0,
+    "deactivated": 0
+  },
+  "items": [
+    {
+      "canonical_brand": "Пятёрочка",
+      "name": "Пятёрочка",
+      "address": null,
+      "latitude": 58.5410709,
+      "longitude": 31.2306892,
+      "confidence_score": 0.5,
+      "warnings": [
+        "ADDRESS_MISSING"
+      ],
+      "osm_type": "node",
+      "osm_id": 273126786,
+      "source": "osm_pbf",
+      "is_duplicate": false
+    }
+  ]
+}

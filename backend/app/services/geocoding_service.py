@@ -74,24 +74,14 @@ async def geocode_address(
     candidates = await client.search(normalized.normalized_address, limit=3)
 
     if not candidates:
-        saved = await upsert_address(
-            db,
+        return AddressGeocodeResponse(
+            id=None,
             original_address=normalized.original_address,
+            address_for_geocoding=normalized.address_for_geocoding,
             normalized_address=normalized.normalized_address,
-            latitude=None,
-            longitude=None,
             geocoding_status="not_found",
             geocoding_provider="nominatim",
-            confidence_score=None,
-        )
-
-        return AddressGeocodeResponse(
-            id=saved["id"],
-            original_address=saved["original_address"],
-            normalized_address=saved["normalized_address"],
-            geocoding_status=saved["geocoding_status"],
-            geocoding_provider=saved["geocoding_provider"],
-            from_cache=False,
+            source="nominatim",
             error="Address was not found by geocoder",
         )
 

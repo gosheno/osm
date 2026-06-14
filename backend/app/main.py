@@ -1,8 +1,8 @@
 ﻿from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-
 from app.api.routes.addresses import router as addresses_router
 from app.api.routes.batches import router as batches_router
+from app.api.routes.gar import router as gar_router
 from app.api.routes.health import router as health_router
 from app.api.routes.imports import router as imports_router
 from app.api.routes.optimize import router as optimize_router
@@ -33,6 +33,7 @@ app.add_middleware(
 app.include_router(health_router)
 app.include_router(imports_router)
 app.include_router(addresses_router)
+app.include_router(gar_router)
 app.include_router(osrm_router)
 app.include_router(pois_router)
 app.include_router(optimize_router)

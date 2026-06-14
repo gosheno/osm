@@ -45,6 +45,10 @@ ABBREVIATIONS = [
 def _clean(value: str) -> str:
     value = (value or "").lower().replace("ё", "е")
     value = value.replace(";", ",").replace("|", ",").replace("\t", " ")
+    value = re.sub(r"(?<=\d)\s*к\s*(?=\d)", " корпус ", value, flags=re.IGNORECASE)
+    value = re.sub(r"(?<=\d)\s*корп\.?\s*(?=\d)", " корпус ", value, flags=re.IGNORECASE)
+    value = re.sub(r"(?<=\d)\s*стр\.?\s*(?=\d)", " строение ", value, flags=re.IGNORECASE)
+    value = re.sub(r"(?<=\d)\s*лит\.?\s*(?=[a-zа-я])", " литера ", value, flags=re.IGNORECASE)
     value = re.sub(r"\s*,\s*", ", ", value)
     value = re.sub(r"\s+", " ", value)
     value = value.strip(" ,")
@@ -114,6 +118,14 @@ def _extract_house(cleaned: str) -> str | None:
     if match:
         return match.group(1)
 
+    match = re.search(
+        r"([0-9]+[0-9а-яa-z/-]*)\s+(?:корпус|строение|литера)\s+\S+",
+        cleaned,
+        flags=re.IGNORECASE,
+    )
+    if match:
+        return match.group(1)
+
     match = re.search(r"([0-9]+[0-9а-яa-z/-]*)\s*$", cleaned, flags=re.IGNORECASE)
     return match.group(1) if match else None
 
@@ -128,6 +140,11 @@ def _extract_named_part(cleaned: str, labels: tuple[str, ...]) -> str | None:
     return match.group(1) if match else None
 
 
+def _strip_trailing_house_token(value: str) -> str:
+    value = re.sub(r"\s+[0-9]+[0-9а-яa-z/-]*\s*$", "", value, flags=re.IGNORECASE)
+    return value.strip(" ,")
+
+
 def _extract_street(cleaned: str) -> str | None:
     street_type_pattern = "|".join(re.escape(item) for item in STREET_TYPES)
 
@@ -137,7 +154,8 @@ def _extract_street(cleaned: str) -> str | None:
         flags=re.IGNORECASE,
     )
     if match:
-        return f"{match.group(1)} {match.group(2)}".strip()
+        street_name = _strip_trailing_house_token(match.group(2))
+        return f"{match.group(1)} {street_name}".strip()
 
     match = re.search(
         rf"(.+?)\s+({street_type_pattern})(?:\s+дом\b|\s+корпус\b|\s+строение\b|\s+литера\b|,|$)",
@@ -145,12 +163,13 @@ def _extract_street(cleaned: str) -> str | None:
         flags=re.IGNORECASE,
     )
     if match:
-        return f"{match.group(1)} {match.group(2)}".strip()
+        street_name = _strip_trailing_house_token(match.group(1))
+        return f"{street_name} {match.group(2)}".strip()
 
     no_region = _strip_region_prefix(cleaned)
-    no_house = re.sub(r"\bдом\s*[0-9]+[0-9а-яa-z/-]*", "", no_region, flags=re.IGNORECASE)
+    no_house = re.sub(r"\b(корпус|строение|литера)\s+\S+", "", no_region, flags=re.IGNORECASE)
+    no_house = re.sub(r"\bдом\s*[0-9]+[0-9а-яa-z/-]*", "", no_house, flags=re.IGNORECASE)
     no_house = re.sub(r"[0-9]+[0-9а-яa-z/-]*\s*$", "", no_house, flags=re.IGNORECASE)
-    no_house = re.sub(r"\b(корпус|строение|литера)\s+\S+", "", no_house, flags=re.IGNORECASE)
     no_house = no_house.strip(" ,")
     return no_house or None
 
